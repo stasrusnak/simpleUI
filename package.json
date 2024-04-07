@@ -1,11 +1,15 @@
 {
-  "name": "simpleui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@stanislav999/simpleui",
+  "version": "0.0.1",
   "type": "module",
+  "main": "dist/library.js",
+  "module": "dist/library.mjs",
+  "files": [
+    "dist/*"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "rollup -c",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -14,6 +18,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
     "rollup": "^4.14.1",
+    "rollup-plugin-import-css": "^3.5.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-vue": "^6.0.0",
     "vite": "^5.2.0"
