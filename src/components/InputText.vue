@@ -1,11 +1,12 @@
 <script >
 export default {
-  name: 'InputText'
+  name: 'InputTextSimpleUI'
 }
 </script>
 
 <template>
   <input type="text" />
+  <button type="button">НАЖМИ</button>
 </template>
 
 <style scoped>

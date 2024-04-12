@@ -1,20 +1,14 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+// main.js
 
-createApp(App).mount('#app')
+import UIInputText from './components/InputText.vue';
+import UIInputTextArea from './components/InputTextarea.vue';
 
-import components from'./components'
-
-const plugin = {
-  install (Vue) {
-    for (const prop in components) {
-      if (components.hasOwnProperty(prop)) {
-        const component = components[prop]
-        Vue.component(component.name, component)
-      }
-    }
+const MyUiLibrary = {
+  install(app) {
+    app.component('UIInputText', UIInputText);
+    app.component('UIInputTextArea', UIInputTextArea);
+    // Здесь вы можете зарегистрировать другие компоненты
   }
-}
+};
 
-export default plugin
+export default MyUiLibrary;

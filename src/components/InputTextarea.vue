@@ -1,6 +1,6 @@
 <script >
 export default {
-  name: 'InputTextarea',
+  name: 'InputTextareaSimpleUI',
   data() {
     return {
       text: '' // Переменная, в которой будет храниться текст из textarea

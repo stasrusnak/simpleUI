@@ -1,11 +1,11 @@
 <script setup>
-import InputText from './components/InputText.vue'
-import InputTextarea from './components/InputTextarea.vue'
+import InputTextSimpleUI from './components/InputText.vue'
+import InputTextareaSimpleUI from './components/InputTextarea.vue'
 </script>
 <template>
 
-  <InputText></InputText>
-  <InputTextarea></InputTextarea>
+  <InputTextSimpleUI></InputTextSimpleUI>
+  <InputTextareaSimpleUI></InputTextareaSimpleUI>
 </template>
 
 <style scoped>
