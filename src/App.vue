@@ -1,13 +1,20 @@
 <script setup>
 import InputTextSimpleUI from '@/components/InputText.vue'
 import InputTextareaSimpleUI from '@/components/InputTextarea.vue'
+import MainHeader from "@/components/layout/Header.vue";
+import SideBar from "@/components/layout/SideBar.vue";
 </script>
 
 <template>
-  <div class="container">
-    <InputTextSimpleUI></InputTextSimpleUI>
-    <InputTextareaSimpleUI></InputTextareaSimpleUI>
 
+  <div class="container">
+    <main-header />
+    <side-bar />
+    <div class="content">
+      <router-view />
+<!--      <InputTextSimpleUI></InputTextSimpleUI>-->
+<!--      <InputTextareaSimpleUI></InputTextareaSimpleUI>-->
+    </div>
   </div>
 
 </template>
