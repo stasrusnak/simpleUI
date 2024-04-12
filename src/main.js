@@ -2,8 +2,8 @@
 
 //for dev
 import {createApp} from 'vue'
-import './style.scss'
-import App from './App.vue'
+import '@/styles/global.scss'
+import App from '@/views/index.vue'
 createApp(App)
   .mount('#app')
 
