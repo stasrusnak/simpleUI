@@ -1,18 +1,23 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   build: {
-    lib: {
-      entry: 'src/main.js',
-      name: '@stanislav999/simpleui'
+    lib:{
+      entry: resolve(__dirname, "src/main.js"),
+      name:"simpleui",
+      fileName: (format)=> `simpleui.${format}.js`
     },
-
-    rollupOptions: {
-      output: {
-        exports: 'named',
-        format: 'es' // Экспортировать компоненты в виде ES модулей
+    rollupOptions:{
+      external:["vue"],
+      output:{
+        globals:{
+          vue:"Vue"
+        }
       }
     }
   }
