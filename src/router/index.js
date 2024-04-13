@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import index from '@/views/Index.vue'
 
 
 const router = createRouter({
@@ -8,7 +7,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'index',
-      component: index
+      component: () => import('@/views/Index.vue')
+    },
+    {
+      path: '/textarea',
+      name: 'textarea',
+      component: () => import('@/views/TextArea.vue')
     }
 
   ]

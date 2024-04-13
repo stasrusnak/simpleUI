@@ -9,6 +9,10 @@ import SideBar from "@/components/layout/SideBar.vue";
 
   <div class="container">
     <main-header />
+    <div class="sidebar-toggle">
+      <div  class="vertical-text">☰ МЕНЮ</div>
+<!--      <p>☰</p>-->
+    </div>
     <side-bar />
     <div class="content">
       <router-view />
@@ -37,10 +41,20 @@ import SideBar from "@/components/layout/SideBar.vue";
   }
 }
 
+
+.vertical-text{
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  transform: rotate(270deg);
+
+}
+
 .sidebar-toggle {
   position: fixed;
   left: 0;
-  width: 15px;
+  font-size: 19px;
+  width: 20px;
   background: var(--primary);
   height: 100%;
   top: 62px;
