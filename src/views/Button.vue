@@ -17,12 +17,13 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
     <h2>Emphasis</h2>
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="line">
-      <SimpleUiButton buttonText="New Button" color="primary"></SimpleUiButton>
-      <SimpleUiButton buttonText="New Button" color="secondry"></SimpleUiButton>
-      <SimpleUiButton buttonText="New Button" color="success"></SimpleUiButton>
-      <SimpleUiButton buttonText="New Button" color="info"></SimpleUiButton>
-      <SimpleUiButton buttonText="New Button" color="warning"></SimpleUiButton>
-      <SimpleUiButton buttonText="New Button" color="danger"></SimpleUiButton>
+      <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
+      <SimpleUiButton buttonText="Primary" color="primary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Secondary" color="secondary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success"></SimpleUiButton>
+      <SimpleUiButton buttonText="Info" color="info"></SimpleUiButton>
+      <SimpleUiButton buttonText="Warning" color="warning"></SimpleUiButton>
+      <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
     </div>
   </div>
   <div class="contentBlock">
@@ -34,15 +35,15 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
       <SimpleUiButton rounded buttonText="New Button" color="success"></SimpleUiButton>
     </div>
 
-    <SimpleUiCodeBlock code="  code: {
-    type: String,
-    default: 'test code'
-  },
-  theme: {
-    type: String,
-    default: 'dark'
-  }"
-    theme="dark"
+    <SimpleUiCodeBlock code='
+  <SimpleUiButton
+    rounded
+    buttonText="New Button"
+    color="success"
+    >
+  </SimpleUiButton>
+'
+    theme="light"
     ></SimpleUiCodeBlock>
   </div>
 

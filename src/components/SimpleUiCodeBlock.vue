@@ -3,7 +3,7 @@ import {ref} from 'vue';
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 
 // Определяем свойства компонента
-defineProps({
+const props = defineProps({
   code: {
     type: String,
     default: 'test code'
@@ -18,21 +18,8 @@ defineProps({
 const isCopying = ref(false);
 const showCopySuccess = ref(false);
 
-
-// Элемент блока кода
-const codeBlock = ref(null);
-
-// Метод для копирования кода
 const copyCode = () => {
-  const selection = window.getSelection();
-  const range = document.createRange();
-
-  range.selectNodeContents(codeBlock.value);
-  selection.removeAllRanges();
-  selection.addRange(range);
-  document.execCommand('copy');
-  selection.removeAllRanges();
-
+  navigator.clipboard.writeText(props.code);
   isCopying.value = true;
   showCopySuccess.value = true;
   setTimeout(() => {
@@ -41,7 +28,6 @@ const copyCode = () => {
   }, 1500);
 };
 
-
 </script>
 
 <template>
@@ -49,7 +35,7 @@ const copyCode = () => {
     <SimpleUiButton
         buttonText='Copy code'
         class="copy-button"
-        color="primary"
+        color="basic"
         @click="copyCode"
     ></SimpleUiButton>
     <pre ref="codeBlock">{{ code }}</pre>
@@ -68,14 +54,17 @@ const copyCode = () => {
   font-size: 13px;
   font-weight: 700;
   max-width: 700px;
-  font-family: 'Consolas', monospace; /* Настройте шрифт для кода */
+
+  font-family: 'FreeMono', monospace; /* Ретро шрифт */
+  line-height: 1.6; /* Межстрочный интервал */
+
   &__dark {
     color: #fff;
     background-color: #333;
   }
 
   &__light {
-    color: #03471e;
+    color: #04b604;
     background-color: #f1f1f1;
   }
 }
@@ -83,10 +72,9 @@ const copyCode = () => {
 /* Стили для кнопки */
 .copy-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 4px;
+  right: -4px;
   margin-bottom: 10px;
-  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   background-color: #007bff;

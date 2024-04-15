@@ -43,6 +43,17 @@ defineProps({
   font-size: 15px;
   transition: .2s;
 
+  &_basic{
+    color: var(--primary);
+    background: #6979F800;
+    border: 1px solid var(--primary);
+
+    &:enabled:hover {
+      background: var(--primary-hover);
+      color: #ffffff;
+    }
+  }
+
   &_primary {
     color: #ffffff;
     background: var(--primary);
