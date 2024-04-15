@@ -10,13 +10,15 @@ createApp(App)
 
 
 //for prod
-import UIInputText from './components/InputText.vue';
-import UIInputTextArea from './components/InputTextarea.vue';
+
+import SimpleUiButton from "@/components/SimpleUiButton.vue";
+import UIInputTextArea from '@/components/InputTextarea.vue';
 
 const SimpleUiLibrary = {
   install(app) {
-    app.component('UIInputText', UIInputText);
-    app.component('UIInputTextArea', UIInputTextArea);
+    app.component('SimpleUiButton', SimpleUiButton);
+    app.component('SimpleUiTextArea', UIInputTextArea);
+    // app.component('UIInputTextArea', UIInputTextArea);
     // Здесь вы можете зарегистрировать другие компоненты
   }
 };

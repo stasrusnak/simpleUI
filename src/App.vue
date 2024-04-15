@@ -1,11 +1,9 @@
 <script setup>
-import InputTextSimpleUI from '@/components/InputText.vue'
-import InputTextareaSimpleUI from '@/components/InputTextarea.vue'
 import MainHeader from "@/components/layout/Header.vue";
 import SideBar from "@/components/layout/SideBar.vue";
 import {ref} from "vue";
 
-const openSidebar = ref(false);
+const openSidebar = ref(true);
 
 const toggleSidebar = () => {
   openSidebar.value = !openSidebar.value
@@ -41,7 +39,7 @@ const toggleSidebar = () => {
   max-width: 1400px;
   margin-left: 250px;
   padding: 30px;
-  transition: 0.5s;
+  transition: 0.8s;
 
   &_full {
     margin-left: 0;

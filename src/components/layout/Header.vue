@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <router-link to="/">Simple</router-link>
-    <img class="logo"  src="@/assets/logo.svg" alt="">
+    <img class="logo" src="@/assets/logo.svg" alt="" @click="$router.push('/')">
     <router-link to="/">Kit</router-link>
   </header>
 </template>
@@ -20,11 +20,10 @@
   color: #F73164;
   font-size: 25px;
 }
-.logo{
+
+.logo {
   height: 32px;
   width: 32px;
 }
 </style>
 
-<script setup>
-</script>

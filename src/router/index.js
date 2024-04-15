@@ -6,12 +6,17 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'index',
+      name: 'Home',
       component: () => import('@/views/Index.vue')
     },
     {
+      path: '/buttons',
+      name: 'Buttons',
+      component: () => import('@/views/Button.vue')
+    },
+    {
       path: '/textarea',
-      name: 'textarea',
+      name: 'Textarea',
       component: () => import('@/views/TextArea.vue')
     }
 

@@ -1,28 +1,22 @@
 <script setup>
-import {ref} from "vue";
+import {useRouter} from 'vue-router'
 
-const props = defineProps({
+const links = useRouter().options.routes.map(route => ({
+  name: route.name,
+  href: route.path
+}));
+
+defineProps({
   openSidebar: {
     type: Boolean,
     required: true,
   },
 });
 
-const links = ref([
-  {name: "Home", href: "/"},
-  {name: "Button", href: "/button"},
-  {name: "Checkbox", href: "/checkbox"},
-  {name: "Radiobutton", href: "/radiobutton"},
-  {name: "Progress", href: "/progress"},
-  {name: "Input", href: "/input"},
-  {name: "Tabs", href: "/tabs"},
-  {name: "Table", href: "/table"},
-  {name: "Textarea", href: "/textarea"},
-]);
 </script>
 
 <template>
-  <div class="sidebar"  :class="{ 'sidebar_isopen':openSidebar}">
+  <div class="sidebar" :class="{ 'sidebar_isopen':openSidebar}">
     <router-link
         class="sidebar__link animated"
         v-for="link in links"
