@@ -22,7 +22,7 @@ const links = ref([
 </script>
 
 <template>
-  <div class="sidebar">
+  <div class="sidebar"  :class="{ 'sidebar_isopen':openSidebar}">
     <router-link
         class="sidebar__link animated"
         v-for="link in links"
@@ -44,11 +44,11 @@ const links = ref([
   width: 250px;
   padding: 30px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
-  transition: transform 1.1s cubic-bezier(0.1, 0.7, 1, 0.1);
-  //transform: translateX(-250px);
-  //&_isopen {
-  //  transform: translateX(0px);
-  //}
+  transition: transform 1.1s  cubic-bezier(0.25, 0.1, 0.25, 1);
+  transform: translateX(-250px);
+  &_isopen {
+    transform: translateX(0px);
+  }
   &__link {
     display: block;
     border-radius: 12px;
@@ -56,7 +56,7 @@ const links = ref([
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 20px;
-    padding: 4px 4px;
+    padding: 4px 4px 10px 14px;
     &:hover {
       color: var(--primary);
       transform: translateX(-20px);

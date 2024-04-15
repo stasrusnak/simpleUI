@@ -3,21 +3,26 @@ import InputTextSimpleUI from '@/components/InputText.vue'
 import InputTextareaSimpleUI from '@/components/InputTextarea.vue'
 import MainHeader from "@/components/layout/Header.vue";
 import SideBar from "@/components/layout/SideBar.vue";
+import {ref} from "vue";
+
+const openSidebar = ref(false);
+
+const toggleSidebar = () => {
+  openSidebar.value = !openSidebar.value
+}
+
 </script>
 
 <template>
 
   <div class="container">
-    <main-header />
-    <div class="sidebar-toggle">
-      <div  class="vertical-text">☰ МЕНЮ</div>
-<!--      <p>☰</p>-->
+    <main-header/>
+    <div class="sidebar-toggle" @click="toggleSidebar">
+      <div class="vertical-text">МЕНЮ &nbsp;☰</div>
     </div>
-    <side-bar />
-    <div class="content">
-      <router-view />
-<!--      <InputTextSimpleUI></InputTextSimpleUI>-->
-<!--      <InputTextareaSimpleUI></InputTextareaSimpleUI>-->
+    <side-bar :openSidebar="openSidebar"/>
+    <div :class="!openSidebar ? 'content content_full' : 'content'">
+      <router-view/>
     </div>
   </div>
 
@@ -25,6 +30,7 @@ import SideBar from "@/components/layout/SideBar.vue";
 
 <style lang="scss">
 @import "@/styles/global.scss";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -35,14 +41,15 @@ import SideBar from "@/components/layout/SideBar.vue";
   max-width: 1400px;
   margin-left: 250px;
   padding: 30px;
-  transition: 0.2s;
+  transition: 0.5s;
+
   &_full {
     margin-left: 0;
   }
 }
 
 
-.vertical-text{
+.vertical-text {
   display: flex;
   flex-direction: column;
   white-space: nowrap;
@@ -66,10 +73,10 @@ import SideBar from "@/components/layout/SideBar.vue";
   justify-content: center;
 }
 
-@media screen and (max-width: 1023px) {
-  .content {
-    margin-left: 0;
-  }
-}
+//@media screen and (max-width: 1023px) {
+//  .content {
+//    margin-left: 0;
+//  }
+//}
 
 </style>
