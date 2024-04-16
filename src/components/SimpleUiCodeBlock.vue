@@ -54,7 +54,7 @@ const copyCode = () => {
   font-size: 13px;
   font-weight: 700;
   max-width: 700px;
-
+  text-align: left;
   font-family: 'FreeMono', monospace; /* Ретро шрифт */
   line-height: 1.6; /* Межстрочный интервал */
 
