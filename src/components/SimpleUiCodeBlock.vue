@@ -42,10 +42,7 @@ const copyCode = () => {
     <div v-show="showCopySuccess" class="copy-success-message">Code copied!</div>
   </div>
 </template>
-
-
 <style scoped lang="scss">
-/* Стили для блока кода */
 .code-block {
   position: relative;
   padding: 20px;
@@ -57,19 +54,16 @@ const copyCode = () => {
   text-align: left;
   font-family: 'FreeMono', monospace; /* Ретро шрифт */
   line-height: 1.6; /* Межстрочный интервал */
-
   &__dark {
     color: #fff;
     background-color: #333;
   }
-
   &__light {
     color: #04b604;
     background-color: #f1f1f1;
   }
 }
 
-/* Стили для кнопки */
 .copy-button {
   position: absolute;
   top: 4px;
@@ -91,7 +85,6 @@ const copyCode = () => {
   background-color: #0056b3;
 }
 
-/* Стили для сообщения об успешном копировании */
 .copy-success-message {
   padding: 5px 10px;
   background-color: #4caf50;
