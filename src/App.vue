@@ -17,7 +17,7 @@ const toggleSidebar = () => {
     <main-header/>
     <div class="sidebar-toggle" @click="toggleSidebar" :class="{ '_circle': !openSidebar }" >
       <div class="vertical-text" v-if="openSidebar">МЕНЮ &nbsp;☰</div>
-      <div v-else class="menu-button">☰</div>
+      <div v-else class="menu-button"> ☰ </div>
     </div>
     <side-bar :openSidebar="openSidebar"/>
     <div :class="!openSidebar ? 'content content_full' : 'content'">
@@ -30,11 +30,6 @@ const toggleSidebar = () => {
 <style lang="scss">
 @import "@/styles/global.scss";
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 .content {
   max-width: 1400px;
@@ -53,7 +48,7 @@ const toggleSidebar = () => {
   flex-direction: column;
   white-space: nowrap;
   transform: rotate(270deg);
-
+  margin-left: 6px;
 }
 
 .sidebar-toggle {

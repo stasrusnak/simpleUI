@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
 .header {
-  background: rgba(22, 27, 45, 0.95);
+  background: rgba(22, 27, 45, 1);
   font-weight: bold;
   padding: 0 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
@@ -16,7 +16,8 @@
   display: flex;
   align-items: center;
   z-index: 1;
-  position: relative;
+  position: sticky;
+  top: 0;
   color: #F73164;
   font-size: 25px;
 }

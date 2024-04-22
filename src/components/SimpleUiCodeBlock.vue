@@ -37,25 +37,31 @@ const copyCode = () => {
         class="copy-button"
         color="basic"
         @click="copyCode"
-    ></SimpleUiButton>
+    >
+      Code copied!Code copied!Code copied!Code copied!
+    </SimpleUiButton>
     <pre ref="codeBlock">{{ code }}</pre>
     <div v-show="showCopySuccess" class="copy-success-message">Code copied!</div>
+    <div  class="copy-success-message">Code copied!</div>
   </div>
 </template>
 <style scoped lang="scss">
+
+
 .code-block {
   position: relative;
-  padding: 20px;
+  padding: 16px;
   border-radius: 5px;
   overflow-x: auto;
   font-size: 13px;
   font-weight: 700;
   max-width: 700px;
   text-align: left;
-  font-family: 'FreeMono', monospace; /* Ретро шрифт */
-  line-height: 1.6; /* Межстрочный интервал */
+  font-family: 'FreeMono', sans-serif ;
+  font-style: normal;
+  line-height: 1.2; /* Межстрочный интервал */
   &__dark {
-    color: #fff;
+    color: #04b604;
     background-color: #333;
   }
   &__light {

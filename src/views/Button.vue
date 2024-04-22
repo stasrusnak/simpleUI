@@ -42,8 +42,10 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
     color="success"
     >
   </SimpleUiButton>
+     Code copied!Code copied!Code copied!Code copied!
+        Code copied!
 '
-    theme="light"
+    theme="dark"
     ></SimpleUiCodeBlock>
   </div>
 
@@ -52,11 +54,12 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 
 <style scoped lang="scss">
 .contentBlock{
-  p{
-    font-size: 18px;
-    padding-bottom: 5px;
-  }
+
   padding-bottom: 10px;
+}
+p{
+  font-size: 18px;
+  padding-bottom: 15px;
 }
 
 
