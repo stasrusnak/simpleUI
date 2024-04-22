@@ -6,9 +6,9 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 
 <template>
   <div class="contentBlock">
-     <h1>Types</h1>
-     <h2>Button</h2>
-     <p>A button indicates a possible user action</p>
+    <h1>Types</h1>
+    <h2>Button</h2>
+    <p>A button indicates a possible user action</p>
     <div class="line">
       <SimpleUiButton buttonText="New Button"></SimpleUiButton>
     </div>
@@ -27,6 +27,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
     </div>
   </div>
   <div class="contentBlock">
+
     <h2>Rounded style</h2>
     <p>A button appearance</p>
     <div class="line">
@@ -45,22 +46,40 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
      Code copied!Code copied!Code copied!Code copied!
         Code copied!
 '
-    theme="dark"
+                       theme="dark"
     ></SimpleUiCodeBlock>
   </div>
 
 
+    <i class="icon-home icon-home__white"></i>
+
 </template>
 
 <style scoped lang="scss">
-.contentBlock{
+.contentBlock {
 
   padding-bottom: 10px;
 }
-p{
+
+p {
   font-size: 18px;
   padding-bottom: 15px;
 }
+
+.icon-home {
+  width: 45px;
+  height: 45px;
+  display: block;
+  background-image: url("../assets/icons/home.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  &__white{
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+  }
+}
+
+
 
 
 </style>

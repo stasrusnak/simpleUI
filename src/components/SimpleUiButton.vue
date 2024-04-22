@@ -1,5 +1,6 @@
 <script setup>
 import Button from "@/views/Button.vue";
+import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 
 defineProps({
   buttonText: {
@@ -25,6 +26,7 @@ defineProps({
       {'btn_rounded':rounded}]">
     {{ buttonText }}
   </button>
+  <simple-ui-icon></simple-ui-icon>
 
 </template>
 

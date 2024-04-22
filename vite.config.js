@@ -12,6 +12,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"),
     },
   },
+
+  /* Build For library UI */
+
   build: {
     lib:{
       entry: resolve(__dirname, "src/main.js"),
@@ -26,5 +29,13 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  /* Build Site preview */
+
+  // build: {
+  //   outDir: 'dist', // Указываем папку, куда будет собрано приложение
+  //   emptyOutDir: true, // Очищаем outDir перед каждой сборкой
+  //   sourcemap: true, // Генерируем sourcemaps для упрощения отладки
+  // },
+
 });
