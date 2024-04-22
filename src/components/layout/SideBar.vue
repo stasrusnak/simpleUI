@@ -35,8 +35,8 @@ defineProps({
   height: 100%;
   background: #23243E;
   position: fixed;
-  width: 250px;
-  padding: 30px;
+  width: 240px;
+  padding: 25px 0 30px 50px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
   transition: transform 1.1s  cubic-bezier(0.25, 0.1, 0.25, 1);
   transform: translateX(-250px);

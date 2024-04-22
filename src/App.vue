@@ -15,8 +15,9 @@ const toggleSidebar = () => {
 
   <div class="container">
     <main-header/>
-    <div class="sidebar-toggle" @click="toggleSidebar">
-      <div class="vertical-text">МЕНЮ &nbsp;☰</div>
+    <div class="sidebar-toggle" @click="toggleSidebar" :class="{ '_circle': !openSidebar }" >
+      <div class="vertical-text" v-if="openSidebar">МЕНЮ &nbsp;☰</div>
+      <div v-else class="menu-button">☰</div>
     </div>
     <side-bar :openSidebar="openSidebar"/>
     <div :class="!openSidebar ? 'content content_full' : 'content'">
@@ -69,7 +70,20 @@ const toggleSidebar = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &._circle {
+    transition: width 0.5s ease-out, height 0.5s ease-out;
+    width: 44px; /* Размер полукруглой кнопки */
+    height: 44px;
+    clip-path: circle(100% at 0% 0);
+    .menu-button{
+      padding-bottom: 5px;
+      padding-right: 5px;
+    }
+  }
 }
+
+
 
 //@media screen and (max-width: 1023px) {
 //  .content {
