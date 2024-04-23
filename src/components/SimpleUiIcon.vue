@@ -4,19 +4,19 @@ import {computed} from "vue";
 const props = defineProps({
   icon: {
     type: String,
-    default: 'menu'
+    default: '404'
   },
   color: {
     type: String,
-    default: 'dark'
+    default: 'white'
   },
   iconWidth: {
     type: String,
-    default: '25px'
+    default: '45px'
   },
   iconHeight: {
     type: String,
-    default: '25px'
+    default: '45px'
   },
   iconPath: {
     type: String,
@@ -56,6 +56,9 @@ const iconStyle = computed(() => {
 }
 .icon-menu {
   background-image: url('../assets/icons/menu.svg');
+}
+.icon-404{
+  background-image: url('../assets/icons/404.svg');
 }
 
 
