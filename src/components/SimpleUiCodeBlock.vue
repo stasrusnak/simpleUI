@@ -61,6 +61,7 @@ const copyCode = () => {
   font-weight: 700;
   max-width: 700px;
   text-align: left;
+  letter-spacing: 2px;
   font-family: 'FreeMono', sans-serif ;
   font-style: normal;
   line-height: 1.2; /* Межстрочный интервал */

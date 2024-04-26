@@ -1,5 +1,6 @@
 <script setup>
 import {computed} from "vue";
+import {getFilterByColor} from '@/utils/colorFilter.js'
 
 const props = defineProps({
   icon: {
@@ -8,7 +9,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'white'
+    default: 'orange'
   },
   iconWidth: {
     type: String,
@@ -26,18 +27,15 @@ const props = defineProps({
 
 
 const iconStyle = computed(() => {
-  if (props.color==='white'){
-    return 'invert(100%)'
-  }else {}
-  return ''
+  console.log(getFilterByColor(props.color))
+
+  return getFilterByColor(props.color)
 });
 
 </script>
 
 <template>
-  <i
-      :class="[icon ? `icon-${icon}`:'','icon']"
-
+  <i :class="[icon ? `icon-${icon}`:'','icon']"
      :style="{
       width: iconWidth,
       height: iconHeight,
@@ -51,16 +49,18 @@ const iconStyle = computed(() => {
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .icon-home {
   background-image: url('../assets/icons/home.svg');
 }
+
 .icon-menu {
   background-image: url('../assets/icons/menu.svg');
 }
-.icon-404{
+
+.icon-404 {
   background-image: url('../assets/icons/404.svg');
 }
-
 
 
 </style>
