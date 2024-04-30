@@ -9,7 +9,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'orange'
+    default: 'white'
   },
   iconWidth: {
     type: String,
@@ -27,8 +27,6 @@ const props = defineProps({
 
 
 const iconStyle = computed(() => {
-  console.log(getFilterByColor(props.color))
-
   return getFilterByColor(props.color)
 });
 

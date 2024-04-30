@@ -5,9 +5,9 @@ export function getFilterByColor(color) {
     case 'white':
       return 'invert(100%)'; // Для красного
     case 'orange':
-      return 'brightness(0) saturate(100%) invert(42%) sepia(43%) saturate(2884%) hue-rotate(1deg) brightness(102%) contrast(105%);'; // Для оранжевого
+      return 'brightness(0) saturate(100%) invert(42%) sepia(43%) saturate(2884%) hue-rotate(1deg) brightness(102%) contrast(105%)'; // Для оранжевого
     case 'yellow':
-      return 'brightness(0) saturate(100%) invert(91%) sepia(38%) saturate(1210%) hue-rotate(1deg) brightness(103%) contrast(102%);'; // Для желтого
+      return 'brightness(0) saturate(100%) invert(91%) sepia(38%) saturate(1210%) hue-rotate(1deg) brightness(103%) contrast(102%)'; // Для желтого
     case 'olive':
       return 'invert(100%)'; // Для оливкового
     case 'green':
