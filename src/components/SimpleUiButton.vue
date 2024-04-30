@@ -26,7 +26,7 @@ defineProps({
       {'btn_rounded':rounded}]">
     {{ buttonText }}
   </button>
-  <simple-ui-icon></simple-ui-icon>
+<!--  <simple-ui-icon></simple-ui-icon>-->
 
 </template>
 

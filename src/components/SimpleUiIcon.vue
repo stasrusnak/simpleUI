@@ -18,14 +18,8 @@ const props = defineProps({
   iconHeight: {
     type: String,
     default: '45px'
-  },
-  iconPath: {
-    type: String,
-    default: '../assets/icons/home.svg'
   }
 });
-
-
 const iconStyle = computed(() => {
   return getFilterByColor(props.color)
 });
@@ -56,8 +50,94 @@ const iconStyle = computed(() => {
   background-image: url('../assets/icons/menu.svg');
 }
 
+.icon-information {
+  background-image: url('../assets/icons/information.svg');
+}
+
+.icon-facebook {
+  background-image: url('../assets/icons/facebook.svg');
+}
+
+.icon-man {
+  background-image: url('../assets/icons/man.svg');
+}
+.icon-person{
+  background-image: url('../assets/icons/person.svg');
+}
+
+.icon-paper {
+  background-image: url('../assets/icons/paper.svg');
+}
+
+.icon-instagram {
+  background-image: url('../assets/icons/instagram.svg');
+}
+.icon-pause {
+  background-image: url('../assets/icons/pause.svg');
+}
+
 .icon-404 {
   background-image: url('../assets/icons/404.svg');
+}
+
+.icon-log-in {
+  background-image: url('../assets/icons/log-in.svg');
+}
+
+.icon-discord {
+  background-image: url('../assets/icons/discord.svg');
+}
+
+.icon-grid {
+  background-image: url('../assets/icons/grid.svg');
+}
+
+.icon-image {
+  background-image: url('../assets/icons/image.svg');
+}
+
+.icon-location {
+  background-image: url('../assets/icons/location.svg');
+}
+
+.icon-search {
+  background-image: url('../assets/icons/search.svg');
+}
+
+.icon-document {
+  background-image: url('../assets/icons/document.svg');
+}
+
+.icon-eye-off {
+  background-image: url('../assets/icons/eye-off.svg');
+}
+
+.icon-eye {
+  background-image: url('../assets/icons/eye.svg');
+}
+
+.icon-controller {
+  background-image: url('../assets/icons/controller.svg');
+}
+
+.icon-checkmark {
+  background-image: url('../assets/icons/checkmark.svg');
+}
+
+.icon-calendar {
+  background-image: url('../assets/icons/calendar.svg');
+}
+
+.icon-camera {
+  background-image: url('../assets/icons/camera.svg');
+}
+
+.icon-caretForward {
+  background-image: url('../assets/icons/caretForward.svg');
+}
+
+.icon-chatbubbles {
+  background-image: url('../assets/icons/chatbubbles.svg');
 }
 
 

@@ -15,6 +15,11 @@ const router = createRouter({
       component: () => import('@/views/Button.vue')
     },
     {
+      path: '/icons',
+      name: 'Icons',
+      component: () => import('@/views/Icons.vue')
+    },
+    {
       path: '/textarea',
       name: 'Textarea',
       component: () => import('@/views/TextArea.vue')

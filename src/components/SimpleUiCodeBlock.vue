@@ -2,11 +2,11 @@
 import {ref} from 'vue';
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 
-// Определяем свойства компонента
+
 const props = defineProps({
   code: {
     type: String,
-    default: 'test code'
+    default: ''
   },
   theme: {
     type: String,
@@ -16,23 +16,20 @@ const props = defineProps({
 
 // Состояние кнопки и сообщения
 const isCopying = ref(false);
-const showCopySuccess = ref(false);
+const showCopy = ref(false);
 
 const copyCode = () => {
   navigator.clipboard.writeText(props.code);
   isCopying.value = true;
-  showCopySuccess.value = true;
+  showCopy.value = true;
   setTimeout(() => {
     isCopying.value = false;
-    showCopySuccess.value = false;
+    showCopy.value = false;
   }, 1500);
 };
 
 </script>
-
 <i class="icon-home icon-home__white"></i>
-
-
 
 <template>
   <div :class="`code-block ${'code-block__'+theme}`">
@@ -42,11 +39,10 @@ const copyCode = () => {
         color="basic"
         @click="copyCode"
     >
-      Code copied!Code copied!Code copied!Code copied!
+      Code copied!
     </SimpleUiButton>
     <pre ref="codeBlock">{{ code }}</pre>
-    <div v-show="showCopySuccess" class="copy-success-message">Code copied!</div>
-    <div  class="copy-success-message">Code copied!</div>
+    <div v-show="showCopy" class="copy-success-message">Code copied!</div>
   </div>
 </template>
 <style scoped lang="scss">

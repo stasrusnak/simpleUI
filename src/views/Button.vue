@@ -43,8 +43,6 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
     color="success"
     >
   </SimpleUiButton>
-     Code copied!Code copied!Code copied!Code copied!
-        Code copied!
 '
                        theme="dark"
     ></SimpleUiCodeBlock>
