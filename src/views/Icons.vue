@@ -84,8 +84,8 @@ p {
 }
 
 .icon-item {
-  flex: 1 0 20%; /* Каждый элемент занимает 20% ширины контейнера */
-  max-width: 20%; /* Максимальная ширина элемента 20% */
+  flex: 1 0 20%;
+  max-width: 20%;
   padding: 30px;
   display: flex;
   flex-direction: column;

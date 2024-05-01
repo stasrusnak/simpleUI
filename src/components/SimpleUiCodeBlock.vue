@@ -14,7 +14,7 @@ const props = defineProps({
   }
 });
 
-// Состояние кнопки и сообщения
+
 const isCopying = ref(false);
 const showCopy = ref(false);
 
@@ -47,7 +47,6 @@ const copyCode = () => {
 </template>
 <style scoped lang="scss">
 
-
 .code-block {
   position: relative;
   padding: 16px;
@@ -60,7 +59,7 @@ const copyCode = () => {
   letter-spacing: 2px;
   font-family: 'FreeMono', sans-serif ;
   font-style: normal;
-  line-height: 1.2; /* Межстрочный интервал */
+  line-height: 1.2;
   &__dark {
     color: #04b604;
     background-color: #333;
