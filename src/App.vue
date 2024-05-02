@@ -73,7 +73,7 @@ const toggleSidebar = () => {
 
   &._circle {
     transition: width 0.5s ease-out, height 0.5s ease-out;
-    width: 44px; /* Размер полукруглой кнопки */
+    width: 44px;
     height: 44px;
     clip-path: circle(100% at 0% 0);
     .menu-button{

@@ -8,14 +8,10 @@ export default {
   }
 }
 </script>
-
 <template>
   <textarea class="input-textarea" v-model="text"></textarea>
 </template>
-
-
 <style scoped>
-
 .input-textarea {
   outline: none;
   box-shadow: 0 0 25px #1d77a8;

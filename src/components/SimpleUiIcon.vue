@@ -61,7 +61,8 @@ const iconStyle = computed(() => {
 .icon-man {
   background-image: url('../assets/icons/man.svg');
 }
-.icon-person{
+
+.icon-person {
   background-image: url('../assets/icons/person.svg');
 }
 
@@ -72,6 +73,7 @@ const iconStyle = computed(() => {
 .icon-instagram {
   background-image: url('../assets/icons/instagram.svg');
 }
+
 .icon-pause {
   background-image: url('../assets/icons/pause.svg');
 }

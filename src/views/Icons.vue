@@ -30,11 +30,10 @@ const copyCode = (copyIcon) => {
           <SimpleUiIcon :icon="icon"></SimpleUiIcon>
           <div class="icon-name">{{ icon }}</div>
         </div>
-        <div v-if="showCopySuccess" class="copy-success-message">Code copied! {{copyingIconCode}}</div>
+        <div v-if="showCopySuccess" class="copy-success-message">Code copied! {{ copyingIconCode }}</div>
       </div>
     </div>
   </div>
-
   <div class="contentBlock">
     <h2>Size</h2>
     <p>SimpleUI includes free open source icons <a class="link_blank" target="_blank" href="https://ionic.io/ionicons">Ionicons</a>
@@ -47,11 +46,9 @@ const copyCode = (copyIcon) => {
         <SimpleUiIcon icon="404"></SimpleUiIcon>
         <SimpleUiIcon icon="404"></SimpleUiIcon>
 
-        </div>
       </div>
     </div>
-
-
+  </div>
 </template>
 
 <style scoped lang="scss">
@@ -97,9 +94,8 @@ p {
 }
 
 .icon-item:hover {
-  transform: scale(1.5); /* Увеличение размера при наведении */
+  transform: scale(1.5);
 }
-
 .icon-name {
   position: absolute;
   bottom: 12px;
@@ -109,9 +105,8 @@ p {
   transition: opacity 0.3s ease;
   font-size: 10px;
 }
-
 .icon-item:hover .icon-name {
-  opacity: 1; /* Показываем название при наведении на иконку */
+  opacity: 1;
 }
 
 @keyframes fadeOut {
