@@ -8,6 +8,5 @@ export default {
   <input type="text" />
   <button type="button">НАЖМИ</button>
 </template>
-
 <style scoped>
 </style>
