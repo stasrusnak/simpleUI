@@ -33,8 +33,6 @@ export default {
 .input-textarea:focus {
   animation: scale 0.3s ease-out;
 }
-
-
 @keyframes scale {
   0% {
     transform: scale(1);

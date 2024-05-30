@@ -29,6 +29,7 @@ const copyCode = () => {
 };
 
 </script>
+
 <i class="icon-home icon-home__white"></i>
 
 <template>
