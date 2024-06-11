@@ -1,7 +1,9 @@
 <script setup>
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import icons from '@/utils/iconsList.js'
 import {ref} from "vue";
+
 
 
 let copyingIconCode = ref(false);
@@ -15,6 +17,19 @@ const copyCode = (copyIcon) => {
     showCopySuccess.value = false;
   }, 1500);
 };
+
+const sizeCodeHtml = `<div >
+  <SimpleUiIcon icon="home" size="mini"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="tiny"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="large"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="big"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="huge"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="massive"></SimpleUiIcon>
+</div>
+`
+
+
 
 </script>
 
@@ -36,15 +51,42 @@ const copyCode = (copyIcon) => {
   </div>
   <div class="contentBlock">
     <h2>Size</h2>
-    <p>SimpleUI includes free open source icons <a class="link_blank" target="_blank" href="https://ionic.io/ionicons">Ionicons</a>
-    </p>
+    <p>An icon can vary in size </p>
     <div class="line">
       <div class="icon-container">
 
-        <SimpleUiIcon icon="404"></SimpleUiIcon>
-        <SimpleUiIcon icon="404"></SimpleUiIcon>
-        <SimpleUiIcon icon="404"></SimpleUiIcon>
-        <SimpleUiIcon icon="404"></SimpleUiIcon>
+        <div class="icon-size-body">
+          <p>mini</p>
+          <SimpleUiIcon icon="home" size="mini"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>tiny</p>
+          <SimpleUiIcon icon="home" size="tiny"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>small</p>
+          <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>large</p>
+          <SimpleUiIcon icon="home" size="large"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>big</p>
+          <SimpleUiIcon icon="home" size="big"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>huge</p>
+          <SimpleUiIcon icon="home" size="huge"></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <p>massive</p>
+          <SimpleUiIcon icon="home" size="massive"></SimpleUiIcon>
+        </div>
+
+
+
+        <SimpleUiCodeBlock :code="sizeCodeHtml"></SimpleUiCodeBlock>
 
       </div>
     </div>
@@ -55,10 +97,17 @@ const copyCode = (copyIcon) => {
 .contentBlock {
   padding-bottom: 10px;
 }
-
+.icons{
+  display: flex;
+}
 p {
   font-size: 18px;
   padding-bottom: 25px;
+}
+
+.icon-size-body {
+  padding: 15px;
+  text-align: center;
 }
 
 .link_blank {
@@ -77,7 +126,8 @@ p {
 .icon-container {
   display: flex;
   flex-wrap: wrap;
-  max-width: 550px;
+  max-width: 650px;
+
 }
 
 .icon-item {
@@ -96,6 +146,7 @@ p {
 .icon-item:hover {
   transform: scale(1.5);
 }
+
 .icon-name {
   position: absolute;
   bottom: 12px;
@@ -105,6 +156,7 @@ p {
   transition: opacity 0.3s ease;
   font-size: 10px;
 }
+
 .icon-item:hover .icon-name {
   opacity: 1;
 }

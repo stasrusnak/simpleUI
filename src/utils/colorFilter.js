@@ -15,18 +15,18 @@ export function getFilterByColor(color) {
     case 'blue':
       return 'brightness(0) saturate(100%) invert(54%) sepia(51%) saturate(6400%) hue-rotate(183deg) brightness(102%) contrast(101%)';
     case 'violet':
-      return 'brightness(0) saturate(100%) invert(52%) sepia(35%) saturate(7497%) hue-rotate(271deg) brightness(89%) contrast(103%)'; // Для фиолетового
+      return 'brightness(0) saturate(100%) invert(52%) sepia(35%) saturate(7497%) hue-rotate(271deg) brightness(89%) contrast(103%)';
     case 'purple':
-      return 'brightness(0) saturate(100%) invert(17%) sepia(55%) saturate(4810%) hue-rotate(288deg) brightness(74%) contrast(132%)'; // Для пурпурного
+      return 'brightness(0) saturate(100%) invert(17%) sepia(55%) saturate(4810%) hue-rotate(288deg) brightness(74%) contrast(132%)';
     case 'pink':
-      return 'brightness(0) saturate(100%) invert(92%) sepia(8%) saturate(4968%) hue-rotate(224deg) brightness(118%) contrast(101%)'; // Для розового
+      return 'brightness(0) saturate(100%) invert(92%) sepia(8%) saturate(4968%) hue-rotate(224deg) brightness(118%) contrast(101%)';
     case 'brown':
-      return 'brightness(0) saturate(100%) invert(21%) sepia(97%) saturate(2143%) hue-rotate(346deg) brightness(76%) contrast(83%)'; // Для коричневого
+      return 'brightness(0) saturate(100%) invert(21%) sepia(97%) saturate(2143%) hue-rotate(346deg) brightness(76%) contrast(83%)';
     case 'grey':
-      return 'brightness(0) saturate(100%) invert(52%) sepia(2%) saturate(8%) hue-rotate(14deg) brightness(96%) contrast(84%)'; // Для серого
+      return 'brightness(0) saturate(100%) invert(52%) sepia(2%) saturate(8%) hue-rotate(14deg) brightness(96%) contrast(84%)';
     case 'black':
-      return 'invert(1%)'; // Для черного
+      return 'invert(1%)';
     default:
-      return ''; // По умолчанию ничего не возвращать
+      return '';
   }
 }

@@ -1,6 +1,7 @@
 <script setup>
 import {computed} from "vue";
 import {getFilterByColor} from '@/utils/colorFilter.js'
+import {getSize} from '@/utils/IconSizeCalc.js'
 
 const props = defineProps({
   icon: {
@@ -11,26 +12,25 @@ const props = defineProps({
     type: String,
     default: 'white'
   },
-  iconWidth: {
+  size: {
     type: String,
-    default: '45px'
+    default: ''
   },
-  iconHeight: {
-    type: String,
-    default: '45px'
-  }
 });
 const iconStyle = computed(() => {
   return getFilterByColor(props.color)
 });
+const size = computed(()=>{
+  return getSize(props.size)
+})
 
 </script>
 
 <template>
   <i :class="[icon ? `icon-${icon}`:'','icon']"
      :style="{
-      width: iconWidth,
-      height: iconHeight,
+      width: size,
+      height: size,
       filter: iconStyle} "></i>
 </template>
 
