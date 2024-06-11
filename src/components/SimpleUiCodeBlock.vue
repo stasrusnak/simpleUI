@@ -42,12 +42,14 @@ const copyCode = () => {
     >
       Code copied!
     </SimpleUiButton>
-    <pre ref="codeBlock">{{ code }}</pre>
+    <pre class="code-body" ref="codeBlock">{{ code }}</pre>
     <div v-show="showCopy" class="copy-success-message">Code copied!</div>
   </div>
 </template>
 <style scoped lang="scss">
-
+.code-body{
+  padding: 15px 0 15px 0
+}
 .code-block {
   position: relative;
   padding: 16px;

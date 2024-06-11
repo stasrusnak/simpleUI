@@ -13,28 +13,77 @@ const props = defineProps({
     default: 'white'
   },
   size: {
-    type: String,
-    default: ''
+    type: String
   },
+  circular: {
+    type: Boolean,
+    default: false
+  },
+  bordered: {
+    type: Boolean,
+    default: false
+  },
+
 });
 const iconStyle = computed(() => {
   return getFilterByColor(props.color)
 });
-const size = computed(()=>{
+const size = computed(() => {
   return getSize(props.size)
 })
+
+const iconBodyStyle = computed(() => {
+  const increasedSize = `${parseInt(getSize(props.size)) * 1.5}px`;
+  const borderCfg = {
+    width: increasedSize,
+    height: increasedSize,
+    'box-shadow': '0 0 0 2px rgb(242 241 241 / 51%) inset',
+  }
+
+  //todo : Поправить  тень
+
+  console.log(props.circular)
+  console.log(props.bordered)
+  if (props.circular && props.bordered) {
+    // borderCfg['border-radius'] = '';
+    console.log('popal')
+  } else {
+    borderCfg['border-radius'] = props.circular ? '50%' : (props.bordered ? '100%' : '');
+  }
+
+  console.log(borderCfg)
+  return props.circular ? borderCfg : {}
+
+
+
+});
+
 
 </script>
 
 <template>
-  <i :class="[icon ? `icon-${icon}`:'','icon']"
-     :style="{
+
+
+  <div class="icon-body" :style="iconBodyStyle">
+    <i :class="[icon ? `icon-${icon}`:'','icon']"
+       :style="{
       width: size,
       height: size,
-      filter: iconStyle} "></i>
+      filter: iconStyle} "> </i>
+  </div>
+
+
 </template>
 
 <style scoped lang="scss">
+
+
+.icon-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .icon {
   display: block;
