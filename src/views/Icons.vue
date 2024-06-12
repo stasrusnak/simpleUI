@@ -85,7 +85,6 @@ const sizeCodeHtml = `<div >
         </div>
 
 
-        <SimpleUiIcon icon="home" size="massive"  color="teal"  ></SimpleUiIcon>
 
 
         <SimpleUiCodeBlock :code="sizeCodeHtml"></SimpleUiCodeBlock>

@@ -55,20 +55,20 @@ const copyCode = () => {
   padding: 16px;
   border-radius: 5px;
   overflow-x: auto;
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 650;
   max-width: 700px;
   text-align: left;
-  letter-spacing: 2px;
-  font-family: 'FreeMono', sans-serif ;
-  font-style: normal;
-  line-height: 1.2;
+  letter-spacing: 1px;
+  font-family: 'GNU-Unifont-Full', sans-serif ;
+  //font-style: normal;
+  line-height: 1.5;
   &__dark {
-    color: #04b604;
+    color: #6bff87;
     background-color: #333;
   }
   &__light {
-    color: #04b604;
+    color:#6bff87;
     background-color: #f1f1f1;
   }
 }
