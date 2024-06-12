@@ -61,7 +61,6 @@ const copyCode = () => {
   text-align: left;
   letter-spacing: 1px;
   font-family: 'GNU-Unifont-Full', sans-serif ;
-  //font-style: normal;
   line-height: 1.5;
   &__dark {
     color: #6bff87;

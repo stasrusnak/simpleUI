@@ -1,3 +1,26 @@
+<script setup>
+import {highlight} from "../utils/codeFormater.js"
+
+const sizeCodeHtml = `
+<div>
+  <SimpleUiIcon icon="home" size="mini"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="tiny"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="large"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="big"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="huge"></SimpleUiIcon>
+  <SimpleUiIcon icon="home" size="massive"></SimpleUiIcon>
+
+</div>
+
+
+`
+</script>
+
+
 <template>
   <h1 class="heading-1">Добро пожаловать в наш UI Kit</h1>
+
+
+  <div v-html="highlight(sizeCodeHtml)"></div>
 </template>
