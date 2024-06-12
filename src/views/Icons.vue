@@ -81,7 +81,7 @@ const sizeCodeHtml = `<div >
         </div>
         <div class="icon-size-body">
           <p>massive</p>
-          <SimpleUiIcon icon="home" size="massive" circular bordered></SimpleUiIcon>
+          <SimpleUiIcon icon="home" size="massive"  bordered  ></SimpleUiIcon>
         </div>
 
 

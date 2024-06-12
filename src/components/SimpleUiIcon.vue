@@ -34,28 +34,14 @@ const size = computed(() => {
 
 const iconBodyStyle = computed(() => {
   const increasedSize = `${parseInt(getSize(props.size)) * 1.5}px`;
-  const borderCfg = {
-    width: increasedSize,
-    height: increasedSize,
-    'box-shadow': '0 0 0 2px rgb(242 241 241 / 51%) inset',
-  }
-
-  //todo : Поправить  тень
-
-  console.log(props.circular)
-  console.log(props.bordered)
+  let borderCfg
   if (props.circular && props.bordered) {
-    // borderCfg['border-radius'] = '';
-    console.log('popal')
   } else {
-    borderCfg['border-radius'] = props.circular ? '50%' : (props.bordered ? '100%' : '');
+    borderCfg = { width: increasedSize,  height: increasedSize}
+    borderCfg['border-radius'] = props.circular ? '50%' : (props.bordered ? '0%' : '');
+    borderCfg['box-shadow'] = '0 0 0 2px rgb(242 241 241 / 51%) inset';
   }
-
-  console.log(borderCfg)
-  return props.circular ? borderCfg : {}
-
-
-
+  return (props.bordered || props.circular) ? borderCfg : {}
 });
 
 
