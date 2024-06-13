@@ -40,9 +40,7 @@ const copyCode = () => {
         color="basic"
         @click="copyCode"
     >
-      Code copied!
     </SimpleUiButton>
-<!--    <pre class="code-body" ref="codeBlock">{{ code }}</pre>-->
     <div class="code-body"  ref="codeBlock" v-html="highlight(code)"></div>
     <div v-show="showCopy" class="copy-success-message">Code copied!</div>
   </div>
@@ -52,7 +50,7 @@ const copyCode = () => {
 </template>
 <style scoped lang="scss">
 .code-body{
-  padding: 15px 0 15px 0
+  padding: 15px 0 15px 0;
 }
 .code-block {
   position: relative;
@@ -61,11 +59,12 @@ const copyCode = () => {
   overflow-x: auto;
   font-size: 14px;
   font-weight: 650;
-  max-width: 700px;
+  //max-width: 700px;
+  width: 100%;
   text-align: left;
   letter-spacing: 1px;
   font-family: 'GNU-Unifont-Full', sans-serif ;
-  line-height: 1.5;
+  line-height: 1.3;
   &__dark {
     color: #6bff87;
     background-color: #333;
@@ -80,12 +79,6 @@ const copyCode = () => {
   position: absolute;
   top: 4px;
   right: -4px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
 }
 
 .copy-button:disabled {

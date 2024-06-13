@@ -1,6 +1,7 @@
 <script setup>
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 
 </script>
 
@@ -11,6 +12,13 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
     <p>A button indicates a possible user action</p>
     <div class="line">
       <SimpleUiButton buttonText="New Button"></SimpleUiButton>
+
+      <SimpleUiButton buttonText="New Button">
+        <SimpleUiIcon icon="home" color="green" ></SimpleUiIcon>
+      </SimpleUiButton>
+
+
+
     </div>
   </div>
   <div class="contentBlock">
@@ -24,8 +32,27 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
       <SimpleUiButton buttonText="Info" color="info"></SimpleUiButton>
       <SimpleUiButton buttonText="Warning" color="warning"></SimpleUiButton>
       <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
+
     </div>
   </div>
+
+  <div class="contentBlock">
+    <h2>Animations</h2>
+    <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="line">
+      <SimpleUiButton buttonText="Success" color="success" animation="swipe"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="shake"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="jump"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="scale"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="shadowPulse"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="slideIn"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="flicker"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success" animation="distort"></SimpleUiButton>
+
+
+    </div>
+  </div>
+
   <div class="contentBlock">
 
     <h2>Rounded style</h2>
@@ -49,7 +76,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
   </div>
 
 
-    <i class="icon-home icon-home__white"></i>
+  <i class="icon-home icon-home__white"></i>
 
 </template>
 
@@ -71,13 +98,12 @@ p {
   background-image: url("../assets/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
-  &__white{
+
+  &__white {
     filter: invert(100%);
     -webkit-filter: invert(100%);
   }
 }
-
-
 
 
 </style>

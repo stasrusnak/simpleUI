@@ -28,7 +28,7 @@ const colors = {
 const keywords = ('async|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|' +
   'get|if|implements|import|in|instanceof|interface|let|new|of|package|private|protected|public|return|set|static|super|' +
   'switch|throw|try|typeof|var|void|while|with|yield|catch|finally').split('|');
-const specials = 'this|null|SimpleUiIcon|true|false|div|undefined|NaN|Infinity'.split('|');
+const specials = 'this|null|SimpleUiIcon|true|false|div|undefined|NaN|Infinity|rounded|buttonText|color'.split('|');
 
 const vueSpecials = 'SimpleUiIcon|NaN|Infinity'.split('|');
 
@@ -111,6 +111,7 @@ export function highlight(code){
         }
       }
       if (word.length > 0 && !keywords.includes(word)) isRegex = false;
+
       // if (isRegex) {
       //   state = states.REGEX_LITERAL;
       //   output += '<span style="color: ' + colors.REGEX_LITERAL + '">' + char;

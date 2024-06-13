@@ -27,6 +27,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  loading: {
+    type: Boolean,
+    default: false
+  },
 
 });
 const iconStyle = computed(() => {
@@ -61,7 +65,7 @@ const iconBodyStyle = computed(() => {
 
 <template>
   <div class="icon-body" :style="[iconBodyStyle]">
-    <i :class="[icon ? `icon-${icon}`:'','icon']"
+    <i :class="[icon ? `icon-${icon}`:'',{'spinning': loading},'icon']"
        :style="{
       width: size,
       height: size,
@@ -83,6 +87,15 @@ const iconBodyStyle = computed(() => {
   display: block;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.spinning {
+  animation: spin 2.3s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 </style>

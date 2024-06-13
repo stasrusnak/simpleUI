@@ -22,6 +22,13 @@ export default [
   'instagram',
   'man',
   'paper',
+  'medical',
+  'refresh',
+  'settings',
+  'snow',
+  'sync',
+  'cog',
+  'reload',
   'pause',
-  'person'
+  'person',
 ];

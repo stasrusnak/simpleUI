@@ -3,7 +3,13 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import icons from '@/utils/iconsList.js'
 import {ref} from "vue";
-
+import {
+  circularExample,
+  sizeCodeHtml,
+  borderedExample,
+  coloredExample,
+  loadingExample
+} from '@/utils/listOfTempateExemple.js'
 
 
 let copyingIconCode = ref(false);
@@ -17,18 +23,6 @@ const copyCode = (copyIcon) => {
     showCopySuccess.value = false;
   }, 1500);
 };
-
-const sizeCodeHtml = `<div >
-  <SimpleUiIcon icon="home" size="mini"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="tiny"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="large"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="big"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="huge"></SimpleUiIcon>
-  <SimpleUiIcon icon="home" size="massive"></SimpleUiIcon>
-</div>
-`
-
 
 
 </script>
@@ -54,7 +48,6 @@ const sizeCodeHtml = `<div >
     <p>An icon can vary in size </p>
     <div class="line">
       <div class="icon-container">
-
         <div class="icon-size-body">
           <p>mini</p>
           <SimpleUiIcon icon="home" size="mini"></SimpleUiIcon>
@@ -84,11 +77,105 @@ const sizeCodeHtml = `<div >
           <SimpleUiIcon icon="home" size="massive"></SimpleUiIcon>
         </div>
 
+        <div class="code-body">
+          <SimpleUiCodeBlock :code="sizeCodeHtml"></SimpleUiCodeBlock>
+        </div>
 
 
+      </div>
+    </div>
+  </div>
 
-        <SimpleUiCodeBlock :code="sizeCodeHtml"></SimpleUiCodeBlock>
 
+  <div class="contentBlock">
+    <h2>Loading</h2>
+    <p>An icon can be used as a simple loader</p>
+    <div class="line">
+      <div class="icon-container">
+        <SimpleUiIcon icon="sync" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="cog" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="refresh" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="settings" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="reload" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="snow" loading></SimpleUiIcon>
+        <SimpleUiIcon icon="medical" loading></SimpleUiIcon>
+        <div class="code-body">
+          <SimpleUiCodeBlock :code="loadingExample"></SimpleUiCodeBlock>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="contentBlock">
+    <h2>Colored</h2>
+    <p>An icon can be formatted with different colors </p>
+    <div class="line">
+      <div class="icon-container">
+        <SimpleUiIcon icon="home" color="red"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="orange"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="yellow"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="green"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="teal"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="blue"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="violet"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="purple"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="pink"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="brown"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="grey"></SimpleUiIcon>
+        <SimpleUiIcon icon="home" color="black"></SimpleUiIcon>
+        <div class="code-body">
+          <SimpleUiCodeBlock :code="coloredExample"></SimpleUiCodeBlock>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="contentBlock">
+    <h2>Circular</h2>
+    <p>An icon can be formatted to appear circular</p>
+    <div class="line">
+      <div class="icon-container">
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" circular></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="teal" circular></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="black" circular filled></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="teal" circular filled></SimpleUiIcon>
+        </div>
+        <div class="code-body">
+          <SimpleUiCodeBlock :code="circularExample"></SimpleUiCodeBlock>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="contentBlock">
+    <h2>Bordered</h2>
+    <p>An icon can be formatted to appear bordered</p>
+    <div class="line">
+      <div class="icon-container">
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" bordered></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="teal" bordered></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="black" bordered filled></SimpleUiIcon>
+        </div>
+        <div class="icon-size-body">
+          <SimpleUiIcon icon="home" color="teal" bordered filled></SimpleUiIcon>
+        </div>
+        <div class="code-body">
+          <SimpleUiCodeBlock :code="borderedExample"></SimpleUiCodeBlock>
+        </div>
       </div>
     </div>
   </div>
@@ -98,16 +185,23 @@ const sizeCodeHtml = `<div >
 .contentBlock {
   padding-bottom: 10px;
 }
-.icons{
+
+.code-body {
+  padding-top: 25px;
+  width: 100%;
+}
+
+.icons {
   display: flex;
 }
+
 p {
   font-size: 18px;
   padding-bottom: 25px;
 }
 
 .icon-size-body {
-  padding: 15px;
+  padding: 15px 15px 0 15px;
   text-align: center;
 }
 

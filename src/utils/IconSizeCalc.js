@@ -1,9 +1,9 @@
 export function getSize(size) {
   switch (size) {
     case 'mini':
-      return '5px';
+      return '10px';
     case 'tiny':
-      return '15px';
+      return '17px';
     case 'small':
       return '25px';
     case 'large':
@@ -13,7 +13,7 @@ export function getSize(size) {
     case 'huge':
       return '65px';
     case 'massive':
-      return '75px';
+      return '85px';
     default:
       return '30px';
   }
