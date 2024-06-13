@@ -21,13 +21,16 @@ const colors = {
   ML_COMMENT: '#0a0', // /* multiline comment */
   NUMBER_LITERAL: '#a00', // 123
   KEYWORD: '#9116d6', // function, var etc.
-  SPECIAL: '#055' // null, true etc.
+  SPECIAL: '#e69d31', // null, true etc.
+  VUE_SPECIAL: 'rgba(26,214,164,0.69)' // null, true etc.
 };
 
 const keywords = ('async|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|for|from|function|' +
   'get|if|implements|import|in|instanceof|interface|let|new|of|package|private|protected|public|return|set|static|super|' +
   'switch|throw|try|typeof|var|void|while|with|yield|catch|finally').split('|');
 const specials = 'this|null|SimpleUiIcon|true|false|div|undefined|NaN|Infinity'.split('|');
+
+const vueSpecials = 'SimpleUiIcon|NaN|Infinity'.split('|');
 
 function isAlphaNumericChar(char) {
   return char && /[0-9a-z_\$]/i.test(char);
@@ -144,6 +147,10 @@ export function highlight(code){
         state = states.SPECIAL;
         output += '<span style="color: ' + colors.SPECIAL + '">';
       }
+      if (vueSpecials.includes(word)) {
+        state = states.SPECIAL;
+        output += '<span style="color: ' + colors.VUE_SPECIAL + '">';
+      }
     }
     if ((state == states.KEYWORD || state == states.SPECIAL) && !isAlphaNumericChar(char)) {
       state = states.NONE;
@@ -151,7 +158,7 @@ export function highlight(code){
     }
 
     if (state == states.NONE && '+-/*=&|%!<>?:'.indexOf(char) != -1) {
-      output += '<span style="color: #00ff88">' + char + '</span>';
+      output += '<span style="color: #ff0055">' + char + '</span>';
       continue;
     }
 
