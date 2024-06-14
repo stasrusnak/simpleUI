@@ -80,8 +80,6 @@ const copyCode = (copyIcon) => {
         <div class="code-body">
           <SimpleUiCodeBlock :code="sizeCodeHtml"></SimpleUiCodeBlock>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -102,7 +100,6 @@ const copyCode = (copyIcon) => {
         <div class="code-body">
           <SimpleUiCodeBlock :code="loadingExample"></SimpleUiCodeBlock>
         </div>
-
       </div>
     </div>
   </div>

@@ -41,12 +41,12 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="line">
       <SimpleUiButton buttonText="Success" color="success" animation="swipe"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="shake"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="jump"></SimpleUiButton>
+      <SimpleUiButton buttonText="Primary" color="primary" animation="shake"></SimpleUiButton>
+      <SimpleUiButton buttonText="Secondary" color="secondary" animation="jump"></SimpleUiButton>
       <SimpleUiButton buttonText="Success" color="success" animation="scale"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="shadowPulse"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="slideIn"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="flicker"></SimpleUiButton>
+      <SimpleUiButton buttonText="Info" color="info" animation="shadowPulse"></SimpleUiButton>
+      <SimpleUiButton buttonText="Warning" color="warning" animation="slideIn"></SimpleUiButton>
+      <SimpleUiButton buttonText="Danger" color="danger" animation="flicker"></SimpleUiButton>
       <SimpleUiButton buttonText="Success" color="success" animation="distort"></SimpleUiButton>
 
 
