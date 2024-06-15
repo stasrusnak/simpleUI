@@ -39,17 +39,19 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
   <div class="contentBlock">
     <h2>Animations</h2>
     <p>A button can be formatted to show different levels of emphasis</p>
-    <div class="line">
-      <SimpleUiButton buttonText="Success" color="success" animation="swipe"></SimpleUiButton>
-      <SimpleUiButton buttonText="Primary" color="primary" animation="shake"></SimpleUiButton>
-      <SimpleUiButton buttonText="Secondary" color="secondary" animation="jump"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="scale"></SimpleUiButton>
-      <SimpleUiButton buttonText="Info" color="info" animation="shadowPulse"></SimpleUiButton>
-      <SimpleUiButton buttonText="Warning" color="warning" animation="slideIn"></SimpleUiButton>
-      <SimpleUiButton buttonText="Danger" color="danger" animation="flicker"></SimpleUiButton>
-      <SimpleUiButton buttonText="Success" color="success" animation="distort"></SimpleUiButton>
-
-
+    <div class="line content_animation">
+      <SimpleUiButton buttonText="Swipe" color="success" animation="swipe"></SimpleUiButton>
+      <SimpleUiButton buttonText="Swipe up" color="success" animation="swipe_up"></SimpleUiButton>
+      <SimpleUiButton buttonText="Swipe down" color="success" animation="swipe_down"></SimpleUiButton>
+      <SimpleUiButton buttonText="Shake" color="primary" animation="shake"></SimpleUiButton>
+      <SimpleUiButton buttonText="Jump" color="secondary" animation="jump"></SimpleUiButton>
+      <SimpleUiButton buttonText="Spacing" color="success" animation="spacing"></SimpleUiButton>
+      <SimpleUiButton buttonText="Shadow hover" color="secondary" animation="shadow_hover"></SimpleUiButton>
+      <SimpleUiButton buttonText="Scale" color="success" animation="scale"></SimpleUiButton>
+      <SimpleUiButton buttonText="Shadow pulse" color="info" animation="shadowPulse"></SimpleUiButton>
+      <SimpleUiButton buttonText="Slide in" color="warning" animation="slideIn"></SimpleUiButton>
+      <SimpleUiButton buttonText="Flicker" color="danger" animation="flicker"></SimpleUiButton>
+      <SimpleUiButton buttonText="Distort" color="info" animation="distort"></SimpleUiButton>
     </div>
   </div>
 
@@ -81,6 +83,9 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 </template>
 
 <style scoped lang="scss">
+.content_animation button{
+  margin: 10px;
+}
 .contentBlock {
 
   padding-bottom: 10px;

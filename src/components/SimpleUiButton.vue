@@ -23,18 +23,25 @@ defineProps({
 </script>
 
 <template>
+    <button
+        :class="[color ? `btn btn_${color}`:' btn',
+         {'btn_rounded':rounded},
+          animation && `btn_${animation}`,
+          animation==='spacing'?'spacing_body':'']"
+    >
+      <p v-if="buttonText">{{ buttonText }}</p>
+      <slot></slot>
+    </button>
 
 
-  <button
-      :class="[color ? `btn btn_${color}`:' btn', {'btn_rounded':rounded}, animation && `btn_${animation}`]">
-    <p v-if="buttonText">{{ buttonText }}</p>
-    <slot></slot>
-  </button>
 
 </template>
 
 <style scoped lang="scss">
-@import "../styles/buttonAnimations.scss";
+@import "../styles/buttonStyles";
+
+
+
 .btn {
   margin-right: 10px;
   margin-bottom: 10px;
@@ -61,7 +68,6 @@ defineProps({
     width: 100%;
     height: 100%;
   }
-
   &_basic {
     color: var(--primary);
     background: #6979F800;
@@ -72,7 +78,6 @@ defineProps({
       color: #ffffff;
     }
   }
-
   &_primary {
     color: #ffffff;
     background: var(--primary);
@@ -158,66 +163,9 @@ defineProps({
     border-radius: 50%;
   }
 
-  //--------------- animations ---------------
-  &_swipe {
-    position: relative;
-    transition: all .35s;
-    z-index: 3;
 
-    p:after {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 100%;
-      background: rgba(43, 40, 40, 0.95);
-      transition: all .35s;
-      border-radius: 7px;
-      z-index: -1;
-    }
-
-    p:hover {
-      color: #fff;
-    }
-
-    p:hover:after {
-      width: 100%;
-    }
-
-  }
-
-  &_shake:hover {
-    animation: shake 0.5s;
-    animation-iteration-count: infinite;
-  }
-
-  &_jump:hover {
-    transform: translateY(-4px);
-  }
-
-  &_scale:hover {
-    transform: scale(1.1);
-    transition: transform 0.2s ease-in-out;
-  }
-
-
-  &_shadowPulse:hover {
-    animation: shadowPulse 1.5s infinite;
-  }
-
-  &_slideIn:hover {
-    animation: slideIn 1s forwards;
-  }
-
-  &_flicker:hover {
-    animation: flicker 1s infinite;
-  }
-
-  &_distort:hover {
-    animation: distort 0.5s infinite;
-  }
 
 }
+
 
 </style>
