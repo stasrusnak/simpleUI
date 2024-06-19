@@ -3,7 +3,7 @@
 defineProps({
   buttonText: {
     type: String,
-    default: 'Button',
+    default: '',
     required: true,
   },
   color: {
@@ -17,6 +17,10 @@ defineProps({
   animation: {
     type: String,
     required: false,
+  },
+  left: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -29,7 +33,7 @@ defineProps({
           animation && `btn_${animation}`,
           animation==='spacing'?'spacing_body':'']"
     >
-      <p v-if="buttonText">{{ buttonText }}</p>
+      <p v-if="buttonText" :class="left && 'button-text-left'">{{ buttonText }}</p>
       <slot></slot>
     </button>
 
@@ -40,7 +44,9 @@ defineProps({
 <style scoped lang="scss">
 @import "../styles/buttonStyles";
 
-
+.button-text-left {
+  order: 2;
+}
 
 .btn {
   margin-right: 10px;
@@ -78,6 +84,22 @@ defineProps({
       color: #ffffff;
     }
   }
+
+  &_minimal {
+    color: #ffffff;
+    background: var(--minimal);
+    &:enabled:hover {
+      background: var(--primary-hover);
+    }
+  }
+  &_minimal_dark {
+    color: #ffffff;
+    background: var(--minimal-dark);
+    &:enabled:hover {
+      background: var(--minimal-dark-hover);
+    }
+  }
+
   &_primary {
     color: #ffffff;
     background: var(--primary);

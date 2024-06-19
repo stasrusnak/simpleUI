@@ -9,14 +9,22 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
   <div class="contentBlock">
     <h1>Types</h1>
     <h2>Button</h2>
-    <p>A button indicates a possible user action</p>
+    <div class="description">
+      <p>A button indicates a possible user action</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+
     <div class="line">
       <SimpleUiButton buttonText="New Button"></SimpleUiButton>
 
-      <SimpleUiButton buttonText="New Button">
-        <SimpleUiIcon icon="home" color="green" ></SimpleUiIcon>
+      <SimpleUiButton buttonText="New Button" left>
+        <SimpleUiIcon icon="home" color="teal"></SimpleUiIcon>
       </SimpleUiButton>
-
 
 
     </div>
@@ -25,7 +33,10 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
     <h2>Emphasis</h2>
     <p>A button can be formatted to show different levels of emphasis</p>
     <div class="line">
+
       <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal dark" color="minimal_dark"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal" color="minimal"></SimpleUiButton>
       <SimpleUiButton buttonText="Primary" color="primary"></SimpleUiButton>
       <SimpleUiButton buttonText="Secondary" color="secondary"></SimpleUiButton>
       <SimpleUiButton buttonText="Success" color="success"></SimpleUiButton>
@@ -34,11 +45,19 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
       <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
 
     </div>
+
   </div>
 
   <div class="contentBlock">
     <h2>Animations</h2>
-    <p>A button can be formatted to show different levels of emphasis</p>
+    <div class="description">
+      <p>A button can be formatted to show different levels of emphasis</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
     <div class="line content_animation">
       <SimpleUiButton buttonText="Swipe" color="success" animation="swipe"></SimpleUiButton>
       <SimpleUiButton buttonText="Swipe up" color="success" animation="swipe_up"></SimpleUiButton>
@@ -83,9 +102,22 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 </template>
 
 <style scoped lang="scss">
-.content_animation button{
-  margin: 10px;
+.description{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
+.code_button{
+  display: flex;
+  margin-bottom: 1px;
+}
+
+
+.content_animation button {
+  margin: 25px 10px 0 10px;
+}
+
 .contentBlock {
 
   padding-bottom: 10px;
