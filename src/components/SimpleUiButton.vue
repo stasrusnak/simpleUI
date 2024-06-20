@@ -36,9 +36,7 @@ defineProps({
       <p v-if="buttonText" :class="left && 'button-text-left'">{{ buttonText }}</p>
       <slot></slot>
     </button>
-
-
-
+  
 </template>
 
 <style scoped lang="scss">

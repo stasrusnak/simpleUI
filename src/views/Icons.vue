@@ -9,7 +9,7 @@ import {
   borderedExample,
   coloredExample,
   loadingExample
-} from '@/utils/listOfTempateExemple.js'
+} from '@/utils/listOfTemplateExample.js'
 
 
 let copyingIconCode = ref(false);
