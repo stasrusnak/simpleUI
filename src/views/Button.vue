@@ -2,6 +2,12 @@
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import {emphasisExample,animationExample} from "@/utils/listOfTemplateExample.js";
+import {ref} from "vue";
+
+const isEmphasisShow = ref(false)
+const isAnimationsShow = ref(false)
+
 
 </script>
 
@@ -31,9 +37,17 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
   </div>
   <div class="contentBlock">
     <h2>Emphasis</h2>
-    <p>A button can be formatted to show different levels of emphasis</p>
-    <div class="line">
+    <div class="description">
+      <p>A button can be formatted to show different levels of emphasis</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isEmphasisShow = !isEmphasisShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
+
+    <div class="line">
       <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
       <SimpleUiButton buttonText="Minimal dark" color="minimal_dark"></SimpleUiButton>
       <SimpleUiButton buttonText="Minimal" color="minimal"></SimpleUiButton>
@@ -45,7 +59,9 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
       <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
 
     </div>
-
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="emphasisExample" v-show="isEmphasisShow"></SimpleUiCodeBlock>
+    </transition>
   </div>
 
   <div class="contentBlock">
@@ -53,7 +69,7 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
     <div class="description">
       <p>A button can be formatted to show different levels of emphasis</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isAnimationsShow = !isAnimationsShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -72,6 +88,9 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
       <SimpleUiButton buttonText="Flicker" color="danger" animation="flicker"></SimpleUiButton>
       <SimpleUiButton buttonText="Distort" color="info" animation="distort"></SimpleUiButton>
     </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="animationExample" v-show="isAnimationsShow"></SimpleUiCodeBlock>
+    </transition>
   </div>
 
   <div class="contentBlock">
@@ -99,16 +118,35 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 
   <i class="icon-home icon-home__white"></i>
 
+
+
 </template>
 
+
+
+
+
+
+
 <style scoped lang="scss">
-.description{
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.description {
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 }
-.code_button{
+
+.code_button {
   display: flex;
   margin-bottom: 1px;
 }

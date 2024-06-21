@@ -29,6 +29,37 @@ const circularExample = `<template lang="html">
   </div>
 </template> `
 
+
+const emphasisExample = `<template lang="html">
+  <div>
+      <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal dark" color="minimal_dark"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal" color="minimal"></SimpleUiButton>
+      <SimpleUiButton buttonText="Primary" color="primary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Secondary" color="secondary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success"></SimpleUiButton>
+      <SimpleUiButton buttonText="Info" color="info"></SimpleUiButton>
+      <SimpleUiButton buttonText="Warning" color="warning"></SimpleUiButton>
+      <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
+    </div>
+  </div>
+</template> `
+
+const animationExample = `<template lang="html">
+  <div>
+      <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal dark" color="minimal_dark"></SimpleUiButton>
+      <SimpleUiButton buttonText="Minimal" color="minimal"></SimpleUiButton>
+      <SimpleUiButton buttonText="Primary" color="primary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Secondary" color="secondary"></SimpleUiButton>
+      <SimpleUiButton buttonText="Success" color="success"></SimpleUiButton>
+      <SimpleUiButton buttonText="Info" color="info"></SimpleUiButton>
+      <SimpleUiButton buttonText="Warning" color="warning"></SimpleUiButton>
+      <SimpleUiButton buttonText="Danger" color="danger"></SimpleUiButton>
+    </div>
+  </div>
+</template> `
+
 const borderedExample = `<template lang="html">
   <div>
       <SimpleUiIcon icon="home" bordered></SimpleUiIcon>
@@ -75,4 +106,12 @@ const loadingExample = `<template lang="html">
   </div>
 </template>`
 
-export {sizeCodeHtml,circularExample,borderedExample,coloredExample,loadingExample}
+export {
+  sizeCodeHtml,
+  circularExample,
+  borderedExample,
+  coloredExample,
+  loadingExample,
+  emphasisExample,
+  animationExample
+}

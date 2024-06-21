@@ -58,7 +58,7 @@ const copyCode = () => {
   border-radius: 5px;
   overflow-x: auto;
   font-size: 14px;
-  font-weight: 650;
+  font-weight: 590;
   //max-width: 700px;
   width: 100%;
   text-align: left;

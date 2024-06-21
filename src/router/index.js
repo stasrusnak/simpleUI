@@ -23,6 +23,11 @@ const router = createRouter({
       path: '/textarea',
       name: 'Textarea',
       component: () => import('@/views/TextArea.vue')
+    },
+    {
+      path: '/scrollSpy',
+      name: 'ScrollSpy',
+      component: () => import('@/views/ScrollSpy.vue')
     }
 
   ]
