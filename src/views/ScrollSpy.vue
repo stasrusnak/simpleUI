@@ -12,11 +12,11 @@
       <ul>
         <li v-for="section in sections" :key="section.id">
           <div class="nav_section">
-            <div class="rounded_rectangle" v-if="activeSection === section.id"></div>
+            <div class="rounded_rectangle" :style="activeSection === section.id ? 'opacity: 1' : ''"></div>
             <a :href="`#${section.id}`" :class="{ active: activeSection === section.id }">
               {{ section.name }}
             </a>
-          </div> 
+          </div>
         </li>
       </ul>
     </nav>
@@ -50,7 +50,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, {
   root: scrollContainer.value,
-  threshold: 0.5, // adjust threshold as needed
+  threshold: 1,  
 });
 
 onMounted(() => {
@@ -76,7 +76,7 @@ onUnmounted(() => {
 }
 
 .content_section {
-  height: 500px;
+  height: 400px;
 }
 
 .nav_body {
@@ -88,11 +88,7 @@ onUnmounted(() => {
 
 
 }
-
-.scroll_container {
-  /*height: 400px;
-  overflow-y: auto;*/
-}
+ 
 
 nav ul {
   list-style: none;
@@ -105,20 +101,30 @@ nav li a {
   display: block;
   text-wrap: nowrap;
   content: "";
+  opacity: 0.6;
 
 }
-.nav_section{
+
+.nav_section {
   display: flex;
+  text-align: center;
+  align-items: center;
 }
+
 .rounded_rectangle {
-  width: 3px;
+  opacity: 0;
+  width: 4px;
   height: 20px;
-  background-color: #4CAF50; 
+  background-color: #4CAF50;
+  /* background-color: var(--danger-hover); */
   border-radius: 2px;
 }
 
 nav li a.active {
   font-weight: bold;
-  color: red;
+  color:var(--danger);
+  opacity: 1; 
+  transition:  transform 0.25s;
+  transform:   scale(1.1); 
 }
 </style>
