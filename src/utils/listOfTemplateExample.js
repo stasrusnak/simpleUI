@@ -45,6 +45,15 @@ const emphasisExample = `<template lang="html">
   </div>
 </template> `
 
+const isExampleButton = `<template lang="html">
+  <div>
+      <SimpleUiButton buttonText="New Button"></SimpleUiButton> 
+      <SimpleUiButton buttonText="New Button" left>
+        <SimpleUiIcon icon="home" color="teal"></SimpleUiIcon>
+      </SimpleUiButton>  
+  </div>
+</template> `
+
 const animationExample = `<template lang="html">
   <div>
       <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
@@ -113,5 +122,6 @@ export {
   coloredExample,
   loadingExample,
   emphasisExample,
-  animationExample
+  animationExample,
+  isExampleButton
 }

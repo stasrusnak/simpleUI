@@ -2,11 +2,12 @@
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import {emphasisExample,animationExample} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample,animationExample,isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 
-const isEmphasisShow = ref(false)
+const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
+const isButtonShow= ref(false)
 
 
 </script>
@@ -18,7 +19,7 @@ const isAnimationsShow = ref(false)
     <div class="description">
       <p>A button indicates a possible user action</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -34,6 +35,9 @@ const isAnimationsShow = ref(false)
 
 
     </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
   </div>
   <div class="contentBlock">
     <h2>Emphasis</h2>
