@@ -20,6 +20,11 @@ const router = createRouter({
       component: () => import('@/views/Icons.vue')
     },
     {
+      path: '/checkbox',
+      name: 'Checkbox',
+      component: () => import('@/views/Checkbox.vue')
+    },
+    {
       path: '/textarea',
       name: 'Textarea',
       component: () => import('@/views/TextArea.vue')
