@@ -1,49 +1,51 @@
 <script setup>
-const emits = defineEmits(['update:checked', 'handleCheckGroup'])
+import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
+
+const emits = defineEmits(['update:value'])
+
 const props = defineProps({
-  id: {
-    type: String,
-    name: ''
-  },
   value: {
-    type: String,
-    name: ''
+    type: Array,
+    default: [],
+    required: true
   },
-  label: {
-    type: String,
-    name: ''
-  },
-  checked: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  group: {
-    type: Boolean,
-    default: false
+  options: {
+    type: Array,
+    required: true,
+    validator: (value) => {
+      const hasNameKey = value.every(opt => opt.hasOwnProperty('name'))
+      const hasIdKey = value.every(opt => opt.hasOwnProperty('id'))
+      return hasNameKey && hasIdKey
+    },
+    default: []
   }
 })
-const handleClock = (e) => {
-  if (props.group) emits('handleCheckGroup',{id:e.target.id, check:e.target.checked})
-  else emits('update:checked', e.target.checked)
+
+const handleCheckGroup = (e) =>{
+let updateVal = [...props.value]
+  if(e.check){
+    updateVal.push(e.id)
+  }else{
+    updateVal=updateVal.filter(id => id !== e.id);
+  }
+  emits('update:value',updateVal)
 }
+
 </script>
 
 
 <template>
 
-  <input
-      class="checkbox"
-      type="checkbox"
-      :id="id"
-      :value="value"
-      :checked="checked"
-      :disabled="disabled"
-      @input="handleClock($event)"/>
-  <label :for="id">{{ label }}</label>
+  <div v-for="opt in options" :key="opt.id">
+    <SimpleUiCheckbox
+        group
+        :checked="value.includes(opt.id)"
+        :label="opt.name"
+        :id="opt.id"
+        :value="opt.name"
+        @handleCheckGroup="handleCheckGroup"
+    />
+  </div>
 
 </template>
 

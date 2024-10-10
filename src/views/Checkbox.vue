@@ -3,16 +3,27 @@ import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import {emphasisExample,animationExample,isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
+import SimpleUiCheckboxGroup from "@/components/SimpleUiCheckboxGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
-const isButtonShow= ref(false)
+const isButtonShow = ref(false)
 
-const checkBoxActive =ref(true)
-const checkBoxDisabled =ref(true)
-const checkBoxDisabledCheck =ref(true)
+const checkBoxActive = ref(true)
+const checkBoxDisabled = ref(true)
+const checkBoxDisabledCheck = ref(true)
+
+const unitList = ref([
+  {name: 'Peewee', id: 'h001'},
+  {name: 'Goblin', id: 'h0g1'},
+  {name: 'Spider', id: 'h045'},
+  {name: 'Archer', id: 'h02p'},
+])
+
+const unitSelected = ref(['h001','h02p'])
+
 </script>
 
 <template>
@@ -30,21 +41,29 @@ const checkBoxDisabledCheck =ref(true)
     </div>
 
 
-    <div class="line">
+    <div class="line checkbox">
 
       <SimpleUiCheckbox
           label="Checkbox Active"
           id="checkBoxActive"
-          v-model:checked="checkBoxActive" >
+          v-model:checked="checkBoxActive">
       </SimpleUiCheckbox>
 
       <SimpleUiCheckbox
           label="Checkbox Disabled"
           id="checkBoxDisabled"
           :disabled="checkBoxDisabled"
-          v-model:checked="checkBoxDisabledCheck" >
+          v-model:checked="checkBoxDisabledCheck">
       </SimpleUiCheckbox>
 
+      <SimpleUiCheckboxGroup
+          v-model:value="unitSelected"
+          :options="unitList">
+      </SimpleUiCheckboxGroup>
+
+      <div>
+        <p>Selected Units:{{unitSelected}}</p>
+      </div>
 
     </div>
     <transition name="fade">
@@ -135,16 +154,13 @@ const checkBoxDisabledCheck =ref(true)
   <i class="icon-home icon-home__white"></i>
 
 
-
 </template>
 
 
-
-
-
-
-
 <style scoped lang="scss">
+.checkbox{
+  flex-direction: column;
+}
 
 .fade-enter-active,
 .fade-leave-active {
@@ -155,6 +171,7 @@ const checkBoxDisabledCheck =ref(true)
 .fade-leave-to {
   opacity: 0;
 }
+
 .description {
   display: flex;
   justify-content: space-between;
