@@ -10,7 +10,9 @@ const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
 const isButtonShow= ref(false)
 
-
+const checkBoxActive =ref(true)
+const checkBoxDisabled =ref(true)
+const checkBoxDisabledCheck =ref(true)
 </script>
 
 <template>
@@ -30,8 +32,18 @@ const isButtonShow= ref(false)
 
     <div class="line">
 
+      <SimpleUiCheckbox
+          label="Checkbox Active"
+          id="checkBoxActive"
+          v-model:checked="checkBoxActive" >
+      </SimpleUiCheckbox>
 
-      <SimpleUiCheckbox label="Test Checkbox" checked></SimpleUiCheckbox>
+      <SimpleUiCheckbox
+          label="Checkbox Disabled"
+          id="checkBoxDisabled"
+          :disabled="checkBoxDisabled"
+          v-model:checked="checkBoxDisabledCheck" >
+      </SimpleUiCheckbox>
 
 
     </div>
