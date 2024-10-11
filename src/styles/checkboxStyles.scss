@@ -1,0 +1,277 @@
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  & + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+  }
+
+  & + label::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 6px;
+    margin-right: 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+
+  &:checked + label::before {
+    border-color: var(--primary);
+    background-color: var(--primary);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  }
+
+  &:not(:disabled):not(:checked) + label:hover::before {
+    border-color: var(--primary-hover);
+  }
+
+  &:not(:disabled):active + label::before {
+    background-color: var(--primary);
+    border: 1px solid #ECEBED;
+  }
+
+  &:focus + label::before {
+    box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.07);
+  }
+
+  &:focus:not(:checked) + label::before {
+    border-color: var(--primary);
+  }
+
+
+  &_secondary{
+    &:checked + label::before {
+      background-color: var(--second);
+      border: 1px solid var(--second);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--second-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--second-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color:  var(--second);
+    }
+    & + label::before {
+      border-color: var(--second);
+    }
+  }
+
+  /* Basic */
+   &_basic {
+    &:checked + label::before {
+      background-color: #6979F800;
+      border: 1px solid var(--primary);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--primary-hover);
+      color: #ffffff;
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--primary-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--primary);
+    }
+     & + label::before {
+       border-color: var(--primary);
+     }
+  }
+
+  /* Minimal */
+  &_minimal {
+    &:checked + label::before {
+      background-color: var(--minimal);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--primary-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--primary-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--primary-hover);
+    }
+    & + label::before {
+      border-color: var(--primary-hover);
+    }
+  }
+
+  /* Minimal Dark */
+  &_minimal_dark {
+    &:checked + label::before {
+      background-color: var(--minimal-dark);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--minimal-dark-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--minimal-dark-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--minimal-dark-hover);
+    }
+    & + label::before {
+      border-color: var(--minimal-dark-hover);
+    }
+  }
+
+  /* Primary */
+  &_primary {
+    &:checked + label::before {
+      background-color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--primary-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--primary-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--primary);
+    }
+    & + label::before {
+      border-color: var(--primary);
+    }
+  }
+
+
+  /* Success */
+  &_success {
+    &:checked + label::before {
+      background-color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--success-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--success-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--success);
+    }
+    & + label::before {
+      border-color: var(--success);
+    }
+  }
+
+  /* Info */
+  &_info {
+    &:checked + label::before {
+      background-color: var(--info);
+      border: 1px solid var(--info);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--info-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--info-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--info);
+    }
+    & + label::before {
+      border-color: var(--info);
+    }
+  }
+
+  /* Warning */
+  &_warning {
+    &:checked + label::before {
+      background-color: var(--warning);
+      border: 1px solid var(--warning);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--warning-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--warning-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--warning);
+    }
+    & + label::before {
+      border-color: var(--warning);
+    }
+  }
+
+  /* Danger */
+  &_danger {
+    &:checked + label::before {
+      background-color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    &:not(:disabled):not(:checked) + label:hover::before {
+      border-color: var(--danger-hover);
+    }
+
+    &:not(:disabled):active + label::before {
+      background-color: var(--danger-hover);
+      border: 1px solid #ECEBED;
+    }
+
+    &:focus:not(:checked) + label::before {
+      border-color: var(--danger);
+    }
+    & + label::before {
+      border-color: var(--danger-hover);
+    }
+  }
+
+
+  &:disabled + label::before {
+    background-color: #80848f;
+    border: 1px solid #80848f;
+  }
+
+}
+
+
+
+
+
