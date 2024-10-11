@@ -54,7 +54,6 @@ let updateVal = [...props.value]
   position: absolute;
   z-index: -1;
   opacity: 0;
-
   & + label {
     display: inline-flex;
     align-items: center;

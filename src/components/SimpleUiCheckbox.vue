@@ -34,7 +34,7 @@ const handleClock = (e) => {
 
 
 <template>
-
+<div class="checkbox-container">
   <input
       class="checkbox"
       type="checkbox"
@@ -44,15 +44,19 @@ const handleClock = (e) => {
       :disabled="disabled"
       @input="handleClock($event)"/>
   <label :for="id">{{ label }}</label>
+</div>
+
 
 </template>
 
 <style lang="scss" scoped>
+.checkbox-container{
+  padding-bottom: 3px;
+}
 .checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;
-
   & + label {
     display: inline-flex;
     align-items: center;

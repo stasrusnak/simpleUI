@@ -22,7 +22,7 @@ const unitList = ref([
   {name: 'Archer', id: 'h02p'},
 ])
 
-const unitSelected = ref(['h001','h02p'])
+const unitSelected = ref(['h001', 'h02p'])
 
 </script>
 
@@ -36,19 +36,32 @@ const unitSelected = ref(['h001','h02p'])
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
-
       </div>
     </div>
 
-
     <div class="line checkbox">
-
       <SimpleUiCheckbox
           label="Checkbox Active"
           id="checkBoxActive"
           v-model:checked="checkBoxActive">
       </SimpleUiCheckbox>
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+  <div class="contentBlock">
+    <h2>Checkbox Disabled</h2>
+    <div class="description">
+      <p>A checkbox can be disabled.</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
+    <div class="line checkbox">
       <SimpleUiCheckbox
           label="Checkbox Disabled"
           id="checkBoxDisabled"
@@ -56,20 +69,39 @@ const unitSelected = ref(['h001','h02p'])
           v-model:checked="checkBoxDisabledCheck">
       </SimpleUiCheckbox>
 
-      <SimpleUiCheckboxGroup
-          v-model:value="unitSelected"
-          :options="unitList">
-      </SimpleUiCheckboxGroup>
-
-      <div>
-        <p>Selected Units:{{unitSelected}}</p>
-      </div>
-
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+  <div class="contentBlock">
+    <h2>Checkbox Group</h2>
+    <div class="description">
+      <p>Checkboxes can be grouped</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line checkbox">
+      <SimpleUiCheckboxGroup
+          class="checkboxGroup"
+          v-model:value="unitSelected"
+          :options="unitList">
+      </SimpleUiCheckboxGroup>
+    </div>
+    <div v-if="unitSelected.length">
+      <p>Selected Units id: {{ unitSelected }}</p>
+    </div>
+
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+
+
   <div class="contentBlock">
     <h2>Emphasis</h2>
     <div class="description">
@@ -158,9 +190,10 @@ const unitSelected = ref(['h001','h02p'])
 
 
 <style scoped lang="scss">
-.checkbox{
+.checkbox {
   flex-direction: column;
 }
+
 
 .fade-enter-active,
 .fade-leave-active {
@@ -190,8 +223,7 @@ const unitSelected = ref(['h001','h02p'])
 }
 
 .contentBlock {
-
-  padding-bottom: 10px;
+  padding-bottom: 1px;
 }
 
 p {
