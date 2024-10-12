@@ -21,6 +21,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  animation: {
+    type: String,
+    default: '',
+  },
   disabled: {
     type: Boolean,
     default: false
@@ -40,7 +44,8 @@ const handleClock = (e) => {
 <template>
   <div class="checkbox-container">
     <input
-        :class="[color ? `checkbox checkbox_${color}`:'checkbox']"
+        :class="[color ? `checkbox checkbox_${color}`:'checkbox',
+        animation ? `checkbox_${animation}`:'']"
         type="checkbox"
         :id="id"
         :value="value"

@@ -41,7 +41,6 @@ const unitSelected = ref(['h001', 'h02p'])
 
     <div class="line checkbox">
       <SimpleUiCheckbox
-          color="success"
           label="Checkbox Active"
           id="checkBoxActive"
           v-model:checked="checkBoxActive">
@@ -51,6 +50,168 @@ const unitSelected = ref(['h001', 'h02p'])
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+
+
+  <div class="contentBlock">
+    <h2>Colors</h2>
+    <div class="description">
+      <p>Checkboxes can be colored by using any of the builtin colors</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line checkbox color_group">
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="success"
+            label="success"
+            id="success"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="basic"
+            label="basic"
+            id="basic"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="secondary"
+            label="secondary"
+            id="secondary"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="minimal"
+            label="minimal"
+            id="minimal"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="danger"
+            label="danger"
+            id="danger"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="primary"
+            label="primary"
+            id="primary"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="info"
+            label="info"
+            id="info"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="warning"
+            label="warning"
+            id="warning"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+
+  <div class="contentBlock">
+    <h2>Animations</h2>
+    <div class="description">
+      <p>Allows you to add new effects for the checkbox.</p>
+      <div class="code_button">
+        <SimpleUiButton
+            buttonText="View code"
+            color="minimal_dark"
+            @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line checkbox color_group">
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="success"
+            animation="tick"
+            label="tick"
+            id="tick"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="basic"
+            label="shake"
+            animation="shake"
+            id="shake"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="secondary"
+            animation="jump"
+            label="jump"
+            id="jump"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="minimal"
+            animation="shadowPulse"
+            label="shadowPulse"
+            id="shadowPulse"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="danger"
+            animation="scale"
+            label="scale"
+            id="scale">
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="primary"
+            animation="slideIn"
+            label="slideIn"
+            id="slideIn"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiCheckbox
+            color="info"
+            label="flicker"
+            animation="flicker"
+            id="flicker"
+            checked>
+        </SimpleUiCheckbox>
+        <SimpleUiCheckbox
+            color="warning"
+            label="distort"
+            animation="distort"
+            id="distort"
+            checked>
+        </SimpleUiCheckbox>
+      </div>
+
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+
   <div class="contentBlock">
     <h2>Checkbox Disabled</h2>
     <div class="description">
@@ -61,7 +222,6 @@ const unitSelected = ref(['h001', 'h02p'])
         </SimpleUiButton>
       </div>
     </div>
-
     <div class="line checkbox">
       <SimpleUiCheckbox
           label="Checkbox Disabled"
@@ -74,6 +234,8 @@ const unitSelected = ref(['h001', 'h02p'])
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
+
+
   </div>
   <div class="contentBlock">
     <h2>Checkbox Group</h2>
@@ -103,7 +265,6 @@ const unitSelected = ref(['h001', 'h02p'])
   </div>
 
 
-
 </template>
 
 
@@ -111,6 +272,17 @@ const unitSelected = ref(['h001', 'h02p'])
 
 .checkbox {
   flex-direction: column;
+}
+
+.color_group {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 650px;
+
+  &__item {
+    min-width: 120px;
+  }
 }
 
 .fade-enter-active,
