@@ -35,16 +35,17 @@ let updateVal = [...props.value]
 
 
 <template>
-
-  <div v-for="opt in options" :key="opt.id">
-    <SimpleUiCheckbox
-        group
-        :checked="value.includes(opt.id)"
-        :label="opt.name"
-        :id="opt.id"
-        :value="opt.name"
-        @handleCheckGroup="handleCheckGroup"
-    />
+  <div>
+    <div v-for="opt in options" :key="opt.id">
+      <SimpleUiCheckbox
+          group
+          :checked="value.includes(opt.id)"
+          :label="opt.name"
+          :id="opt.id"
+          :value="opt.name"
+          @handleCheckGroup="handleCheckGroup"
+      />
+    </div>
   </div>
 
 </template>

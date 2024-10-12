@@ -1,0 +1,192 @@
+.switch{
+
+
+  //--------------- colors ---------------
+  &_secondary {
+    input:checked + .slider {
+      background-color: var(--second);
+      border: 1px solid var(--second);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--second-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--second);
+    }
+  }
+
+  &_basic {
+    input:checked + .slider {
+      background-color: #6979F800;
+      border: 1px solid #6979F800;
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: #6979F800;
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: #6979F800;
+    }
+  }
+
+  &_minimal {
+    input:checked + .slider {
+      background-color: var(--minimal);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--primary-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--primary-hover);
+    }
+  }
+
+  &_minimal_dark {
+    input:checked + .slider {
+      background-color: var(--minimal-dark);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--minimal-dark-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--minimal-dark-hover);
+    }
+  }
+
+  &_primary {
+    input:checked + .slider {
+      background-color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--primary-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--primary);
+    }
+  }
+
+  &_success {
+    input:checked + .slider {
+      background-color: var(--success);
+      border: 1px solid var(--success);
+    }
+    //input:not(:disabled):not(:checked) + .slider:hover {
+    //  border-color: var(--success-hover);
+    //}
+    //input:focus:not(:checked) + .slider {
+    //  border-color: var(--success);
+    //}
+  }
+
+  &_info {
+    input:checked + .slider {
+      background-color: var(--info);
+      border: 1px solid var(--info);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--info-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--info);
+    }
+  }
+
+  &_warning {
+    input:checked + .slider {
+      background-color: var(--warning);
+      border: 1px solid var(--warning);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--warning-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--warning);
+    }
+  }
+
+  &_danger {
+    input:checked + .slider {
+      background-color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+    input:not(:disabled):not(:checked) + .slider:hover {
+      border-color: var(--danger-hover);
+    }
+    input:focus:not(:checked) + .slider {
+      border-color: var(--danger);
+    }
+  }
+
+  //--------------- animation ---------------
+  &_tick:checked + label::before {
+    animation: tick .2s ease-in-out;
+  }
+
+  &_swipe:checked  {
+    position: relative;
+    transition: all .35s;
+    z-index: 3;
+
+    label::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: rgba(43, 40, 40, 0.95);
+      transition: all .35s;
+      border-radius: 7px;
+      z-index: -1;
+    }
+
+    label:hover {
+      color: #fff;
+    }
+
+    label:hover::after {
+      width: 100%;
+    }
+  }
+  &_shake:checked + label::before  {
+    animation: shake 0.5s infinite;
+  }
+  &_jump:checked + label::before {
+    transform: translateY(-4px);
+    transition: transform 0.2s ease-in-out;
+
+  }
+  &_shadowPulse:checked + label::before {
+    animation: shadowPulse 1.5s infinite;
+  }
+  &_scale:checked + label::before {
+    transform: scale(1.3);
+    transition: transform 0.2s ease-in-out;
+
+  }
+  &_slideIn:checked + label::before{
+    animation: slideIn 1s forwards;
+  }
+  &_flicker:checked + label::before {
+    animation: flicker 1s infinite;
+  }
+  &_distort:checked + label::before {
+    animation: distort 0.5s infinite;
+  }
+
+}
+
+/* Анимация тряски */
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+
+
+
+
