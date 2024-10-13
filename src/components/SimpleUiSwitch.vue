@@ -1,4 +1,6 @@
 <script setup>
+import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+
 const emits = defineEmits(['update:checked', 'handleCheckGroup'])
 const props = defineProps({
   id: {
@@ -42,19 +44,6 @@ const handleClock = (e) => {
 
 
 <template>
-  <!--  <div class="switch-container">-->
-  <!--        <input-->
-  <!--            :class="[color ? `switch switch_${color}`:'switch',-->
-  <!--            animation ? `switch_${animation}`:'']"-->
-  <!--            type="checkbox"-->
-  <!--            :id="id"-->
-  <!--            :value="value"-->
-  <!--            :checked="checked"-->
-  <!--            :disabled="disabled"-->
-  <!--            @input="handleClock($event)"/>-->
-  <!--        <label :for="id">{{ label }}</label>-->
-
-  <!--  </div>-->
 
   <div class="switch-container">
 
@@ -70,9 +59,11 @@ const handleClock = (e) => {
           @input="handleClock($event)">
 
       <span class="slider">
-      <span class="icon-left"></span>
-      <span class="icon-right"></span>
-    </span>
+        <span class="icon-left"><slot name="left-icon"></slot></span>
+        <span class="icon-right"><slot name="right-icon"></slot></span>
+      </span>
+
+
     </label>
     <label :for="id" class="switch-label">{{ label }}</label>
   </div>
@@ -86,6 +77,7 @@ const handleClock = (e) => {
   display: inline-flex;
   align-items: center;
   user-select: none;
+  min-width: 150px;
 }
 
 .switch {
@@ -120,15 +112,14 @@ const handleClock = (e) => {
   top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
-  transition: 0.4s;
 }
 
 .slider .icon-left {
-  left: 10px;
+  left: 8px;
 }
 
 .slider .icon-right {
-  right: 10px;
+  right: 8px;
   opacity: 0; /* Изначально скрыта правая иконка */
 }
 

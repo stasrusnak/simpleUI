@@ -34,7 +34,7 @@ const unitSelected = ref(['h001', 'h02p'])
       <p>A standard Switch</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
-          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+          <SimpleUiIcon icon="code" size="tiny" ></SimpleUiIcon>
         </SimpleUiButton>
       </div>
     </div>
@@ -45,6 +45,37 @@ const unitSelected = ref(['h001', 'h02p'])
           id="checkBoxActive"
           v-model:checked="checkBoxActive">
       </SimpleUiSwitch>
+
+      <SimpleUiSwitch
+          label="Switch Active"
+          id="checkBoxActive"
+          v-model:checked="checkBoxActive">
+
+        <template #left-icon>
+          <SimpleUiIcon icon="code" size="tiny" color="red"></SimpleUiIcon>
+        </template>
+        <template #right-icon>
+          <SimpleUiIcon icon="sync" loading size="tiny" color="black"></SimpleUiIcon>
+        </template>
+
+      </SimpleUiSwitch>
+
+
+      <SimpleUiSwitch
+          label="Switch Active"
+          id="checkBoxActive"
+          color="minimal_dark"
+          v-model:checked="checkBoxActive">
+
+        <template #left-icon>
+          <span>☀️</span>
+        </template>
+        <template #right-icon>
+         <span>️🌙</span>
+        </template>
+
+      </SimpleUiSwitch>
+
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -120,8 +151,23 @@ const unitSelected = ref(['h001', 'h02p'])
             checked>
         </SimpleUiSwitch>
       </div>
-
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="minimal_dark"
+            label="minimal dark"
+            id="minimal_dark"
+            checked>
+        </SimpleUiSwitch>
+        <SimpleUiSwitch
+            color="secondary_lite"
+            label="secondary lite"
+            id="secondary_lite"
+            checked>
+        </SimpleUiSwitch>
+      </div>
     </div>
+
+
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
@@ -276,12 +322,14 @@ const unitSelected = ref(['h001', 'h02p'])
 
 .color_group {
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
   flex-wrap: wrap;
-  max-width: 650px;
+  max-width: 850px;
 
   &__item {
-    min-width: 120px;
+    display: flex;
+    min-width: 170px;
+    flex-direction: column;
   }
 }
 

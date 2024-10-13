@@ -1,5 +1,5 @@
 <script setup>
-import {highlight} from "../utils/codeFormater.js"
+import {highlight} from "../utils/codeFormatter.js"
 
 const sizeCodeHtml = `
 <div>

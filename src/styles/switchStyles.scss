@@ -5,26 +5,18 @@
   &_secondary {
     input:checked + .slider {
       background-color: var(--second);
-      border: 1px solid var(--second);
     }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--second-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--second);
+  }
+
+  &_secondary_lite {
+    input:checked + .slider {
+      background-color: var(--second-hover);
     }
   }
 
   &_basic {
     input:checked + .slider {
       background-color: #6979F800;
-      border: 1px solid #6979F800;
-    }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: #6979F800;
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: #6979F800;
     }
   }
 
@@ -32,89 +24,45 @@
     input:checked + .slider {
       background-color: var(--minimal);
     }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--primary-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--primary-hover);
-    }
   }
 
   &_minimal_dark {
     input:checked + .slider {
-      background-color: var(--minimal-dark);
+      background-color:var(--minimal-dark-hover);
     }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--minimal-dark-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--minimal-dark-hover);
-    }
+
   }
 
   &_primary {
     input:checked + .slider {
       background-color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--primary-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--primary);
     }
   }
 
   &_success {
     input:checked + .slider {
       background-color: var(--success);
-      border: 1px solid var(--success);
     }
-    //input:not(:disabled):not(:checked) + .slider:hover {
-    //  border-color: var(--success-hover);
-    //}
-    //input:focus:not(:checked) + .slider {
-    //  border-color: var(--success);
-    //}
   }
 
   &_info {
     input:checked + .slider {
       background-color: var(--info);
-      border: 1px solid var(--info);
     }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--info-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--info);
-    }
+
   }
 
   &_warning {
     input:checked + .slider {
       background-color: var(--warning);
-      border: 1px solid var(--warning);
-    }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--warning-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--warning);
     }
   }
 
   &_danger {
     input:checked + .slider {
       background-color: var(--danger);
-      border: 1px solid var(--danger);
     }
-    input:not(:disabled):not(:checked) + .slider:hover {
-      border-color: var(--danger-hover);
-    }
-    input:focus:not(:checked) + .slider {
-      border-color: var(--danger);
-    }
+
   }
 
   //--------------- animation ---------------
