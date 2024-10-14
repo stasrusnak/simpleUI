@@ -154,3 +154,14 @@ a {
   }
 }
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(26px);
+  }
+  40% {
+    transform: translateX(24px);
+  }
+  60% {
+    transform: translateX(28px);
+  }
+}

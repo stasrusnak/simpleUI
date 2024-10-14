@@ -1,5 +1,6 @@
 <script setup>
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import { onMounted, ref } from 'vue';
 
 const emits = defineEmits(['update:checked', 'handleCheckGroup'])
 const props = defineProps({
@@ -39,13 +40,19 @@ const props = defineProps({
 const handleClock = (e) => {
   if (props.group) emits('handleCheckGroup', {id: e.target.id, check: e.target.checked})
   else emits('update:checked', e.target.checked)
+
+  noAnimationClass.value = false;
 }
+// Используем ref для хранения класса
+const noAnimationClass = ref(false);
+
+
 </script>
 
 
 <template>
 
-  <div class="switch-container">
+  <div class="switch-container" :class="noAnimationClass ? 'no-animation' : ''" >
 
     <label
         :class="[color ? `switch switch_${color}`:'switch',
@@ -72,6 +79,10 @@ const handleClock = (e) => {
 
 <style lang="scss" scoped>
 @import "../styles/switchStyles";
+
+
+
+
 .switch-container {
   padding-bottom: 3px;
   display: inline-flex;
@@ -104,6 +115,7 @@ const handleClock = (e) => {
   border-radius: 34px;
   cursor: pointer;
   transition: all 0.4s ease;
+  animation: none;
 }
 
 .slider .icon-left,
@@ -122,6 +134,17 @@ const handleClock = (e) => {
   right: 8px;
   opacity: 0; /* Изначально скрыта правая иконка */
 }
+
+//.slider, .slider:before {
+//  transition: background-color 0.4s ease, transform 0.4s ease;
+//}
+//
+//.slider .icon-left,
+//.slider .icon-right {
+//  transition: opacity 0.4s ease;
+//}
+
+
 
 input:checked + .slider {
   background-color: var(--primary); /* цвет активного состояния */
@@ -150,13 +173,31 @@ input:checked + .slider .icon-right {
   box-shadow: rgba(0, 0, 0, 0.54) 0px 5px 15px;
 }
 
+
+
+
 input:checked + .slider:before {
   transform: translateX(26px);
 }
+
+
+
+.switch{
+  &_bounce input:checked +.slider:before {
+    //animation: bounce 0.4s;
+  }
+}
+
+
+
 
 .switch input:disabled + .slider  {
   background-color: #80848f;
   border: 1px solid #80848f;
 }
+
+
+
+
 
 </style>

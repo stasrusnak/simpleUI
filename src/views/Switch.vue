@@ -191,9 +191,9 @@ const unitSelected = ref(['h001', 'h02p'])
       <div class="color_group__item">
         <SimpleUiSwitch
             color="success"
-            animation="tick"
-            label="tick"
-            id="tick"
+            animation="bounce"
+            label="bounce"
+            id="bounce"
             checked>
         </SimpleUiSwitch>
         <SimpleUiSwitch
@@ -330,6 +330,9 @@ const unitSelected = ref(['h001', 'h02p'])
     display: flex;
     min-width: 170px;
     flex-direction: column;
+    .switch-container{
+      padding-bottom: 10px;
+    }
   }
 }
 
