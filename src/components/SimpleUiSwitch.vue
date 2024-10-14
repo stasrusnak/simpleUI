@@ -43,7 +43,7 @@ const handleClock = (e) => {
 
   noAnimationClass.value = false;
 }
-// Используем ref для хранения класса
+
 const noAnimationClass = ref(false);
 
 
@@ -81,8 +81,6 @@ const noAnimationClass = ref(false);
 @import "../styles/switchStyles";
 
 
-
-
 .switch-container {
   padding-bottom: 3px;
   display: inline-flex;
@@ -115,7 +113,6 @@ const noAnimationClass = ref(false);
   border-radius: 34px;
   cursor: pointer;
   transition: all 0.4s ease;
-  animation: none;
 }
 
 .slider .icon-left,
@@ -132,30 +129,21 @@ const noAnimationClass = ref(false);
 
 .slider .icon-right {
   right: 8px;
-  opacity: 0; /* Изначально скрыта правая иконка */
+  opacity: 0;
 }
-
-//.slider, .slider:before {
-//  transition: background-color 0.4s ease, transform 0.4s ease;
-//}
-//
-//.slider .icon-left,
-//.slider .icon-right {
-//  transition: opacity 0.4s ease;
-//}
 
 
 
 input:checked + .slider {
-  background-color: var(--primary); /* цвет активного состояния */
+  background-color: var(--primary);
 }
 
 input:checked + .slider .icon-left {
-  opacity: 0; /* Скрываем левую иконку при активном состоянии */
+  opacity: 0;
 }
 
 input:checked + .slider .icon-right {
-  opacity: 1; /* Показываем правую иконку */
+  opacity: 1;
 }
 
 
@@ -180,13 +168,95 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-
-
 .switch{
   &_bounce input:checked +.slider:before {
-    //animation: bounce 0.4s;
+    animation: bounce 0.4s;
+  }
+  &_slow input:checked + .slider:before {
+    transition: transform 0.9s ease-in-out;
+    transform: translateX(26px);
+  }
+  &_slow input:not(:checked) + .slider:before {
+    transition: transform 0.9s ease-in-out;
+    transform: translateX(0px);
+  }
+
+  &_fade input:checked + .slider:before, {
+    animation: fades 0.4s;
+  }
+  &_shrink input:checked + .slider:before {
+    animation: shrinkGrow 0.4s;
+  }
+  &_waves input:checked + .slider:before {
+    animation: waves 0.5s;
+  }
+  &_bounce_pulse input:checked + .slider:before {
+    animation: bounce_pulse 0.5s;
+  }
+  &_splash input:checked + .slider:before {
+    animation: splash 0.5s forwards;
+  }
+  &_splash input:not(:checked) + .slider:before {
+    animation: splash-reverse 0.5s  ;
+  }
+  &_fly input:checked + .slider:before {
+    animation: fly 0.5s forwards;
+  }
+  &_fly input:not(:checked) + .slider:before {
+    animation: fly-back 0.5s forwards;
+  }
+
+}
+@keyframes fly {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(26px);
   }
 }
+@keyframes fly-back {
+  0% {
+    transform: translateX(26px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes splash {
+  0% { transform: scale(0); opacity: 1; }
+  80% { transform: scale(1); opacity: 0; }
+  99% { transform: translateX(26px); opacity: 1; }
+  100% {  opacity: 1; }
+}
+@keyframes splash-reverse {
+  0% {transform: translateX(0px);opacity: 1;}
+  20% {transform: scale(1); opacity: 1;}
+  80% {transform: scale(0); opacity: 0;}
+  100% {transform: scale(0);opacity: 1;}
+}
+
+@keyframes waves {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(4px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes bounce_pulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); scale: 1.1; }
+}
+
+
 
 
 
@@ -196,8 +266,14 @@ input:checked + .slider:before {
   border: 1px solid #80848f;
 }
 
-
-
-
-
+@keyframes shrinkGrow {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.7); }
+  100% { transform: scale(1); }
+}
+@keyframes fades {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
 </style>

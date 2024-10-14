@@ -197,57 +197,57 @@ const unitSelected = ref(['h001', 'h02p'])
             checked>
         </SimpleUiSwitch>
         <SimpleUiSwitch
-            color="basic"
-            label="shake"
-            animation="shake"
-            id="shake"
+            label="slow"
+            animation="slow"
+            id="slow"
             checked>
         </SimpleUiSwitch>
       </div>
       <div class="color_group__item">
         <SimpleUiSwitch
             color="secondary"
-            animation="jump"
-            label="jump"
-            id="jump"
+            animation="fade"
+            label="fade"
+            id="fade"
             checked>
         </SimpleUiSwitch>
         <SimpleUiSwitch
             color="minimal"
-            animation="shadowPulse"
-            label="shadowPulse"
-            id="shadowPulse"
+            animation="shrink"
+            label="shrink"
+            id="shrink"
             checked>
         </SimpleUiSwitch>
       </div>
       <div class="color_group__item">
         <SimpleUiSwitch
             color="danger"
-            animation="scale"
-            label="scale"
-            id="scale">
+            animation="waves"
+            label="waves"
+            checked
+            id="waves">
         </SimpleUiSwitch>
         <SimpleUiSwitch
             color="primary"
-            animation="slideIn"
-            label="slideIn"
-            id="slideIn"
+            animation="bounce_pulse"
+            label="bounce_pulse"
+            id="bounce_pulse"
             checked>
         </SimpleUiSwitch>
       </div>
       <div class="color_group__item">
         <SimpleUiSwitch
             color="info"
-            label="flicker"
-            animation="flicker"
-            id="flicker"
+            label="splash"
+            animation="splash"
+            id="splash"
             checked>
         </SimpleUiSwitch>
         <SimpleUiSwitch
             color="warning"
-            label="distort"
-            animation="distort"
-            id="distort"
+            label="fly"
+            animation="fly"
+            id="fly"
             checked>
         </SimpleUiSwitch>
       </div>
