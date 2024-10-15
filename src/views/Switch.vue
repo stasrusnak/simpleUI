@@ -171,8 +171,97 @@ const unitSelected = ref(['h001', 'h02p'])
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
-  </div>
 
+    <div class="description">
+      <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and <span style="color: var(--primary)">blue</span></p>
+
+    </div>
+    <SimpleUiSwitch
+        label="Checkbox Disabled"
+        id="checkBoxDisabled"
+        color="primary"
+        secondaryColor="danger"
+        :checked="false"
+      >
+    </SimpleUiSwitch>
+  </div>
+  <div class="contentBlock">
+    <h2>Styles</h2>
+    <div class="description">
+      <p>Allows you to change switch styles depending on your project needs.</p>
+      <div class="code_button">
+        <SimpleUiButton
+            buttonText="View code"
+            color="minimal_dark"
+            @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line checkbox color_group">
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="success"
+            animation="square"
+            label="square"
+            id="square"
+            checked>
+        </SimpleUiSwitch>
+        <SimpleUiSwitch
+            label="shadow"
+            animation="shadow"
+            id="shadow"
+            checked>
+        </SimpleUiSwitch>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="secondary"
+            animation="heptagon"
+            label="heptagon"
+            id="heptagon"
+            checked>
+        </SimpleUiSwitch>
+        <SimpleUiSwitch
+            color="minimal"
+            animation="shadow_style"
+            label="shadow_style"
+            id="shadow_style"
+            checked>
+        </SimpleUiSwitch>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="warning"
+            label="oval"
+            animation="oval"
+            id="oval"
+            checked>
+        </SimpleUiSwitch>
+        <SimpleUiSwitch
+            color="info"
+            label="strip"
+            animation="strip"
+            id="strip"
+            checked>
+        </SimpleUiSwitch>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="danger"
+            animation="dashed"
+            label="dashed"
+            checked
+            id="dashed">
+        </SimpleUiSwitch>
+      </div>
+
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
   <div class="contentBlock">
     <h2>Animations</h2>
     <div class="description">
@@ -295,11 +384,11 @@ const unitSelected = ref(['h001', 'h02p'])
     </div>
 
     <div class="line checkbox">
-      <SimpleUiSwitchGroup
-          class="checkboxGroup"
-          v-model:value="unitSelected"
-          :options="unitList">
-      </SimpleUiSwitchGroup>
+<!--      <SimpleUiSwitchGroup-->
+<!--          class="checkboxGroup"-->
+<!--          v-model:value="unitSelected"-->
+<!--          :options="unitList">-->
+<!--      </SimpleUiSwitchGroup>-->
     </div>
     <div v-if="unitSelected.length">
       <p>Selected Units id: {{ unitSelected }}</p>
