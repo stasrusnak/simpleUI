@@ -1,32 +1,26 @@
 .switch{
-
-
   //--------------- colors ---------------
   &_secondary {
     input:checked + .slider {
       background-color: var(--second);
     }
   }
-
   &_secondary_lite {
     input:checked + .slider {
       background-color: var(--second-hover);
     }
   }
-
   &_basic {
     input:checked + .slider {
       background-color: #6979F800;
     }
   }
-
   &_minimal {
     input:checked + .slider {
       background-color: var(--minimal);
       border: 1px solid var(--minimal);;
     }
   }
-
   &_minimal_dark {
     input:checked + .slider {
       background-color:var(--minimal-dark-hover);
@@ -34,37 +28,31 @@
     }
 
   }
-
   &_primary {
     input:checked + .slider {
       background-color: var(--primary);
     }
   }
-
   &_success {
     input:checked + .slider {
       background-color: var(--success);
     }
   }
-
   &_info {
     input:checked + .slider {
       background-color: var(--info);
     }
 
   }
-
   &_warning {
     input:checked + .slider {
       background-color: var(--warning);
     }
   }
-
   &_danger {
     input:checked + .slider {
       background-color: var(--danger);
     }
-
   }
 
   //--------------- styles ---------------
@@ -94,7 +82,6 @@
       margin: -2px;
       border-radius: 0;
     }
-
     .slider:before {
       content: "";
       width: 20px;
@@ -106,7 +93,6 @@
       top: 9px;
       left: 9px;
     }
-
     input:checked + .slider:before {
       transform: translateX(26px) rotate(45deg);
     }
@@ -117,7 +103,6 @@
       width: 67px;
       height: 21px;
     }
-
     .slider:before {
       width: 30px;
       height: 16px;
@@ -127,7 +112,6 @@
       top: 2px;
       left: 4px;
     }
-
     input:checked + .slider:before {
       transform: translateX(30px);
     }
@@ -139,7 +123,6 @@
       height: 6px;
       top: 15px;
     }
-
     .slider:before {
       width: 22px;
       height: 22px;
@@ -153,11 +136,9 @@
       align-items: center;
       border: 1px solid rgba(0, 0, 0, 0.09);
     }
-
     input:checked + .slider:before {
       transform: translateX(25px);
     }
-
     input:not(:checked) + .slider:before {
       transform: translateX(-15px);
     }
@@ -261,67 +242,56 @@
 
 //--------------- second colors --------
 .second-color{
-
   &_secondary {
     .slider {
       background-color: var(--second);
     }
   }
-
   &_secondary_lite {
     .slider {
       background-color: var(--second-hover);
     }
   }
-
   &_basic {
     .slider {
       background-color: #6979F800;
     }
   }
-
   &_minimal {
     .slider {
       background-color: var(--minimal);
       border: 1px solid var(--minimal);
     }
   }
-
   &_minimal_dark {
     .slider {
       background-color: var(--minimal-dark-hover);
       border: 1px solid var(--minimal-dark-hover);
     }
   }
-
   &_primary {
     .slider {
       background-color: var(--primary);
     }
   }
-
   &_success {
     .slider {
       background-color: var(--success);
     }
   }
-
   &_info {
     .slider {
       background-color: var(--info);
     }
   }
-
   &_warning {
     .slider {
       background-color: var(--warning);
     }
   }
-
   &_danger {
     .slider {
       background-color: var(--danger);
     }
   }
-
 }

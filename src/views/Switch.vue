@@ -166,8 +166,6 @@ const unitSelected = ref(['h001', 'h02p'])
         </SimpleUiSwitch>
       </div>
     </div>
-
-
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
