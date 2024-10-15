@@ -175,7 +175,7 @@ const unitSelected = ref(['h001', 'h02p'])
 
     </div>
     <SimpleUiSwitch
-        label="Checkbox Disabled"
+        label="Checkbox On/Off"
         id="checkBoxDisabled"
         color="primary"
         secondaryColor="danger"
