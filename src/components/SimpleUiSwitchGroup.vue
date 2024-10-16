@@ -1,5 +1,6 @@
 <script setup>
 import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
+import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue;
 
 const emits = defineEmits(['update:value'])
 
