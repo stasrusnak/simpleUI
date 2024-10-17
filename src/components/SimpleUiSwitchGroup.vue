@@ -1,6 +1,6 @@
 <script setup>
 import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
-import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue;
+import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue";
 
 const emits = defineEmits(['update:value'])
 
@@ -38,7 +38,7 @@ let updateVal = [...props.value]
 <template>
   <div>
     <div v-for="opt in options" :key="opt.id">
-      <SimpleUiCheckbox
+      <SimpleUiSwitch
           group
           :checked="value.includes(opt.id)"
           :label="opt.name"

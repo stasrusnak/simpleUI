@@ -5,7 +5,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-// import SimpleUiSwitchGroup from "@/components/SimpleUiSwitchGroup.vue";
+import SimpleUiSwitchGroup from "@/components/SimpleUiSwitchGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -382,11 +382,11 @@ const unitSelected = ref(['h001', 'h02p'])
     </div>
 
     <div class="line checkbox">
-<!--      <SimpleUiSwitchGroup-->
-<!--          class="checkboxGroup"-->
-<!--          v-model:value="unitSelected"-->
-<!--          :options="unitList">-->
-<!--      </SimpleUiSwitchGroup>-->
+      <SimpleUiSwitchGroup
+          class="checkboxGroup"
+          v-model:value="unitSelected"
+          :options="unitList">
+      </SimpleUiSwitchGroup>
     </div>
     <div v-if="unitSelected.length">
       <p>Selected Units id: {{ unitSelected }}</p>
