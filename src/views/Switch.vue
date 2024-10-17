@@ -46,35 +46,6 @@ const unitSelected = ref(['h001', 'h02p'])
           v-model:checked="checkBoxActive">
       </SimpleUiSwitch>
 
-      <SimpleUiSwitch
-          label="Switch Active"
-          id="checkBoxActive"
-          v-model:checked="checkBoxActive">
-
-        <template #left-icon>
-          <SimpleUiIcon icon="code" size="tiny" color="red"></SimpleUiIcon>
-        </template>
-        <template #right-icon>
-          <SimpleUiIcon icon="sync" loading size="tiny" color="black"></SimpleUiIcon>
-        </template>
-
-      </SimpleUiSwitch>
-
-
-      <SimpleUiSwitch
-          label="Switch Active"
-          id="checkBoxActive"
-          color="minimal_dark"
-          v-model:checked="checkBoxActive">
-
-        <template #left-icon>
-          <span>☀️</span>
-        </template>
-        <template #right-icon>
-         <span>️🌙</span>
-        </template>
-
-      </SimpleUiSwitch>
 
     </div>
     <transition name="fade">
@@ -151,7 +122,7 @@ const unitSelected = ref(['h001', 'h02p'])
             checked>
         </SimpleUiSwitch>
       </div>
-      <div class="color_group__item">
+      <div class=" color_group__item">
         <SimpleUiSwitch
             color="minimal_dark"
             label="minimal dark"
@@ -175,6 +146,7 @@ const unitSelected = ref(['h001', 'h02p'])
 
     </div>
     <SimpleUiSwitch
+        class="line"
         label="Checkbox On/Off"
         id="checkBoxDisabled"
         color="primary"
@@ -344,7 +316,87 @@ const unitSelected = ref(['h001', 'h02p'])
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+  <div class="contentBlock">
+    <h2>Icons</h2>
+    <div class="description">
+      <p>You can set the switch icon in the on and off state</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
+    <div class="line checkbox color_group">
+      <div class="color_group__item">
+
+        <SimpleUiSwitch
+            label="Process"
+            id="Process"
+            checked>
+
+          <template #left-icon>
+            <SimpleUiIcon icon="pause" size="small" color="black" class="icon_left"></SimpleUiIcon>
+          </template>
+          <template #right-icon>
+            <SimpleUiIcon icon="sync" loading size="small" color="black" class="icon_right"></SimpleUiIcon>
+          </template>
+
+        </SimpleUiSwitch>
+
+
+        <SimpleUiSwitch
+            label="Day / Night"
+            id="checkBoxActive"
+            color="minimal_dark"
+            secondary-color="warning"
+            :checked="false">
+
+          <template #left-icon>
+            <span>☀️</span>
+          </template>
+          <template #right-icon>
+            <span>️🌙</span>
+          </template>
+
+        </SimpleUiSwitch>
+      </div>
+      <div class="color_group__item">
+        <SimpleUiSwitch
+            color="warning"
+            label="oval"
+            animation="oval"
+            id="oval"
+            checked>
+          <template #left-icon >
+            <span class="oval_minus">➖</span>
+          </template>
+          <template #right-icon  >
+            <span class="oval_plus">➕</span>
+          </template>
+        </SimpleUiSwitch>
+        <SimpleUiSwitch
+            color="info"
+            label="strip"
+            animation="strip"
+            id="strip"
+            checked>
+          <template #left-icon >
+            <span class="strip_text strip_text__left">0</span>
+          </template>
+          <template #right-icon  >
+            <span class="strip_text">on</span>
+          </template>
+        </SimpleUiSwitch>
+      </div>
+
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+
+
+  </div>
   <div class="contentBlock">
     <h2>Checkbox Disabled</h2>
     <div class="description">
@@ -402,6 +454,39 @@ const unitSelected = ref(['h001', 'h02p'])
 
 
 <style scoped lang="scss">
+.icon_left{
+  left: -4px;
+}
+.icon_right{
+  right: -3px;
+}
+.oval_minus{
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  left: 3px;
+  top: 0px;
+}
+.strip_text{
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  color: #2C2C3B;
+  left: 7px;
+  &__left{
+    left: 0px;
+  }
+}
+.oval_plus{
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  left: -2px;
+  top: 0px;
+}
 
 .checkbox {
   flex-direction: column;
@@ -451,7 +536,7 @@ const unitSelected = ref(['h001', 'h02p'])
 }
 
 .contentBlock {
-  padding-bottom: 1px;
+  padding-bottom: 15px;
 }
 
 p {

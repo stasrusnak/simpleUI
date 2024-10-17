@@ -143,13 +143,28 @@ input:checked + .slider {
   background-color: var(--primary);
 }
 
+input:not(:checked) + .slider .icon-left {
+  opacity: 1;
+  transition: opacity 0.4s ease 0.1s;
+}
+
+input:not(:checked) + .slider .icon-right {
+  opacity: 0;
+  transition: opacity 0s ease;
+}
+
+
 input:checked + .slider .icon-left {
   opacity: 0;
+  transition: opacity 0s ease;
 }
 
 input:checked + .slider .icon-right {
   opacity: 1;
+  transition: opacity 0.4s ease 0.1s;
 }
+
+
 
 input:checked + .slider:before {
   transform: translateX(26px);
@@ -175,11 +190,7 @@ input:checked + .slider:before {
 }
 
 
-.switch {
 
-
-
-}
 
 
 </style>
