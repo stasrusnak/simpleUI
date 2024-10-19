@@ -2,7 +2,6 @@
 import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
 
 const emits = defineEmits(['update:value'])
-
 const props = defineProps({
   value: {
     type: Array,
@@ -10,6 +9,10 @@ const props = defineProps({
     required: true
   },
   radio:{
+    type: Boolean,
+    default: false
+  },
+  excludable:{
     type: Boolean,
     default: false
   },
@@ -25,14 +28,40 @@ const props = defineProps({
   }
 })
 
+
+
 const handleCheckGroup = (e) =>{
-let updateVal = [...props.value]
-  if(e.check){
-    updateVal.push(e.id)
-  }else{
-    updateVal=updateVal.filter(id => id !== e.id);
+  let updateVal = [...props.value]
+    if(e.check){
+      updateVal.push(e.id)
+    }else{
+      updateVal=updateVal.filter(id => id !== e.id);
+    }
+    emits('update:value',updateVal)
+}
+
+
+
+
+const handleCheckRadioGroup = (e) =>{
+
+    if(props.excludable){
+      if (!e.check){
+        let updateVal = [...props.options]
+        updateVal=updateVal
+            .map(opt => {
+              return opt.id !== e.id ? opt.id : null
+            })
+            .filter(opt => opt !== null);
+        console.log(updateVal)
+        emits('update:value',updateVal)
+      }
+    } else {
+      if (e.check){
+        emits('update:value',[e.id])
+      }
+
   }
-  emits('update:value',updateVal)
 }
 
 </script>
@@ -48,7 +77,7 @@ let updateVal = [...props.value]
           :label="opt.name"
           :id="opt.id"
           :value="opt.name"
-          @handleCheckGroup="handleCheckGroup"
+          @handleCheckGroup="handleCheckRadioGroup"
       />
       <SimpleUiCheckbox v-else
           group

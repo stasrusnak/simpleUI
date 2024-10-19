@@ -4,7 +4,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiCheckboxGroup from "@/components/SimpleUiCheckboxGroup.vue";
+
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -21,7 +21,7 @@ const unitList = ref([
   {name: 'Archer', id: 'h02p'},
 ])
 
-const unitSelected = ref(['h001', 'h02p'])
+const unitSelected = ref(['h001' ])
 
 </script>
 
@@ -253,11 +253,13 @@ const unitSelected = ref(['h001', 'h02p'])
     </div>
 
     <div class="line checkbox">
-      <SimpleUiCheckboxGroup
+
+      <SimpleUiRadioGroup
           class="checkboxGroup"
+
           v-model:value="unitSelected"
           :options="unitList">
-      </SimpleUiCheckboxGroup>
+      </SimpleUiRadioGroup>
     </div>
     <div v-if="unitSelected.length">
       <p>Selected Units id: {{ unitSelected }}</p>

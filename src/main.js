@@ -1,26 +1,41 @@
 //for dev
-import {createApp,h} from 'vue'
+import {createApp, h, toRaw} from 'vue'
 import '@/styles/global.scss'
 import App from '@/App.vue'
 import router from "@/router/index.js";
 import SimpleUiCheckbox from '@/components/SimpleUiCheckbox.vue';
-// import SimpleUiCheckboxGroup from '@/components/SimpleUiCheckboxGroup.vue.vue';
+import SimpleUiCheckboxGroup from '@/components/SimpleUiCheckboxGroup.vue';
+import SimpleUiButton from "@/components/SimpleUiButton.vue";
+import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue"
+import UIInputTextArea from '@/components/InputTextarea.vue';
 
-// Программно создаем компонент с дополнительными пропсами
-const SimpleUiRadio = { render() { h(SimpleUiCheckbox, {radio: true})}};
+//ко всем пропсам добавляет флаг радиобаттноа
+const SimpleUiRadio = {
+  render() {
+    return h(SimpleUiCheckbox, {
+      ...(toRaw(this.$attrs)), // Передаем все атрибуты вынув из прокси
+      radio: true,
+    });
+  }
+};
+const SimpleUiRadioGroup = {
+  render() {
+    return h(SimpleUiCheckboxGroup, {
+      ...(toRaw(this.$attrs)),
+      radio: true,
+    });
+  }
+};
 
 
 createApp(App)
   .use(router)
-  .component('SimpleUiRadio', SimpleUiRadio) //
+  .component('SimpleUiRadio', SimpleUiRadio)
+  .component('SimpleUiRadioGroup', SimpleUiRadioGroup)
   .mount('#app')
 
 
 //for prod
-
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue"
-import UIInputTextArea from '@/components/InputTextarea.vue';
 
 const SimpleUiLibrary = {
   install(app) {
