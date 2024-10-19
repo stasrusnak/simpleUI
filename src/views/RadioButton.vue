@@ -28,9 +28,9 @@ const unitSelected = ref(['h001' ])
 <template>
   <div class="contentBlock">
     <h1>Types</h1>
-    <h2>Checkbox Basic</h2>
+    <h2>Radio button Basic</h2>
     <div class="description">
-      <p>A standard Checkbox</p>
+      <p>A standard radio</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -40,13 +40,8 @@ const unitSelected = ref(['h001' ])
 
     <div class="line checkbox">
       <SimpleUiRadio
-          label="Checkbox Active"
-          id="checkBoxActive"
-          v-model:checked="checkBoxActive">
-      </SimpleUiRadio>
-      <SimpleUiRadio
-          label="Radio111e"
-          id="checkBoxActive"
+          label="Radio Active"
+          id="Active"
           v-model:checked="checkBoxActive">
       </SimpleUiRadio>
     </div>
@@ -59,7 +54,7 @@ const unitSelected = ref(['h001' ])
   <div class="contentBlock">
     <h2>Colors</h2>
     <div class="description">
-      <p>Checkboxes can be colored by using any of the builtin colors</p>
+      <p>Radio buttons can be colored by using any of the builtin colors</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -130,11 +125,36 @@ const unitSelected = ref(['h001' ])
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+  <div class="contentBlock">
+    <h2>Radio group</h2>
+    <div class="description">
+      <p>Which unit would you like the most?</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
+    <div class="line checkbox">
+      <SimpleUiRadioGroup
+          class="checkboxGroup"
+          v-model:value="unitSelected"
+          :options="unitList">
+      </SimpleUiRadioGroup>
+    </div>
+    <div v-if="unitSelected.length">
+      <p>Selected Units id: {{ unitSelected }}</p>
+    </div>
+
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
   <div class="contentBlock">
     <h2>Animations</h2>
     <div class="description">
-      <p>Allows you to add new effects for the checkbox.</p>
+      <p>Allows you to add new effects for the radio button.</p>
       <div class="code_button">
         <SimpleUiButton
             buttonText="View code"
@@ -217,9 +237,9 @@ const unitSelected = ref(['h001' ])
   </div>
 
   <div class="contentBlock">
-    <h2>Checkbox Disabled</h2>
+    <h2>Radio button Disabled</h2>
     <div class="description">
-      <p>A checkbox can be disabled.</p>
+      <p>A button can be disabled.</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -228,47 +248,18 @@ const unitSelected = ref(['h001' ])
     </div>
     <div class="line checkbox">
       <SimpleUiRadio
-          label="Checkbox Disabled"
-          id="checkBoxDisabled"
+          label="Radio Disabled"
+          id="RadioDisabled"
           :disabled="checkBoxDisabled"
           v-model:checked="checkBoxDisabledCheck">
       </SimpleUiRadio>
-
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
-
-
   </div>
-  <div class="contentBlock">
-    <h2>Checkbox Group</h2>
-    <div class="description">
-      <p>Checkboxes can be grouped</p>
-      <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
-          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
-        </SimpleUiButton>
-      </div>
-    </div>
 
-    <div class="line checkbox">
 
-      <SimpleUiRadioGroup
-          class="checkboxGroup"
-
-          v-model:value="unitSelected"
-          :options="unitList">
-      </SimpleUiRadioGroup>
-    </div>
-    <div v-if="unitSelected.length">
-      <p>Selected Units id: {{ unitSelected }}</p>
-    </div>
-
-    <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
-    </transition>
-  </div>
 
 
 </template>

@@ -29,7 +29,6 @@ const props = defineProps({
 })
 
 
-
 const handleCheckGroup = (e) =>{
   let updateVal = [...props.value]
     if(e.check){
@@ -39,9 +38,6 @@ const handleCheckGroup = (e) =>{
     }
     emits('update:value',updateVal)
 }
-
-
-
 
 const handleCheckRadioGroup = (e) =>{
 

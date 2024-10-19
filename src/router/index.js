@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('@/views/Switch.vue')
     },
     {
+      path: '/progress',
+      name: 'Progress',
+      component: () => import('@/views/Progress.vue')
+    },
+    {
       path: '/radiobutton',
       name: 'Radiobutton',
       component: () => import('@/views/RadioButton.vue')
