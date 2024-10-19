@@ -1,11 +1,18 @@
 //for dev
-import {createApp} from 'vue'
+import {createApp,h} from 'vue'
 import '@/styles/global.scss'
 import App from '@/App.vue'
 import router from "@/router/index.js";
+import SimpleUiCheckbox from '@/components/SimpleUiCheckbox.vue';
+// import SimpleUiCheckboxGroup from '@/components/SimpleUiCheckboxGroup.vue.vue';
+
+// Программно создаем компонент с дополнительными пропсами
+const SimpleUiRadio = { render() { h(SimpleUiCheckbox, {radio: true})}};
+
 
 createApp(App)
   .use(router)
+  .component('SimpleUiRadio', SimpleUiRadio) //
   .mount('#app')
 
 

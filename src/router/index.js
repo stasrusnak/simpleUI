@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('@/views/Switch.vue')
     },
     {
+      path: '/radiobutton',
+      name: 'Radiobutton',
+      component: () => import('@/views/RadioButton.vue')
+    },
+    {
       path: '/textarea',
       name: 'Textarea',
       component: () => import('@/views/TextArea.vue')

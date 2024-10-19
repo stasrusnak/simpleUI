@@ -52,8 +52,6 @@ const unitSelected = ref(['h001', 'h02p'])
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-
-
   <div class="contentBlock">
     <h2>Colors</h2>
     <div class="description">
@@ -329,21 +327,17 @@ const unitSelected = ref(['h001', 'h02p'])
 
     <div class="line checkbox color_group">
       <div class="color_group__item">
-
         <SimpleUiSwitch
             label="Process"
             id="Process"
             checked>
-
           <template #left-icon>
             <SimpleUiIcon icon="pause" size="small" color="black" class="icon_left"></SimpleUiIcon>
           </template>
           <template #right-icon>
             <SimpleUiIcon icon="sync" loading size="small" color="black" class="icon_right"></SimpleUiIcon>
           </template>
-
         </SimpleUiSwitch>
-
 
         <SimpleUiSwitch
             label="Day / Night"
@@ -351,14 +345,12 @@ const unitSelected = ref(['h001', 'h02p'])
             color="minimal_dark"
             secondary-color="warning"
             :checked="false">
-
-          <template #left-icon>
-            <span>☀️</span>
-          </template>
-          <template #right-icon>
-            <span>️🌙</span>
-          </template>
-
+              <template #left-icon>
+                <span>☀️</span>
+              </template>
+              <template #right-icon>
+                <span>️🌙</span>
+              </template>
         </SimpleUiSwitch>
       </div>
       <div class="color_group__item">
@@ -368,11 +360,11 @@ const unitSelected = ref(['h001', 'h02p'])
             animation="oval"
             id="oval"
             checked>
-          <template #left-icon >
-            <span class="oval_minus">➖</span>
+          <template #left-icon>
+            <span class=" oval_minus">➕</span>
           </template>
-          <template #right-icon  >
-            <span class="oval_plus">➕</span>
+          <template #right-icon >
+            <span class="oval_plus">➖</span>
           </template>
         </SimpleUiSwitch>
         <SimpleUiSwitch
@@ -382,20 +374,32 @@ const unitSelected = ref(['h001', 'h02p'])
             id="strip"
             checked>
           <template #left-icon >
-            <span class="strip_text strip_text__left">0</span>
+            <span class="strip_text strip_text__left">off</span>
           </template>
           <template #right-icon  >
             <span class="strip_text">on</span>
           </template>
         </SimpleUiSwitch>
       </div>
+      <div class="color_group__item">
 
+        <SimpleUiSwitch
+            label="shadow_style"
+            animation="shadow_style"
+            id="shadow_style"
+            checked>
+          <template #left-icon>
+            <SimpleUiIcon icon="settings" size="small" color="black" class="icon_left icon_left__small"></SimpleUiIcon>
+          </template>
+          <template #right-icon>
+            <SimpleUiIcon icon="settings" size="small" color="black" class="icon_left__small" loading></SimpleUiIcon>
+          </template>
+        </SimpleUiSwitch>
+      </div>
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
-
-
   </div>
   <div class="contentBlock">
     <h2>Checkbox Disabled</h2>
@@ -448,14 +452,16 @@ const unitSelected = ref(['h001', 'h02p'])
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-
-
 </template>
 
 
 <style scoped lang="scss">
 .icon_left{
   left: -4px;
+  &__small{
+    left: 0px;
+    width: 18px;
+  }
 }
 .icon_right{
   right: -3px;
@@ -476,7 +482,7 @@ const unitSelected = ref(['h001', 'h02p'])
   color: #2C2C3B;
   left: 7px;
   &__left{
-    left: 0px;
+    left: -3px;
   }
 }
 .oval_plus{
@@ -557,6 +563,5 @@ p {
     -webkit-filter: invert(100%);
   }
 }
-
 
 </style>

@@ -9,6 +9,10 @@ const props = defineProps({
     default: [],
     required: true
   },
+  radio:{
+    type: Boolean,
+    default: false
+  },
   options: {
     type: Array,
     required: true,
@@ -37,7 +41,16 @@ let updateVal = [...props.value]
 <template>
   <div>
     <div v-for="opt in options" :key="opt.id">
-      <SimpleUiCheckbox
+
+      <SimpleUiRadio v-if="props.radio"
+          group
+          :checked="value.includes(opt.id)"
+          :label="opt.name"
+          :id="opt.id"
+          :value="opt.name"
+          @handleCheckGroup="handleCheckGroup"
+      />
+      <SimpleUiCheckbox v-else
           group
           :checked="value.includes(opt.id)"
           :label="opt.name"
