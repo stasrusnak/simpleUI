@@ -1,5 +1,4 @@
 <script setup>
-import { onMounted,getCurrentInstance } from 'vue'
 const emits = defineEmits(['update:checked', 'handleCheckGroup'])
 const props = defineProps({
   id: {
@@ -40,16 +39,7 @@ const props = defineProps({
   }
 })
 
-onMounted(()=>{
 
-    const instance = getCurrentInstance();
-    console.log(instance?.type.__name)
-    if (instance?.type.__name  === 'SimpleUiRadio') {
-      isRadio.value = true;
-      console.log(instance?.type.__name )
-    }
-
-})
 
 const handleClock = (e) => {
   if (props.group) emits('handleCheckGroup', {id: e.target.id, check: e.target.checked})
