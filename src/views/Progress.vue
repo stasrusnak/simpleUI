@@ -23,6 +23,16 @@ const operation = (type) => {
   }
 }
 
+const colors = ['Basic', 'Primary', 'Success']
+const selectedOption = ref(null)
+const selectedSecondaryColor = ref(null)
+
+const selectOption = (option) => {
+  selectedOption.value = option
+}
+const selectSecondaryColor = (option) => {
+  selectedSecondaryColor.value = option
+}
 
 const options = ref(['Option 1', 'Option 2', 'Option 3'])
 
@@ -74,8 +84,25 @@ const options = ref(['Option 1', 'Option 2', 'Option 3'])
       </SimpleUiButton>
 
       <SimpleUiDropdown
-          :options="options"
-          color="minimal_dark">
+          :options="colors"
+          color="minimal_dark"
+          :label="selectedOption"
+          v-model:selectOption="selectOption"
+      >
+
+      </SimpleUiDropdown>
+
+      <SimpleUiDropdown
+          color="minimal_dark"
+          :label="selectedSecondaryColor"
+      >
+        <template v-slot>
+          <li v-for="(option, index) in options" :key="index" @click="selectSecondaryColor(option)"
+              :class="{ 'selected-item': option === selectedSecondaryColor }"
+              class="dropdown-item">
+            {{ option }}
+          </li>
+        </template>
       </SimpleUiDropdown>
     </div>
 
@@ -183,7 +210,7 @@ const options = ref(['Option 1', 'Option 2', 'Option 3'])
 <style scoped lang="scss">
 
 .plus, .minus {
-  font-size: 26px;
+  font-size: 22px;
   text-align: center;
   vertical-align: middle;
   position: relative;

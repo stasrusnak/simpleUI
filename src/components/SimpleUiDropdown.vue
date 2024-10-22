@@ -1,10 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref ,watch} from 'vue'
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 
+const emits = defineEmits(['update:selectOption'])
 
-
-const props =defineProps({
+const props = defineProps({
   options:{
     type: Array,
     default:[]
@@ -12,12 +12,17 @@ const props =defineProps({
   color:{
     type:String,
     default: 'primary'
-  }
+  },
+  label:{
+    type:String,
+    default: 'Select an option'
+  },
+
 })
+
 
 const isOpen = ref(false)
 const selectedOption = ref(null)
-// const options = ['Option 1', 'Option 2', 'Option 3']
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value
@@ -25,9 +30,20 @@ const toggleDropdown = () => {
 
 const selectOption = (option) => {
   selectedOption.value = option
-  isOpen.value = false
+  emits('update:selectOption',option)
 }
 
+watch(selectedOption, (newValue, oldValue) => {
+  if (newValue !== oldValue) {
+    isOpen.value = false;
+  }
+});
+
+watch(() => props.label, (newValue, oldValue) => {
+  if (newValue !== oldValue) {
+    isOpen.value = false;
+  }
+});
 
 
 </script>
@@ -35,19 +51,23 @@ const selectOption = (option) => {
 
 <template>
   <div class="dropdown">
-    <SimpleUiButton @click="toggleDropdown" :color="color" :buttonText=" selectedOption || 'Select an option' "  class="dropdown-button"></SimpleUiButton>
+    <SimpleUiButton @click="toggleDropdown" :color="color" :buttonText=" selectedOption || label || 'Select an option' "  class="dropdown-button"></SimpleUiButton>
     <ul v-if="isOpen" class="dropdown-menu">
-      <li v-for="option in options" :key="option" @click="selectOption(option)" class="dropdown-item">
+      <li v-if="options"  v-for="option in options" :key="option" @click="selectOption(option)"
+          class="dropdown-item"
+          :class="{ 'selected-item': option === selectedOption }" >
         {{ option }}
       </li>
-    </ul>
 
+      <slot v-if="options.length<1" />
+    </ul>
   </div>
+
 </template>
 
 
 
-<style scoped>
+<style lang="scss">
 .dropdown {
   position: relative;
   display: inline-block;
@@ -62,8 +82,8 @@ const selectOption = (option) => {
   left: 0;
   width: 100%;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  background: #E0E1E2 none;
-  color: rgba(0, 0, 0, 0.6);
+  background: #16182d none;
+  color: #fff;
   border-radius: 7px;
   border: 2px solid transparent;
   z-index: 1;
@@ -72,10 +92,19 @@ const selectOption = (option) => {
 .dropdown-item {
   padding: 10px 20px;
   cursor: pointer;
-  background-color: #fff;
+  background: #16182d none;
+  color: #fff;
 }
 
 .dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #23243e;
+  border-radius: 7px;
+  color: var( --danger-hover);
+}
+
+.selected-item {
+  background-color: var(--minimal-dark);
+  color: #ffffff;
+  border-radius: 7px;
 }
 </style>
