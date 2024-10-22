@@ -9,6 +9,10 @@ defineProps({
     type: String,
     default: 'second',
   },
+  secondary_color:{
+    type: String,
+    default: 'second',
+  },
   rounded: {
     type: Boolean,
     default: false
@@ -40,6 +44,7 @@ defineProps({
   &__container {
     margin-bottom: 20px;
     overflow: hidden;
+    border-radius: 4px;
     width: 100%;
     background: var(--warning);
   }
@@ -57,6 +62,8 @@ defineProps({
     font-weight: bold;
     font-size: 17px;
     margin-bottom: 10px;
+    padding: 2px 0;
+    border-radius: 4px;
   }
 }
 

@@ -6,13 +6,25 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
+import SimpleUiDropdown from "@/components/SimpleUiDropdown.vue";
 
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
 const isButtonShow = ref(false)
 
-const checkBoxActive = ref(true)
+let isProgress = ref(10)
+
+const operation = (type) => {
+  if (type == 'plus') {
+    isProgress.value < 100 ? isProgress.value += 10 : isProgress.value
+  } else if (type == 'minus') {
+    isProgress.value > 0 ? isProgress.value -= 10 : isProgress.value
+  }
+}
+
+
+const options = ref(['Option 1', 'Option 2', 'Option 3'])
 
 </script>
 
@@ -24,16 +36,19 @@ const checkBoxActive = ref(true)
       <p>A standard Switch</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
-          <SimpleUiIcon icon="code" size="tiny" ></SimpleUiIcon>
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
     </div>
 
     <div class="line checkbox">
       <SimpleUiProgress
-          percent="44.1"
+          :percent="isProgress"
       ></SimpleUiProgress>
-
+      <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
+      </SimpleUiButton>
+      <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
+      </SimpleUiButton>
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -49,85 +64,29 @@ const checkBoxActive = ref(true)
         </SimpleUiButton>
       </div>
     </div>
+    <div class="line checkbox">
+      <SimpleUiProgress
+          :percent="isProgress"
+      ></SimpleUiProgress>
+      <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
+      </SimpleUiButton>
+      <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
+      </SimpleUiButton>
 
-    <div class="line checkbox color_group">
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="success"
-            label="success"
-            id="success"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="basic"
-            label="basic"
-            id="basic"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="secondary"
-            label="secondary"
-            id="secondary"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="minimal"
-            label="minimal"
-            id="minimal"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="danger"
-            label="danger"
-            id="danger"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="primary"
-            label="primary"
-            id="primary"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="info"
-            label="info"
-            id="info"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="warning"
-            label="warning"
-            id="warning"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class=" color_group__item">
-        <SimpleUiSwitch
-            color="minimal_dark"
-            label="minimal dark"
-            id="minimal_dark"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="secondary_lite"
-            label="secondary lite"
-            id="secondary_lite"
-            checked>
-        </SimpleUiSwitch>
-      </div>
+      <SimpleUiDropdown
+          :options="options"
+          color="minimal_dark">
+      </SimpleUiDropdown>
     </div>
+
+
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
 
     <div class="description">
-      <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and <span style="color: var(--primary)">blue</span></p>
+      <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and
+        <span style="color: var(--primary)">blue</span></p>
 
     </div>
     <SimpleUiSwitch
@@ -137,7 +96,7 @@ const checkBoxActive = ref(true)
         color="primary"
         secondaryColor="danger"
         :checked="false"
-      >
+    >
     </SimpleUiSwitch>
   </div>
   <div class="contentBlock">
@@ -223,11 +182,18 @@ const checkBoxActive = ref(true)
 
 <style scoped lang="scss">
 
+.plus, .minus {
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
 
 .line {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
+
   &_block {
     display: block;
   }
@@ -259,8 +225,6 @@ p {
   font-size: 18px;
   padding-bottom: 15px;
 }
-
-
 
 
 </style>
