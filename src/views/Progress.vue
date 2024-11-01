@@ -95,7 +95,7 @@ const options = colorsList
       </SimpleUiDropdown>
 
       <SimpleUiDropdown
-          scrollable
+
           color="minimal_dark"
           :label="selectedSecondaryColor"
       >
@@ -103,6 +103,9 @@ const options = colorsList
           <li v-for="(option, index) in options" :key="index" @click="selectSecondaryColor(option)"
               :class="{ 'selected-item': option === selectedSecondaryColor }"
               class="dropdown-item">
+            <div v-if="option"
+                 class="palitra"
+                 :style="{ backgroundColor: `var(--${option})` }"></div>
             {{ option }}
           </li>
         </template>
@@ -211,6 +214,13 @@ const options = colorsList
 
 
 <style scoped lang="scss">
+
+.palitra{
+  width: 15px;
+  height: 15px;
+  background-color: #00C48C;
+  margin-right: 5px;
+}
 
 .plus, .minus {
   font-size: 22px;

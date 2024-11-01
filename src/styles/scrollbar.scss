@@ -1,0 +1,27 @@
+ ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--minimal);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--minimal-dark);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--minimal-dark-hover);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--danger-hover) var(--minimal);
+}
+
+body {
+  overflow: auto;
+}

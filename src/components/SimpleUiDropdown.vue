@@ -99,6 +99,8 @@ watch(() => props.label, (newValue, oldValue) => {
   cursor: pointer;
   background: #16182d none;
   color: #fff;
+  display: flex;
+  align-items: center;
 }
 
 .dropdown-item:hover {
