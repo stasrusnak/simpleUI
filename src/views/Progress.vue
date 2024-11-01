@@ -7,6 +7,7 @@ import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiDropdown from "@/components/SimpleUiDropdown.vue";
+import colorsList from "@/utils/colorsList.js";
 
 
 const isEmphasisShow = ref(true)
@@ -34,7 +35,8 @@ const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
 }
 
-const options = ref(['Option 1', 'Option 2', 'Option 3'])
+const options = colorsList
+
 
 </script>
 
@@ -93,6 +95,7 @@ const options = ref(['Option 1', 'Option 2', 'Option 3'])
       </SimpleUiDropdown>
 
       <SimpleUiDropdown
+          scrollable
           color="minimal_dark"
           :label="selectedSecondaryColor"
       >
