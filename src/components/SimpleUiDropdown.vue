@@ -32,7 +32,7 @@ const toggleDropdown = () => {
   isOpen.value = !isOpen.value
 }
 
-const selectOption = (option) => {
+const select = (option) => {
   selectedOption.value = option
   emits('update:selectOption',option)
 }
@@ -57,7 +57,7 @@ watch(() => props.label, (newValue, oldValue) => {
   <div class="dropdown" :class="{ 'scrollable': scrollable }">
     <SimpleUiButton @click="toggleDropdown" :color="color" :buttonText=" selectedOption || label || 'Select an option' "  class="dropdown-button"></SimpleUiButton>
     <ul v-if="isOpen" class="dropdown-menu">
-      <li v-if="options"  v-for="option in options" :key="option" @click="selectOption(option)"
+      <li v-if="options"  v-for="option in options" :key="option" @click="select(option)"
           class="dropdown-item"
           :class="{ 'selected-item': option === selectedOption }" >
         {{ option }}

@@ -24,13 +24,10 @@ const operation = (type) => {
   }
 }
 
-const colors = ['Basic', 'Primary', 'Success']
-const selectedOption = ref(null)
-const selectedSecondaryColor = ref(null)
+const selectedOption = ref('success')
+const selectedSecondaryColor = ref('primary')
 
-const selectOption = (option) => {
-  selectedOption.value = option
-}
+
 const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
 }
@@ -55,12 +52,30 @@ const options = colorsList
 
     <div class="line checkbox">
       <SimpleUiProgress
-          :percent="isProgress"
+          :percent="52"
       ></SimpleUiProgress>
-      <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
-      </SimpleUiButton>
-      <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
-      </SimpleUiButton>
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+  <div class="contentBlock">
+    <h1>Types</h1>
+    <h2>Switch Basic</h2>
+    <div class="description">
+      <p>A standard Switch</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line checkbox">
+      <SimpleUiProgress
+          :percent="52"
+          slider
+      ></SimpleUiProgress>
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -79,34 +94,40 @@ const options = colorsList
     <div class="line checkbox">
       <SimpleUiProgress
           :percent="isProgress"
+          :secondary_color="selectedSecondaryColor"
+          :color="selectedOption"
       ></SimpleUiProgress>
+
       <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
       </SimpleUiButton>
       <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
       </SimpleUiButton>
 
+      <div>Progress color</div>
       <SimpleUiDropdown
-          :options="colors"
+          scrollable
+          :options="options"
           color="minimal_dark"
           :label="selectedOption"
-          v-model:selectOption="selectOption"
+          v-model:selectOption="selectedOption"
       >
 
       </SimpleUiDropdown>
+      <div>Bar color</div>
 
       <SimpleUiDropdown
-
+          scrollable
           color="minimal_dark"
           :label="selectedSecondaryColor"
       >
         <template v-slot>
-          <li v-for="(option, index) in options" :key="index" @click="selectSecondaryColor(option)"
+          <li v-for="(option, index) in options.reverse()" :key="index" @click="selectSecondaryColor(option)"
               :class="{ 'selected-item': option === selectedSecondaryColor }"
               class="dropdown-item">
             <div v-if="option"
                  class="palitra"
-                 :style="{ backgroundColor: `var(--${option})` }"></div>
-            {{ option }}
+                 :style="{backgroundColor:`var(--${option})`}"></div>
+            <div>{{ option }}</div>
           </li>
         </template>
       </SimpleUiDropdown>
@@ -215,7 +236,7 @@ const options = colorsList
 
 <style scoped lang="scss">
 
-.palitra{
+.palitra {
   width: 15px;
   height: 15px;
   background-color: #00C48C;
