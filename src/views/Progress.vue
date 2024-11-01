@@ -26,15 +26,13 @@ const operation = (type) => {
 
 const selectedOption = ref('success')
 const selectedSecondaryColor = ref('primary')
-
+const barHeight = ref(20)
 
 const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
 }
 
 const options = [...colorsList]
-
-
 </script>
 
 <template>
@@ -50,11 +48,17 @@ const options = [...colorsList]
       </div>
     </div>
 
-    <div class="  checkbox">
+    <div class="line checkbox">
       <SimpleUiProgress
-          :percent="52"
+          :percent="isProgress"
       ></SimpleUiProgress>
+      <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
+      </SimpleUiButton>
+      <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
+      </SimpleUiButton>
     </div>
+
+
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
@@ -71,8 +75,7 @@ const options = [...colorsList]
     </div>
 
     <div class="  checkbox">
-      <div
-          class="slider_body">
+      <div class="slider_body">
         <SimpleUiProgress
             :percent="52"
             slider
@@ -107,15 +110,13 @@ const options = [...colorsList]
     </div>
     <div class="line checkbox">
       <SimpleUiProgress
-          :percent="isProgress"
+          :percent="32"
           :secondary_color="selectedSecondaryColor"
           :color="selectedOption"
+          :height="barHeight+'px'"
       ></SimpleUiProgress>
 
-      <SimpleUiButton buttonText="+" class="plus" color="minimal_dark" @click="operation('plus')">
-      </SimpleUiButton>
-      <SimpleUiButton buttonText="-" class="minus" color="minimal_dark" @click="operation('minus')">
-      </SimpleUiButton>
+
 
       <div>Progress color</div>
       <SimpleUiDropdown
@@ -146,13 +147,13 @@ const options = [...colorsList]
         </template>
       </SimpleUiDropdown>
 
-<!--      color="minimal"-->
-<!--      secondary_color="danger"-->
+
       <div>Bar height</div>
       <SimpleUiProgress
           :percent="52"
           slider
           unit="px"
+          v-model:unitValue="barHeight"
       ></SimpleUiProgress>
     </div>
 
@@ -276,6 +277,7 @@ const options = [...colorsList]
   text-align: center;
   vertical-align: middle;
   position: relative;
+  min-width: 50px;
 }
 
 .line {

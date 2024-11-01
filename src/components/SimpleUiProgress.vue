@@ -1,7 +1,7 @@
 <script setup>
 
-import {ref} from "vue";
-
+import {ref,watch} from "vue";
+const emit = defineEmits(['update:unitValue']);
 const props = defineProps({
   height: {
     type: String,
@@ -31,15 +31,31 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  min: {
+    type: Number,
+    default: 0
+  },
+  max: {
+    type: Number,
+    default: 100
+  },
+  step: {
+    type: Number,
+    default: 1
+  }
 })
 
 
 const currentValue = ref(props.percent);
 
 const updateValue = (event) => {
-  let newValue = Math.max(0, Math.min(100, event.target.value)); // Ограничиваем значение от 0 до 100
+  let newValue = Math.max(props.min, Math.min(props.max, event.target.value)); // Ограничиваем значение от 0 до 100
   currentValue.value = newValue; // Обновляем текущее значение
 };
+
+watch(currentValue, (newValue) => {
+  emit('update:unitValue', newValue);
+});
 
 </script>
 
@@ -48,8 +64,9 @@ const updateValue = (event) => {
   <div class="slider__container" v-if="slider" >
     <input
         type="range"
-        min="0"
-        max="100"
+        :min="min"
+        :max="max"
+        :step="step"
         v-model="currentValue"
         @input="updateValue"
         class="slider"
@@ -87,6 +104,9 @@ const updateValue = (event) => {
     border-radius: 4px;
     transition: .5s;
     width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
   }
 
   &__percent {
@@ -95,7 +115,6 @@ const updateValue = (event) => {
     text-align: center;
     font-weight: bold;
     font-size: 17px;
-    margin-bottom: 10px;
     padding: 2px 0;
     border-radius: 4px;
   }
