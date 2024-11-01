@@ -32,7 +32,7 @@ const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
 }
 
-const options = colorsList
+const options = [...colorsList]
 
 
 </script>
@@ -70,19 +70,23 @@ const options = colorsList
       </div>
     </div>
 
-    <div class="line checkbox">
+    <div class="  checkbox">
       <div
           class="slider_body">
         <SimpleUiProgress
             :percent="52"
             slider
+            unit="%"
             color="minimal"
             secondary_color="danger"
         ></SimpleUiProgress>
         <div class="description">
           <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and
-            <span style="color: var(--minimal)">minimal</span></p>
-
+            <span style="color: var(--minimal)">minimal</span> <br>
+            As well as different units of measurement :<br>
+            <span style="color: var(--info-hover)"><i>px, em, rem, %, vh, vw </i></span>
+            other.
+          </p>
         </div>
       </div>
 
@@ -141,6 +145,15 @@ const options = colorsList
           </li>
         </template>
       </SimpleUiDropdown>
+
+<!--      color="minimal"-->
+<!--      secondary_color="danger"-->
+      <div>Bar height</div>
+      <SimpleUiProgress
+          :percent="52"
+          slider
+          unit="px"
+      ></SimpleUiProgress>
     </div>
 
 
@@ -250,7 +263,6 @@ const options = colorsList
   max-width: 800px;
   display: flex;
   flex-direction: column;
-
 }
 .palitra {
   width: 15px;

@@ -11,6 +11,10 @@ const props = defineProps({
     type: String,
     default: 'minimal-dark-hover',
   },
+  unit: {
+    type: String,
+    default: '%',
+  },
   secondary_color: {
     type: String,
     default: 'success',
@@ -51,13 +55,13 @@ const updateValue = (event) => {
         class="slider"
         :style="{'background':`var(--${color})`,'--thumb-color': `var(--${secondary_color})`}"
     />
-    <span class="progress__percent">{{ currentValue + '%' }}</span>
+    <span class="progress__percent">{{ currentValue + unit  }}</span>
   </div>
 
   <div class="progress__container" :style="{'background':`var(--${color})`}" v-else>
     <div class="progress" :style="{'height':height}">
-      <div class="progress__bar" :style="{'width':percent+'%','background-color':`var(--${secondary_color})` }">
-        <span class="progress__percent">{{ percent + '%' }}</span>
+      <div class="progress__bar" :style="{'width':percent+ unit ,'background-color':`var(--${secondary_color})` }">
+        <span class="progress__percent">{{ percent + unit }}</span>
       </div>
     </div>
   </div>
