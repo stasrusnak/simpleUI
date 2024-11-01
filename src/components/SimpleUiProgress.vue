@@ -9,7 +9,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'second',
+    default: 'minimal-dark-hover',
   },
   secondary_color: {
     type: String,
@@ -41,7 +41,7 @@ const updateValue = (event) => {
 
 <template>
 
-  <div class="slider__container" v-if="slider">
+  <div class="slider__container" v-if="slider" >
     <input
         type="range"
         min="0"
@@ -49,6 +49,7 @@ const updateValue = (event) => {
         v-model="currentValue"
         @input="updateValue"
         class="slider"
+        :style="{'background':`var(--${color})`,'--thumb-color': `var(--${secondary_color})`}"
     />
     <span class="progress__percent">{{ currentValue + '%' }}</span>
   </div>
@@ -112,7 +113,7 @@ const updateValue = (event) => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--success); /* Цвет ползунка */
+  background: var(--thumb-color); /* Цвет ползунка */
   cursor: pointer;
 }
 
@@ -120,7 +121,7 @@ const updateValue = (event) => {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--success);
+  background: var(--thumb-color);
   cursor: pointer;
 }
 

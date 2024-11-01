@@ -40,9 +40,9 @@ const options = colorsList
 <template>
   <div class="contentBlock">
     <h1>Types</h1>
-    <h2>Switch Basic</h2>
+    <h2>A standard progress bar</h2>
     <div class="description">
-      <p>A standard Switch</p>
+      <p>The progress component is used to convey data visually to users. It supports both indeterminate amounts, such as loading or processing, and finite amounts of progress </p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -50,7 +50,7 @@ const options = colorsList
       </div>
     </div>
 
-    <div class="line checkbox">
+    <div class="  checkbox">
       <SimpleUiProgress
           :percent="52"
       ></SimpleUiProgress>
@@ -60,10 +60,9 @@ const options = colorsList
     </transition>
   </div>
   <div class="contentBlock">
-    <h1>Types</h1>
-    <h2>Switch Basic</h2>
+    <h2>Slider progress</h2>
     <div class="description">
-      <p>A standard Switch</p>
+      <p>Sliders reflect a range of values along a track</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -72,10 +71,21 @@ const options = colorsList
     </div>
 
     <div class="line checkbox">
-      <SimpleUiProgress
-          :percent="52"
-          slider
-      ></SimpleUiProgress>
+      <div
+          class="slider_body">
+        <SimpleUiProgress
+            :percent="52"
+            slider
+            color="minimal"
+            secondary_color="danger"
+        ></SimpleUiProgress>
+        <div class="description">
+          <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and
+            <span style="color: var(--minimal)">minimal</span></p>
+
+        </div>
+      </div>
+
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -236,6 +246,12 @@ const options = colorsList
 
 <style scoped lang="scss">
 
+.slider_body{
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+
+}
 .palitra {
   width: 15px;
   height: 15px;
@@ -265,7 +281,9 @@ const options = colorsList
   display: flex;
   justify-content: space-between;
   align-items: center;
-  text-align: center;
+  p{
+    line-height: 1.5 ;
+  }
 }
 
 .code_button {
