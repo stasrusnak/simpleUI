@@ -110,15 +110,9 @@ const options = [...colorsList]
     </div>
     <h2>You can use progress bar constructor</h2>
     <div class="line checkbox"/>
-    <div class="line checkbox">
-      <SimpleUiProgress
-          :percent="32"
-          :secondary_color="selectedSecondaryColor"
-          :color="selectedOption"
-          :height="barHeight+'px'"
-      ></SimpleUiProgress>
-
-      <div>Progress color</div>
+    <div class="line checkbox"> 
+    <div class="line checkbox construct">
+    <div>Progress color</div>
       <SimpleUiDropdown
           scrollable
           :options="options"
@@ -155,8 +149,24 @@ const options = [...colorsList]
           unit="px"
           v-model:unitValue="barHeight"
       ></SimpleUiProgress>
+   
+
+
     </div>
 
+    <div class="construct__bar">
+      <div>Example</div>
+      <SimpleUiProgress
+          :percent="32"
+          :secondary_color="selectedSecondaryColor"
+          :color="selectedOption"
+          :height="barHeight+'px'"
+      ></SimpleUiProgress>
+   </div>
+
+
+      </div>
+     
 
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -259,7 +269,13 @@ const options = [...colorsList]
 
 
 <style scoped lang="scss">
-
+.construct{
+  display: flex;
+  flex-direction: column;
+  &__bar{
+    width: 80%;
+  }
+}
 .slider_body{
   max-width: 800px;
   display: flex;
