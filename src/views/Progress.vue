@@ -24,9 +24,9 @@ const operation = (type) => {
   }
 }
 
-const selectedOption = ref('success')
-const selectedSecondaryColor = ref('primary')
-const barHeight = ref(20)
+const selectedOption = ref('info-hover')
+const selectedSecondaryColor = ref('warning')
+const barHeight = ref(36)
 
 const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
@@ -108,6 +108,8 @@ const options = [...colorsList]
         </SimpleUiButton>
       </div>
     </div>
+    <h2>You can use progress bar constructor</h2>
+    <div class="line checkbox"/>
     <div class="line checkbox">
       <SimpleUiProgress
           :percent="32"
@@ -115,8 +117,6 @@ const options = [...colorsList]
           :color="selectedOption"
           :height="barHeight+'px'"
       ></SimpleUiProgress>
-
-
 
       <div>Progress color</div>
       <SimpleUiDropdown
