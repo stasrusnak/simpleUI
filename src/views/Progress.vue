@@ -118,36 +118,43 @@ const options = [...colorsList]
           :height="barHeight+'px'"
       ></SimpleUiProgress>
 
-      <div>Progress color</div>
-      <SimpleUiDropdown
-          scrollable
-          :options="options"
-          color="minimal_dark"
-          :label="selectedOption"
-          v-model:selectOption="selectedOption"
-      >
 
-      </SimpleUiDropdown>
-      <div>Bar color</div>
+      <div class="dropdown">
+        <div >Progress color</div>
+        <SimpleUiDropdown
+            scrollable
+            :options="options"
+            color="minimal_dark"
+            :label="selectedOption"
+            v-model:selectOption="selectedOption"
+        >
+        </SimpleUiDropdown>
 
-      <SimpleUiDropdown
-          scrollable
-          color="minimal_dark"
-          :label="selectedSecondaryColor"
-      >
-        <template v-slot>
-          <li v-for="(option, index) in options.reverse()" :key="index" @click="selectSecondaryColor(option)"
-              :class="{ 'selected-item': option === selectedSecondaryColor }"
-              class="dropdown-item">
-            <div v-if="option"
-                 class="palitra"
-                 :style="{backgroundColor:`var(--${option})`}"></div>
-            <div>{{ option }}</div>
-          </li>
-        </template>
-      </SimpleUiDropdown>
+     </div>
+      <div class="dropdown">
+        <div>Bar color</div>
+
+        <SimpleUiDropdown
+            class="dropdown_button"
+            scrollable
+            color="minimal_dark"
+            :label="selectedSecondaryColor"
+        >
+          <template v-slot>
+            <li v-for="(option, index) in options.reverse()" :key="index" @click="selectSecondaryColor(option)"
+                :class="{ 'selected-item': option === selectedSecondaryColor }"
+                class="dropdown-item">
+              <div v-if="option"
+                   class="palitra"
+                   :style="{backgroundColor:`var(--${option})`}"></div>
+              <div>{{ option }}</div>
+            </li>
+          </template>
+        </SimpleUiDropdown>
+      </div>
 
 
+      <div class="dropdown_bar">
       <div>Bar height</div>
       <SimpleUiProgress
           :percent="52"
@@ -156,7 +163,7 @@ const options = [...colorsList]
           v-model:unitValue="barHeight"
       ></SimpleUiProgress>
     </div>
-
+    </div>
 
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -259,6 +266,17 @@ const options = [...colorsList]
 
 
 <style scoped lang="scss">
+.dropdown{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  &_bar{
+    display: flex;
+    align-items: center;
+    min-width: 350px;
+
+  }
+}
 
 .slider_body{
   max-width: 800px;

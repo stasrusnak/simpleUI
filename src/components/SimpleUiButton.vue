@@ -47,8 +47,7 @@ defineProps({
 }
 
 .btn {
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin: 5px;
   min-height: 35px;
   min-width: 122px;
   background: #E0E1E2 none;
