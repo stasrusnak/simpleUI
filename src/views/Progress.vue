@@ -129,11 +129,10 @@ const options = [...colorsList]
             v-model:selectOption="selectedOption"
         >
         </SimpleUiDropdown>
-
      </div>
+
       <div class="dropdown">
         <div>Bar color</div>
-
         <SimpleUiDropdown
             class="dropdown_button"
             scrollable
