@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "npm run dev",
+    "postbuild": "node -e \"console.log('\\x1b[32m╔════════════════════════════╗'); console.log('║ Build simple UI Done!✅     ║'); console.log('╚════════════════════════════╝\\x1b[39m');\"",
     "preview": "vite preview"
   },
   "exports": {
