@@ -1,12 +1,44 @@
+<script setup>
+import packageJson from '../../../package.json';
+import {onMounted, ref} from "vue";
+
+const version  = ref()
+const date= ref()
+
+
+onMounted(() => {
+  version.value = packageJson.version;
+  date.value = new Date().toLocaleDateString();
+})
+
+</script>
+
+
 <template>
   <header class="header">
     <router-link to="/">Simple</router-link>
     <img class="logo" src="@/assets/logo.svg" alt="" @click="$router.push('/')">
     <router-link to="/">Kit</router-link>
+    <div class="version">
+      <div>Date:  <p>{{ date }}</p></div>
+      <div>Build Ver:  <p>{{ version }}</p></div>
+    </div>
   </header>
 </template>
 
+
+
 <style lang="scss" scoped>
+.version{
+  position: fixed;
+  right: 0;
+  font-size: 15px;
+  p{
+    display: inline-block;
+    color: var(--success);
+  }
+
+}
 .header {
   background: rgba(22, 27, 45, 1);
   font-weight: bold;
@@ -20,6 +52,7 @@
   top: 0;
   color: #F73164;
   font-size: 25px;
+
 }
 
 .logo {
@@ -28,4 +61,3 @@
   cursor: pointer;
 }
 </style>
-

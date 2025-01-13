@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('@/views/Switch.vue')
     },
     {
+      path: '/colors',
+      name: 'Color palette',
+      component: () => import('@/views/Colors.vue')
+    },
+    {
       path: '/progress',
       name: 'Progress',
       component: () => import('@/views/Progress.vue')
