@@ -8,7 +8,7 @@ const date= ref()
 
 onMounted(() => {
   version.value = packageJson.version;
-  date.value = new Date().toLocaleDateString();
+  date.value =  packageJson.buildDate;
 })
 
 </script>

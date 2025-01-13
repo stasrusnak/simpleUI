@@ -4,6 +4,7 @@ import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
+import SimpleUiProgressCircle from "@/components/SimpleUiProgressCircle.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiDropdown from "@/components/SimpleUiDropdown.vue";
@@ -27,6 +28,7 @@ const operation = (type) => {
 const selectedOption = ref('info-hover')
 const selectedSecondaryColor = ref('warning')
 const barHeight = ref(36)
+const CircleBarHeight = ref(55)
 
 const selectSecondaryColor = (option) => {
   selectedSecondaryColor.value = option
@@ -40,7 +42,8 @@ const options = [...colorsList]
     <h1>Types</h1>
     <h2>A standard progress bar</h2>
     <div class="description">
-      <p>The progress component is used to convey data visually to users. It supports both indeterminate amounts, such as loading or processing, and finite amounts of progress </p>
+      <p>The progress component is used to convey data visually to users. It supports both indeterminate amounts, such
+        as loading or processing, and finite amounts of progress </p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -64,40 +67,45 @@ const options = [...colorsList]
     </transition>
   </div>
   <div class="contentBlock">
-    <h2>Slider progress</h2>
+    <h2>Styles</h2>
     <div class="description">
-      <p>Sliders reflect a range of values along a track</p>
+      <p>Allows you to change switch styles depending on your project needs.</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton
+            buttonText="View code"
+            color="minimal_dark"
+            @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
     </div>
 
-    <div class="  checkbox">
-      <div class="slider_body">
+    <div class="line">
+      <SimpleUiProgressCircle
+          :percent="CircleBarHeight"
+          color="success"
+          secondary_color="minimal"
+          class="circle"
+      >
+      </SimpleUiProgressCircle>
+      <div class="dropdown_bar">
+        <div>Bar height</div>
         <SimpleUiProgress
-            :percent="52"
+            :percent="CircleBarHeight"
             slider
             unit="%"
-            color="minimal"
-            secondary_color="danger"
+            v-model:unitValue="CircleBarHeight"
         ></SimpleUiProgress>
-        <div class="description">
-          <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and
-            <span style="color: var(--minimal)">minimal</span> <br>
-            As well as different units of measurement :<br>
-            <span style="color: var(--info-hover)"><i>px, em, rem, %, vh, vw </i></span>
-            other.
-          </p>
-        </div>
       </div>
 
     </div>
+
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+
+
   <div class="contentBlock">
     <h2>Colors</h2>
     <div class="description">
@@ -120,7 +128,7 @@ const options = [...colorsList]
 
 
       <div class="dropdown">
-        <div >Progress color</div>
+        <div>Progress color</div>
         <SimpleUiDropdown
             scrollable
             :options="options"
@@ -129,7 +137,7 @@ const options = [...colorsList]
             v-model:selectOption="selectedOption"
         >
         </SimpleUiDropdown>
-     </div>
+      </div>
 
       <div class="dropdown">
         <div>Bar color</div>
@@ -154,105 +162,51 @@ const options = [...colorsList]
 
 
       <div class="dropdown_bar">
-      <div>Bar height</div>
-      <SimpleUiProgress
-          :percent="52"
-          slider
-          unit="px"
-          v-model:unitValue="barHeight"
-      ></SimpleUiProgress>
-    </div>
+        <div>Bar height</div>
+        <SimpleUiProgress
+            :percent="barHeight"
+            slider
+            unit="px"
+            v-model:unitValue="barHeight"
+        ></SimpleUiProgress>
+      </div>
     </div>
 
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
 
-    <div class="description">
-      <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and
-        <span style="color: var(--primary)">blue</span></p>
-
-    </div>
-    <SimpleUiSwitch
-        class="line"
-        label="Checkbox On/Off"
-        id="checkBoxDisabled"
-        color="primary"
-        secondaryColor="danger"
-        :checked="false"
-    >
-    </SimpleUiSwitch>
   </div>
+
   <div class="contentBlock">
-    <h2>Styles</h2>
+    <h2>Slider progress</h2>
     <div class="description">
-      <p>Allows you to change switch styles depending on your project needs.</p>
+      <p>Sliders reflect a range of values along a track</p>
       <div class="code_button">
-        <SimpleUiButton
-            buttonText="View code"
-            color="minimal_dark"
-            @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
     </div>
 
-    <div class="line checkbox color_group">
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="success"
-            animation="square"
-            label="square"
-            id="square"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            label="shadow"
-            animation="shadow"
-            id="shadow"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="secondary"
-            animation="heptagon"
-            label="heptagon"
-            id="heptagon"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
+    <div class="  checkbox">
+      <div class="slider_body">
+        <SimpleUiProgress
+            :percent="52"
+            slider
+            unit="%"
             color="minimal"
-            animation="shadow_style"
-            label="shadow_style"
-            id="shadow_style"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="warning"
-            label="oval"
-            animation="oval"
-            id="oval"
-            checked>
-        </SimpleUiSwitch>
-        <SimpleUiSwitch
-            color="info"
-            label="strip"
-            animation="strip"
-            id="strip"
-            checked>
-        </SimpleUiSwitch>
-      </div>
-      <div class="color_group__item">
-        <SimpleUiSwitch
-            color="danger"
-            animation="dashed"
-            label="dashed"
-            checked
-            id="dashed">
-        </SimpleUiSwitch>
+            secondary_color="danger"
+        ></SimpleUiProgress>
+        <div class="description">
+          <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span>
+            and
+            <span style="color: var(--minimal)">minimal</span> <br>
+            As well as different units of measurement :<br>
+            <span style="color: var(--info-hover)"><i>px, em, rem, %, vh, vw </i></span>
+            other.
+          </p>
+        </div>
       </div>
 
     </div>
@@ -265,11 +219,15 @@ const options = [...colorsList]
 
 
 <style scoped lang="scss">
-.dropdown{
+.circle{
+  margin-right: 25px;
+}
+.dropdown {
   padding: 5px;
   display: flex;
   align-items: center;
-  &_bar{
+
+  &_bar {
     display: flex;
     align-items: center;
     min-width: 350px;
@@ -277,11 +235,12 @@ const options = [...colorsList]
   }
 }
 
-.slider_body{
+.slider_body {
   max-width: 800px;
   display: flex;
   flex-direction: column;
 }
+
 .palitra {
   width: 15px;
   height: 15px;
@@ -312,8 +271,9 @@ const options = [...colorsList]
   display: flex;
   justify-content: space-between;
   align-items: center;
-  p{
-    line-height: 1.5 ;
+
+  p {
+    line-height: 1.5;
   }
 }
 
