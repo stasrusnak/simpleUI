@@ -1,12 +1,12 @@
 {
   "name": "@stanislav999/simpleui",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "private": false,
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node -e \"console.log('\\x1b[32m╔════════════════════════════╗'); console.log('║ Build simple UI Done!✅     ║'); console.log('╚════════════════════════════╝\\x1b[39m');\"",
+    "postbuild": "node -e \"console.log('╔════════════════════════════╗'); console.log('║ Build simple UI Done!✅     ║'); console.log('╚════════════════════════════╝\\x1b[39m');\"",
     "preview": "vite preview"
   },
   "exports": {
