@@ -17,7 +17,10 @@ const isButtonShow= ref(false)
     <h1>Types</h1>
     <h2>Button</h2>
     <div class="description">
+      <div class="description_body">
       <p>A button indicates a possible user action</p>
+      <p>You can <i>align</i>an element inside a button, for example an icon</p>
+      </div>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -148,6 +151,12 @@ const isButtonShow= ref(false)
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  &_body{
+    //display: flex;
+    align-items: flex-start;
+    text-align: left;
+    flex-direction: column;
+  }
 }
 
 .code_button {
