@@ -160,7 +160,6 @@ const options = [...colorsList]
         </SimpleUiDropdown>
       </div>
 
-
       <div class="dropdown_bar">
         <div>Bar height</div>
         <SimpleUiProgress
