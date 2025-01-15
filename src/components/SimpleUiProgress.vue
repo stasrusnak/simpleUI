@@ -1,6 +1,6 @@
 <script setup>
+import { ref, watch } from "vue";
 
-import {ref,watch} from "vue";
 const emit = defineEmits(['update:unitValue']);
 const props = defineProps({
   height: {
@@ -25,9 +25,10 @@ const props = defineProps({
   },
   percent: {
     type: Number,
-    required: true
+    required: true,
+    default: 55
   },
-  slider:{
+  slider: {
     type: Boolean,
     default: false
   },
@@ -43,46 +44,43 @@ const props = defineProps({
     type: Number,
     default: 1
   }
-})
+});
 
-
-const currentValue = ref(props.percent);
+const currentPercent = props.percent
+const currentValue = ref(currentPercent);
 
 const updateValue = (event) => {
-  let newValue = Math.max(props.min, Math.min(props.max, event.target.value)); // Ограничиваем значение от 0 до 100
-  currentValue.value = newValue; // Обновляем текущее значение
+  let newValue = Math.max(props.min, Math.min(props.max, event.target.value));
+  currentValue.value = newValue;
 };
 
 watch(currentValue, (newValue) => {
   emit('update:unitValue', newValue);
 });
-
 </script>
 
 <template>
-
-  <div class="slider__container" v-if="slider" >
+  <div class="slider__container" v-if="slider">
     <input
         type="range"
         :min="min"
         :max="max"
         :step="step"
-        v-model="currentValue"
+        v-model="currentPercent"
         @input="updateValue"
         class="slider"
         :style="{'background':`var(--${color})`,'--thumb-color': `var(--${secondary_color})`}"
     />
-    <span class="progress__percent">{{ currentValue + unit  }}</span>
+    <span class="progress__percent">{{ currentPercent + unit }}</span>
   </div>
 
   <div class="progress__container" :style="{'background':`var(--${color})`}" v-else>
     <div class="progress" :style="{'height':height}">
-      <div class="progress__bar" :style="{'width':percent+ unit ,'background-color':`var(--${secondary_color})` }">
+      <div class="progress__bar" :style="{'width':percent + unit ,'background-color':`var(--${secondary_color})` }">
         <span class="progress__percent">{{ percent + unit }}</span>
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped lang="scss">

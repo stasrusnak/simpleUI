@@ -96,6 +96,7 @@ const options = [...colorsList]
             unit="%"
             v-model:unitValue="CircleBarHeight"
         ></SimpleUiProgress>
+
       </div>
 
     </div>
