@@ -138,7 +138,7 @@ const customPattern = ref()
       >
 
         <template #prepend>
-          <span class="icon">@</span>
+          <span class="icon">@@@@@@</span>
         </template>
         <template #append>
           <button @click="clearInput">Очистить</button>

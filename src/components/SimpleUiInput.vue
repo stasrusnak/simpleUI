@@ -1,5 +1,5 @@
 <script setup>
-import {ref, watch} from "vue";
+import {ref, watch,onMounted} from "vue";
 
 const emit = defineEmits(['update:value'])
 const props = defineProps({
@@ -109,15 +109,38 @@ const validate = (value) => {
   });
 };
 
+
+
+
+const prependSlot = ref();
+const inputStyle = ref({});
+
+const updatePadding = () => {
+  const slotWidth = prependSlot.value ? prependSlot.value.getBoundingClientRect().width : 0;
+  console.log(prependSlot.value?.getBoundingClientRect().width)
+  inputStyle.value = {
+    paddingLeft: `${slotWidth+10}px`, // Применяем размер слота как padding для инпута
+  };
+};
+
+// margin-right: -100px;
+// z-index: 2;
+
+onMounted(() => {
+  updatePadding();
+});
 </script>
 
 <template>
   <div class="body-input" :style="{width: width}">
-    <div v-if="$slots.prepend" class="slot-prepend">
+    <div ref="prependSlot"
+         class="slot-prepend"
+         v-if="$slots.prepend"
+         :style="{marginRight:'-100px',zIndex:2} ">
       <slot name="prepend"></slot>
     </div>
     <input
-        :style="errors.length && { border: '1px solid var(--danger-hover)' } "
+        :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle] "
         class="input-text"
         :type="type"
         :name="name"
@@ -144,7 +167,7 @@ const validate = (value) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  //padding: 0 10px;
   background-color: #6bff87;
 }
 
