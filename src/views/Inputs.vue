@@ -17,9 +17,6 @@ const creditCard = ref()
 const phoneNumber = ref()
 const url = ref()
 const customPattern = ref()
-// const customPattern = '^\\d{16}$';
-// const customPattern = '^\\d{16}$';
-
 
 </script>
 
@@ -45,6 +42,7 @@ const customPattern = ref()
 
     <div class="line">
       <SimpleUiInput
+          class="input"
           name="length"
           placeholder="Min length 3 & Max 6"
           label="Length"
@@ -56,6 +54,7 @@ const customPattern = ref()
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="digits"
           placeholder="Digits only"
           label="Digits"
@@ -65,17 +64,15 @@ const customPattern = ref()
           ]"
       ></SimpleUiInput>
       <SimpleUiInput
-          name="test"
-          placeholder="123124"
-          label="label123"
-          v-model:value="inputFirst"
-          :validationRules="[
-            { type: 'minLength', value: 3, message: 'Минимальная длинна 3' },
-            { type: 'maxLength', value: 6, message: 'Максимальная длинна 6' },
-          ]"
+          class="input"
+          name="width"
+          placeholder="Custom width"
+          label="Width"
+          width="620px"
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="email"
           placeholder="email"
           label="email"
@@ -88,9 +85,10 @@ const customPattern = ref()
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="creditCard"
-          placeholder="creditCard"
-          label="creditCard"
+          placeholder="Credit Card"
+          label="Credit Card"
           v-model:value="creditCard"
           :validationRules="[
             { type: 'creditCard',  message: 'Неверный номер карты' },
@@ -98,6 +96,7 @@ const customPattern = ref()
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="phoneNumber"
           placeholder="+38(___)_______"
           label="phoneNumber"
@@ -108,6 +107,7 @@ const customPattern = ref()
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="url"
           placeholder="Url link"
           label="Url"
@@ -118,6 +118,7 @@ const customPattern = ref()
       ></SimpleUiInput>
 
       <SimpleUiInput
+          class="input"
           name="customPattern"
           placeholder="Custom Pattern"
           label="Pattern"
@@ -126,6 +127,27 @@ const customPattern = ref()
               { type: 'pattern', value: /^[a-zA-Z]+$/,  message: 'Только латинские символы' },
           ]"
       ></SimpleUiInput>
+
+
+      <SimpleUiInput
+          class="input"
+          name="width"
+          placeholder="Custom width"
+          label="Width"
+          width="620px"
+      >
+
+        <template #prepend>
+          <span class="icon">@</span>
+        </template>
+        <template #append>
+          <button @click="clearInput">Очистить</button>
+        </template>
+
+      </SimpleUiInput>
+
+
+
 
     </div>
     <transition name="fade">
@@ -140,6 +162,9 @@ const customPattern = ref()
 
 <style scoped lang="scss">
 
+.input{
+  margin: 10px;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

@@ -29,12 +29,7 @@ const props = defineProps({
   },
   validationRules: {
     type: Array,
-    default:  [
-      // { type: 'minLength', value: 3 },
-      // { type: 'maxLength', value: 16 },
-      // { type: 'digitsOnly' },
-      // { type: 'pattern', value: '^\\d{16}$', message: 'Неверный номер карты' },
-    ],
+    default:  [],
   },
 })
 
@@ -118,6 +113,9 @@ const validate = (value) => {
 
 <template>
   <div class="body-input" :style="{width: width}">
+    <div v-if="$slots.prepend" class="slot-prepend">
+      <slot name="prepend"></slot>
+    </div>
     <input
         :style="errors.length && { border: '1px solid var(--danger-hover)' } "
         class="input-text"
@@ -128,6 +126,7 @@ const validate = (value) => {
         :value="value"
         @input="updateValue">
     <label :for="name" class="input-label">{{ label }}</label>
+    <slot name="append" class="slot-prepend"></slot>
     <TransitionGroup name="error-animation">
       <div
           class="body-error"
@@ -140,10 +139,21 @@ const validate = (value) => {
 </template>
 
 <style lang="scss" scoped>
+//TODO add icons
+.slot-prepend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  background-color: #6bff87;
+}
+
 .body {
+
   &-input {
-    margin-bottom: 30px;
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
   &-error {
