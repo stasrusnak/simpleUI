@@ -10,7 +10,16 @@ const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
 const isButtonShow = ref(false)
 
-const inputFirst = ref()
+const inputLength = ref()
+const digitsOnly = ref()
+const email = ref()
+const creditCard = ref()
+const phoneNumber = ref()
+const url = ref()
+const customPattern = ref()
+// const customPattern = '^\\d{16}$';
+// const customPattern = '^\\d{16}$';
+
 
 </script>
 
@@ -36,6 +45,26 @@ const inputFirst = ref()
 
     <div class="line">
       <SimpleUiInput
+          name="length"
+          placeholder="Min length 3 & Max 6"
+          label="Length"
+          v-model:value="inputLength"
+          :validationRules="[
+            { type: 'minLength', value: 3, message: 'Минимальная длинна 3' },
+            { type: 'maxLength', value: 6, message: 'Максимальная длинна 6' },
+          ]"
+      ></SimpleUiInput>
+
+      <SimpleUiInput
+          name="digits"
+          placeholder="Digits only"
+          label="Digits"
+          v-model:value="digitsOnly"
+          :validationRules="[
+            { type: 'digitsOnly', message:'Только числа' },
+          ]"
+      ></SimpleUiInput>
+      <SimpleUiInput
           name="test"
           placeholder="123124"
           label="label123"
@@ -46,7 +75,57 @@ const inputFirst = ref()
           ]"
       ></SimpleUiInput>
 
+      <SimpleUiInput
+          name="email"
+          placeholder="email"
+          label="email"
+          v-model:value="email"
+          :validationRules="[
+            { type: 'minLength', value: 3, message: 'Минимальная длинна 3' },
+            { type: 'maxLength', value: 16, message: 'Максимальная длинна 16' },
+            { type: 'email',  message: 'Введите email' },
+          ]"
+      ></SimpleUiInput>
 
+      <SimpleUiInput
+          name="creditCard"
+          placeholder="creditCard"
+          label="creditCard"
+          v-model:value="creditCard"
+          :validationRules="[
+            { type: 'creditCard',  message: 'Неверный номер карты' },
+          ]"
+      ></SimpleUiInput>
+
+      <SimpleUiInput
+          name="phoneNumber"
+          placeholder="+38(___)_______"
+          label="phoneNumber"
+          v-model:value="phoneNumber"
+          :validationRules="[
+            { type: 'phoneNumber' },
+          ]"
+      ></SimpleUiInput>
+
+      <SimpleUiInput
+          name="url"
+          placeholder="Url link"
+          label="Url"
+          v-model:value="url"
+          :validationRules="[
+              { type: 'url',   message: 'Введите корректный URL' },
+          ]"
+      ></SimpleUiInput>
+
+      <SimpleUiInput
+          name="customPattern"
+          placeholder="Custom Pattern"
+          label="Pattern"
+          v-model:value="customPattern"
+          :validationRules="[
+              { type: 'pattern', value: /^[a-zA-Z]+$/,  message: 'Только латинские символы' },
+          ]"
+      ></SimpleUiInput>
 
     </div>
     <transition name="fade">

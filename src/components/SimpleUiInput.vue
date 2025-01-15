@@ -30,10 +30,10 @@ const props = defineProps({
   validationRules: {
     type: Array,
     default:  [
-      { type: 'minLength', value: 3 },
-      { type: 'maxLength', value: 16 },
-      { type: 'digitsOnly' },
-      { type: 'pattern', value: '^\\d{16}$', message: 'Неверный номер карты' },
+      // { type: 'minLength', value: 3 },
+      // { type: 'maxLength', value: 16 },
+      // { type: 'digitsOnly' },
+      // { type: 'pattern', value: '^\\d{16}$', message: 'Неверный номер карты' },
     ],
   },
 })
@@ -50,6 +50,21 @@ watch(
     }
 );
 
+//Алогоритм луна на првоерку карты
+const isValidCreditCard = (number) => {
+  let sum = 0;
+  let shouldDouble = false;
+  for (let i = number.length - 1; i >= 0; i--) {
+    let digit = parseInt(number[i], 10);
+    if (shouldDouble) {
+      digit *= 2;
+      if (digit > 9) digit -= 9;
+    }
+    sum += digit;
+    shouldDouble = !shouldDouble;
+  }
+  return sum % 10 === 0;
+};
 
 const validate = (value) => {
   errors.value = [];
@@ -74,8 +89,29 @@ const validate = (value) => {
         message: rule.message || 'Некорректный формат ввода',
       });
     }
-  });
+    if (rule.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      errors.value.push({
+        message: rule.message || 'Введите корректный email',
+      });
+    }
+    if (rule.type === 'creditCard' && !isValidCreditCard(value)) {
+      errors.value.push({
+        message: rule.message || 'Некорректный номер карты',
+      });
+    }
+    if (rule.type === 'phoneNumber' && !/^(?:\+380|0)\d{9}$/.test(value)) {
+      errors.value.push({
+        message: rule.message || 'Не корректный номер',
+      });
+    }
+    if (rule.type === 'url' && !/^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(value)) {
+      errors.value.push({
+        message: rule.message || 'Введите корректный URL',
+      });
+    }
 
+
+  });
 };
 
 </script>
@@ -83,6 +119,7 @@ const validate = (value) => {
 <template>
   <div class="body-input" :style="{width: width}">
     <input
+        :style="errors.length && { border: '1px solid var(--danger-hover)' } "
         class="input-text"
         :type="type"
         :name="name"
@@ -110,7 +147,7 @@ const validate = (value) => {
   }
 
   &-error {
-    background: var(--danger-hover);
+    background: var(--danger-hover) ;
     margin-top: 4px;
     border-radius: 7px;
     font-size: 13px;
@@ -120,21 +157,25 @@ const validate = (value) => {
 }
 
 .input {
+
   &-text {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--minimal-dark);
     padding: 0 10px;
     height: 40px;
     border-radius: 7px;
-    font-size: 15px;
+    font-size: 16px;
     width: 100%;
     position: relative;
+    outline: none;
     z-index: 1;
-
+    color: #fff;
+    background-color: var(--minimal);
     &:focus {
+      border: 1px solid var(--primary);
       & + .input-label {
         z-index: 1;
         opacity: 1;
-        top: -20px;
+        top: -14px;
       }
     }
 
@@ -142,7 +183,7 @@ const validate = (value) => {
       & + .input-label {
         z-index: 1;
         opacity: 1;
-        top: -20px;
+        top: -14px;
       }
     }
   }
@@ -152,11 +193,15 @@ const validate = (value) => {
     display: block;
     position: absolute;
     top: 20px;
+    left: 12px;
     opacity: 0;
     z-index: -1;
     transition: .3s;
     font-size: 13px;
     color: var(--primary);
+  }
+  &::placeholder{
+    color: #9ca0d2;
   }
 }
 
