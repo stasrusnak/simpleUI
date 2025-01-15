@@ -43,6 +43,10 @@ const router = createRouter({
       path: '/radiobutton',
       name: 'Radiobutton',
       component: () => import('@/views/RadioButton.vue')
+    },{
+      path: '/inputs',
+      name: 'Text fields',
+      component: () => import('@/views/Inputs.vue')
     },
     {
       path: '/textarea',
