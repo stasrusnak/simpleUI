@@ -1,5 +1,5 @@
 <script setup>
-import {ref, watch,onMounted} from "vue";
+import {ref, watch, onMounted,getCurrentInstance } from "vue";
 
 const emit = defineEmits(['update:value'])
 const props = defineProps({
@@ -29,21 +29,12 @@ const props = defineProps({
   },
   validationRules: {
     type: Array,
-    default:  [],
+    default: [],
   },
 })
 
 const errors = ref([]);
 
-const updateValue = (e) => {
-  emit('update:value', e.target.value)
-}
-watch(
-    () => props.value,
-    (newValue) => {
-      validate(newValue);
-    }
-);
 
 //Алогоритм луна на првоерку карты
 const isValidCreditCard = (number) => {
@@ -109,47 +100,60 @@ const validate = (value) => {
   });
 };
 
+const updateValue = (e) => {
+  emit('update:value', e.target.value)
+}
+watch(
+    () => props.value,
+    (newValue) => {
+      validate(newValue);
+    }
+);
 
-
-
-const prependSlot = ref();
+const slotPrependWidth = ref(0);
+const slotAppendWidth = ref(0);
 const inputStyle = ref({});
 
-const updatePadding = () => {
-  const slotWidth = prependSlot.value ? prependSlot.value.getBoundingClientRect().width : 0;
-  console.log(prependSlot.value?.getBoundingClientRect().width)
-  inputStyle.value = {
-    paddingLeft: `${slotWidth+10}px`, // Применяем размер слота как padding для инпута
-  };
-};
 
-// margin-right: -100px;
-// z-index: 2;
 
 onMounted(() => {
-  updatePadding();
+  const { refs } = getCurrentInstance();
+  const prependSlot = refs.prependSlot;
+  const appendSlot = refs.appendSlot;
+  slotPrependWidth.value = prependSlot ? prependSlot.getBoundingClientRect().width : 0;
+  slotAppendWidth.value = appendSlot ? appendSlot.getBoundingClientRect().width : 0;
+  inputStyle.value = {
+    paddingLeft: `${slotPrependWidth.value}px`,
+    paddingRight: `${slotAppendWidth.value}px`,
+  };
+
 });
+
+
+
 </script>
 
 <template>
   <div class="body-input" :style="{width: width}">
-    <div ref="prependSlot"
-         class="slot-prepend"
-         v-if="$slots.prepend"
-         :style="{marginRight:'-100px',zIndex:2} ">
-      <slot name="prepend"></slot>
+    <div class="body">
+
+      <div  ref="prependSlot" v-if="$slots.prepend" class=" slot slot-prepend">
+        <slot name="prepend"></slot>
+      </div>
+      <input
+          :style="[errors.length && { border: '1px solid var(--danger-hover)' },  inputStyle  ] "
+          class="input-text"
+          :type="type"
+          :name="name"
+          :id="name"
+          :placeholder="placeholder"
+          :value="value"
+          @input="updateValue">
+      <label :for="name" class="input-label">{{ label }}</label>
+      <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
+        <slot name="append"></slot>
+      </div>
     </div>
-    <input
-        :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle] "
-        class="input-text"
-        :type="type"
-        :name="name"
-        :id="name"
-        :placeholder="placeholder"
-        :value="value"
-        @input="updateValue">
-    <label :for="name" class="input-label">{{ label }}</label>
-    <slot name="append" class="slot-prepend"></slot>
     <TransitionGroup name="error-animation">
       <div
           class="body-error"
@@ -158,29 +162,39 @@ onMounted(() => {
         <div class="body-error__message">{{ element.message }}</div>
       </div>
     </TransitionGroup>
+
   </div>
+
+
 </template>
 
 <style lang="scss" scoped>
-//TODO add icons
-.slot-prepend {
+
+.slot {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  //padding: 0 10px;
-  background-color: #6bff87;
+  position: absolute;
+
+  &-prepend {
+    left: 0;
+  }
+
+  &-append {
+    right: 0;
+  }
 }
 
+
 .body {
+  display: flex;
+  align-items: center;
 
   &-input {
     position: relative;
-    display: flex;
     align-items: center;
   }
 
   &-error {
-    background: var(--danger-hover) ;
+    background: var(--danger-hover);
     margin-top: 4px;
     border-radius: 7px;
     font-size: 13px;
@@ -203,8 +217,10 @@ onMounted(() => {
     z-index: 1;
     color: #fff;
     background-color: var(--minimal);
+
     &:focus {
       border: 1px solid var(--primary);
+
       & + .input-label {
         z-index: 1;
         opacity: 1;
@@ -233,7 +249,8 @@ onMounted(() => {
     font-size: 13px;
     color: var(--primary);
   }
-  &::placeholder{
+
+  &::placeholder {
     color: #9ca0d2;
   }
 }
