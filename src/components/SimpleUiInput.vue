@@ -123,10 +123,9 @@ onMounted(() => {
   slotPrependWidth.value = prependSlot ? prependSlot.getBoundingClientRect().width : 0;
   slotAppendWidth.value = appendSlot ? appendSlot.getBoundingClientRect().width : 0;
   inputStyle.value = {
-    paddingLeft: `${slotPrependWidth.value}px`,
-    paddingRight: `${slotAppendWidth.value}px`,
+    ...(slotPrependWidth.value > 0 && { paddingLeft: `${slotPrependWidth.value}px` }),
+    ...(slotAppendWidth.value > 0 && { paddingRight: `${slotAppendWidth.value}px` }),
   };
-
 });
 
 
@@ -173,11 +172,9 @@ onMounted(() => {
 .slot {
   display: flex;
   position: absolute;
-
   &-prepend {
     left: 0;
   }
-
   &-append {
     right: 0;
   }
@@ -207,7 +204,7 @@ onMounted(() => {
 
   &-text {
     border: 1px solid var(--minimal-dark);
-    padding: 0 10px;
+    padding: 10px;
     height: 40px;
     border-radius: 7px;
     font-size: 16px;

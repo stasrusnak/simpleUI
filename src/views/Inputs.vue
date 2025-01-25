@@ -200,7 +200,6 @@ const customPattern = ref()
 }
 
 .contentBlock {
-
   padding-bottom: 10px;
 }
 
