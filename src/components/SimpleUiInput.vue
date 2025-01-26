@@ -27,7 +27,11 @@ const props = defineProps({
     type: String,
     default: '300px'
   },
-  rows:{
+  showCountCharacter: {
+    type: Boolean,
+    default: false
+  },
+  rows: {
     type: String,
     default: "3"
   },
@@ -38,6 +42,8 @@ const props = defineProps({
 })
 
 const errors = ref([]);
+const minLen = ref(0)
+const maxLen = ref(0)
 
 
 //Алгоритм луна на првоерку банковской карты
@@ -59,12 +65,21 @@ const isValidCreditCard = (number) => {
 const validate = (value) => {
   errors.value = [];
   props.validationRules.forEach((rule) => {
+    if (rule.type === 'minLength') {
+      minLen.value = rule.value
+    }
+    if (rule.type === 'maxLength') {
+      maxLen.value = rule.value
+    }
+
+
     if (rule.type === 'minLength' && value.length < rule.value) {
       errors.value.push({
         message: rule.message || `Минимальная длина: ${rule.value} символа`,
       });
     }
     if (rule.type === 'maxLength' && value.length > rule.value) {
+      maxLen.value = rule.value
       errors.value.push({
         message: rule.message || `Максимальная длина: ${rule.value} символа`,
       });
@@ -123,12 +138,16 @@ onMounted(() => {
   const {refs} = getCurrentInstance();
   const prependSlot = refs.prependSlot;
   const appendSlot = refs.appendSlot;
+
   slotPrependWidth.value = prependSlot ? prependSlot.getBoundingClientRect().width : 0;
   slotAppendWidth.value = appendSlot ? appendSlot.getBoundingClientRect().width : 0;
+
+
   inputStyle.value = {
     ...(slotPrependWidth.value > 0 && {paddingLeft: `${slotPrependWidth.value}px`}),
     ...(slotAppendWidth.value > 0 && {paddingRight: `${slotAppendWidth.value}px`}),
   };
+
 });
 
 
@@ -142,7 +161,6 @@ onMounted(() => {
         <slot name="prepend"></slot>
       </div>
 
-      <!-- Условие для выбора между input и textarea -->
       <component
           :is="type === 'textarea' ? 'textarea' : 'input'"
           :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle]"
@@ -157,9 +175,21 @@ onMounted(() => {
       ></component>
 
       <label :for="name" class="input-label">{{ label }}</label>
+      <span :for="name"
+            class="input-count"
+            v-if="value.length >0 && showCountCharacter"
+      >{{ value.length + ' character(s)' }}  </span>
+
+      <div v-if="minLen || maxLen">
+        <span :for="name" class="input-count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
+        <span :for="name" class="input-count" v-else>{{ value.length + ' / ' + minLen }} </span>
+      </div>
+
+
       <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
         <slot name="append"></slot>
       </div>
+
     </div>
     <TransitionGroup name="error-animation">
       <div
@@ -181,6 +211,7 @@ onMounted(() => {
   display: flex;
   position: absolute;
   z-index: 2;
+
   &-prepend {
     padding: 6px;
     left: 0;
@@ -213,6 +244,15 @@ onMounted(() => {
 }
 
 .input {
+  &-count {
+    top: -15px;
+    display: inline-flex;
+    position: absolute;
+    right: 3px;
+    font-size: 12px;
+    align-items: center;
+    color: #909399;
+  }
 
   &-text {
     border: 1px solid var(--minimal-dark);
@@ -230,10 +270,11 @@ onMounted(() => {
     &:focus {
       border: 1px solid var(--primary);
 
-      & + .input-label {
+      & + .input-label, {
         z-index: 1;
         opacity: 1;
-        top: -14px;
+        top: -16px;
+        font-size: 14px;
       }
     }
 
@@ -241,7 +282,8 @@ onMounted(() => {
       & + .input-label {
         z-index: 1;
         opacity: 1;
-        top: -14px;
+        top: -16px;
+        font-size: 14px;
       }
     }
   }
@@ -263,6 +305,7 @@ onMounted(() => {
     color: #9ca0d2;
   }
 }
+
 textarea,
 input {
   font-family: inherit;

@@ -18,6 +18,7 @@ const phoneNumber = ref()
 const url = ref()
 const customPattern = ref()
 const iconInput = ref()
+const showCountCharacter = ref('Enter text... ')
 
 const passwordValue = ref('Ваш пароль')
 
@@ -131,7 +132,7 @@ const clearInput = () => {
           class="input"
           name="customPattern"
           placeholder="Custom Pattern"
-          label="Pattern"
+          label="Pattern only Latin letters"
           v-model:value="customPattern"
           :validationRules="[
               { type: 'pattern', value: /^[a-zA-Z]+$/,  message: 'Только латинские символы' },
@@ -190,7 +191,14 @@ const clearInput = () => {
         </template>
       </SimpleUiInput>
 
-
+      <SimpleUiInput
+          class="input"
+          name="showCountCharacter"
+          placeholder="Enter text... character(s)"
+          label="Show count character "
+          showCountCharacter
+          v-model:value="showCountCharacter"
+      ></SimpleUiInput>
 
     </div>
     <transition name="fade">
