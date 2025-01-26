@@ -28,8 +28,8 @@ const props = defineProps({
     default: '300px'
   },
   rows:{
-    type: Number,
-    default: 3
+    type: String,
+    default: "3"
   },
   validationRules: {
     type: Array,
@@ -153,7 +153,7 @@ onMounted(() => {
           :placeholder="placeholder"
           :value="value"
           @input="updateValue"
-          :rows="type === 'textarea' ? rows : undefined"
+          :rows="type === 'textarea' ? Number(rows) : undefined"
       ></component>
 
       <label :for="name" class="input-label">{{ label }}</label>

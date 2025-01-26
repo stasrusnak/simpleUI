@@ -19,6 +19,14 @@ const url = ref()
 const customPattern = ref()
 const iconInput = ref()
 
+const passwordValue = ref('Ваш пароль')
+
+const password = ref("password");
+
+const passwordToggle = () => {
+  password.value = password.value === "password" ? "" : "password";
+};
+
 const clearInput = () => {
   iconInput.value = ''
 }
@@ -40,9 +48,6 @@ const clearInput = () => {
         </SimpleUiButton>
       </div>
     </div>
-
-
-
 
 
     <div class="line">
@@ -136,7 +141,7 @@ const clearInput = () => {
 
       <SimpleUiInput
           class="input"
-          name="width"
+          name="icons"
           placeholder="Custom icons"
           label="Icons"
           width="620px"
@@ -149,13 +154,12 @@ const clearInput = () => {
 
         <template #append>
           <div @click="clearInput" class="button-clear">
-            <b>Очистить</b>
+            <b>Clear </b>
             <SimpleUiIcon icon="trash" size="small"></SimpleUiIcon>
           </div>
         </template>
 
       </SimpleUiInput>
-
 
 
       <SimpleUiInput
@@ -164,8 +168,28 @@ const clearInput = () => {
           type="textarea"
           placeholder="Write text...."
           label="Textarea"
-          rows="3"
+          rows="6"
       ></SimpleUiInput>
+
+
+      <SimpleUiInput
+          class="input"
+          name="password"
+          :type="password"
+          placeholder="Password"
+          label="Password"
+          v-model:value="passwordValue"
+      >
+        <template #append>
+          <div @click="passwordToggle" class="button-clear">
+            <SimpleUiIcon
+                :icon="password === 'password' ? 'eye' : 'eye-off'"
+                size="small"
+            ></SimpleUiIcon>
+          </div>
+        </template>
+      </SimpleUiInput>
+
 
 
     </div>
@@ -175,20 +199,20 @@ const clearInput = () => {
   </div>
 
 
-
 </template>
 
 
 <style scoped lang="scss">
-.button-clear{
+.button-clear {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.input{
+.input {
   margin: 10px;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
