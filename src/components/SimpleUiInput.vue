@@ -156,18 +156,6 @@ onMounted(() => {
           :rows="type === 'textarea' ? rows : undefined"
       ></component>
 
-<!--      <input-->
-<!--          :style="[errors.length && { border: '1px solid var(&#45;&#45;danger-hover)' },  inputStyle  ] "-->
-<!--          class="input-text"-->
-<!--          :type="type"-->
-<!--          :name="name"-->
-<!--          :id="name"-->
-<!--          :placeholder="placeholder"-->
-<!--          :value="value"-->
-<!--          @input="updateValue">-->
-
-
-
       <label :for="name" class="input-label">{{ label }}</label>
       <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
         <slot name="append"></slot>
@@ -192,7 +180,7 @@ onMounted(() => {
 .slot {
   display: flex;
   position: absolute;
-
+  z-index: 2;
   &-prepend {
     padding: 6px;
     left: 0;

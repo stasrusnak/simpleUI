@@ -184,7 +184,6 @@ const clearInput = () => {
   display: flex;
   align-items: center;
   cursor: pointer;
-  z-index: 2;
 }
 
 .input{
