@@ -19,6 +19,7 @@ const url = ref()
 const customPattern = ref()
 const iconInput = ref()
 const showCountCharacter = ref('Enter text... ')
+const textareaValue = ref('Write text....')
 
 const passwordValue = ref('Ваш пароль')
 
@@ -169,7 +170,9 @@ const clearInput = () => {
           type="textarea"
           placeholder="Write text...."
           label="Textarea"
-          rows="6"
+          rows="3"
+          showCountCharacter
+          v-model:value="textareaValue"
       ></SimpleUiInput>
 
 

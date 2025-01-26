@@ -1,6 +1,5 @@
 <script setup>
 import {ref, watch, onMounted, getCurrentInstance} from "vue";
-
 const emit = defineEmits(['update:value'])
 const props = defineProps({
   value: {
@@ -138,18 +137,13 @@ onMounted(() => {
   const {refs} = getCurrentInstance();
   const prependSlot = refs.prependSlot;
   const appendSlot = refs.appendSlot;
-
   slotPrependWidth.value = prependSlot ? prependSlot.getBoundingClientRect().width : 0;
   slotAppendWidth.value = appendSlot ? appendSlot.getBoundingClientRect().width : 0;
-
-
   inputStyle.value = {
     ...(slotPrependWidth.value > 0 && {paddingLeft: `${slotPrependWidth.value}px`}),
     ...(slotAppendWidth.value > 0 && {paddingRight: `${slotAppendWidth.value}px`}),
   };
-
 });
-
 
 </script>
 
@@ -172,6 +166,7 @@ onMounted(() => {
           :value="value"
           @input="updateValue"
           :rows="type === 'textarea' ? Number(rows) : undefined"
+            ref="inputRef"
       ></component>
 
       <label :for="name" class="input-label">{{ label }}</label>
@@ -180,11 +175,12 @@ onMounted(() => {
             v-if="value.length >0 && showCountCharacter"
       >{{ value.length + ' character(s)' }}  </span>
 
+
+
       <div v-if="minLen || maxLen">
         <span :for="name" class="input-count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
         <span :for="name" class="input-count" v-else>{{ value.length + ' / ' + minLen }} </span>
       </div>
-
 
       <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
         <slot name="append"></slot>
