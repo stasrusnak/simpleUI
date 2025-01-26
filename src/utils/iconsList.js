@@ -31,5 +31,6 @@ export default [
   'reload',
   'pause',
   'person',
-  'code'
+  'code',
+  'trash'
 ];
