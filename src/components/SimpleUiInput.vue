@@ -1,5 +1,5 @@
 <script setup>
-import {ref, watch, onMounted,getCurrentInstance } from "vue";
+import {ref, watch, onMounted, getCurrentInstance} from "vue";
 
 const emit = defineEmits(['update:value'])
 const props = defineProps({
@@ -27,6 +27,10 @@ const props = defineProps({
     type: String,
     default: '300px'
   },
+  rows:{
+    type: Number,
+    default: 3
+  },
   validationRules: {
     type: Array,
     default: [],
@@ -36,7 +40,7 @@ const props = defineProps({
 const errors = ref([]);
 
 
-//Алогоритм луна на првоерку карты
+//Алгоритм луна на првоерку банковской карты
 const isValidCreditCard = (number) => {
   let sum = 0;
   let shouldDouble = false;
@@ -115,19 +119,17 @@ const slotAppendWidth = ref(0);
 const inputStyle = ref({});
 
 
-
 onMounted(() => {
-  const { refs } = getCurrentInstance();
+  const {refs} = getCurrentInstance();
   const prependSlot = refs.prependSlot;
   const appendSlot = refs.appendSlot;
   slotPrependWidth.value = prependSlot ? prependSlot.getBoundingClientRect().width : 0;
   slotAppendWidth.value = appendSlot ? appendSlot.getBoundingClientRect().width : 0;
   inputStyle.value = {
-    ...(slotPrependWidth.value > 0 && { paddingLeft: `${slotPrependWidth.value}px` }),
-    ...(slotAppendWidth.value > 0 && { paddingRight: `${slotAppendWidth.value}px` }),
+    ...(slotPrependWidth.value > 0 && {paddingLeft: `${slotPrependWidth.value}px`}),
+    ...(slotAppendWidth.value > 0 && {paddingRight: `${slotAppendWidth.value}px`}),
   };
 });
-
 
 
 </script>
@@ -136,18 +138,36 @@ onMounted(() => {
   <div class="body-input" :style="{width: width}">
     <div class="body">
 
-      <div  ref="prependSlot" v-if="$slots.prepend" class=" slot slot-prepend">
+      <div ref="prependSlot" v-if="$slots.prepend" class=" slot slot-prepend">
         <slot name="prepend"></slot>
       </div>
-      <input
-          :style="[errors.length && { border: '1px solid var(--danger-hover)' },  inputStyle  ] "
+
+      <!-- Условие для выбора между input и textarea -->
+      <component
+          :is="type === 'textarea' ? 'textarea' : 'input'"
+          :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle]"
           class="input-text"
-          :type="type"
+          :type="type === 'textarea' ? undefined : type"
           :name="name"
           :id="name"
           :placeholder="placeholder"
           :value="value"
-          @input="updateValue">
+          @input="updateValue"
+          :rows="type === 'textarea' ? rows : undefined"
+      ></component>
+
+<!--      <input-->
+<!--          :style="[errors.length && { border: '1px solid var(&#45;&#45;danger-hover)' },  inputStyle  ] "-->
+<!--          class="input-text"-->
+<!--          :type="type"-->
+<!--          :name="name"-->
+<!--          :id="name"-->
+<!--          :placeholder="placeholder"-->
+<!--          :value="value"-->
+<!--          @input="updateValue">-->
+
+
+
       <label :for="name" class="input-label">{{ label }}</label>
       <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
         <slot name="append"></slot>
@@ -172,10 +192,14 @@ onMounted(() => {
 .slot {
   display: flex;
   position: absolute;
+
   &-prepend {
+    padding: 6px;
     left: 0;
   }
+
   &-append {
+    padding: 6px;
     right: 0;
   }
 }
@@ -205,7 +229,7 @@ onMounted(() => {
   &-text {
     border: 1px solid var(--minimal-dark);
     padding: 10px;
-    height: 40px;
+    min-height: 40px;
     border-radius: 7px;
     font-size: 16px;
     width: 100%;
@@ -250,6 +274,11 @@ onMounted(() => {
   &::placeholder {
     color: #9ca0d2;
   }
+}
+textarea,
+input {
+  font-family: inherit;
+  font-size: 16px;
 }
 
 .error-animation-enter-active,

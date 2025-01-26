@@ -1,7 +1,7 @@
 {
   "name": "@stanislav999/simpleui",
-  "version": "0.0.21",
-  "buildDate": "2025-01-15",
+  "version": "0.0.22",
+  "buildDate": "2025-01-26",
   "private": false,
   "type": "module",
   "scripts": {

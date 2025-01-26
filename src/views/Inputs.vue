@@ -17,6 +17,11 @@ const creditCard = ref()
 const phoneNumber = ref()
 const url = ref()
 const customPattern = ref()
+const iconInput = ref()
+
+const clearInput = () => {
+  iconInput.value = ''
+}
 
 </script>
 
@@ -132,21 +137,35 @@ const customPattern = ref()
       <SimpleUiInput
           class="input"
           name="width"
-          placeholder="Custom width"
-          label="Width"
+          placeholder="Custom icons"
+          label="Icons"
           width="620px"
+          v-model:value="iconInput"
       >
 
         <template #prepend>
-          <span class="icon">@@@@@@</span>
+          <SimpleUiIcon icon="search"></SimpleUiIcon>
         </template>
+
         <template #append>
-          <button @click="clearInput">Очистить</button>
+          <div @click="clearInput" class="button-clear">
+            <b>Очистить</b>
+            <SimpleUiIcon icon="trash" size="small"></SimpleUiIcon>
+          </div>
         </template>
 
       </SimpleUiInput>
 
 
+
+      <SimpleUiInput
+          class="input"
+          name="Textarea"
+          type="textarea"
+          placeholder="Write text...."
+          label="Textarea"
+          rows="3"
+      ></SimpleUiInput>
 
 
     </div>
@@ -161,6 +180,12 @@ const customPattern = ref()
 
 
 <style scoped lang="scss">
+.button-clear{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+}
 
 .input{
   margin: 10px;
