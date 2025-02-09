@@ -9,5 +9,10 @@ else
   exit 1
 fi
 
+# Обновляем buildDate в package.json
+BUILD_DATE=$(date +"%Y-%m-%d")
+jq --arg date "$BUILD_DATE" '.buildDate = $date' package.json > package.tmp.json && mv package.tmp.json package.json
+
+
 nvm use 18
 npm run dev
