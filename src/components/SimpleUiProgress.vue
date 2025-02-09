@@ -117,8 +117,6 @@ watch(currentValue, (newValue) => {
     border-radius: 4px;
   }
 }
-
-
 .slider {
   -webkit-appearance: none;
   width: 100%;

@@ -234,20 +234,17 @@ const options = [...colorsList]
 
   }
 }
-
 .slider_body {
   max-width: 800px;
   display: flex;
   flex-direction: column;
 }
-
 .palitra {
   width: 15px;
   height: 15px;
   background-color: #00C48C;
   margin-right: 5px;
 }
-
 .plus, .minus {
   font-size: 22px;
   text-align: center;
