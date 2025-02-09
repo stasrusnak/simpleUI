@@ -39,11 +39,12 @@ body {
   font-family: 'Circe', sans-serif;
   font-weight: 200;
   font-style: normal;
+  background: #2C2C3B
   //Добавили градиентый фон
   /* Отключаем повторение фона */
   /* Центрируем градиент сверху */
   /* Закрепляем фон при прокрутке */
-  background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
+  //background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
 }
 
 a {
