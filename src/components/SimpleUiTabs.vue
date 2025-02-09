@@ -1,35 +1,39 @@
 <script setup>
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
+import {ref} from "vue";
 const props = defineProps({
   names: {
     type: Array,
     required: true
   },
-  selectedTab: {
-    type: String,
-    required: false
-  }
 })
 
-const emit = defineEmits(['changeTab'])
 
-const clickOnTab = (tabName) => {
-  emit('changeTab', tabName)
+const selectedTab = ref(null);
+
+
+if (!selectedTab.value && props.names.length > 0) {
+  const selectedTabItem = props.names.find(tab => tab.selected);
+  selectedTab.value = selectedTabItem ? selectedTabItem.name : props.names[0].name;
 }
+
+
 </script>
 
 <template>
   <div class="tab-nav">
     <SimpleUiButton
+        :buttonText="tab.label"
         color="basic"
         v-for="tab in names"
         :key="tab.name"
+        :disabled="tab.disabled"
         :class="['tab-nav__item', {'selected': tab.name === selectedTab}]"
-        @click="clickOnTab(tab.name)">{{tab.label}}
+        @click="selectedTab = tab.name">
     </SimpleUiButton>
   </div>
   <div class="tab-content">
-    <slot/>
+    <slot :name="selectedTab"></slot>
   </div>
 </template>
 
@@ -52,6 +56,11 @@ const clickOnTab = (tabName) => {
         &.selected {
           background: var(--primary);
           color: #fff;
+        }
+        &:disabled {
+          pointer-events: none; // Отключает hover/клики
+          opacity: 0.6; // Делаем кнопку визуально "заблокированной"
+          color: #aaa;
         }
       }
 

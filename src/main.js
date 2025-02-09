@@ -40,7 +40,6 @@ const SimpleUiLibrary = {
   install(app) {
     app.component('SimpleUiButton', SimpleUiButton);
     app.component('SimpleUiCodeBlock', SimpleUiCodeBlock);
-    // app.component('UIInputTextArea', UIInputTextArea);
     // Здесь вы можете зарегистрировать другие компоненты
   }
 };
