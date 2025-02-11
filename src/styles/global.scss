@@ -61,7 +61,14 @@ a {
   }
 }
 
-
+code {
+  border: 1px solid #454c54;
+  background-color: #1a1e23;
+  padding: 0 2px;
+  border-radius: 5px;
+  font-size: 0.9125rem;
+  letter-spacing: 0.09rem;
+}
 
 //--------------- shake ---------------
 @keyframes shake {
