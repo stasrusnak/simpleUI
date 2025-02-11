@@ -1,6 +1,6 @@
 <script setup>
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import {ref} from "vue";
+import {ref, watch} from "vue";
 
 const props = defineProps({
   names: {
@@ -23,19 +23,35 @@ if (!selectedTab.value && props.names.length > 0) {
 }
 
 
-</script>
+const names  = ref([...props.names]);
 
+function clickOnTab(tab) {
+  props.names.forEach(el => {   el.selected = false  });
+
+  tab.selected =true
+  selectedTab.value = tab.name
+
+}
+
+// Наблюдатель за изменением массива tabs
+watch(names, () => {
+  console.log('Массив изменился');
+  selectedTab.value  = props.names.find(tab => tab.selected)?.name;
+}, { deep: true });
+
+</script>
+<!--:class="['tab-nav__item', {'selected': tab.name === selectedTab}]"-->
 <template>
-  <div class="tab-body" :style="{display: vertical ? 'flex' : 'block'}">
+  <div class="tab-body" :style="{display: vertical ? 'flex' : 'block'}" >
     <div class="tab-nav" :style="{flexDirection: vertical ? 'column' : 'row'}">
       <SimpleUiButton
           :buttonText="tab.label"
           color="basic"
           v-for="tab in names"
-          :key="tab.name"
+          :key="tab.names"
           :disabled="tab.disabled"
-          :class="['tab-nav__item', {'selected': tab.name === selectedTab}]"
-          @click="selectedTab = tab.name">
+          :class="['tab-nav__item', {'selected': tab.selected}]"
+          @click="clickOnTab(tab)">
       </SimpleUiButton>
     </div>
     <div class="tab-content">
@@ -60,15 +76,10 @@ if (!selectedTab.value && props.names.length > 0) {
       background: var(--minimal-dark);
       color: #fff;
 
-      &:hover {
-        background: var(--primary-hover);
-        color: #fff;
-        transition: 0.2s;
-      }
-
       &.selected {
         background: var(--primary);
         color: #fff;
+        transition: 0.2s;
       }
 
       &:disabled {

@@ -3,26 +3,55 @@ import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiTabs from '@/components/SimpleUiTabs.vue';
-import {ref} from "vue";
-import colorsList from "@/utils/colorsList.js";
-import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {isExampleButton} from "@/utils/listOfTemplateExample.js";
+import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
+import {ref, watch} from "vue";
 
 const isButtonShow = ref(false);
+
 
 const tabs = [
   {name: 'JavaScript', label: 'О JavaScript'},
   {name: 'Vue', label: 'Про Vue', selected: true},
-  {name: 'React', label: 'Про React', disabled: true},
-  {name: 'Angular', label: 'Про Angular' },
+  {name: 'React', label: 'Про React', disabled: false},
+  {name: 'Angular', label: 'Про Angular'},
 ];
 
 
 const basic = [
   {name: 'HTML', label: 'О html'},
   {name: 'SCC', label: 'Про scc', selected: true},
-  {name: 'React', label: 'Про React', disabled: true},
-  {name: 'Angular', label: 'Про Angular' },
+  {name: 'React', label: 'Про React', disabled: false},
+  {name: 'Angular', label: 'Про Angular'},
 ];
+
+
+const tablist = ref([
+  {name: "Tab1", label: "Вкладка 1", selected: true},
+  {name: "Tab2", label: "Вкладка 2", selected: false},
+  {name: "Tab3", label: "Вкладка 3", selected: false},
+  {name: "Tab4", label: "Вкладка 4", selected: false},
+  {name: "Tab5", label: "Вкладка 5", selected: false}
+]);
+const progress = ref(0);
+
+
+// Наблюдатель за изменением прогресса
+watch(progress, () => {
+  // Сбросить все вкладки
+  tablist.value.forEach(tab => {
+    tab.selected = false
+  });
+
+  if (tablist.value[progress.value]) {
+    tablist.value[progress.value].selected = true;
+  } else {
+    progress.value--
+  }
+
+});
+
+
 </script>
 
 <template>
@@ -37,19 +66,33 @@ const basic = [
       </div>
     </div>
 
+    <p>You can set the <code>selected</code> and <code>disabled</code> tabs</p>
+
     <div class="line">
 
-      <SimpleUiTabs :names="tabs" >
+      <SimpleUiTabs :names="tabs">
         <template v-slot:JavaScript>
-          JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions. While it is most well-known as the scripting language for Web pages, many non-browser environments also use it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm, dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming) styles.
-       </template>
+          JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
+          While it is most well-known as the scripting language for Web pages, many non-browser environments also use
+          it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
+          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
+          styles.
+        </template>
         <template v-slot:Vue>
-          Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and JavaScript and provides a declarative, component-based programming model that helps you efficiently develop user interfaces of any complexity.
+          Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
+          JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
+          user interfaces of any complexity.
         </template>
         <template v-slot:React>
-          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to make building user interfaces based on components more "seamless". It is maintained by Meta (formerly Facebook) and a community of individual developers and companies.</template>
+          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to
+          make building user interfaces based on components more "seamless". It is maintained by Meta (formerly
+          Facebook) and a community of individual developers and companies.
+        </template>
         <template v-slot:Angular>
-          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary purpose is to develop single-page applications. As a framework, Angular has clear advantages while also providing a standard structure for developers to work with. It enables users to create large applications in a maintainable manner.
+          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary
+          purpose is to develop single-page applications. As a framework, Angular has clear advantages while also
+          providing a standard structure for developers to work with. It enables users to create large applications in a
+          maintainable manner.
         </template>
       </SimpleUiTabs>
 
@@ -58,6 +101,8 @@ const basic = [
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
+
+
   </div>
 
   <div class="contentBlock">
@@ -73,18 +118,24 @@ const basic = [
 
     <div class="line">
 
+      <SimpleUiProgress
+          :percent="progress"
+          v-model:unitValue="progress"
+          slider
+          :min="0"
+          :max="tablist.length"
+          unit="%"
+          color="minimal"
+          secondary_color="danger"
+      ></SimpleUiProgress>
 
-      <SimpleUiTabs :names="basic" >
-        <template v-slot:HTML>
-          HTML (HyperText Markup Language) is the most basic building block of the Web. It describes and defines the content of a webpage along with the basic layout of the webpage. Other technologies besides HTML are generally used to describe a web page's appearance/presentation (CSS) or functionality/ behavior (JavaScript).
-        </template>
-       <template v-slot:SCC>
-         Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.        </template>
-        <template v-slot:React>
-          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to make building user interfaces based on components more "seamless". It is maintained by Meta (formerly Facebook) and a community of individual developers and companies.
-        </template>
-        <template v-slot:Angular>
-          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary purpose is to develop single-page applications. As a framework, Angular has clear advantages while also providing a standard structure for developers to work with. It enables users to create large applications in a maintainable manner.
+
+      <SimpleUiTabs :names="tablist">
+        <template
+            v-for="(tab, i) in tablist"
+            v-slot:[tab.name]
+        >
+          Контент для вкладки {{ i + 1 }}
         </template>
       </SimpleUiTabs>
 
@@ -101,6 +152,7 @@ const basic = [
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   p {
     line-height: 1.5;
   }
