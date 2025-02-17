@@ -8,26 +8,20 @@ import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import {ref, watch} from "vue";
 
 const isButtonShow = ref(false);
-
-
 const tabs = [
   {name: 'JavaScript', label: 'О JavaScript'},
   {name: 'Vue', label: 'Про Vue', selected: true},
-  {name: 'React', label: 'Про React', disabled: false},
+  {name: 'React', label: 'Про React', disabled: true},
   {name: 'Angular', label: 'Про Angular'},
 ];
-
-
 const basic = [
   {name: 'HTML', label: 'О html'},
   {name: 'SCC', label: 'Про scc', selected: true},
   {name: 'React', label: 'Про React', disabled: false},
   {name: 'Angular', label: 'Про Angular'},
 ];
-
-
 const tablist = ref([
-  {name: "Tab1", label: "Вкладка 1", selected: true},
+  {name: "Tab1", label: "Вкладка ", selected: true},
   {name: "Tab2", label: "Вкладка 2", selected: false},
   {name: "Tab3", label: "Вкладка 3", selected: false},
   {name: "Tab4", label: "Вкладка 4", selected: false},
@@ -36,12 +30,9 @@ const tablist = ref([
 const progress = ref(0);
 
 
-// Наблюдатель за изменением прогресса
 watch(progress, () => {
   // Сбросить все вкладки
-  tablist.value.forEach(tab => {
-    tab.selected = false
-  });
+  tablist.value.forEach(tab => {   tab.selected = false });
 
   if (tablist.value[progress.value]) {
     tablist.value[progress.value].selected = true;
@@ -65,11 +56,8 @@ watch(progress, () => {
         </SimpleUiButton>
       </div>
     </div>
-
     <p>You can set the <code>selected</code> and <code>disabled</code> tabs</p>
-
     <div class="line">
-
       <SimpleUiTabs :names="tabs">
         <template v-slot:JavaScript>
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
@@ -95,20 +83,16 @@ watch(progress, () => {
           maintainable manner.
         </template>
       </SimpleUiTabs>
-
     </div>
-
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
-
-
   </div>
 
   <div class="contentBlock">
-    <h2>A basic Tab</h2>
+    <h2>Active Index </h2>
     <div class="description">
-      <p>The component is used for hiding content behind a selectable item. </p>
+      <p>A tab can be controlled component</p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -117,25 +101,70 @@ watch(progress, () => {
     </div>
 
     <div class="line">
-
-      <SimpleUiProgress
-          :percent="progress"
-          v-model:unitValue="progress"
-          slider
-          :min="0"
-          :max="tablist.length"
-          unit="%"
-          color="minimal"
-          secondary_color="danger"
-      ></SimpleUiProgress>
-
+      <div class="progress">
+        <SimpleUiProgress
+            :percent="progress"
+            v-model:unitValue="progress"
+            slider
+            :min="0"
+            :max="tablist.length"
+            unit=" Active Index"
+            color="minimal"
+            secondary_color="danger"
+        ></SimpleUiProgress>
+      </div>
 
       <SimpleUiTabs :names="tablist">
-        <template
-            v-for="(tab, i) in tablist"
-            v-slot:[tab.name]
+        <template v-for="(tab, i) in tablist"
+                  v-slot:[tab.name]
         >
-          Контент для вкладки {{ i + 1 }}
+          Контент для вкладки {{ i > 0 ? ++i : '' }}
+        </template>
+      </SimpleUiTabs>
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+
+  <div class="contentBlock">
+    <h2>Vertical Tabular  </h2>
+    <div class="description">
+      <p>A vertical tab menu can be positioned on either side   </p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line">
+      <SimpleUiTabs
+          :names="basic"
+          vertical
+      >
+        <template v-slot:HTML>
+          JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
+          While it is most well-known as the scripting language for Web pages, many non-browser environments also use
+          it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
+          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
+          styles.
+        </template>
+        <template v-slot:SCC>
+          Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
+          JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
+          user interfaces of any complexity.
+        </template>
+        <template v-slot:React>
+          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to
+          make building user interfaces based on components more "seamless". It is maintained by Meta (formerly
+          Facebook) and a community of individual developers and companies.
+        </template>
+        <template v-slot:Angular>
+          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary
+          purpose is to develop single-page applications. As a framework, Angular has clear advantages while also
+          providing a standard structure for developers to work with. It enables users to create large applications in a
+          maintainable manner.
         </template>
       </SimpleUiTabs>
 
@@ -148,6 +177,11 @@ watch(progress, () => {
 </template>
 
 <style scoped lang="scss">
+.progress {
+  min-width: 300px;
+  padding-bottom: 1rem;
+}
+
 .description {
   display: flex;
   justify-content: space-between;
