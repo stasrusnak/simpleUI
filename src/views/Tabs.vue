@@ -33,6 +33,11 @@ const example = ref([
   {name: "loading", label: "Loading..."},
   {name: "settings", label: "Settings"},
 ]);
+const exampleGadget = ref([
+  {name: "home" },
+  {name: "menu" },
+  {name: "settings" },
+]);
 
 watch(progress, () => {
   // Сбросить все вкладки
@@ -100,14 +105,36 @@ watch(progress, () => {
     </div>
 
     <div class="line body-icon-example">
+      <div class="item-example">
+        <SimpleUiTabs :names="example">
+          <template v-slot:loading-icon>
+            <SimpleUiIcon icon="sync" loading size="small"></SimpleUiIcon>
+          </template>
+          <template v-slot:loading>
+            Example loading slot
+          </template>
+          <template v-slot:settings-icon>
+            <SimpleUiIcon icon="settings"  size="small"></SimpleUiIcon>
+          </template>
+          <template v-slot:settings>
+            Example settings slot
+          </template>
+        </SimpleUiTabs>
 
-
-      <SimpleUiTabs :names="example">
-        <template v-slot:loading-icon>
-          <SimpleUiIcon icon="sync" loading size="small"></SimpleUiIcon>
+      </div>
+      <div class="item-example nav">
+      <SimpleUiTabs :names="exampleGadget">
+        <template v-slot:home-icon>
+          <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
         </template>
-        <template v-slot:loading>
-        Example loading slot
+        <template v-slot:home>
+          Example home slot
+        </template>
+        <template v-slot:menu-icon>
+          <SimpleUiIcon icon="menu"  size="small"></SimpleUiIcon>
+        </template>
+        <template v-slot:menu>
+          Example menu slot
         </template>
         <template v-slot:settings-icon>
           <SimpleUiIcon icon="settings"  size="small"></SimpleUiIcon>
@@ -116,7 +143,7 @@ watch(progress, () => {
           Example settings slot
         </template>
       </SimpleUiTabs>
-
+      </div>
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -220,6 +247,7 @@ watch(progress, () => {
 </template>
 
 <style scoped lang="scss">
+
 .progress {
   min-width: 300px;
   padding-bottom: 1rem;
@@ -250,6 +278,20 @@ p {
 }
 
 .body-icon-example{
-  min-width: 350px;
+  display: flex;
 }
+
+.item-example{
+  min-width: 350px;
+  flex-direction: column;
+
+  padding-right: 20px;
+}
+.nav{
+  /*фикс маленький отспутов кнопок навигации */
+  :deep(.tab-nav) {
+    margin-right: -10px;
+  }
+}
+
 </style>
