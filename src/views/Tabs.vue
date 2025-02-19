@@ -10,8 +10,8 @@ import {ref, watch} from "vue";
 const progress = ref(0);
 const isButtonShow = ref(false);
 const tabs = [
-  {name: 'JavaScript', label: 'О JavaScript'},
-  {name: 'Vue', label: 'Про Vue', selected: true},
+  {name: 'JavaScript', label: 'О JavaScript', selected: true},
+  {name: 'Vue', label: 'Про Vue'},
   {name: 'React', label: 'Про React', disabled: true},
   {name: 'Angular', label: 'Про Angular'},
 ];
@@ -63,7 +63,7 @@ watch(progress, () => {
       </div>
     </div>
     <p>You can set the <code>selected</code> and <code>disabled</code> tabs</p>
-    <div class="line">
+    <div class="line line_body">
       <SimpleUiTabs :names="tabs">
         <template v-slot:JavaScript>
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
@@ -247,7 +247,11 @@ watch(progress, () => {
 </template>
 
 <style scoped lang="scss">
-
+.line_body{
+  :deep(.tab-content) {
+    min-height: 140px;
+  }
+}
 .progress {
   min-width: 300px;
   padding-bottom: 1rem;

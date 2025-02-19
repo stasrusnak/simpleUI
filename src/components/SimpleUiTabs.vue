@@ -10,6 +10,11 @@ const props = defineProps({
   vertical: {
     type: Boolean,
     required: false
+  },
+  transition: {
+    type: String,
+    default: 'horizontal',
+    validator: (value) => ['fade', 'slide', 'zoom', 'fold', 'horizontal', 'horizontal', 'none'].includes(value)
   }
 })
 
@@ -23,12 +28,14 @@ if (!selectedTab.value && props.names.length > 0) {
 }
 
 
-const names  = ref([...props.names]);
+const names = ref([...props.names]);
 
 function clickOnTab(tab) {
-  props.names.forEach(el => {   el.selected = false  });
+  props.names.forEach(el => {
+    el.selected = false
+  });
 
-  tab.selected =true
+  tab.selected = true
   selectedTab.value = tab.name
 
 }
@@ -54,9 +61,16 @@ watch(names, () => {
       </SimpleUiButton>
 
     </div>
+
     <div class="tab-content">
-      <slot :name="selectedTab"></slot>
+      <Transition :name="transition" mode="out-in">
+        <div :key="selectedTab">
+          <slot :name="selectedTab"></slot>
+        </div>
+      </Transition>
     </div>
+
+
   </div>
 
 </template>
@@ -93,13 +107,126 @@ watch(names, () => {
   }
 
   &-content {
+    position: relative;
+    overflow: hidden; /* Ключевое свойство - блокирует горизонтальный скролл */
     padding: 16px;
-    min-height: 50px;
+    min-height: 60px;
     border-radius: 7px;
     background: var(--minimal-dark);
     margin: 5px;
     width: 100%;
     line-height: 1.5;
   }
+
+  &-content-inner {
+    width: 100%;
+  }
+
 }
+
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.6s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
+/*Slide vertical анимация*/
+.vertical-enter-active,
+.vertical-leave-active {
+  transition: all 0.3s ease;
+}
+
+.vertical-enter-from {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.vertical-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+/*Slide horizontal анимация*/
+.horizontal-enter-active,
+.horizontal-leave-active {
+  transition: all 0.3s ease;
+}
+
+.horizontal-enter-from {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.horizontal-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+/*Slide  анимация*/
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.5s ease;
+  position: absolute;
+  width: 100%;
+}
+
+.slide-enter-from {
+  transform: translateX(100%);
+}
+
+.slide-leave-to {
+  transform: translateX(-100%);
+}
+
+.slide-enter-to {
+  transform: translateX(0);
+}
+
+.slide-leave-from {
+  transform: translateX(0);
+}
+
+/*zoom  анимация*/
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: all 0.3s ease;
+}
+
+.zoom-enter-from {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.zoom-leave-to {
+  transform: scale(1.05);
+  opacity: 0;
+}
+
+/*  Fold анимация */
+.fold-enter-active,
+.fold-leave-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: absolute;
+  width: 100%;
+  transform-origin: top center;
+}
+
+.fold-enter-from {
+  transform: perspective(1000px) rotateX(-90deg);
+  opacity: 0;
+}
+
+.fold-leave-to {
+  transform: perspective(1000px) rotateX(90deg);
+  opacity: 0;
+}
+
+
 </style>
