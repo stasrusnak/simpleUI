@@ -7,6 +7,7 @@ import {isExampleButton} from "@/utils/listOfTemplateExample.js";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import {ref, watch} from "vue";
 
+const progress = ref(0);
 const isButtonShow = ref(false);
 const tabs = [
   {name: 'JavaScript', label: 'О JavaScript'},
@@ -15,8 +16,8 @@ const tabs = [
   {name: 'Angular', label: 'Про Angular'},
 ];
 const basic = [
-  {name: 'HTML', label: 'О html'},
-  {name: 'SCC', label: 'Про scc', selected: true},
+  {name: 'HTML', label: 'О html' , selected: true},
+  {name: 'SCC', label: 'Про scc'  },
   {name: 'React', label: 'Про React', disabled: false},
   {name: 'Angular', label: 'Про Angular'},
 ];
@@ -27,22 +28,22 @@ const tablist = ref([
   {name: "Tab4", label: "Вкладка 4", selected: false},
   {name: "Tab5", label: "Вкладка 5", selected: false}
 ]);
-const progress = ref(0);
 
+const example = ref([
+  {name: "loading", label: "Loading..."},
+  {name: "settings", label: "Settings"},
+]);
 
 watch(progress, () => {
   // Сбросить все вкладки
-  tablist.value.forEach(tab => {   tab.selected = false });
+  tablist.value.forEach(tab => {tab.selected = false});
 
   if (tablist.value[progress.value]) {
     tablist.value[progress.value].selected = true;
   } else {
     progress.value--
   }
-
 });
-
-
 </script>
 
 <template>
@@ -88,7 +89,39 @@ watch(progress, () => {
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+  <div class="contentBlock">
+    <div class="description">
+      <p>You can use the icon </p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
+    <div class="line body-icon-example">
+
+
+      <SimpleUiTabs :names="example">
+        <template v-slot:loading-icon>
+          <SimpleUiIcon icon="sync" loading size="small"></SimpleUiIcon>
+        </template>
+        <template v-slot:loading>
+        Example loading slot
+        </template>
+        <template v-slot:settings-icon>
+          <SimpleUiIcon icon="settings"  size="small"></SimpleUiIcon>
+        </template>
+        <template v-slot:settings>
+          Example settings slot
+        </template>
+      </SimpleUiTabs>
+
+    </div>
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
   <div class="contentBlock">
     <h2>Active Index </h2>
     <div class="description">
@@ -128,7 +161,7 @@ watch(progress, () => {
   </div>
 
   <div class="contentBlock">
-    <h2>Vertical Tabular  </h2>
+    <h2>Vertical Tabular </h2>
     <div class="description">
       <p>A vertical tab menu can be positioned on either side   </p>
       <div class="code_button">
@@ -139,17 +172,20 @@ watch(progress, () => {
     </div>
 
     <div class="line">
+
       <SimpleUiTabs
           :names="basic"
           vertical
       >
-        <template v-slot:HTML>
+
+        <template  v-slot:HTML >
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
           While it is most well-known as the scripting language for Web pages, many non-browser environments also use
           it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
           dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
           styles.
         </template>
+
         <template v-slot:SCC>
           Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
           JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
@@ -174,6 +210,13 @@ watch(progress, () => {
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
+
+
+
+
+
+
+
 </template>
 
 <style scoped lang="scss">
@@ -204,5 +247,9 @@ watch(progress, () => {
 p {
   font-size: 18px;
   padding-bottom: 15px;
+}
+
+.body-icon-example{
+  min-width: 350px;
 }
 </style>

@@ -33,16 +33,14 @@ function clickOnTab(tab) {
 
 }
 
-// Наблюдатель за изменением массива tabs
+// Наблюдатель за изменением массива tabs, рекурсивно чтобы найти вложенный елемент
 watch(names, () => {
-  console.log('Массив изменился');
-  selectedTab.value  = props.names.find(tab => tab.selected)?.name;
-}, { deep: true });
+  selectedTab.value = props.names.find(tab => tab.selected)?.name;
+}, {deep: true});
 
 </script>
-<!--:class="['tab-nav__item', {'selected': tab.name === selectedTab}]"-->
 <template>
-  <div class="tab-body" :style="{display: vertical ? 'flex' : 'block'}" >
+  <div class="tab-body" :style="{display: vertical ? 'flex' : 'block'}">
     <div class="tab-nav" :style="{flexDirection: vertical ? 'column' : 'row'}">
       <SimpleUiButton
           :buttonText="tab.label"
@@ -52,7 +50,9 @@ watch(names, () => {
           :disabled="tab.disabled"
           :class="['tab-nav__item', {'selected': tab.selected}]"
           @click="clickOnTab(tab)">
+        <slot :name="`${tab.name}-icon`"></slot>
       </SimpleUiButton>
+
     </div>
     <div class="tab-content">
       <slot :name="selectedTab"></slot>
@@ -71,6 +71,7 @@ watch(names, () => {
     display: flex;
     align-items: center;
     padding-bottom: 5px;
+
     &__item {
       border: 1px solid transparent;
       background: var(--minimal-dark);
