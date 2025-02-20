@@ -49,6 +49,17 @@ watch(progress, () => {
     progress.value--
   }
 });
+
+const animationSelected = ref(['horizontal'])
+const animationList = ref([
+  {name: 'Fade', id: 'fade'},
+  {name: 'slide', id: 'slide'},
+  {name: 'zoom', id: 'zoom'},
+  {name: 'fold', id: 'fold'},
+  {name: 'horizontal', id: 'horizontal'},
+  {name: 'vertical', id: 'vertical'},
+  {name: 'none', id: 'none'},
+])
 </script>
 
 <template>
@@ -186,9 +197,16 @@ watch(progress, () => {
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-
   <div class="contentBlock">
     <h2>Vertical Tabular </h2>
+    <div class="description checkGroup">
+      <p>You can set different animations for changing tabs</p>
+      <SimpleUiRadioGroup
+          class="checkboxGroup"
+          v-model:value="animationSelected"
+          :options="animationList">
+      </SimpleUiRadioGroup>
+    </div>
     <div class="description">
       <p>A vertical tab menu can be positioned on either side   </p>
       <div class="code_button">
@@ -199,10 +217,10 @@ watch(progress, () => {
     </div>
 
     <div class="line">
-
       <SimpleUiTabs
           :names="basic"
           vertical
+          :animation="animationSelected[0]"
       >
 
         <template  v-slot:HTML >
@@ -212,7 +230,6 @@ watch(progress, () => {
           dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
           styles.
         </template>
-
         <template v-slot:SCC>
           Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
           JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
@@ -247,6 +264,16 @@ watch(progress, () => {
 </template>
 
 <style scoped lang="scss">
+.checkboxGroup{
+  display: flex;
+  :deep(.checkbox-container){
+    padding-right: 5px;
+  }
+
+}
+.checkGroup{
+  flex-direction: column;
+}
 .line_body{
   :deep(.tab-content) {
     min-height: 140px;

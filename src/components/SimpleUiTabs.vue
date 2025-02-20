@@ -11,10 +11,10 @@ const props = defineProps({
     type: Boolean,
     required: false
   },
-  transition: {
+  animation: {
     type: String,
     default: 'horizontal',
-    validator: (value) => ['fade', 'slide', 'zoom', 'fold', 'horizontal', 'horizontal', 'none'].includes(value)
+    validator: (value) => ['fade', 'slide', 'zoom', 'fold', 'vertical', 'horizontal', 'none'].includes(value)
   }
 })
 
@@ -37,7 +37,6 @@ function clickOnTab(tab) {
 
   tab.selected = true
   selectedTab.value = tab.name
-
 }
 
 // Наблюдатель за изменением массива tabs, рекурсивно чтобы найти вложенный елемент
@@ -61,16 +60,13 @@ watch(names, () => {
       </SimpleUiButton>
 
     </div>
-
     <div class="tab-content">
-      <Transition :name="transition" mode="out-in">
+      <Transition :name="animation" mode="out-in">
         <div :key="selectedTab">
           <slot :name="selectedTab"></slot>
         </div>
       </Transition>
     </div>
-
-
   </div>
 
 </template>
@@ -130,7 +126,6 @@ watch(names, () => {
 .fade-leave-active {
   transition: opacity 0.6s ease;
 }
-
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
@@ -140,14 +135,12 @@ watch(names, () => {
 /*Slide vertical анимация*/
 .vertical-enter-active,
 .vertical-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
-
 .vertical-enter-from {
   transform: translateY(20px);
   opacity: 0;
 }
-
 .vertical-leave-to {
   transform: translateY(-20px);
   opacity: 0;
@@ -156,7 +149,7 @@ watch(names, () => {
 /*Slide horizontal анимация*/
 .horizontal-enter-active,
 .horizontal-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .horizontal-enter-from {
