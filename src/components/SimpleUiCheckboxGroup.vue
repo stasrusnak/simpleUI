@@ -12,6 +12,10 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
+  color: {
+    type: String,
+    default: '',
+  },
   excludable:{
     type: Boolean,
     default: false
@@ -69,6 +73,7 @@ const handleCheckRadioGroup = (e) =>{
 
       <SimpleUiRadio v-if="props.radio"
           group
+          :color="props.color"
           :checked="value.includes(opt.id)"
           :label="opt.name"
           :id="opt.id"
@@ -77,6 +82,7 @@ const handleCheckRadioGroup = (e) =>{
       />
       <SimpleUiCheckbox v-else
           group
+          :color="props.color"
           :checked="value.includes(opt.id)"
           :label="opt.name"
           :id="opt.id"

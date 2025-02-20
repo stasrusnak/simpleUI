@@ -5,8 +5,9 @@ import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiTabs from '@/components/SimpleUiTabs.vue';
 import {isExampleButton} from "@/utils/listOfTemplateExample.js";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
-import {ref, watch} from "vue";
+import {nextTick, ref, watch} from "vue";
 
+const animationSelected = ref(['horizontal'])
 const progress = ref(0);
 const isButtonShow = ref(false);
 const tabs = [
@@ -15,12 +16,12 @@ const tabs = [
   {name: 'React', label: 'Про React', disabled: true},
   {name: 'Angular', label: 'Про Angular'},
 ];
-const basic = [
+const basic = ref([
   {name: 'HTML', label: 'О html' , selected: true},
   {name: 'SCC', label: 'Про scc'  },
   {name: 'React', label: 'Про React', disabled: false},
   {name: 'Angular', label: 'Про Angular'},
-];
+]);
 const tablist = ref([
   {name: "Tab1", label: "Вкладка ", selected: true},
   {name: "Tab2", label: "Вкладка 2", selected: false},
@@ -50,7 +51,14 @@ watch(progress, () => {
   }
 });
 
-const animationSelected = ref(['horizontal'])
+watch(animationSelected, () => {
+  basic.value[0].selected = !basic.value[0].selected
+  nextTick(() => {
+    basic.value[0].selected = !basic.value[0].selected
+  });
+});
+
+
 const animationList = ref([
   {name: 'Fade', id: 'fade'},
   {name: 'slide', id: 'slide'},
@@ -60,9 +68,72 @@ const animationList = ref([
   {name: 'vertical', id: 'vertical'},
   {name: 'none', id: 'none'},
 ])
+
+
+
 </script>
 
+
+
 <template>
+  <div class="contentBlock">
+    <h2>Vertical Tabular </h2>
+    <div class="description checkGroup">
+      <p>You can set different animations for changing tabs</p>
+      <SimpleUiRadioGroup
+          color="success"
+          class="checkboxGroup"
+          v-model:value="animationSelected"
+          :options="animationList">
+      </SimpleUiRadioGroup>
+    </div>
+    <div class="description">
+      <p>A vertical tab menu can be positioned on either side   </p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+    <div class="line">
+      <SimpleUiTabs
+          :names="basic"
+          vertical
+          :animation="animationSelected[0]"
+      >
+
+        <template  v-slot:HTML >
+          JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
+          While it is most well-known as the scripting language for Web pages, many non-browser environments also use
+          it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
+          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
+          styles.
+        </template>
+        <template v-slot:SCC>
+          Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
+          JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
+          user interfaces of any complexity.
+        </template>
+        <template v-slot:React>
+          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to
+          make building user interfaces based on components more "seamless". It is maintained by Meta (formerly
+          Facebook) and a community of individual developers and companies.
+        </template>
+        <template v-slot:Angular>
+          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary
+          purpose is to develop single-page applications. As a framework, Angular has clear advantages while also
+          providing a standard structure for developers to work with. It enables users to create large applications in a
+          maintainable manner.
+        </template>
+      </SimpleUiTabs>
+
+    </div>
+
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
   <div class="contentBlock">
     <h2>A basic Tab</h2>
     <div class="description">
@@ -125,7 +196,7 @@ const animationList = ref([
             Example loading slot
           </template>
           <template v-slot:settings-icon>
-            <SimpleUiIcon icon="settings"  size="small"></SimpleUiIcon>
+            <SimpleUiIcon icon="cog"  size="small"></SimpleUiIcon>
           </template>
           <template v-slot:settings>
             Example settings slot
@@ -197,63 +268,7 @@ const animationList = ref([
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-  <div class="contentBlock">
-    <h2>Vertical Tabular </h2>
-    <div class="description checkGroup">
-      <p>You can set different animations for changing tabs</p>
-      <SimpleUiRadioGroup
-          class="checkboxGroup"
-          v-model:value="animationSelected"
-          :options="animationList">
-      </SimpleUiRadioGroup>
-    </div>
-    <div class="description">
-      <p>A vertical tab menu can be positioned on either side   </p>
-      <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
-          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
-        </SimpleUiButton>
-      </div>
-    </div>
 
-    <div class="line">
-      <SimpleUiTabs
-          :names="basic"
-          vertical
-          :animation="animationSelected[0]"
-      >
-
-        <template  v-slot:HTML >
-          JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
-          While it is most well-known as the scripting language for Web pages, many non-browser environments also use
-          it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
-          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
-          styles.
-        </template>
-        <template v-slot:SCC>
-          Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
-          JavaScript and provides a declarative, component-based programming model that helps you efficiently develop
-          user interfaces of any complexity.
-        </template>
-        <template v-slot:React>
-          React (also known as React.js or ReactJS) is a free and open-source front-end JavaScript library that aims to
-          make building user interfaces based on components more "seamless". It is maintained by Meta (formerly
-          Facebook) and a community of individual developers and companies.
-        </template>
-        <template v-slot:Angular>
-          Angular is an open-source, JavaScript framework written in TypeScript. Google maintains it, and its primary
-          purpose is to develop single-page applications. As a framework, Angular has clear advantages while also
-          providing a standard structure for developers to work with. It enables users to create large applications in a
-          maintainable manner.
-        </template>
-      </SimpleUiTabs>
-
-    </div>
-
-    <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
-    </transition>
-  </div>
 
 
 
