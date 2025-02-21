@@ -3,13 +3,21 @@ import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiTabs from '@/components/SimpleUiTabs.vue';
-import {isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {
+  isExampleButton,
+  tabsBasicExample,
+  tabsVerticalExample,
+  tabsIconExample
+} from "@/utils/listOfTemplateExample.js";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import {nextTick, ref, watch} from "vue";
 
 const animationSelected = ref(['horizontal'])
 const progress = ref(0);
 const isButtonShow = ref(false);
+const isBasicCodeShow = ref(false)
+const isVerticalCodeShow = ref(false)
+const isIconCodeShow = ref(false)
 const tabs = [
   {name: 'JavaScript', label: 'О JavaScript', selected: true},
   {name: 'Vue', label: 'Про Vue'},
@@ -17,8 +25,8 @@ const tabs = [
   {name: 'Angular', label: 'Про Angular'},
 ];
 const basic = ref([
-  {name: 'HTML', label: 'О html' , selected: true},
-  {name: 'SCC', label: 'Про scc'  },
+  {name: 'HTML', label: 'О html', selected: true},
+  {name: 'SCC', label: 'Про scc'},
   {name: 'React', label: 'Про React', disabled: false},
   {name: 'Angular', label: 'Про Angular'},
 ]);
@@ -35,14 +43,16 @@ const example = ref([
   {name: "settings", label: "Settings"},
 ]);
 const exampleGadget = ref([
-  {name: "home" },
-  {name: "menu" },
-  {name: "settings" },
+  {name: "home"},
+  {name: "menu"},
+  {name: "settings"},
 ]);
 
 watch(progress, () => {
   // Сбросить все вкладки
-  tablist.value.forEach(tab => {tab.selected = false});
+  tablist.value.forEach(tab => {
+    tab.selected = false
+  });
 
   if (tablist.value[progress.value]) {
     tablist.value[progress.value].selected = true;
@@ -69,26 +79,32 @@ const animationList = ref([
   {name: 'none', id: 'none'},
 ])
 
-
+const isTabsBasicShow = ref(false)
+const isTabsVerticalShow = ref(false)
 
 </script>
 
 
-
 <template>
   <div class="contentBlock">
-    <h2>Vertical Tabular </h2>
+    <h2>Vertical Tabular</h2>
+    <div class="description">
+      <p>You can set different animations for changing tabs</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isTabsVerticalShow = !isTabsVerticalShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
     <div class="description checkGroup">
       <p>You can set different animations for changing tabs</p>
-      <SimpleUiRadioGroup
-          color="success"
-          class="checkboxGroup"
-          v-model:value="animationSelected"
-          :options="animationList">
+      <SimpleUiRadioGroup color="success" class="checkboxGroup" v-model:value="animationSelected"
+                          :options="animationList">
       </SimpleUiRadioGroup>
     </div>
     <div class="description">
-      <p>A vertical tab menu can be positioned on either side   </p>
+      <p>A vertical tab menu can be positioned on either side </p>
       <div class="code_button">
         <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
@@ -97,13 +113,9 @@ const animationList = ref([
     </div>
 
     <div class="line">
-      <SimpleUiTabs
-          :names="basic"
-          vertical
-          :animation="animationSelected[0]"
-      >
+      <SimpleUiTabs :names="basic" vertical :animation="animationSelected[0]">
 
-        <template  v-slot:HTML >
+        <template v-slot:HTML>
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
           While it is most well-known as the scripting language for Web pages, many non-browser environments also use
           it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
@@ -131,7 +143,7 @@ const animationList = ref([
     </div>
 
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="tabsVerticalExample" v-show="isTabsVerticalShow"></SimpleUiCodeBlock>
     </transition>
   </div>
   <div class="contentBlock">
@@ -196,7 +208,7 @@ const animationList = ref([
             Example loading slot
           </template>
           <template v-slot:settings-icon>
-            <SimpleUiIcon icon="cog"  size="small"></SimpleUiIcon>
+            <SimpleUiIcon icon="cog" size="small"></SimpleUiIcon>
           </template>
           <template v-slot:settings>
             Example settings slot
@@ -205,26 +217,26 @@ const animationList = ref([
 
       </div>
       <div class="item-example nav">
-      <SimpleUiTabs :names="exampleGadget">
-        <template v-slot:home-icon>
-          <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
-        </template>
-        <template v-slot:home>
-          Example home slot
-        </template>
-        <template v-slot:menu-icon>
-          <SimpleUiIcon icon="menu"  size="small"></SimpleUiIcon>
-        </template>
-        <template v-slot:menu>
-          Example menu slot
-        </template>
-        <template v-slot:settings-icon>
-          <SimpleUiIcon icon="settings"  size="small"></SimpleUiIcon>
-        </template>
-        <template v-slot:settings>
-          Example settings slot
-        </template>
-      </SimpleUiTabs>
+        <SimpleUiTabs :names="exampleGadget">
+          <template v-slot:home-icon>
+            <SimpleUiIcon icon="home" size="small"></SimpleUiIcon>
+          </template>
+          <template v-slot:home>
+            Example home slot
+          </template>
+          <template v-slot:menu-icon>
+            <SimpleUiIcon icon="menu" size="small"></SimpleUiIcon>
+          </template>
+          <template v-slot:menu>
+            Example menu slot
+          </template>
+          <template v-slot:settings-icon>
+            <SimpleUiIcon icon="settings" size="small"></SimpleUiIcon>
+          </template>
+          <template v-slot:settings>
+            Example settings slot
+          </template>
+        </SimpleUiTabs>
       </div>
     </div>
     <transition name="fade">
@@ -257,9 +269,7 @@ const animationList = ref([
       </div>
 
       <SimpleUiTabs :names="tablist">
-        <template v-for="(tab, i) in tablist"
-                  v-slot:[tab.name]
-        >
+        <template v-for="(tab, i) in tablist" v-slot:[tab.name]>
           Контент для вкладки {{ i > 0 ? ++i : '' }}
         </template>
       </SimpleUiTabs>
@@ -268,12 +278,6 @@ const animationList = ref([
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-
-
-
-
-
-
 
 
 </template>
@@ -339,5 +343,4 @@ p {
     margin-right: -10px;
   }
 }
-
 </style>

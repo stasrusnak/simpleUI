@@ -5,7 +5,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
 import SimpleUiProgressCircle from "@/components/SimpleUiProgressCircle.vue";
-import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton, progressBasicExample, progressCircleExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiDropdown from "@/components/SimpleUiDropdown.vue";
 import colorsList from "@/utils/colorsList.js";
@@ -35,6 +35,13 @@ const selectSecondaryColor = (option) => {
 }
 
 const options = [...colorsList]
+
+const isBasicCodeShow = ref(false)
+const isCircleCodeShow = ref(false)
+
+// Добавляем refs для контроля отображения кода
+const isProgressBasicShow = ref(false)
+const isProgressCircleShow = ref(false)
 </script>
 
 <template>
@@ -45,7 +52,7 @@ const options = [...colorsList]
       <p>The progress component is used to convey data visually to users. It supports both indeterminate amounts, such
         as loading or processing, and finite amounts of progress </p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isProgressBasicShow = !isProgressBasicShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -63,7 +70,7 @@ const options = [...colorsList]
 
 
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="progressBasicExample" v-show="isProgressBasicShow"></SimpleUiCodeBlock>
     </transition>
   </div>
   <div class="contentBlock">
@@ -71,10 +78,7 @@ const options = [...colorsList]
     <div class="description">
       <p>Allows you to change switch styles depending on your project needs.</p>
       <div class="code_button">
-        <SimpleUiButton
-            buttonText="View code"
-            color="minimal_dark"
-            @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isProgressCircleShow = !isProgressCircleShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -102,7 +106,7 @@ const options = [...colorsList]
     </div>
 
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="progressCircleExample" v-show="isProgressCircleShow"></SimpleUiCodeBlock>
     </transition>
   </div>
 

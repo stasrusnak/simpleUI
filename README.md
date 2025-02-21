@@ -16,8 +16,7 @@ Check out the live demo and component examples: [https://simple-ui-dev.vercel.ap
 
 - 🚀 Built on Vue 3 and Vite
 - 🎨 Customizable components with CSS variables support
-- 📦 Modular architecture to import only the components you need
-- 🔍 Dark theme support
+- 📦 Modular architecture to import only the components you need 
 - 💡 Intuitive API
 
 ## Core Components

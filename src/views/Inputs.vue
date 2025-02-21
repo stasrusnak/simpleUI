@@ -5,6 +5,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
+import { inputBasicExample, inputValidationExample, inputIconExample } from "@/utils/listOfTemplateExample.js";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -33,6 +34,9 @@ const clearInput = () => {
   iconInput.value = ''
 }
 
+const isBasicCodeShow = ref(false)
+const isIconCodeShow = ref(false)
+
 </script>
 
 <template>
@@ -51,6 +55,15 @@ const clearInput = () => {
       </div>
     </div>
 
+    <h2>Basic Input</h2>
+    <div class="description">
+      <p>A standard input field</p>
+      <div class="code_button">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isBasicCodeShow = !isBasicCodeShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
 
     <div class="line">
       <SimpleUiInput
@@ -206,6 +219,10 @@ const clearInput = () => {
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+    </transition>
+
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="inputBasicExample" v-show="isBasicCodeShow"></SimpleUiCodeBlock>
     </transition>
   </div>
 

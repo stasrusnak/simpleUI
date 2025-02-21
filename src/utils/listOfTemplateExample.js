@@ -29,7 +29,6 @@ const circularExample = `<template lang="html">
   </div>
 </template> `
 
-
 const emphasisExample = `<template lang="html">
   <div>
       <SimpleUiButton buttonText="Basic" color="basic"></SimpleUiButton>
@@ -115,6 +114,192 @@ const loadingExample = `<template lang="html">
   </div>
 </template>`
 
+const colorsExample = `<template lang="html">
+  <div>
+    <SimpleUiIcon icon="home" color="success"></SimpleUiIcon>
+    <SimpleUiIcon icon="home" color="primary"></SimpleUiIcon>
+    <SimpleUiIcon icon="home" color="warning"></SimpleUiIcon>
+  </div>
+</template>`
+
+const tabsBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiTabs :names="[
+      { name: 'JavaScript', label: 'О JavaScript', selected: true },
+      { name: 'Vue', label: 'Про Vue' },
+      { name: 'React', label: 'Про React' },
+      { name: 'Angular', label: 'Про Angular' }
+    ]">
+      <template v-slot:JavaScript>
+        JavaScript (JS) is a lightweight interpreted programming language...
+      </template>
+      <template v-slot:Vue>
+        Vue is a JavaScript framework for building user interfaces...
+      </template>
+      <template v-slot:React>
+        React is a free and open-source front-end JavaScript library...
+      </template>
+      <template v-slot:Angular>
+        Angular is an open-source, JavaScript framework...
+      </template>
+    </SimpleUiTabs>
+  </div>
+</template>`
+
+const tabsVerticalExample = `<template lang="html">
+  <div>
+    <SimpleUiTabs 
+      :names="basic" 
+      vertical 
+      :animation="'horizontal'">
+      <!-- tab content -->
+    </SimpleUiTabs>
+  </div>
+</template>`
+
+const tabsIconExample = `<template lang="html">
+  <div>
+    <SimpleUiTabs :names="example">
+      <template v-slot:loading-icon>
+        <SimpleUiIcon icon="sync" loading size="small"></SimpleUiIcon>
+      </template>
+      <template v-slot:settings-icon>
+        <SimpleUiIcon icon="cog" size="small"></SimpleUiIcon>
+      </template>
+    </SimpleUiTabs>
+  </div>
+</template>`
+
+const progressBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiProgress
+      :percent="52"
+      slider
+      unit="%"
+      color="minimal"
+      secondary_color="danger"
+    ></SimpleUiProgress>
+  </div>
+</template>`
+
+const progressCircleExample = `<template lang="html">
+  <div>
+    <SimpleUiProgressCircle
+      :percent="55"
+      color="success"
+      secondary_color="minimal"
+    ></SimpleUiProgressCircle>
+  </div>
+</template>`
+
+const inputBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiInput
+      name="length"
+      placeholder="Min length 3 & Max 6"
+      label="Length"
+      :validationRules="[
+        { type: 'minLength', value: 3, message: 'Минимальная длинна 3' },
+        { type: 'maxLength', value: 6, message: 'Максимальная длинна 6' }
+      ]"
+    ></SimpleUiInput>
+  </div>
+</template>`
+
+const inputValidationExample = `<template lang="html">
+  <div>
+    <SimpleUiInput
+      name="email"
+      placeholder="email"
+      label="email"
+      :validationRules="[
+        { type: 'email', message: 'Введите email' }
+      ]"
+    ></SimpleUiInput>
+  </div>
+</template>`
+
+const inputIconExample = `<template lang="html">
+  <div>
+    <SimpleUiInput
+      name="icons"
+      placeholder="Custom icons"
+      label="Icons"
+      width="620px"
+    >
+      <template #prepend>
+        <SimpleUiIcon icon="search"></SimpleUiIcon>
+      </template>
+      <template #append>
+        <div class="button-clear">
+          <SimpleUiIcon icon="trash" size="small"></SimpleUiIcon>
+        </div>
+      </template>
+    </SimpleUiInput>
+  </div>
+</template>`
+
+const checkboxBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiCheckbox
+      label="Checkbox Active"
+      id="checkBoxActive"
+      v-model:checked="checkBoxActive">
+    </SimpleUiCheckbox>
+  </div>
+</template>`
+
+const checkboxGroupExample = `<template lang="html">
+  <div>
+    <SimpleUiCheckboxGroup
+      v-model:selected="unitSelected"
+      :options="unitList"
+      name="units">
+    </SimpleUiCheckboxGroup>
+  </div>
+</template>`
+
+const radioBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiRadio
+      label="Radio Active"
+      id="Active"
+      v-model:checked="checkBoxActive">
+    </SimpleUiRadio>
+  </div>
+</template>`
+
+const radioGroupExample = `<template lang="html">
+  <div>
+    <SimpleUiRadioGroup
+      v-model:selected="unitSelected[0]"
+      :options="unitList"
+      name="units">
+    </SimpleUiRadioGroup>
+  </div>
+</template>`
+
+const switchBasicExample = `<template lang="html">
+  <div>
+    <SimpleUiSwitch
+      label="Switch Active"
+      id="checkBoxActive"
+      v-model:checked="checkBoxActive">
+    </SimpleUiSwitch>
+  </div>
+</template>`
+
+const switchGroupExample = `<template lang="html">
+  <div>
+    <SimpleUiSwitchGroup
+      v-model:selected="unitSelected"
+      :options="unitList"
+      name="units">
+    </SimpleUiSwitchGroup>
+  </div>
+</template>`
+
+// Единый экспорт всех примеров
 export {
   sizeCodeHtml,
   circularExample,
@@ -123,5 +308,20 @@ export {
   loadingExample,
   emphasisExample,
   animationExample,
-  isExampleButton
+  isExampleButton,
+  tabsBasicExample,
+  tabsVerticalExample,
+  tabsIconExample,
+  progressBasicExample,
+  progressCircleExample,
+  inputBasicExample,
+  inputValidationExample,
+  inputIconExample,
+  colorsExample,
+  checkboxBasicExample,
+  checkboxGroupExample,
+  radioBasicExample,
+  radioGroupExample,
+  switchBasicExample,
+  switchGroupExample
 }

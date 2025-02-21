@@ -3,13 +3,15 @@ import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton, switchBasicExample, switchGroupExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiSwitchGroup from "@/components/SimpleUiSwitchGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
 const isButtonShow = ref(false)
+const isSwitchBasicShow = ref(false)
+const isSwitchGroupShow = ref(false)
 
 const checkBoxActive = ref(true)
 const checkBoxDisabled = ref(true)
@@ -33,8 +35,8 @@ const unitSelected = ref(['h001', 'h02p'])
     <div class="description">
       <p>A standard Switch</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
-          <SimpleUiIcon icon="code" size="tiny" ></SimpleUiIcon>
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isSwitchBasicShow = !isSwitchBasicShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
     </div>
@@ -45,11 +47,10 @@ const unitSelected = ref(['h001', 'h02p'])
           id="checkBoxActive"
           v-model:checked="checkBoxActive">
       </SimpleUiSwitch>
-
-
     </div>
+
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="switchBasicExample" v-show="isSwitchBasicShow"></SimpleUiCodeBlock>
     </transition>
   </div>
   <div class="contentBlock">
@@ -431,7 +432,7 @@ const unitSelected = ref(['h001', 'h02p'])
     <div class="description">
       <p>Checkboxes can be grouped</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isSwitchGroupShow = !isSwitchGroupShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -449,7 +450,7 @@ const unitSelected = ref(['h001', 'h02p'])
     </div>
 
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="switchGroupExample" v-show="isSwitchGroupShow"></SimpleUiCodeBlock>
     </transition>
   </div>
 </template>

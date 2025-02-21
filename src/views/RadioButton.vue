@@ -2,9 +2,11 @@
 import SimpleUiButton from "@/components/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
-import {ref} from "vue";
+import { radioBasicExample, radioGroupExample,isExampleButton} from "@/utils/listOfTemplateExample.js";
+import { ref } from "vue";
 
+const isRadioBasicShow = ref(false)
+const isRadioGroupShow = ref(false)
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -21,8 +23,7 @@ const unitList = ref([
   {name: 'Archer', id: 'h02p'},
 ])
 
-const unitSelected = ref(['h001' ])
-
+const unitSelected = ref(['h001'])
 </script>
 
 <template>
@@ -32,7 +33,7 @@ const unitSelected = ref(['h001' ])
     <div class="description">
       <p>A standard radio</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isRadioBasicShow = !isRadioBasicShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -40,16 +41,16 @@ const unitSelected = ref(['h001' ])
 
     <div class="line checkbox">
       <SimpleUiRadio
-          label="Radio Active"
-          id="Active"
-          v-model:checked="checkBoxActive">
+        label="Radio Active"
+        id="Active"
+        v-model:checked="checkBoxActive">
       </SimpleUiRadio>
     </div>
+
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="radioBasicExample" v-show="isRadioBasicShow"></SimpleUiCodeBlock>
     </transition>
   </div>
-
 
   <div class="contentBlock">
     <h2>Colors</h2>
@@ -130,7 +131,7 @@ const unitSelected = ref(['h001' ])
     <div class="description">
       <p>Which unit would you like the most?</p>
       <div class="code_button">
-        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isButtonShow = !isButtonShow">
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isRadioGroupShow = !isRadioGroupShow">
           <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
         </SimpleUiButton>
       </div>
@@ -232,7 +233,7 @@ const unitSelected = ref(['h001' ])
 
     </div>
     <transition name="fade">
-      <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
+      <SimpleUiCodeBlock :code="radioGroupExample" v-show="isRadioGroupShow"></SimpleUiCodeBlock>
     </transition>
   </div>
 
@@ -263,7 +264,6 @@ const unitSelected = ref(['h001' ])
 
 
 </template>
-
 
 <style scoped lang="scss">
 
@@ -331,6 +331,4 @@ p {
     -webkit-filter: invert(100%);
   }
 }
-
-
 </style>
