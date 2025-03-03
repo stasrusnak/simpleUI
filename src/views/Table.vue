@@ -7,40 +7,23 @@ import {ref, computed} from 'vue'
 import SimpleUiTableBase from '@/components/table/SimpleUiTableBase.vue'
 import SimpleUiTableRow from '@/components/table/SimpleUiTableRow.vue'
 import SimpleUiTableColumn from '@/components/table/SimpleUiTableColumn.vue'
-const tableHeads = ['Id', 'Author', 'Title', 'Cover', '']
-const tableSizeColumns = '50px 1fr 2fr 150px 140px'
+import moviesList from "@/utils/moviesList.js";
+import SimpleUiInput from "@/components/SimpleUiInput.vue";
+
+
+
+const tableHeads = ['Id', 'Year', 'Rating', 'Director', 'Title', 'Description', 'Cover', ' ']
+const tableSizeColumns = '2.5% 5% 5% 12.5% 17.5% 30.5% 10% 10%'
+
+const searchPattern = ref('')
 
 const isButtonShow = ref(false)
 const sortField = ref('id')
 const typeSort = ref('asc')
+const movies =  ref(moviesList)
 
-// bg: '#00C48C'
-const books = ref([
-  {
-    id: 1,
-    author: 'Dmitry Glukhovsky',
-    title: 'Metro 2033',
-    image: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/81pNKLAG-cL._AC_UY436_FMwebp_QL65_.jpg',
-    bg: ''
-  },
-  {
-    id: 12,
-    author: 'James Clear',
-    title: 'Atomic Habits: An Easy',
-    image: 'https://m.media-amazon.com/images/P/0735211299.01._SCLZZZZZZZ_SX500_.jpg',
-    bg: ''
-  },
-  {
-    id: 2,
-    author: 'J. K. Rowling',
-    title: 'Harry Potter and the Order of the Phoenix',
-    image: 'https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T2/images/I/51bZujlJxlL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg',
-
-  }
-])
-
-const booksSorting = computed(() => {
-  return books.value.sort((a, b) => {
+const moviesSorting = computed(() => {
+  return movies.value.sort((a, b) => {
     let modifier = 1;
     if (typeSort.value === 'desc') modifier = -1
     if (a[sortField.value] < b[sortField.value]) return -1 * modifier
@@ -49,7 +32,13 @@ const booksSorting = computed(() => {
   })
 })
 
+
+const openLink = (link) => {
+  window.open(link, '_blank');
+};
 const setSort = (name) => {
+
+
   if (sortField.value === name) {
     if (typeSort.value === 'asc') {
       typeSort.value = 'desc'
@@ -66,7 +55,6 @@ const setSort = (name) => {
 <template>
   <div class="contentBlock">
     <h1>Table</h1>
-    <h2>A table displays a collections of data grouped into rows.</h2>
     <div class="description">
       <p>A table displays a collections of data grouped into rows.</p>
       <div class="code_button">
@@ -77,34 +65,64 @@ const setSort = (name) => {
     </div>
     <div class="line line_body">
 
-      <div>
+      <div class="line line_body">
         <span>Sort Field: {{ sortField }}</span>
         <span>Type Sort: {{ typeSort }}</span>
+        <span>searchPattern: {{ searchPattern }}</span>
       </div>
+
+      <div class="line line_body search">
+        <SimpleUiInput
+            name="icons"
+            placeholder="Custom icons"
+            label="Icons"
+            v-model:value="searchPattern"
+        >
+          <template #prepend>
+            <SimpleUiIcon icon="search"></SimpleUiIcon>
+          </template>
+          <template #append>
+            <div class="button-clear" @click="searchPattern=''">
+              <b>Clear</b>
+              <SimpleUiIcon icon="trash" size="small"></SimpleUiIcon>
+            </div>
+          </template>
+        </SimpleUiInput>
+      </div>
+
       <div>
         <SimpleUiTableBase
-            color="primary"
+            color="minimal-dark-hover"
             textColor="white"
             :head="tableHeads"
             :columnTemplates="tableSizeColumns"
             @sorting="setSort">
           <SimpleUiTableRow
-              v-for="book in booksSorting"
-              :key="book.id"
+              v-for="move in moviesSorting"
+              :key="move.id"
               :columnTemplates="tableSizeColumns"
-              :bgRow="book.bg">
+              :bgRow="move.bg">
             <SimpleUiTableColumn :columnTitle="tableHeads[0]">
-              {{ book.id }}
+              {{ move.id }}
             </SimpleUiTableColumn>
             <SimpleUiTableColumn :columnTitle="tableHeads[1]">
-              {{ book.author }}
+              {{ move.year }}
             </SimpleUiTableColumn>
             <SimpleUiTableColumn :columnTitle="tableHeads[2]">
-              {{ book.title }}
+              {{ move.rating }}
             </SimpleUiTableColumn>
-            <SimpleUiTableColumn :image="true" :srcImage="book.image"/>
+            <SimpleUiTableColumn :columnTitle="tableHeads[3]">
+              {{ move.director }}
+            </SimpleUiTableColumn>
+            <SimpleUiTableColumn :columnTitle="tableHeads[4]">
+              {{ move.title }}
+            </SimpleUiTableColumn>
+            <SimpleUiTableColumn :columnTitle="tableHeads[5]">
+              {{ move.description }}
+            </SimpleUiTableColumn>
+            <SimpleUiTableColumn :image="true" :srcImage="move.image"/>
             <SimpleUiTableColumn>
-              <SimpleUiButton buttonText="Read Online"></SimpleUiButton>
+              <SimpleUiButton buttonText="Read Online" color="basic" @click="openLink(move.link)"></SimpleUiButton>
             </SimpleUiTableColumn>
           </SimpleUiTableRow>
         </SimpleUiTableBase>
@@ -121,10 +139,33 @@ const setSort = (name) => {
 </template>
 
 <style scoped lang="scss">
+.search{
+  display: flex;
+}
+.button-clear{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.link_button{
+  color: var(--primary);
+  background: rgba(105, 121, 248, 0);
+  border: 1px solid var(--primary);
+}
+
+
+:deep(.table-column-image){
+  height: 50px;
+}
+:deep(.btn_basic){
+  min-width: auto;
+  font-size: 13px;
+}
 
 .line_body {
  display: flex;
-  flex-direction: column;
+ flex-direction: column;
+  padding-bottom: 5px;
 }
 
 .progress {

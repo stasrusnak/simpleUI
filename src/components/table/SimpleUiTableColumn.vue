@@ -26,7 +26,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .table-column {
-  padding: 15px 0;
+  padding: 7px 0;
   position: relative;
 
   &-image {

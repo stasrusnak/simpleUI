@@ -32,7 +32,8 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .table-row {
-  border-bottom: 2px solid rgba(204, 204, 204, 0.6);
+  font-size: 13px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.6);
   position: relative;
   display: grid;
   column-gap: 10px;

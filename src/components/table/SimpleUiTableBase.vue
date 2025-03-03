@@ -8,12 +8,12 @@ const props = defineProps({
     type: String,
     required: false
   },
-  color:{
+  color: {
     type: String,
     required: false,
-    default: 'minimal-dark'
+    default: '--minimal-dark-hover'
   },
-  textColor:{
+  textColor: {
     type: String,
     required: false,
     default: 'white'
@@ -40,42 +40,48 @@ const clickOnHead = (name) => {
             v-for="(element, i) of head"
             :key="i"
             @click="clickOnHead(element)">
-          {{element}}
+          {{ element }}
         </div>
       </div>
+    </div>
+    <div class="table table_content">
       <slot></slot>
     </div>
   </div>
+
 </template>
-
-
 
 
 <style lang="scss" scoped>
 .table {
   width: 100%;
-  margin-bottom: 40px;
-  margin-top: 15px;
+  margin-top: 10px;
   border-radius: 7px;
   background: var(--minimal-dark);
-
   &-wrapper {
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
+
   &-head {
+    min-height: 35px;
+    min-width: 122px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 15px;
     padding: 5px 16px;
     display: grid;
     column-gap: 10px;
     align-items: center;
-    border-bottom: 2px solid #EEEFF4;
-    background: #fff;
+    background: var(--white);
     &__name {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
     }
+
     @media screen and (max-width: 767px) {
       display: none;
     }
