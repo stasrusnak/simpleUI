@@ -22,29 +22,6 @@ const sortField = ref('id')
 const typeSort = ref('asc')
 const movies =  ref(moviesList)
 
-// const moviesSorting = computed(() => {
-//   return movies.value.sort((a, b) => {
-//     let modifier = 1;
-//     if (typeSort.value === 'desc') modifier = -1
-//     if (a[sortField.value] < b[sortField.value]) return -1 * modifier
-//     if (a[sortField.value] > b[sortField.value]) return 1 * modifier
-//     return 0
-//   })
-// })
-
-// const filteredAndSortedMovies = computed(() => {
-//   if (!searchQuery.value) return movies.value;
-//
-//   const query = searchQuery.value.toLowerCase();
-//
-//   return movies.value.filter(movie =>
-//       Object.values(movie).some(value =>
-//           String(value).toLowerCase().includes(query)
-//       )
-//   );
-// });
-
-
 const filteredAndSorted = computed(() => {
   // Фильтруем фильмы
   const filtered = movies.value.filter(movie =>
