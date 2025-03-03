@@ -58,6 +58,7 @@ const clickOnHead = (name) => {
   margin-top: 10px;
   border-radius: 7px;
   background: var(--minimal-dark);
+
   &-wrapper {
     display: flex;
     justify-content: center;
@@ -75,6 +76,7 @@ const clickOnHead = (name) => {
     column-gap: 10px;
     align-items: center;
     background: var(--white);
+
     &__name {
       display: flex;
       justify-content: flex-start;
@@ -85,6 +87,9 @@ const clickOnHead = (name) => {
     @media screen and (max-width: 767px) {
       display: none;
     }
+
+
   }
 }
+
 </style>

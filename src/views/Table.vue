@@ -13,24 +13,54 @@ import SimpleUiInput from "@/components/SimpleUiInput.vue";
 
 
 const tableHeads = ['Id', 'Year', 'Rating', 'Director', 'Title', 'Description', 'Cover', ' ']
-const tableSizeColumns = '2.5% 5% 5% 12.5% 17.5% 30.5% 10% 10%'
+const tableSizeColumns = '2.5% 5% 5% 12.5% 17.5% 32.5% 10% 10%'
 
-const searchPattern = ref('')
+const searchQuery = ref('')
 
 const isButtonShow = ref(false)
 const sortField = ref('id')
 const typeSort = ref('asc')
 const movies =  ref(moviesList)
 
-const moviesSorting = computed(() => {
-  return movies.value.sort((a, b) => {
+// const moviesSorting = computed(() => {
+//   return movies.value.sort((a, b) => {
+//     let modifier = 1;
+//     if (typeSort.value === 'desc') modifier = -1
+//     if (a[sortField.value] < b[sortField.value]) return -1 * modifier
+//     if (a[sortField.value] > b[sortField.value]) return 1 * modifier
+//     return 0
+//   })
+// })
+
+// const filteredAndSortedMovies = computed(() => {
+//   if (!searchQuery.value) return movies.value;
+//
+//   const query = searchQuery.value.toLowerCase();
+//
+//   return movies.value.filter(movie =>
+//       Object.values(movie).some(value =>
+//           String(value).toLowerCase().includes(query)
+//       )
+//   );
+// });
+
+
+const filteredAndSorted = computed(() => {
+  // Фильтруем фильмы
+  const filtered = movies.value.filter(movie =>
+      Object.values(movie).some(value =>
+          String(value).toLowerCase().includes(searchQuery.value.toLowerCase())
+      )
+  );
+
+  return filtered.sort((a, b) => {
     let modifier = 1;
     if (typeSort.value === 'desc') modifier = -1
     if (a[sortField.value] < b[sortField.value]) return -1 * modifier
     if (a[sortField.value] > b[sortField.value]) return 1 * modifier
     return 0
   })
-})
+});
 
 
 const openLink = (link) => {
@@ -64,41 +94,39 @@ const setSort = (name) => {
       </div>
     </div>
     <div class="line line_body">
-
       <div class="line line_body">
         <span>Sort Field: {{ sortField }}</span>
         <span>Type Sort: {{ typeSort }}</span>
-        <span>searchPattern: {{ searchPattern }}</span>
+        <span>searchPattern: {{ searchQuery }}</span>
       </div>
-
       <div class="line line_body search">
         <SimpleUiInput
             name="icons"
-            placeholder="Custom icons"
-            label="Icons"
-            v-model:value="searchPattern"
+            placeholder="Enter search text... "
+            label="Search Query"
+            v-model:value="searchQuery"
         >
           <template #prepend>
-            <SimpleUiIcon icon="search"></SimpleUiIcon>
+            <SimpleUiIcon icon="search" size="small"></SimpleUiIcon>
           </template>
           <template #append>
-            <div class="button-clear" @click="searchPattern=''">
+            <div class="button-clear" @click="searchQuery=''">
               <b>Clear</b>
               <SimpleUiIcon icon="trash" size="small"></SimpleUiIcon>
             </div>
           </template>
         </SimpleUiInput>
       </div>
-
       <div>
         <SimpleUiTableBase
+
             color="minimal-dark-hover"
             textColor="white"
             :head="tableHeads"
             :columnTemplates="tableSizeColumns"
             @sorting="setSort">
           <SimpleUiTableRow
-              v-for="move in moviesSorting"
+              v-for="move in filteredAndSorted"
               :key="move.id"
               :columnTemplates="tableSizeColumns"
               :bgRow="move.bg">
@@ -127,8 +155,6 @@ const setSort = (name) => {
           </SimpleUiTableRow>
         </SimpleUiTableBase>
       </div>
-
-
     </div>
     <transition name="fade">
       <SimpleUiCodeBlock :code="isExampleButton" v-show="isButtonShow"></SimpleUiCodeBlock>
@@ -139,7 +165,9 @@ const setSort = (name) => {
 </template>
 
 <style scoped lang="scss">
+
 .search{
+  padding-top: 10px;
   display: flex;
 }
 .button-clear{
@@ -151,15 +179,6 @@ const setSort = (name) => {
   color: var(--primary);
   background: rgba(105, 121, 248, 0);
   border: 1px solid var(--primary);
-}
-
-
-:deep(.table-column-image){
-  height: 50px;
-}
-:deep(.btn_basic){
-  min-width: auto;
-  font-size: 13px;
 }
 
 .line_body {
@@ -212,6 +231,27 @@ p {
   /*фикс маленький отспутов кнопок навигации */
   :deep(.tab-nav) {
     margin-right: -10px;
+  }
+}
+
+:deep(.table-column-image){
+  height: 50px;
+}
+:deep(.btn_basic){
+  min-width: auto;
+  font-size: 13px;
+}
+:deep(.input-text){
+  padding: 0;
+}
+:deep(.table_content){
+  max-height: 405px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+@media screen and (max-width: 1600px) {
+  :deep(.table-row) {
+    grid-template-columns: 2.5% 5% 5% 12.5% 17.5% 30.5% 5% 10% !important;
   }
 }
 </style>
