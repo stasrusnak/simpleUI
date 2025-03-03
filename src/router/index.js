@@ -54,6 +54,11 @@ const router = createRouter({
       component: () => import('@/views/Tabs.vue')
     },
     {
+      path: '/Table',
+      name: 'Table',
+      component: () => import('@/views/Table.vue')
+    },
+    {
       path: '/scrollSpy',
       name: 'ScrollSpy',
       component: () => import('@/views/ScrollSpy.vue')

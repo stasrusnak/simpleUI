@@ -27,6 +27,7 @@
   --warning-hover: #FFC7A6;
   --danger: #F73164;
   --danger-hover: #F73164AF;
+  --white: #fffdfd;
 }
 
 * {
@@ -35,7 +36,7 @@
 
 body {
   margin: 0;
-  color: #fff;
+  color: var(--white);
   font-family: 'Circe', sans-serif;
   font-weight: 200;
   font-style: normal;
