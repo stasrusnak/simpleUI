@@ -39,7 +39,6 @@ const filteredAndSorted = computed(() => {
   })
 });
 
-
 const openLink = (link) => {
   window.open(link, '_blank');
 };
