@@ -29,20 +29,48 @@ const isCardBasicShow = ref(false)
     </div>
 
     <div class="line">
-      <SimpleUiCard>
-        <SimpleUiCardImage 
-          src="https://picsum.photos/300/200" 
-          alt="Random image" 
-        />
+      <SimpleUiCard
+        width="300px"
+        height="auto"
+      >
+        <SimpleUiCardImage src="https://picsum.photos/300/200"  />
         <SimpleUiCardContent>
           <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
           <SimpleUiCardDescription>
-            John is a software developer living in San Francisco.
+            <div class="stats" >
+              <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"  ></SimpleUiIcon>
+              <span class="stats__text">3.5k</span>
+              <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
+              <span class="stats__text">152</span>
+              <SimpleUiIcon size="tiny" icon="calendar" color="minimal-dark-hover"></SimpleUiIcon>
+              <span class="stats__text"> 28 мая 2026, 15:00</span>
+            </div>
+          </SimpleUiCardDescription>
+          <SimpleUiCardDescription>
+            SumaiL Ossi is a set designer living in New York who enjoys kittens, music, and partying.
+          </SimpleUiCardDescription>
+        </SimpleUiCardContent>
+        <SimpleUiCardContent >
+          <SimpleUiButton class="btn" buttonText="Читать" color="primary" animation="swipe"  ></SimpleUiButton>
+        </SimpleUiCardContent>
+      </SimpleUiCard>
+
+
+      <SimpleUiCard
+          width="470px"
+          height="auto">
+        <SimpleUiCardImage 
+          src="https://picsum.photos/470/230?random=2"
+        />
+        <SimpleUiCardContent>
+          <SimpleUiCardHeader>Project Alpha</SimpleUiCardHeader>
+          <SimpleUiCardDescription>
+            A revolutionary project that changes how we think about coding.
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
         <SimpleUiCardContent extra>
-          <SimpleUiIcon icon="paper" />
-          15 Friends
+          <SimpleUiIcon icon="star" />
+          4.8 Rating
         </SimpleUiCardContent>
       </SimpleUiCard>
 
@@ -58,23 +86,6 @@ const isCardBasicShow = ref(false)
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
       </SimpleUiCard>
-
-      <SimpleUiCard>
-        <SimpleUiCardImage 
-          src="https://picsum.photos/300/200?random=2" 
-          alt="Random image 2" 
-        />
-        <SimpleUiCardContent>
-          <SimpleUiCardHeader>Project Alpha</SimpleUiCardHeader>
-          <SimpleUiCardDescription>
-            A revolutionary project that changes how we think about coding.
-          </SimpleUiCardDescription>
-        </SimpleUiCardContent>
-        <SimpleUiCardContent extra>
-          <SimpleUiIcon icon="star" />
-          4.8 Rating
-        </SimpleUiCardContent>
-      </SimpleUiCard>
     </div>
 
     <transition name="fade">
@@ -84,6 +95,22 @@ const isCardBasicShow = ref(false)
 </template>
 
 <style scoped lang="scss">
+.stats{
+  display: flex;
+  font-size: 13px;
+  padding: 1.1rem 0;
+  gap:7px;
+  &__text{
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+  }
+}
+
+.btn{
+  width: 100%;
+  margin:0;
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

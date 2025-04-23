@@ -24,6 +24,8 @@ export function getFilterByColor(color) {
       return 'brightness(0) saturate(100%) invert(21%) sepia(97%) saturate(2143%) hue-rotate(346deg) brightness(76%) contrast(83%)';
     case 'grey':
       return 'brightness(0) saturate(100%) invert(52%) sepia(2%) saturate(8%) hue-rotate(14deg) brightness(96%) contrast(84%)';
+    case 'minimal-dark-hover':
+      return 'brightness(0) saturate(100%) invert(34%) sepia(19%) saturate(858%) hue-rotate(196deg) brightness(96%) contrast(98%)';
     case 'black':
       return 'invert(1%)';
     default:

@@ -33,5 +33,7 @@ export default [
   'person',
   'code',
   'trash',
-  'arrow-up'
+  'arrow-up',
+  'chatbox-ellipses',
+  'chevron-up'
 ];

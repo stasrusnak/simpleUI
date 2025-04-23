@@ -3,17 +3,13 @@ defineProps({
   src: {
     type: String,
     required: true
-  },
-  alt: {
-    type: String,
-    default: ''
   }
 })
 </script>
 
 <template>
   <div class="card-image">
-    <img :src="src" :alt="alt">
+    <img :src="src"  >
   </div>
 </template>
 
