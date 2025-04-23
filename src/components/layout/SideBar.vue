@@ -33,7 +33,7 @@ defineProps({
   left: 0;
   //top: 162px;
   height: 100%;
-  background: #23243E;
+  background: var(--bg);
   position: fixed;
   width: 240px;
   padding: 25px 0 30px 50px;

@@ -299,6 +299,24 @@ const switchGroupExample = `<template lang="html">
   </div>
 </template>`
 
+const cardExample = `<template lang="html">
+  <div>
+    <SimpleUiCard>
+      <SimpleUiCardImage src="/path/to/image.jpg" alt="Profile picture" />
+      <SimpleUiCardContent>
+        <SimpleUiCardHeader>John Doe</SimpleUiCardHeader>
+        <SimpleUiCardDescription>
+          John is a software developer living in San Francisco.
+        </SimpleUiCardDescription>
+      </SimpleUiCardContent>
+      <SimpleUiCardContent extra>
+        <SimpleUiIcon icon="user" />
+        15 Friends
+      </SimpleUiCardContent>
+    </SimpleUiCard>
+  </div>
+</template>`
+
 // Единый экспорт всех примеров
 export {
   sizeCodeHtml,
@@ -323,5 +341,6 @@ export {
   radioBasicExample,
   radioGroupExample,
   switchBasicExample,
-  switchGroupExample
+  switchGroupExample,
+  cardExample
 }
