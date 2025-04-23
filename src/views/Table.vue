@@ -19,7 +19,7 @@ const searchQuery = ref('')
 
 const isButtonShow = ref(false)
 const sortField = ref('id')
-const typeSort = ref('asc')
+const sortType = ref('asc')
 const movies =  ref(moviesList)
 
 const filteredAndSorted = computed(() => {
@@ -32,7 +32,7 @@ const filteredAndSorted = computed(() => {
 
   return filtered.sort((a, b) => {
     let modifier = 1;
-    if (typeSort.value === 'desc') modifier = -1
+    if (sortType.value === 'desc') modifier = -1
     if (a[sortField.value] < b[sortField.value]) return -1 * modifier
     if (a[sortField.value] > b[sortField.value]) return 1 * modifier
     return 0
@@ -46,10 +46,10 @@ const setSort = (name) => {
 
 
   if (sortField.value === name) {
-    if (typeSort.value === 'asc') {
-      typeSort.value = 'desc'
+    if (sortType.value === 'asc') {
+      sortType.value = 'desc'
     } else {
-      typeSort.value = 'asc'
+      sortType.value = 'asc'
     }
   } else {
     sortField.value = name
@@ -72,7 +72,7 @@ const setSort = (name) => {
     <div class="line line_body">
       <div class="line line_body">
         <span>Sort Field: {{ sortField }}</span>
-        <span>Type Sort: {{ typeSort }}</span>
+        <span>Type Sort: {{ sortType }}</span>
         <span>searchPattern: {{ searchQuery }}</span>
       </div>
       <div class="line line_body search">
@@ -95,11 +95,12 @@ const setSort = (name) => {
       </div>
       <div>
         <SimpleUiTableBase
-
             color="minimal-dark-hover"
             textColor="white"
             :head="tableHeads"
             :columnTemplates="tableSizeColumns"
+            :sortField = "sortField"
+            :sortType = "sortType"
             @sorting="setSort">
           <SimpleUiTableRow
               v-for="move in filteredAndSorted"

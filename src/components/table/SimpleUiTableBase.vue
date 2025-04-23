@@ -1,10 +1,21 @@
 <script setup>
+import {ref} from "vue";
+import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+
 const props = defineProps({
   head: {
     type: Array,
     required: false
   },
   columnTemplates: {
+    type: String,
+    required: false
+  },
+  sortField: {
+    type: String,
+    required: false
+  },
+  sortType: {
     type: String,
     required: false
   },
@@ -21,6 +32,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['sorting'])
+const hoveredHead = ref(null)
 
 const clickOnHead = (name) => {
   emit('sorting', name.toLowerCase())
@@ -36,11 +48,22 @@ const clickOnHead = (name) => {
           backgroundColor: `var(--${color})`,
           color:`var(--${textColor})`} ">
         <div
-            class="table-head__name"
+            :class="['table-head__name', {
+            active: sortField === element.toLowerCase() && hoveredHead === null,
+            hover: hoveredHead === element.toLowerCase()
+          }]"
             v-for="(element, i) of head"
             :key="i"
-            @click="clickOnHead(element)">
+            @click="clickOnHead(element)"
+            @mouseover="hoveredHead = element.toLowerCase()"
+            @mouseleave="hoveredHead = null"
+        >
           {{ element }}
+          <span v-show="sortField === element.toLowerCase()">
+            <SimpleUiIcon v-if="sortType==='asc'" icon="arrow-up" size="tiny"></SimpleUiIcon>
+            <SimpleUiIcon class="arrow-down" v-else icon="arrow-up" size="tiny"></SimpleUiIcon>
+          </span>
+
         </div>
       </div>
     </div>
@@ -53,6 +76,12 @@ const clickOnHead = (name) => {
 
 
 <style lang="scss" scoped>
+.arrow-down{
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+
 .table {
   width: 100%;
   margin-top: 10px;
@@ -82,7 +111,15 @@ const clickOnHead = (name) => {
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
+      color: white;
+      font-weight: normal;
+      transition: color 0.2s;
+      &.active, &.hover  {
+        color: var(--danger);
+        font-weight: bold;
+      }
     }
+
 
     @media screen and (max-width: 767px) {
       display: none;

@@ -32,5 +32,6 @@ export default [
   'pause',
   'person',
   'code',
-  'trash'
+  'trash',
+  'arrow-up'
 ];
