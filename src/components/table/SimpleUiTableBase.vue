@@ -1,11 +1,12 @@
 <script setup>
-import {ref} from "vue";
+import { ref, computed } from "vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 
 const props = defineProps({
   head: {
     type: Array,
-    required: false
+    required: false,
+    default: () => []
   },
   columnTemplates: {
     type: String,
@@ -22,48 +23,72 @@ const props = defineProps({
   color: {
     type: String,
     required: false,
-    default: '--minimal-dark-hover'
+    default: 'minimal-dark-hover'
   },
   textColor: {
     type: String,
     required: false,
     default: 'white'
   }
-})
+});
 
-const emit = defineEmits(['sorting'])
-const hoveredHead = ref(null)
+const emit = defineEmits(['sorting']);
+const hoveredHead = ref(null);
 
-const clickOnHead = (name) => {
-  emit('sorting', name.toLowerCase())
-}
+const headersLowerCase = computed(() =>
+    props.head?.map(header => ({
+      original: header,
+      lower: header.toLowerCase()
+    })) || []
+);
+
+const tableHeadStyles = computed(() => ({
+  'grid-template-columns': props.columnTemplates,
+  backgroundColor: `var(--${props.color})`,
+  color: `var(--${props.textColor})`
+}));
+
+const clickOnHead = (headerLower) => {
+  emit('sorting', headerLower);
+};
+
+const getHeaderClass = (headerLower) => {
+  return [
+    'table-head__name',
+    {
+      'active': props.sortField === headerLower && hoveredHead.value === null,
+      'hover': hoveredHead.value === headerLower
+    }
+  ];
+};
 </script>
 
 <template>
   <div class="table-wrapper">
     <div class="table">
-      <div
-          class="table-head"
-          :style=" {'grid-template-columns': columnTemplates,
-          backgroundColor: `var(--${color})`,
-          color:`var(--${textColor})`} ">
+      <div class="table-head" :style="tableHeadStyles">
         <div
-            :class="['table-head__name', {
-            active: sortField === element.toLowerCase() && hoveredHead === null,
-            hover: hoveredHead === element.toLowerCase()
-          }]"
-            v-for="(element, i) of head"
+            v-for="(item, i) in headersLowerCase"
             :key="i"
-            @click="clickOnHead(element)"
-            @mouseover="hoveredHead = element.toLowerCase()"
+            :class="getHeaderClass(item.lower)"
+            @click="clickOnHead(item.lower)"
+            @mouseover="hoveredHead = item.lower"
             @mouseleave="hoveredHead = null"
         >
-          {{ element }}
-          <span v-show="sortField === element.toLowerCase()">
-            <SimpleUiIcon v-if="sortType==='asc'" icon="arrow-up" size="tiny"></SimpleUiIcon>
-            <SimpleUiIcon class="arrow-down" v-else icon="arrow-up" size="tiny"></SimpleUiIcon>
+          {{ item.original }}
+          <span v-if="props.sortField === item.lower">
+            <SimpleUiIcon
+                v-if="sortType === 'asc'"
+                icon="arrow-up"
+                size="tiny"
+            />
+            <SimpleUiIcon
+                v-else
+                class="arrow-down"
+                icon="arrow-up"
+                size="tiny"
+            />
           </span>
-
         </div>
       </div>
     </div>
@@ -71,16 +96,12 @@ const clickOnHead = (name) => {
       <slot></slot>
     </div>
   </div>
-
 </template>
 
-
 <style lang="scss" scoped>
-.arrow-down{
-  -webkit-transform: rotateX(180deg);
+.arrow-down {
   transform: rotateX(180deg);
 }
-
 
 .table {
   width: 100%;
@@ -114,19 +135,18 @@ const clickOnHead = (name) => {
       color: white;
       font-weight: normal;
       transition: color 0.2s;
+
       &.active, &.hover  {
         color: var(--danger);
         font-weight: bold;
       }
     }
+  }
 
-
-    @media screen and (max-width: 767px) {
-      display: none;
+  @media screen and (max-width: 767px) {
+    &-head {
+      display: flex;
     }
-
-
   }
 }
-
 </style>
