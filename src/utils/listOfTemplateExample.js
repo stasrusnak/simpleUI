@@ -21,10 +21,10 @@ export default {
 
 const circularExample = `<template lang="html">
   <div>
-      <SimpleUiIcon icon="home" bordered></SimpleUiIcon>
-      <SimpleUiIcon icon="home" color="teal" bordered></SimpleUiIcon>
-      <SimpleUiIcon icon="home" color="black" bordered filled></SimpleUiIcon>
-      <SimpleUiIcon icon="home" color="teal" bordered filled></SimpleUiIcon>
+      <SimpleUiIcon icon="home" circular></SimpleUiIcon>
+      <SimpleUiIcon icon="home" color="teal" circular></SimpleUiIcon>
+      <SimpleUiIcon icon="home" color="black" circular filled></SimpleUiIcon>
+      <SimpleUiIcon icon="home" color="teal" circular filled></SimpleUiIcon>
     </div>
   </div>
 </template> `

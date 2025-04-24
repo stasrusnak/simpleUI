@@ -7,12 +7,17 @@ defineProps({
   horizontal: {
     type: Boolean,
     default: false
-  }
+  },
+  social: {
+    type: Boolean,
+    default: false
+  },
+
 })
 </script>
 
 <template>
-  <div class="card" :class="{ horizontal, 'card-overlay': horizontal }" :style="{ width }">
+  <div class="card" :class="{ horizontal,social, 'card-overlay': horizontal }" :style="{ width }">
     <slot></slot>
   </div>
 </template>
@@ -54,7 +59,13 @@ defineProps({
       max-width: 300px;
     }
   }
+  &.social:deep(.icon-body){
+    margin-right: 5px;
+  }
 }
-
+.card > :first-child {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
 
 </style>

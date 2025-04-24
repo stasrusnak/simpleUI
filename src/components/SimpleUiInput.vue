@@ -14,6 +14,10 @@ const props = defineProps({
     type: String,
     default: 'text'
   },
+  transparent: {
+    type: Boolean,
+    default: false
+  },
   placeholder: {
     type: String,
     required: true
@@ -158,7 +162,7 @@ onMounted(() => {
       <component
           :is="type === 'textarea' ? 'textarea' : 'input'"
           :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle]"
-          class="input-text"
+          :class="['input-text', {'trans' : transparent}]"
           :type="type === 'textarea' ? undefined : type"
           :name="name"
           :id="name"
@@ -166,7 +170,7 @@ onMounted(() => {
           :value="value"
           @input="updateValue"
           :rows="type === 'textarea' ? Number(rows) : undefined"
-            ref="inputRef"
+          ref="inputRef"
       ></component>
 
       <label :for="name" class="input-label">{{ label }}</label>
@@ -316,6 +320,16 @@ input {
 .error-animation-enter-from,
 .error-animation-leave-to {
   opacity: 0;
+}
+
+.trans{
+  border-color: transparent !important;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 

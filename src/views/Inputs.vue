@@ -153,6 +153,13 @@ const isIconCodeShow = ref(false)
           ]"
       ></SimpleUiInput>
 
+      <SimpleUiInput
+          transparent
+          class="input"
+          name="transparent"
+          placeholder="Custom transparent input"
+          label="Transparent"
+      ></SimpleUiInput>
 
       <SimpleUiInput
           class="input"

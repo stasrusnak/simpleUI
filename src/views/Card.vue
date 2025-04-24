@@ -7,8 +7,9 @@ import SimpleUiCardImage from "@/components/card/SimpleUiCardImage.vue";
 import SimpleUiCardContent from "@/components/card/SimpleUiCardContent.vue";
 import SimpleUiCardHeader from "@/components/card/SimpleUiCardHeader.vue";
 import SimpleUiCardDescription from "@/components/card/SimpleUiCardDescription.vue";
-import { cardExample } from "@/utils/listOfTemplateExample.js";
-import { ref } from "vue";
+import {cardExample} from "@/utils/listOfTemplateExample.js";
+import {ref} from "vue";
+import SimpleUiInput from "@/components/SimpleUiInput.vue";
 
 const isCardBasicShow = ref(false)
 </script>
@@ -30,15 +31,15 @@ const isCardBasicShow = ref(false)
 
     <div class="line">
       <SimpleUiCard
-        width="300px"
-        height="auto"
+          width="300px"
+          height="auto"
       >
-        <SimpleUiCardImage src="https://picsum.photos/300/200"  />
+        <SimpleUiCardImage src="https://picsum.photos/300/200"/>
         <SimpleUiCardContent>
           <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
           <SimpleUiCardDescription>
-            <div class="stats" >
-              <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"  ></SimpleUiIcon>
+            <div class="stats">
+              <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"></SimpleUiIcon>
               <span class="stats__text">3.5k</span>
               <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
               <span class="stats__text">152</span>
@@ -50,48 +51,101 @@ const isCardBasicShow = ref(false)
             SumaiL Ossi is a set designer living in New York who enjoys kittens, music, and partying.
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
-        <SimpleUiCardContent >
-          <SimpleUiButton class="btn" buttonText="Читать" color="primary" animation="swipe"  ></SimpleUiButton>
+        <SimpleUiCardContent>
+          <SimpleUiButton class="btn" buttonText="Читать" color="primary" animation="swipe"></SimpleUiButton>
         </SimpleUiCardContent>
       </SimpleUiCard>
-
 
       <SimpleUiCard
-          width="470px"
+          width="300px"
           height="auto"
-          horizontal
+          social
       >
-        <SimpleUiCardImage 
-          src="https://picsum.photos/470/230?random=2"
-        />
-        <SimpleUiCardContent>
-          <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
+        <SimpleUiCardContent spaced>
           <SimpleUiCardDescription>
-            <div class="stats" >
-              <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"  ></SimpleUiIcon>
-              <span class="stats__text">3.5k</span>
-              <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
-              <span class="stats__text">152</span>
-              <SimpleUiIcon size="tiny" icon="calendar" color="minimal-dark-hover"></SimpleUiIcon>
-              <span class="stats__text"> 28 мая 2026, 15:00</span>
-            </div>
+            <SimpleUiIcon icon="person" size="small" color="teal" circular filled></SimpleUiIcon>
+            Nigma Galaxy
+          </SimpleUiCardDescription>
+          <SimpleUiCardDescription>
+            14h
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
+        <SimpleUiCardImage src="https://picsum.photos/300/200"/>
+        <SimpleUiCardContent>
+          <SimpleUiCardDescription>
+            SumaiL Ossi is a set designer living in New York.
+          </SimpleUiCardDescription>
+        </SimpleUiCardContent>
+        <SimpleUiCardContent spaced>
+          <SimpleUiCardDescription>
+            <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover" ></SimpleUiIcon>
+            33 comments
+          </SimpleUiCardDescription>
+          <SimpleUiCardDescription>
+            <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover" ></SimpleUiIcon>
+            <span class="stats__text">17 likes</span>
+          </SimpleUiCardDescription>
+        </SimpleUiCardContent>
+        <SimpleUiCardContent extra>
+          <SimpleUiInput
+              transparent
+              class="input"
+              name="width"
+              placeholder="Add comment"
+              label="Send"
+              width="620px"
+          >
+            <template #append>
+              <SimpleUiIcon icon="paper" size="small"></SimpleUiIcon>
+            </template>
+          </SimpleUiInput>
+        </SimpleUiCardContent>
       </SimpleUiCard>
+      <div class="wrap_card">
+        <SimpleUiCard
+            width="470px"
+            height="auto"
+            horizontal
+        >
+          <SimpleUiCardImage
+              src="https://picsum.photos/470/230?random=2"
+          />
+          <SimpleUiCardContent>
+            <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
+            <SimpleUiCardDescription>
+              <div class="stats">
+                <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"></SimpleUiIcon>
+                <span class="stats__text">3.5k</span>
+                <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
+                <span class="stats__text">152</span>
+                <SimpleUiIcon size="tiny" icon="calendar" color="minimal-dark-hover"></SimpleUiIcon>
+                <span class="stats__text"> 28 мая 2026, 15:00</span>
+              </div>
+            </SimpleUiCardDescription>
+          </SimpleUiCardContent>
+        </SimpleUiCard>
 
-      <SimpleUiCard>
-        <SimpleUiCardContent>
-          <SimpleUiCardHeader>Quick Links</SimpleUiCardHeader>
-          <SimpleUiCardDescription>
-            <div class="links">
-              <a href="#"><SimpleUiIcon icon="home" /> Home</a>
-              <a href="#"><SimpleUiIcon icon="settings" /> Settings</a>
-              <a href="#"><SimpleUiIcon icon="user" /> Profile</a>
-            </div>
-          </SimpleUiCardDescription>
-        </SimpleUiCardContent>
-      </SimpleUiCard>
+        <SimpleUiCard>
+          <SimpleUiCardContent>
+            <SimpleUiCardHeader>Quick Links</SimpleUiCardHeader>
+            <SimpleUiCardDescription>
+              <div class="links">
+                <a href="#">
+                  <SimpleUiIcon icon="home"/>
+                  Home</a>
+                <a href="#">
+                  <SimpleUiIcon icon="settings"/>
+                  Settings</a>
+                <a href="#">
+                  <SimpleUiIcon icon="person"/>
+                  Profile</a>
+              </div>
+            </SimpleUiCardDescription>
+          </SimpleUiCardContent>
+        </SimpleUiCard>
+      </div>
     </div>
+
 
     <transition name="fade">
       <SimpleUiCodeBlock :code="cardExample" v-show="isCardBasicShow"></SimpleUiCodeBlock>
@@ -100,22 +154,29 @@ const isCardBasicShow = ref(false)
 </template>
 
 <style scoped lang="scss">
-.stats{
+.wrap_card{
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+.stats {
   display: flex;
   font-size: 13px;
   padding: 1.1rem 0;
-  gap:7px;
-  &__text{
+  gap: 7px;
+
+  &__text {
     display: flex;
     align-items: center;
     padding-right: 10px;
   }
 }
 
-.btn{
+.btn {
   width: 100%;
-  margin:0;
+  margin: 0;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;
@@ -131,7 +192,7 @@ const isCardBasicShow = ref(false)
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  
+
   &_body {
     align-items: flex-start;
     text-align: left;
@@ -163,14 +224,14 @@ p {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
+
   a {
     display: flex;
     align-items: center;
     gap: 8px;
     color: inherit;
     text-decoration: none;
-    
+
     &:hover {
       color: var(--primary);
     }
