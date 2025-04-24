@@ -12,7 +12,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="card" :class="{ 'horizontal': horizontal }" :style="{ width }">
+  <div class="card" :class="{ horizontal, 'card-overlay': horizontal }" :style="{ width }">
     <slot></slot>
   </div>
 </template>
@@ -24,48 +24,37 @@ defineProps({
   flex-direction: column;
   background: var(--bg);
   border-radius: 10px;
-  box-shadow:  4px 4px 3px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 3px 0 rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
   overflow: hidden;
-  
+  height: 100%;
+
   &:hover {
     box-shadow: 0px 2px 3px 0 var(--primary-hover);
   }
 
   &.horizontal {
-    .card-image {
+    position: relative;
+    &::before {
+      content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
+      background: linear-gradient(9deg, rgba(2, 2, 36, 0.85) 14%, rgba(0, 212, 255, 0.15) 79%);
       z-index: 1;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.2) 0%,
-          rgba(0, 0, 0, 0.7) 100%
-        );
-        backdrop-filter: blur(2px);
-      }
+      pointer-events: none;
     }
-
-    :deep(.card-content) {
+    :deep(.card-image) {
       position: relative;
+      z-index: 0;
+    }
+    :deep(.card-content) {
+      position: absolute;
+      bottom: 0;
       z-index: 2;
-      color: white;
-
-      .card-description {
-        color: rgba(255, 255, 255, 0.9);
-      }
+      max-width: 300px;
     }
   }
 }
-</style> 
+
+
+</style>

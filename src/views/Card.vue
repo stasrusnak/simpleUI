@@ -58,19 +58,24 @@ const isCardBasicShow = ref(false)
 
       <SimpleUiCard
           width="470px"
-          height="auto">
+          height="auto"
+          horizontal
+      >
         <SimpleUiCardImage 
           src="https://picsum.photos/470/230?random=2"
         />
         <SimpleUiCardContent>
-          <SimpleUiCardHeader>Project Alpha</SimpleUiCardHeader>
+          <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
           <SimpleUiCardDescription>
-            A revolutionary project that changes how we think about coding.
+            <div class="stats" >
+              <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover"  ></SimpleUiIcon>
+              <span class="stats__text">3.5k</span>
+              <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
+              <span class="stats__text">152</span>
+              <SimpleUiIcon size="tiny" icon="calendar" color="minimal-dark-hover"></SimpleUiIcon>
+              <span class="stats__text"> 28 мая 2026, 15:00</span>
+            </div>
           </SimpleUiCardDescription>
-        </SimpleUiCardContent>
-        <SimpleUiCardContent extra>
-          <SimpleUiIcon icon="star" />
-          4.8 Rating
         </SimpleUiCardContent>
       </SimpleUiCard>
 
