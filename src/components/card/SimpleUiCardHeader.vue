@@ -9,9 +9,9 @@
 
 <style scoped lang="scss">
 .card-header {
-  font-size: 1.28571429em;
+  font-size: 1.48571429em;
   font-weight: 700;
-  line-height: 1.28571429em;
+  line-height: 1.38571429em;
   margin-bottom: 0.5rem;
 }
 </style> 

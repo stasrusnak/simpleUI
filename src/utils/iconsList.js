@@ -35,5 +35,6 @@ export default [
   'trash',
   'arrow-up',
   'chatbox-ellipses',
+  'heart',
   'chevron-up'
 ];

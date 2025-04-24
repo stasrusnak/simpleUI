@@ -10,6 +10,10 @@ import SimpleUiCardDescription from "@/components/card/SimpleUiCardDescription.v
 import {cardExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiInput from "@/components/SimpleUiInput.vue";
+import frame from '@/assets/img/Frame91.jpg'
+import frame32 from '@/assets/img/Frame32.jpg'
+import frameHor from '@/assets/img/470-380.jpg'
+
 
 const isCardBasicShow = ref(false)
 </script>
@@ -34,7 +38,7 @@ const isCardBasicShow = ref(false)
           width="300px"
           height="auto"
       >
-        <SimpleUiCardImage src="https://picsum.photos/300/200"/>
+        <SimpleUiCardImage :src="frame"/>
         <SimpleUiCardContent>
           <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
           <SimpleUiCardDescription>
@@ -70,19 +74,19 @@ const isCardBasicShow = ref(false)
             14h
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
-        <SimpleUiCardImage src="https://picsum.photos/300/200"/>
+        <SimpleUiCardImage :src="frame32"/>
         <SimpleUiCardContent>
           <SimpleUiCardDescription>
-            SumaiL Ossi is a set designer living in New York.
+            The Matterhorn is a mountain of the Alps border between Italy and Switzerland.
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
         <SimpleUiCardContent spaced>
           <SimpleUiCardDescription>
             <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover" ></SimpleUiIcon>
-            33 comments
+            <span class="stats__text"> 33 comments</span>
           </SimpleUiCardDescription>
           <SimpleUiCardDescription>
-            <SimpleUiIcon size="tiny" icon="eye" color="minimal-dark-hover" ></SimpleUiIcon>
+            <SimpleUiIcon size="tiny" icon="heart" color="minimal-dark-hover" ></SimpleUiIcon>
             <span class="stats__text">17 likes</span>
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
@@ -107,9 +111,7 @@ const isCardBasicShow = ref(false)
             height="auto"
             horizontal
         >
-          <SimpleUiCardImage
-              src="https://picsum.photos/470/230?random=2"
-          />
+          <SimpleUiCardImage :src="frameHor"  />
           <SimpleUiCardContent>
             <SimpleUiCardHeader>SumaiL присоединился к Nigma Galaxy</SimpleUiCardHeader>
             <SimpleUiCardDescription>
