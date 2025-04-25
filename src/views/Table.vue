@@ -4,7 +4,7 @@ import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
 import {isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref, computed} from 'vue'
-import SimpleUiTableBase from '@/components/table/SimpleUiTableBase.vue'
+import SimpleUiTable from '@/components/table/SimpleUiTable.vue'
 import SimpleUiTableRow from '@/components/table/SimpleUiTableRow.vue'
 import SimpleUiTableColumn from '@/components/table/SimpleUiTableColumn.vue'
 import moviesList from "@/utils/moviesList.js";
@@ -94,7 +94,7 @@ const setSort = (name) => {
         </SimpleUiInput>
       </div>
       <div>
-        <SimpleUiTableBase
+        <SimpleUiTable
             color="minimal-dark-hover"
             textColor="white"
             :head="tableHeads"
@@ -130,7 +130,7 @@ const setSort = (name) => {
               <SimpleUiButton buttonText="Read Online" color="basic" @click="openLink(move.link)"></SimpleUiButton>
             </SimpleUiTableColumn>
           </SimpleUiTableRow>
-        </SimpleUiTableBase>
+        </SimpleUiTable>
       </div>
     </div>
     <transition name="fade">

@@ -11,7 +11,7 @@ import {cardExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiInput from "@/components/SimpleUiInput.vue";
 import frame from '@/assets/img/Frame91.jpg'
-import frame32 from '@/assets/img/Frame32.jpg'
+import frameImg from '@/assets/img/Frame32.jpg'
 import frameHor from '@/assets/img/470-380.jpg'
 
 
@@ -74,7 +74,7 @@ const isCardBasicShow = ref(false)
             14h
           </SimpleUiCardDescription>
         </SimpleUiCardContent>
-        <SimpleUiCardImage :src="frame32"/>
+        <SimpleUiCardImage :src="frameImg"/>
         <SimpleUiCardContent>
           <SimpleUiCardDescription>
             The Matterhorn is a mountain of the Alps border between Italy and Switzerland.
