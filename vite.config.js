@@ -15,30 +15,30 @@ export default defineConfig({
 
   /* Build For library UI */
 
-  build: {
-    lib:{
-      entry: resolve(__dirname, "src/index.js"),
-      name:"simpleui",
-      fileName: (format)=> `simpleui.${format}.js`
-    },
-    rollupOptions:{
-      external:["vue"],
-      output:{
-        globals:{
-          vue:"Vue"
-        }
-      }
-    }
-  },
-
+  // build: {
+  //   lib:{
+  //     entry: resolve(__dirname, "src/index.js"),
+  //     name:"simpleui",
+  //     fileName: (format)=> `simpleui.${format}.js`
+  //   },
+  //   rollupOptions:{
+  //     external:["vue"],
+  //     output:{
+  //       globals:{
+  //         vue:"Vue"
+  //       }
+  //     }
+  //   }
+  // },
+  //
 
   /* Build Site preview */
 
-  // build: {
-  //   outDir: 'dist', // Указываем папку, куда будет собрано приложение
-  //   emptyOutDir: true, // Очищаем outDir перед каждой сборкой
-  //   sourcemap: true, // Генерируем sourcemaps для упрощения отладки
-  // },
+  build: {
+    outDir: 'dist', // Указываем папку, куда будет собрано приложение
+    emptyOutDir: true, // Очищаем outDir перед каждой сборкой
+    sourcemap: true, // Генерируем sourcemaps для упрощения отладки
+  },
 
 
 });
