@@ -1,14 +1,14 @@
 <script setup>
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import {isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref, computed} from 'vue'
-import SimpleUiTable from '@/components/table/SimpleUiTable.vue'
-import SimpleUiTableRow from '@/components/table/SimpleUiTableRow.vue'
-import SimpleUiTableColumn from '@/components/table/SimpleUiTableColumn.vue'
+import SimpleUiTable from '@/lib/table/SimpleUiTable.vue'
+import SimpleUiTableRow from '@/lib/table/SimpleUiTableRow.vue'
+import SimpleUiTableColumn from '@/lib/table/SimpleUiTableColumn.vue'
 import moviesList from "@/utils/moviesList.js";
-import SimpleUiInput from "@/components/SimpleUiInput.vue";
+import SimpleUiInput from "@/lib/SimpleUiInput.vue";
 
 
 

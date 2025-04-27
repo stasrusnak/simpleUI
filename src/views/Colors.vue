@@ -1,9 +1,9 @@
 <script setup>
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import colors from '@/utils/colorsList.js'
 import {ref} from "vue";
 import {coloredExample} from "@/utils/listOfTemplateExample.js";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 
 const showCopySuccess = ref(false);
 let copyingIconCode = '';

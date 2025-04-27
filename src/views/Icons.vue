@@ -1,6 +1,6 @@
 <script setup>
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import icons from '@/utils/iconsList.js'
 import {ref} from "vue";
 import {

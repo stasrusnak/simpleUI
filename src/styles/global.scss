@@ -1,9 +1,7 @@
 /* FONTS */
 
-@import url("../assets/fonts/Circe/stylesheet.scss");
-@import url("../assets/fonts/FreeMono/stylesheet.scss");
-@import url("../assets/fonts/Unifont/stylesheet.scss");
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* RESET */
 
@@ -38,8 +36,8 @@
 body {
   margin: 0;
   color: var(--white);
-  font-family: 'Circe', sans-serif;
-  font-weight: 200;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 350;
   font-style: normal;
   background: #2C2C3B
   //Добавили градиентый фон

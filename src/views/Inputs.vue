@@ -1,8 +1,8 @@
 <script setup>
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiInput from "@/components/SimpleUiInput.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiInput from "@/lib/SimpleUiInput.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import { inputBasicExample, inputValidationExample, inputIconExample } from "@/utils/listOfTemplateExample.js";

@@ -3,8 +3,6 @@ import MainHeader from "@/components/layout/Header.vue";
 import SideBar from "@/components/layout/SideBar.vue";
 import {ref} from "vue";
 
-// import ButtonCompact from "@/components/ButtonCompact.vue";
-
 const openSidebar = ref(true);
 
 const toggleSidebar = () => {
@@ -32,7 +30,7 @@ const toggleSidebar = () => {
 
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/styles/global.scss";
 
 

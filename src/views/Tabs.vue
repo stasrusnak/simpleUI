@@ -1,15 +1,15 @@
 <script setup>
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
-import SimpleUiTabs from '@/components/SimpleUiTabs.vue';
+import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
+import SimpleUiTabs from '@/lib/SimpleUiTabs.vue';
 import {
   isExampleButton,
   tabsBasicExample,
   tabsVerticalExample,
   tabsIconExample
 } from "@/utils/listOfTemplateExample.js";
-import SimpleUiProgress from "@/components/SimpleUiProgress.vue";
+import SimpleUiProgress from "@/lib/SimpleUiProgress.vue";
 import {nextTick, ref, watch} from "vue";
 
 const animationSelected = ref(['horizontal'])

@@ -1,11 +1,11 @@
 <script setup>
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiCheckbox from "@/components/SimpleUiCheckbox.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiCheckbox from "@/lib/SimpleUiCheckbox.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton, checkboxBasicExample, checkboxGroupExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiCheckboxGroup from "@/components/SimpleUiCheckboxGroup.vue";
+import SimpleUiCheckboxGroup from "@/lib/SimpleUiCheckboxGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)

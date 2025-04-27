@@ -1,11 +1,11 @@
 <script setup>
-import SimpleUiButton from "@/components/SimpleUiButton.vue";
-import SimpleUiSwitch from "@/components/SimpleUiSwitch.vue";
-import SimpleUiCodeBlock from "@/components/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/components/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiSwitch from "@/lib/SimpleUiSwitch.vue";
+import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton, switchBasicExample, switchGroupExample} from "@/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiSwitchGroup from "@/components/SimpleUiSwitchGroup.vue";
+import SimpleUiSwitchGroup from "@/lib/SimpleUiSwitchGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
