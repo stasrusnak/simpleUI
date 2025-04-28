@@ -1,5 +1,5 @@
 <script setup>
-import SimpleUiSwitch from "@/lib/SimpleUiSwitch.vue";
+import SimpleUiSwitch from "@/lib/components/SimpleUiSwitch.vue";
 
 const emits = defineEmits(['update:value'])
 

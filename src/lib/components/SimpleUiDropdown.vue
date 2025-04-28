@@ -1,6 +1,6 @@
 <script setup>
 import { ref ,watch} from 'vue'
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
 
 const emits = defineEmits(['update:selectOption'])
 

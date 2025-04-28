@@ -1,24 +1,24 @@
 // Импорты компонентов
-import SimpleUiCheckbox from '@/lib/SimpleUiCheckbox.vue';
-import SimpleUiCheckboxGroup from '@/lib/SimpleUiCheckboxGroup.vue';
-import SimpleUiButton from '@/lib/SimpleUiButton.vue';
-import SimpleUiCodeBlock from '@/lib/SimpleUiCodeBlock.vue';
-import SimpleUiIcon from '@/lib/SimpleUiIcon.vue';
-import SimpleUiProgress from '@/lib/SimpleUiProgress.vue';
-import SimpleUiProgressCircle from '@/lib/SimpleUiProgressCircle.vue';
-import SimpleUiInput from '@/lib/SimpleUiInput.vue';
-import SimpleUiSwitch from '@/lib/SimpleUiSwitch.vue';
-import SimpleUiSwitchGroup from '@/lib/SimpleUiSwitchGroup.vue';
-import SimpleUiTabs from '@/lib/SimpleUiTabs.vue';
-import SimpleUiDropdown from '@/lib/SimpleUiDropdown.vue';
-import SimpleUiTable from '@/lib/table/SimpleUiTable.vue';
-import SimpleUiTableColumn from '@/lib/table/SimpleUiTableColumn.vue';
-import SimpleUiTableRow from '@/lib/table/SimpleUiTableRow.vue';
-import SimpleUiCard from '@/lib/card/SimpleUiCard.vue';
-import SimpleUiCardImage from '@/lib/card/SimpleUiCardImage.vue';
-import SimpleUiCardContent from '@/lib/card/SimpleUiCardContent.vue';
-import SimpleUiCardHeader from '@/lib/card/SimpleUiCardHeader.vue';
-import SimpleUiCardDescription from '@/lib/card/SimpleUiCardDescription.vue';
+import SimpleUiCheckbox from '@/lib/components/SimpleUiCheckbox.vue';
+import SimpleUiCheckboxGroup from '@/lib/components/SimpleUiCheckboxGroup.vue';
+import SimpleUiButton from '@/lib/components/SimpleUiButton.vue';
+import SimpleUiCodeBlock from '@/lib/components/SimpleUiCodeBlock.vue';
+import SimpleUiIcon from '@/lib/components/SimpleUiIcon.vue';
+import SimpleUiProgress from '@/lib/components/SimpleUiProgress.vue';
+import SimpleUiProgressCircle from '@/lib/components/SimpleUiProgressCircle.vue';
+import SimpleUiInput from '@/lib/components/SimpleUiInput.vue';
+import SimpleUiSwitch from '@/lib/components/SimpleUiSwitch.vue';
+import SimpleUiSwitchGroup from '@/lib/components/SimpleUiSwitchGroup.vue';
+import SimpleUiTabs from '@/lib/components/SimpleUiTabs.vue';
+import SimpleUiDropdown from '@/lib/components/SimpleUiDropdown.vue';
+import SimpleUiTable from '@/lib/components/table/SimpleUiTable.vue';
+import SimpleUiTableColumn from '@/lib/components/table/SimpleUiTableColumn.vue';
+import SimpleUiTableRow from '@/lib/components/table/SimpleUiTableRow.vue';
+import SimpleUiCard from '@/lib/components/card/SimpleUiCard.vue';
+import SimpleUiCardImage from '@/lib/components/card/SimpleUiCardImage.vue';
+import SimpleUiCardContent from '@/lib/components/card/SimpleUiCardContent.vue';
+import SimpleUiCardHeader from '@/lib/components/card/SimpleUiCardHeader.vue';
+import SimpleUiCardDescription from '@/lib/components/card/SimpleUiCardDescription.vue';
 import { h, toRaw } from 'vue';
 import './styles/main.scss'
 

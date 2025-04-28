@@ -1,5 +1,5 @@
 <script setup>
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
 import {ref, watch} from "vue";
 
 const props = defineProps({

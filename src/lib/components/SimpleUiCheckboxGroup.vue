@@ -1,5 +1,5 @@
 <script setup>
-import SimpleUiCheckbox from "@/lib/SimpleUiCheckbox.vue";
+import SimpleUiCheckbox from "@/lib/components/SimpleUiCheckbox.vue";
 
 const emits = defineEmits(['update:value'])
 const props = defineProps({

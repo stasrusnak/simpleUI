@@ -1,8 +1,8 @@
 <script setup>
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
-import SimpleUiInput from "@/lib/SimpleUiInput.vue";
-import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
+import SimpleUiInput from "@/lib/components/SimpleUiInput.vue";
+import SimpleUiCodeBlock from "@/lib/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import { inputBasicExample, inputValidationExample, inputIconExample } from "@/lib/utils/listOfTemplateExample.js";
@@ -295,7 +295,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../lib/icons/home.svg");
+  background-image: url("../lib/resources/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

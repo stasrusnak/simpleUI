@@ -1,11 +1,11 @@
 <script setup>
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
-import SimpleUiCheckbox from "@/lib/SimpleUiCheckbox.vue";
-import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
+import SimpleUiCheckbox from "@/lib/components/SimpleUiCheckbox.vue";
+import SimpleUiCodeBlock from "@/lib/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
 import {emphasisExample, animationExample, isExampleButton, checkboxBasicExample, checkboxGroupExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiCheckboxGroup from "@/lib/SimpleUiCheckboxGroup.vue";
+import SimpleUiCheckboxGroup from "@/lib/components/SimpleUiCheckboxGroup.vue";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -327,7 +327,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../lib/icons/home.svg");
+  background-image: url("../lib/resources/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

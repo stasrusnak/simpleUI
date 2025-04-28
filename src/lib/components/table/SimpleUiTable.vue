@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from "vue";
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
+import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
 
 const props = defineProps({
   head: {

@@ -1,7 +1,7 @@
 <script setup>
 import {computed} from "vue";
-import {getFilterByColor} from './utils/colorFilter.js'
-import {getSize} from './utils/IconSizeCalc.js'
+import {getFilterByColor} from '../utils/colorFilter.js'
+import {getSize} from '../utils/IconSizeCalc.js'
 
 const props = defineProps({
   icon: {

@@ -2,7 +2,7 @@
 import colors from '@/lib/utils/colorsList.js'
 import {ref} from "vue";
 import {coloredExample} from "@/lib/utils/listOfTemplateExample.js";
-import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
+import SimpleUiCodeBlock from "@/lib/components/SimpleUiCodeBlock.vue";
 
 const showCopySuccess = ref(false);
 let copyingIconCode = '';

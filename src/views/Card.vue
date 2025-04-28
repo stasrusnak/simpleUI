@@ -1,18 +1,18 @@
 <script setup>
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
-import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import SimpleUiCard from "@/lib/card/SimpleUiCard.vue";
-import SimpleUiCardImage from "@/lib/card/SimpleUiCardImage.vue";
-import SimpleUiCardContent from "@/lib/card/SimpleUiCardContent.vue";
-import SimpleUiCardHeader from "@/lib/card/SimpleUiCardHeader.vue";
-import SimpleUiCardDescription from "@/lib/card/SimpleUiCardDescription.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
+import SimpleUiCodeBlock from "@/lib/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
+import SimpleUiCard from "@/lib/components/card/SimpleUiCard.vue";
+import SimpleUiCardImage from "@/lib/components/card/SimpleUiCardImage.vue";
+import SimpleUiCardContent from "@/lib/components/card/SimpleUiCardContent.vue";
+import SimpleUiCardHeader from "@/lib/components/card/SimpleUiCardHeader.vue";
+import SimpleUiCardDescription from "@/lib/components/card/SimpleUiCardDescription.vue";
 import {cardExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiInput from "@/lib/SimpleUiInput.vue";
-import frame from '@/assets/img/Frame91.jpg'
-import frameImg from '@/assets/img/Frame32.jpg'
-import frameHor from '@/assets/img/470-380.jpg'
+import SimpleUiInput from "@/lib/components/SimpleUiInput.vue";
+import frame from '@/lib/resources/img/Frame91.jpg'
+import frameImg from '@/lib/resources/img/Frame32.jpg'
+import frameHor from '@/lib/resources/img/470-380.jpg'
 
 
 const isCardBasicShow = ref(false)

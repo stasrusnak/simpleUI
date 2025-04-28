@@ -2,8 +2,8 @@ import { createApp, h, toRaw } from 'vue';
 import '@/styles/global.scss';
 import App from '@/App.vue';
 import router from '@/router/index.js';
-import SimpleUiCheckbox from '@/lib/SimpleUiCheckbox.vue';
-import SimpleUiCheckboxGroup from '@/lib/SimpleUiCheckboxGroup.vue';
+import SimpleUiCheckbox from '@/lib/components/SimpleUiCheckbox.vue';
+import SimpleUiCheckboxGroup from '@/lib/components/SimpleUiCheckboxGroup.vue';
 
 // Определение компонента SimpleUiRadio
 const SimpleUiRadio = {

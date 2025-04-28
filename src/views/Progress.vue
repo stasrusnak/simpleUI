@@ -1,13 +1,13 @@
 <script setup>
-import SimpleUiButton from "@/lib/SimpleUiButton.vue";
-import SimpleUiSwitch from "@/lib/SimpleUiSwitch.vue";
-import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import SimpleUiProgress from "@/lib/SimpleUiProgress.vue";
-import SimpleUiProgressCircle from "@/lib/SimpleUiProgressCircle.vue";
+import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
+import SimpleUiSwitch from "@/lib/components/SimpleUiSwitch.vue";
+import SimpleUiCodeBlock from "@/lib/components/SimpleUiCodeBlock.vue";
+import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
+import SimpleUiProgress from "@/lib/components/SimpleUiProgress.vue";
+import SimpleUiProgressCircle from "@/lib/components/SimpleUiProgressCircle.vue";
 import {emphasisExample, animationExample, isExampleButton, progressBasicExample, progressCircleExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import SimpleUiDropdown from "@/lib/SimpleUiDropdown.vue";
+import SimpleUiDropdown from "@/lib/components/SimpleUiDropdown.vue";
 import colorsList from "@/lib/utils/colorsList.js";
 
 
