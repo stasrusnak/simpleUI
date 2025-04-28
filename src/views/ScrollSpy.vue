@@ -116,13 +116,13 @@ nav li a {
   width: 4px;
   height: 20px;
   background-color: #4CAF50;
-  /* background-color: var(--danger-hover); */
+  /* background-color: var(--smpl-ui-danger-hover); */
   border-radius: 2px;
 }
 
 nav li a.active {
   font-weight: bold;
-  color:var(--danger);
+  color:var(--smpl-ui-danger);
   opacity: 1; 
   transition:  transform 0.25s;
   transform:   scale(1.1); 

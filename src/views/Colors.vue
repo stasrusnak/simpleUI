@@ -1,5 +1,4 @@
 <script setup>
-import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import colors from '@/utils/colorsList.js'
 import {ref} from "vue";
 import {coloredExample} from "@/utils/listOfTemplateExample.js";
@@ -22,12 +21,12 @@ const copyCode = (copyIcon) => {
   <div class="contentBlock">
     <h1>Color CSS Classes</h1>
     <h2>Examples, click to copy</h2>
-    <p>These values can be used within your style sheet example: var(--<a class="link_blank" >success-hover</a>);
+    <p>These values can be used within your style sheet example: var(--<a class="link_blank" >smpl-ui-success-hover</a>);
     </p>
     <div class="line">
       <div class="icon-container">
         <div v-for="(icon, index) in colors" :key="index" class="icon-item" @click="copyCode(icon)"
-             :style="{ backgroundColor: `var(--${icon})` }">
+             :style="{ backgroundColor: `var(--smpl-ui-${icon})` }">
           <div class="icon-name"  >{{ icon }}</div>
         </div>
         <div v-if="showCopySuccess" class="copy-success-message">Code copied! {{ copyingIconCode }}</div>
@@ -57,7 +56,7 @@ p {
 }
 
 .link_blank {
-  color: var(--info-hover);
+  color: var(--smpl-ui-info-hover);
 }
 
 .copy-success-message {

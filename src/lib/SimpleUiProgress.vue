@@ -69,14 +69,14 @@ watch(currentValue, (newValue) => {
         v-model="currentPercent"
         @input="updateValue"
         class="slider"
-        :style="{'background':`var(--${color})`,'--thumb-color': `var(--${secondary_color})`}"
+        :style="{'background':`var(--smpl-ui-${color})`,'--thumb-color': `var(--smpl-ui-${secondary_color})`}"
     />
     <span class="progress__percent">{{ currentPercent + unit }}</span>
   </div>
 
-  <div class="progress__container" :style="{'background':`var(--${color})`}" v-else>
+  <div class="progress__container" :style="{'background':`var(--smpl-ui-${color})`}" v-else>
     <div class="progress" :style="{'height':height}">
-      <div class="progress__bar" :style="{'width':percent + unit ,'background-color':`var(--${secondary_color})` }">
+      <div class="progress__bar" :style="{'width':percent + unit ,'background-color':`var(--smpl-ui-${secondary_color})` }">
         <span class="progress__percent">{{ percent + unit }}</span>
       </div>
     </div>
@@ -93,11 +93,11 @@ watch(currentValue, (newValue) => {
     overflow: hidden;
     border-radius: 4px;
     width: 100%;
-    background: var(--warning);
+    background: var(--smpl-ui-warning);
   }
 
   &__bar {
-    background: var(--success);
+    background: var(--smpl-ui-success);
     height: 100%;
     border-radius: 4px;
     transition: .5s;
@@ -122,7 +122,7 @@ watch(currentValue, (newValue) => {
   width: 100%;
   height: 15px;
   border-radius: 5px;
-  background: var(--minimal-dark); /* Фоновый цвет слайдера */
+  background: var(--smpl-ui-minimal-dark); /* Фоновый цвет слайдера */
   outline: none;
 }
 

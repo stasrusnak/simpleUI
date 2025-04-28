@@ -158,7 +158,7 @@ const isProgressCircleShow = ref(false)
                 class="dropdown-item">
               <div v-if="option"
                    class="palitra"
-                   :style="{backgroundColor:`var(--${option})`}"></div>
+                   :style="{backgroundColor:`var(--smpl-ui-${option})`}"></div>
               <div>{{ option }}</div>
             </li>
           </template>
@@ -203,11 +203,11 @@ const isProgressCircleShow = ref(false)
             secondary_color="danger"
         ></SimpleUiProgress>
         <div class="description">
-          <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span>
+          <p>You can set the primary and secondary colors, in the example <span style="color: var(--smpl-ui-danger)">red</span>
             and
-            <span style="color: var(--minimal)">minimal</span> <br>
+            <span style="color: var(--smpl-ui-minimal)">minimal</span> <br>
             As well as different units of measurement :<br>
-            <span style="color: var(--info-hover)"><i>px, em, rem, %, vh, vw </i></span>
+            <span style="color: var(--smpl-ui-info-hover)"><i>px, em, rem, %, vh, vw </i></span>
             other.
           </p>
         </div>

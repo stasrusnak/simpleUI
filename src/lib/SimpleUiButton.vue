@@ -39,7 +39,7 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
-@import "../styles/buttonStyles";
+@import "@/lib/styles/buttonStyles";
 
 .button-text-left {
   order: 2;
@@ -71,88 +71,88 @@ defineProps({
     height: 100%;
   }
   &_basic {
-    color: var(--primary);
+    color: var(--smpl-ui-primary);
     background: #6979F800;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--smpl-ui-primary);
 
     &:enabled:hover {
-      background: var(--primary-hover);
+      background: var(--smpl-ui-primary-hover);
       color: #ffffff;
     }
   }
 
   &_minimal {
     color: #ffffff;
-    background: var(--minimal);
+    background: var(--smpl-ui-minimal);
     &:enabled:hover {
-      background: var(--primary-hover);
+      background: var(--smpl-ui-primary-hover);
     }
   }
   &_minimal_dark {
     color: #ffffff;
-    background: var(--minimal-dark);
+    background: var(--smpl-ui-minimal-dark);
     &:enabled:hover {
-      background: var(--minimal-dark-hover);
+      background: var(--smpl-ui-minimal-dark-hover);
     }
   }
 
   &_primary {
     color: #ffffff;
-    background: var(--primary);
-    border: 1px solid var(--primary);
+    background: var(--smpl-ui-primary);
+    border: 1px solid var(--smpl-ui-primary);
 
     &:enabled:hover {
-      background: var(--primary-hover);
+      background: var(--smpl-ui-primary-hover);
     }
   }
 
   &_secondary {
     color: #ffffff;
-    background: var(--second);
-    border: 1px solid var(--second);
+    background: var(--smpl-ui-second);
+    border: 1px solid var(--smpl-ui-second);
 
     &:enabled:hover {
-      background: var(--second-hover);
+      background: var(--smpl-ui-second-hover);
     }
   }
 
   &_success {
     color: #ffffff;
-    background: var(--success);
-    border: 1px solid var(--success);
+    background: var(--smpl-ui-success);
+    border: 1px solid var(--smpl-ui-success);
 
     &:enabled:hover {
-      background: var(--success-hover);
+      background: var(--smpl-ui-success-hover);
     }
   }
 
   &_info {
     color: #ffffff;
-    background: var(--info);
-    border: 1px solid var(--info);
+    background: var(--smpl-ui-info);
+    border: 1px solid var(--smpl-ui-info);
 
     &:enabled:hover {
-      background: var(--info-hover);
+      background: var(--smpl-ui-info-hover);
     }
   }
 
   &_warning {
     color: #ffffff;
-    background: var(--warning);
-    border: 1px solid var(--warning);
+    background: var(--smpl-ui-warning);
+    border: 1px solid var(--smpl-ui-warning);
 
     &:enabled:hover {
-      background: var(--warning-hover);
+      background: var(--smpl-ui-warning-hover);
     }
   }
 
   &_danger {
     color: #ffffff;
-    background: var(--danger);
-    border: 1px solid var(--danger);
+    background: var(--smpl-ui-danger);
+    border: 1px solid var(--smpl-ui-danger);
 
     &:enabled:hover {
-      background: var(--danger-hover);
+      background: var(--smpl-ui-danger-hover);
     }
   }
 

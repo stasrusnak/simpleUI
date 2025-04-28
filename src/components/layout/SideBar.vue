@@ -33,7 +33,7 @@ defineProps({
   left: 0;
   //top: 162px;
   height: 100%;
-  background: var(--bg);
+  background: var(--smpl-ui-bg);
   position: fixed;
   width: 240px;
   padding: 25px 0 30px 50px;
@@ -52,7 +52,7 @@ defineProps({
     font-size: 20px;
     padding: 4px 4px 10px 14px;
     &:hover {
-      color: var(--primary);
+      color: var(--smpl-ui-primary);
       transform: translateX(-20px);
     }
   }

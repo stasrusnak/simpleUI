@@ -141,7 +141,7 @@ const unitSelected = ref(['h001', 'h02p'])
     </transition>
 
     <div class="description">
-      <p>You can set the primary and secondary colors, in the example <span style="color: var(--danger)">red</span> and <span style="color: var(--primary)">blue</span></p>
+      <p>You can set the primary and secondary colors, in the example <span style="color: var(--smpl-ui-danger)">red</span> and <span style="color: var(--smpl-ui-primary)">blue</span></p>
 
     </div>
     <SimpleUiSwitch

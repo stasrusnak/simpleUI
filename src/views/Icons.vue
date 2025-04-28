@@ -203,7 +203,7 @@ p {
 }
 
 .link_blank {
-  color: var(--danger)
+  color: var(--smpl-ui-danger)
 }
 
 .copy-success-message {

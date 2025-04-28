@@ -107,7 +107,7 @@ const getHeaderClass = (headerLower) => {
   width: 100%;
   margin-top: 10px;
   border-radius: 7px;
-  background: var(--minimal-dark);
+  background: var(--smpl-ui-minimal-dark);
 
   &-wrapper {
     display: flex;
@@ -125,7 +125,7 @@ const getHeaderClass = (headerLower) => {
     display: grid;
     column-gap: 10px;
     align-items: center;
-    background: var(--white);
+    background: var(--smpl-ui-white);
 
     &__name {
       display: flex;
@@ -137,7 +137,7 @@ const getHeaderClass = (headerLower) => {
       transition: color 0.2s;
 
       &.active, &.hover  {
-        color: var(--danger);
+        color: var(--smpl-ui-danger);
         font-weight: bold;
       }
     }

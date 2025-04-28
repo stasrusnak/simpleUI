@@ -4,6 +4,7 @@ export default [
     "minimal",
     "minimal-dark",
     "minimal-dark-hover",
+    "bg",
     "second",
     "second-hover",
     "success",

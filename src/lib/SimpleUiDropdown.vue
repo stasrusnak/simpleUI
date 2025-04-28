@@ -55,7 +55,12 @@ watch(() => props.label, (newValue, oldValue) => {
 
 <template>
   <div class="dropdown" :class="{ 'scrollable': scrollable }">
-    <SimpleUiButton @click="toggleDropdown" :color="color" :buttonText=" selectedOption || label || 'Select an option' "  class="dropdown-button"></SimpleUiButton>
+    <SimpleUiButton
+        @click="toggleDropdown"
+        :color="color"
+        :buttonText=" selectedOption || label || 'Select an option' "
+        class="dropdown-button">
+    </SimpleUiButton>
     <ul v-if="isOpen" class="dropdown-menu">
       <li v-if="options"  v-for="option in options" :key="option" @click="select(option)"
           class="dropdown-item"
@@ -106,11 +111,11 @@ watch(() => props.label, (newValue, oldValue) => {
 .dropdown-item:hover {
   background-color: #23243e;
   border-radius: 7px;
-  color: var( --danger-hover);
+  color: var(--smpl-ui-danger-hover);
 }
 
 .selected-item {
-  background-color: var(--minimal-dark);
+  background-color: var(--smpl-ui-minimal-dark);
   color: #ffffff;
   border-radius: 7px;
 }

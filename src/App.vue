@@ -59,7 +59,7 @@ const toggleSidebar = () => {
   left: 0;
   font-size: 19px;
   width: 20px;
-  background: var(--primary);
+  background: var(--smpl-ui-primary);
   height: 100%;
   top: 62px;
   z-index: 1;

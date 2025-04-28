@@ -235,7 +235,7 @@ p {
     text-decoration: none;
 
     &:hover {
-      color: var(--primary);
+      color: var(--smpl-ui-primary);
     }
   }
 }

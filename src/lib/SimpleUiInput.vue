@@ -161,7 +161,7 @@ onMounted(() => {
 
       <component
           :is="type === 'textarea' ? 'textarea' : 'input'"
-          :style="[errors.length && { border: '1px solid var(--danger-hover)' }, inputStyle]"
+          :style="[errors.length && { border: '1px solid var(--smpl-ui-danger-hover)' }, inputStyle]"
           :class="['input-text', {'trans' : transparent}]"
           :type="type === 'textarea' ? undefined : type"
           :name="name"
@@ -234,7 +234,7 @@ onMounted(() => {
   }
 
   &-error {
-    background: var(--danger-hover);
+    background: var(--smpl-ui-danger-hover);
     margin-top: 4px;
     border-radius: 7px;
     font-size: 13px;
@@ -255,7 +255,7 @@ onMounted(() => {
   }
 
   &-text {
-    border: 1px solid var(--minimal-dark);
+    border: 1px solid var(--smpl-ui-minimal-dark);
     padding: 10px;
     min-height: 40px;
     border-radius: 7px;
@@ -265,10 +265,10 @@ onMounted(() => {
     outline: none;
     z-index: 1;
     color: #fff;
-    background-color: var(--minimal);
+    background-color: var(--smpl-ui-minimal);
 
     &:focus {
-      border: 1px solid var(--primary);
+      border: 1px solid var(--smpl-ui-primary);
 
       & + .input-label, {
         z-index: 1;
@@ -298,7 +298,7 @@ onMounted(() => {
     z-index: -1;
     transition: .3s;
     font-size: 13px;
-    color: var(--primary);
+    color: var(--smpl-ui-primary);
   }
 
   &::placeholder {

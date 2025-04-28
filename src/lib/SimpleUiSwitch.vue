@@ -83,7 +83,7 @@ const handleClock = (e) => {
 </template>
 
 <style lang="scss" scoped>
-@import "../styles/switchStyles";
+@import "@/lib/styles/switchStyles";
 
 .switch-container {
   padding-bottom: 3px;
@@ -140,7 +140,7 @@ const handleClock = (e) => {
 }
 
 input:checked + .slider {
-  background-color: var(--primary);
+  background-color: var(--smpl-ui-primary);
 }
 
 input:not(:checked) + .slider .icon-left {

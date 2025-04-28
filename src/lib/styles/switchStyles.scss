@@ -2,12 +2,12 @@
   //--------------- colors ---------------
   &_secondary {
     input:checked + .slider {
-      background-color: var(--second);
+      background-color: var(--smpl-ui-second);
     }
   }
   &_secondary_lite {
     input:checked + .slider {
-      background-color: var(--second-hover);
+      background-color: var(--smpl-ui-second-hover);
     }
   }
   &_basic {
@@ -17,41 +17,41 @@
   }
   &_minimal {
     input:checked + .slider {
-      background-color: var(--minimal);
-      border: 1px solid var(--minimal);;
+      background-color: var(--smpl-ui-minimal);
+      border: 1px solid var(--smpl-ui-minimal);;
     }
   }
   &_minimal_dark {
     input:checked + .slider {
-      background-color:var(--minimal-dark-hover);
-      border: 1px solid var(--minimal-dark-hover);
+      background-color:var(--smpl-ui-minimal-dark-hover);
+      border: 1px solid var(--smpl-ui-minimal-dark-hover);
     }
 
   }
   &_primary {
     input:checked + .slider {
-      background-color: var(--primary);
+      background-color: var(--smpl-ui-primary);
     }
   }
   &_success {
     input:checked + .slider {
-      background-color: var(--success);
+      background-color: var(--smpl-ui-success);
     }
   }
   &_info {
     input:checked + .slider {
-      background-color: var(--info);
+      background-color: var(--smpl-ui-info);
     }
 
   }
   &_warning {
     input:checked + .slider {
-      background-color: var(--warning);
+      background-color: var(--smpl-ui-warning);
     }
   }
   &_danger {
     input:checked + .slider {
-      background-color: var(--danger);
+      background-color: var(--smpl-ui-danger);
     }
   }
 
@@ -244,12 +244,12 @@
 .second-color{
   &_secondary {
     .slider {
-      background-color: var(--second);
+      background-color: var(--smpl-ui-second);
     }
   }
   &_secondary_lite {
     .slider {
-      background-color: var(--second-hover);
+      background-color: var(--smpl-ui-second-hover);
     }
   }
   &_basic {
@@ -259,39 +259,39 @@
   }
   &_minimal {
     .slider {
-      background-color: var(--minimal);
-      border: 1px solid var(--minimal);
+      background-color: var(--smpl-ui-minimal);
+      border: 1px solid var(--smpl-ui-minimal);
     }
   }
   &_minimal_dark {
     .slider {
-      background-color: var(--minimal-dark-hover);
-      border: 1px solid var(--minimal-dark-hover);
+      background-color: var(--smpl-ui-minimal-dark-hover);
+      border: 1px solid var(--smpl-ui-minimal-dark-hover);
     }
   }
   &_primary {
     .slider {
-      background-color: var(--primary);
+      background-color: var(--smpl-ui-primary);
     }
   }
   &_success {
     .slider {
-      background-color: var(--success);
+      background-color: var(--smpl-ui-success);
     }
   }
   &_info {
     .slider {
-      background-color: var(--info);
+      background-color: var(--smpl-ui-info);
     }
   }
   &_warning {
     .slider {
-      background-color: var(--warning);
+      background-color: var(--smpl-ui-warning);
     }
   }
   &_danger {
     .slider {
-      background-color: var(--danger);
+      background-color: var(--smpl-ui-danger);
     }
   }
 }

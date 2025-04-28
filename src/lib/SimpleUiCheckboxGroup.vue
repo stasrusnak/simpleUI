@@ -121,17 +121,17 @@ const handleCheckRadioGroup = (e) =>{
   }
 
   &:checked + label::before {
-    border-color: var(--primary);
-    background-color: var(--primary);
+    border-color: var(--smpl-ui-primary);
+    background-color: var(--smpl-ui-primary);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
   }
 
   &:not(:disabled):not(:checked) + label:hover::before {
-    border-color: var(--primary-hover);
+    border-color: var(--smpl-ui-primary-hover);
   }
 
   &:not(:disabled):active + label::before {
-    background-color: var(--primary);
+    background-color: var(--smpl-ui-primary);
     border: 1px solid #ECEBED;
   }
 
@@ -140,7 +140,7 @@ const handleCheckRadioGroup = (e) =>{
   }
 
   &:focus:not(:checked) + label::before {
-    border-color: var(--primary);
+    border-color: var(--smpl-ui-primary);
   }
 
   &:disabled + label::before {

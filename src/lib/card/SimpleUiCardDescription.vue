@@ -11,7 +11,7 @@
 .card-description {
   display: flex;
   align-items: center;
-  color: var(--minimal-dark-hover);
+  color: var(--smpl-ui-minimal-dark-hover);
   font-size: 1em;
   line-height: 1.4;
 }

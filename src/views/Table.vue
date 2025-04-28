@@ -153,9 +153,9 @@ const setSort = (name) => {
   cursor: pointer;
 }
 .link_button{
-  color: var(--primary);
+  color: var(--smpl-ui-primary);
   background: rgba(105, 121, 248, 0);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--smpl-ui-primary);
 }
 
 .line_body {

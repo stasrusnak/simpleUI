@@ -22,7 +22,7 @@ defineProps({
   padding: 1rem;
   border-top: none;
   &.extra {
-    border-top: 1px solid var(--primary-hover);
+    border-top: 1px solid var(--smpl-ui-primary-hover);
     display: flex;
     align-items: center;
   }

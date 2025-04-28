@@ -41,12 +41,12 @@
 .iconDiv:hover,
 .iconDiv:focus-visible {
   width: 142px;
-  background-color: var(--primary);
+  background-color: var(--smpl-ui-primary);
   transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
 }
 
 .iconDiv:focus-visible {
-  outline: 1px solid var(--primary);
+  outline: 1px solid var(--smpl-ui-primary);
   outline-offset: 4px;
 }
 

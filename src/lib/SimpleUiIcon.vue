@@ -74,7 +74,7 @@ const iconBodyStyle = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import "../styles/iconType.scss";
+@import "@/lib/styles/iconType";
 
 .icon-body {
   position: relative;

@@ -18,14 +18,14 @@ const props= defineProps({
 
 <template>
   <div class="progress-circle">
-    <span class="progress-circle_percent" :style="[{'color': `var(--${color})`}]">{{percent}}%</span>
+    <span class="progress-circle_percent" :style="[{'color': `var(--smpl-ui-${color})`}]">{{percent}}%</span>
     <svg width="120" height="120" viewBox="0 0 120 120" class="progress-circle_svg">
       <circle
           cx="60"
           cy="60"
           r="54"
           fill="none"
-          :stroke="`var(--${secondary_color})`"
+          :stroke="`var(--smpl-ui-${secondary_color})`"
           stroke-width="12" />
       <circle
           class="progress-circle_line"
@@ -34,7 +34,7 @@ const props= defineProps({
           cy="60"
           r="54"
           fill="none"
-          :stroke="`var(--${color})`"
+          :stroke="`var(--smpl-ui-${color})`"
           stroke-width="12"
           pathLength="100" />
     </svg>

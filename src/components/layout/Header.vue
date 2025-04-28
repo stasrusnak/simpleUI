@@ -35,7 +35,7 @@ onMounted(() => {
   font-size: 15px;
   p{
     display: inline-block;
-    color: var(--success);
+    color: var(--smpl-ui-success);
   }
 
 }

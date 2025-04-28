@@ -84,11 +84,11 @@ watch(names, () => {
 
     &__item {
       border: 1px solid transparent;
-      background: var(--minimal-dark);
+      background: var(--smpl-ui-minimal-dark);
       color: #fff;
 
       &.selected {
-        background: var(--primary);
+        background: var(--smpl-ui-primary);
         color: #fff;
         transition: 0.2s;
       }
@@ -108,7 +108,7 @@ watch(names, () => {
     padding: 16px;
     min-height: 60px;
     border-radius: 7px;
-    background: var(--minimal-dark);
+    background: var(--smpl-ui-minimal-dark);
     margin: 5px;
     width: 100%;
     line-height: 1.5;

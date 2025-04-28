@@ -3,10 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/* RESET */
-
-@import "reset.scss";
-@import "scrollbar";
 
 :root {
   --smpl-ui-primary: #6979f8;
@@ -29,28 +25,12 @@
   --smpl-ui-white: #fffdfd;
 }
 
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  color: var(--smpl-ui-white);
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: 350;
-  font-style: normal;
-  background: #2C2C3B
-  //Добавили градиентый фон
-  /* Отключаем повторение фона */
-  /* Центрируем градиент сверху */
-  /* Закрепляем фон при прокрутке */
-  //background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
-}
 
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
+//a {
+//  color: var(--primary-color);
+//  text-decoration: none;
+//}
 
 .line {
   display: flex;
