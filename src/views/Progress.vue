@@ -5,10 +5,10 @@ import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import SimpleUiProgress from "@/lib/SimpleUiProgress.vue";
 import SimpleUiProgressCircle from "@/lib/SimpleUiProgressCircle.vue";
-import {emphasisExample, animationExample, isExampleButton, progressBasicExample, progressCircleExample} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton, progressBasicExample, progressCircleExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiDropdown from "@/lib/SimpleUiDropdown.vue";
-import colorsList from "@/utils/colorsList.js";
+import colorsList from "@/lib/utils/colorsList.js";
 
 
 const isEmphasisShow = ref(true)
@@ -235,7 +235,21 @@ const isProgressCircleShow = ref(false)
     display: flex;
     align-items: center;
     min-width: 350px;
+  }
+   &-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #16182d none;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
+  &-item:hover {
+    background-color: #23243e;
+    border-radius: 7px;
+    color: var(--smpl-ui-danger-hover);
   }
 }
 .slider_body {

@@ -39,7 +39,7 @@ defineProps({
 </template>
 
 <style scoped lang="scss">
-@import "@/lib/styles/buttonStyles";
+@use "@/lib/styles/buttonStyles";
 
 .button-text-left {
   order: 2;

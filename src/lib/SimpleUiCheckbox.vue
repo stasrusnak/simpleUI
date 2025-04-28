@@ -67,7 +67,7 @@ const handleClock = (e) => {
 </template>
 
 <style lang="scss" scoped>
-@import "@/lib/styles/checkboxStyles";
+@use "@/lib/styles/checkboxStyles";
 
 .checkbox-container {
   padding-bottom: 3px;

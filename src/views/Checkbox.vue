@@ -3,7 +3,7 @@ import SimpleUiButton from "@/lib/SimpleUiButton.vue";
 import SimpleUiCheckbox from "@/lib/SimpleUiCheckbox.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import {emphasisExample, animationExample, isExampleButton, checkboxBasicExample, checkboxGroupExample} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton, checkboxBasicExample, checkboxGroupExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiCheckboxGroup from "@/lib/SimpleUiCheckboxGroup.vue";
 
@@ -327,7 +327,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../assets/icons/home.svg");
+  background-image: url("../lib/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

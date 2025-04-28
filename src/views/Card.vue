@@ -7,7 +7,7 @@ import SimpleUiCardImage from "@/lib/card/SimpleUiCardImage.vue";
 import SimpleUiCardContent from "@/lib/card/SimpleUiCardContent.vue";
 import SimpleUiCardHeader from "@/lib/card/SimpleUiCardHeader.vue";
 import SimpleUiCardDescription from "@/lib/card/SimpleUiCardDescription.vue";
-import {cardExample} from "@/utils/listOfTemplateExample.js";
+import {cardExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiInput from "@/lib/SimpleUiInput.vue";
 import frame from '@/assets/img/Frame91.jpg'

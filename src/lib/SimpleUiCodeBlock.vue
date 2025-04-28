@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from 'vue';
 import SimpleUiButton from "@/lib/SimpleUiButton.vue";
-import {highlight} from "../utils/codeFormatter.js"
+import {highlight} from "@/lib/utils/codeFormatter.js"
 
 const props = defineProps({
   code: {

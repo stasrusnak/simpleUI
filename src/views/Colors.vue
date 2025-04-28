@@ -1,7 +1,7 @@
 <script setup>
-import colors from '@/utils/colorsList.js'
+import colors from '@/lib/utils/colorsList.js'
 import {ref} from "vue";
-import {coloredExample} from "@/utils/listOfTemplateExample.js";
+import {coloredExample} from "@/lib/utils/listOfTemplateExample.js";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 
 const showCopySuccess = ref(false);

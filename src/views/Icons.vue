@@ -1,7 +1,7 @@
 <script setup>
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
-import icons from '@/utils/iconsList.js'
+import icons from '@/lib/utils/iconsList.js'
 import {ref} from "vue";
 import {
   circularExample,
@@ -9,7 +9,7 @@ import {
   borderedExample,
   coloredExample,
   loadingExample
-} from '@/utils/listOfTemplateExample.js'
+} from '@/lib/utils/listOfTemplateExample.js'
 
 
 let copyingIconCode = ref(false);

@@ -2,12 +2,12 @@
 import SimpleUiButton from "@/lib/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import {isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {isExampleButton} from "@/lib/utils/listOfTemplateExample.js";
 import {ref, computed} from 'vue'
 import SimpleUiTable from '@/lib/table/SimpleUiTable.vue'
 import SimpleUiTableRow from '@/lib/table/SimpleUiTableRow.vue'
 import SimpleUiTableColumn from '@/lib/table/SimpleUiTableColumn.vue'
-import moviesList from "@/utils/moviesList.js";
+import moviesList from "@/lib/utils/moviesList.js";
 import SimpleUiInput from "@/lib/SimpleUiInput.vue";
 
 

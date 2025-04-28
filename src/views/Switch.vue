@@ -3,7 +3,7 @@ import SimpleUiButton from "@/lib/SimpleUiButton.vue";
 import SimpleUiSwitch from "@/lib/SimpleUiSwitch.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import {emphasisExample, animationExample, isExampleButton, switchBasicExample, switchGroupExample} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton, switchBasicExample, switchGroupExample} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 import SimpleUiSwitchGroup from "@/lib/SimpleUiSwitchGroup.vue";
 
@@ -555,7 +555,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../assets/icons/home.svg");
+  background-image: url("../lib/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

@@ -105,6 +105,7 @@ watch(() => props.label, (newValue, oldValue) => {
   background: #16182d none;
   color: #fff;
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 

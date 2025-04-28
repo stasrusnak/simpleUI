@@ -2,7 +2,7 @@
 import SimpleUiButton from "@/lib/SimpleUiButton.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import {emphasisExample,animationExample,isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample,animationExample,isExampleButton} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
 
 const isEmphasisShow = ref(true)
@@ -183,7 +183,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../assets/icons/home.svg");
+  background-image: url("../lib/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

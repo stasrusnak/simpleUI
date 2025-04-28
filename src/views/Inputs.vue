@@ -3,9 +3,9 @@ import SimpleUiButton from "@/lib/SimpleUiButton.vue";
 import SimpleUiInput from "@/lib/SimpleUiInput.vue";
 import SimpleUiCodeBlock from "@/lib/SimpleUiCodeBlock.vue";
 import SimpleUiIcon from "@/lib/SimpleUiIcon.vue";
-import {emphasisExample, animationExample, isExampleButton} from "@/utils/listOfTemplateExample.js";
+import {emphasisExample, animationExample, isExampleButton} from "@/lib/utils/listOfTemplateExample.js";
 import {ref} from "vue";
-import { inputBasicExample, inputValidationExample, inputIconExample } from "@/utils/listOfTemplateExample.js";
+import { inputBasicExample, inputValidationExample, inputIconExample } from "@/lib/utils/listOfTemplateExample.js";
 
 const isEmphasisShow = ref(true)
 const isAnimationsShow = ref(false)
@@ -295,7 +295,7 @@ p {
   width: 45px;
   height: 45px;
   display: block;
-  background-image: url("../assets/icons/home.svg");
+  background-image: url("../lib/icons/home.svg");
   background-position: center;
   background-repeat: no-repeat;
 

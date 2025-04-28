@@ -8,7 +8,7 @@ import {
   tabsBasicExample,
   tabsVerticalExample,
   tabsIconExample
-} from "@/utils/listOfTemplateExample.js";
+} from "@/lib/utils/listOfTemplateExample.js";
 import SimpleUiProgress from "@/lib/SimpleUiProgress.vue";
 import {nextTick, ref, watch} from "vue";
 

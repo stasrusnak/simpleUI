@@ -1,7 +1,7 @@
 <script setup>
 import {computed} from "vue";
-import {getFilterByColor} from '@/utils/colorFilter.js'
-import {getSize} from '@/utils/IconSizeCalc.js'
+import {getFilterByColor} from './utils/colorFilter.js'
+import {getSize} from './utils/IconSizeCalc.js'
 
 const props = defineProps({
   icon: {
@@ -74,7 +74,7 @@ const iconBodyStyle = computed(() => {
 </template>
 
 <style scoped lang="scss">
-@import "@/lib/styles/iconType";
+@use "@/lib/styles/iconType";
 
 .icon-body {
   position: relative;
