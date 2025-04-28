@@ -5,7 +5,7 @@ A minimalist and lightweight UI library for _**Vue 3**_ built with **_Vite._**
 ## Description
 SimpleUI is a modern component library for Vue 3 that provides a set of basic and commonly used interface elements. The library is designed with a focus on simplicity, performance, and minimalism.
 
-![SimpleUI Progress Component Preview](src/lib/resources/img/preview_.png)
+![SimpleUI Progress Component Preview](src/assets/img/preview_.png)
 ![SimpleUI Tabs Component Preview](src/assets/img/preview_1.png)
 
 ## Demo

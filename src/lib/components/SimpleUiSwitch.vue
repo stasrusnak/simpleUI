@@ -83,7 +83,7 @@ const handleClock = (e) => {
 </template>
 
 <style lang="scss" scoped>
-@use "@/lib/styles/switchStyles";
+@use "../styles/switchStyles";
 
 .switch-container {
   padding-bottom: 3px;
