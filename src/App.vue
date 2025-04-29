@@ -1,50 +1,45 @@
 <script setup>
 import MainHeader from "@/components/layout/Header.vue";
 import SideBar from "@/components/layout/SideBar.vue";
-import {ref} from "vue";
+import { ref } from "vue";
 
 const openSidebar = ref(true);
 
 const toggleSidebar = () => {
-  openSidebar.value = !openSidebar.value
-}
-
+  openSidebar.value = !openSidebar.value;
+};
 </script>
 
 <template>
-
-<!--  <button-compact></button-compact>-->
-
-
   <div class="container">
-    <main-header/>
-    <div class="sidebar-toggle" @click="toggleSidebar" :class="{ '_circle': !openSidebar }" >
+    <main-header />
+    <div
+        class="sidebar-toggle"
+        @click="toggleSidebar"
+        :class="{ '_circle': !openSidebar }"
+    >
       <div class="vertical-text" v-if="openSidebar">МЕНЮ &nbsp;☰</div>
-      <div v-else class="menu-button"> ☰ </div>
+      <div v-else class="menu-button">☰</div>
     </div>
-    <side-bar :openSidebar="openSidebar"/>
-    <div :class="!openSidebar ? 'content content_full' : 'content'">
-      <router-view/>
+    <side-bar :openSidebar="openSidebar" />
+    <div :class="['content', { 'content_full': !openSidebar }]">
+      <router-view />
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>
 @import "@/styles/global.scss";
 
-
 .content {
   max-width: 1400px;
   margin-left: 250px;
   padding: 30px;
-  transition: 0.8s;
-
+  transition: margin-left 0.5s ease-in-out;
   &_full {
     margin-left: 0;
   }
 }
-
 
 .vertical-text {
   display: flex;
@@ -52,6 +47,7 @@ const toggleSidebar = () => {
   white-space: nowrap;
   transform: rotate(270deg);
   margin-left: 6px;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .sidebar-toggle {
@@ -68,25 +64,22 @@ const toggleSidebar = () => {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s ease-in-out;
 
   &._circle {
-    transition: width 0.5s ease-out, height 0.5s ease-out;
     width: 44px;
     height: 44px;
     clip-path: circle(100% at 0% 0);
-    .menu-button{
-      padding-bottom: 5px;
-      padding-right: 5px;
-    }
+    background: var(--smpl-ui-primary);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .menu-button {
+    padding-bottom: 5px;
+    padding-right: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  &:hover .menu-button {
+    transform: scale(1.2);
   }
 }
-
-
-
-//@media screen and (max-width: 1023px) {
-//  .content {
-//    margin-left: 0;
-//  }
-//}
-
 </style>

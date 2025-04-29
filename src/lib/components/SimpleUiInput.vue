@@ -256,7 +256,7 @@ onMounted(() => {
     outline: none;
     z-index: 1;
     color: #fff;
-    background-color: var(--smpl-ui-minimal);
+    background-color: var(--smpl-ui-minimal-dark);
     &:focus {
       border: 1px solid var(--smpl-ui-primary);
       & + .smpl-input__label {
