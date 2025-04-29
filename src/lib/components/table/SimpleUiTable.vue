@@ -54,7 +54,7 @@ const clickOnHead = (headerLower) => {
 
 const getHeaderClass = (headerLower) => {
   return [
-    'table-head__name',
+    'smpl-table-head__name',
     {
       'active': props.sortField === headerLower && hoveredHead.value === null,
       'hover': hoveredHead.value === headerLower

@@ -152,17 +152,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="smpl-input-body" :style="{width: width}">
-    <div class="smpl-input-inner">
+  <div class="smpl-input" :style="{width: width}">
+    <div class="smpl-input__body">
 
-      <div ref="prependSlot" v-if="$slots.prepend" class="smpl-input-slot smpl-input-slot-prepend">
+      <div ref="prependSlot" v-if="$slots.prepend" class="smpl-input__slot smpl-input__slot--prepend">
         <slot name="prepend"></slot>
       </div>
 
       <component
           :is="type === 'textarea' ? 'textarea' : 'input'"
           :style="[errors.length && { border: '1px solid var(--smpl-ui-danger-hover)' }, inputStyle]"
-          :class="['smpl-input-text', {'smpl-input-trans' : transparent}]"
+          :class="['smpl-input__text', {'smpl-trans' : transparent}]"
           :type="type === 'textarea' ? undefined : type"
           :name="name"
           :id="name"
@@ -173,30 +173,30 @@ onMounted(() => {
           ref="inputRef"
       ></component>
 
-      <label :for="name" class="smpl-input-label">{{ label }}</label>
+      <label :for="name" class="smpl-input__label">{{ label }}</label>
       <span :for="name"
-            class="smpl-input-count"
+            class="smpl-input__count"
             v-if="value.length >0 && showCountCharacter"
       >{{ value.length + ' character(s)' }}  </span>
 
 
 
       <div v-if="minLen || maxLen">
-        <span :for="name" class="smpl-input-count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
-        <span :for="name" class="smpl-input-count" v-else>{{ value.length + ' / ' + minLen }} </span>
+        <span :for="name" class="smpl-input__count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
+        <span :for="name" class="smpl-input__count" v-else>{{ value.length + ' / ' + minLen }} </span>
       </div>
 
-      <div ref="appendSlot" v-if="$slots.append" class="smpl-input-slot smpl-input-slot-append">
+      <div ref="appendSlot" v-if="$slots.append" class="smpl-input__slot smpl-input__slot--append">
         <slot name="append"></slot>
       </div>
 
     </div>
     <TransitionGroup name="error-animation">
       <div
-          class="smpl-input-error"
+          class="smpl-input__error"
           v-for="(element, index) in errors"
           :key="index">
-        <div class="smpl-input-error__message">{{ element.message }}</div>
+        <div class="smpl-input__error-message">{{ element.message }}</div>
       </div>
     </TransitionGroup>
 
@@ -207,33 +207,27 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 
-.smpl-input-slot {
+.smpl-input__slot {
   display: flex;
   position: absolute;
   z-index: 2;
-
-  &-prepend {
+  &--prepend {
     padding: 6px;
     left: 0;
   }
-
-  &-append {
+  &--append {
     padding: 6px;
     right: 0;
   }
 }
 
-
-.smpl-input-inner {
-  display: flex;
-  align-items: center;
-
-  &-body {
-    position: relative;
+.smpl-input {
+  position: relative;
+  &__body {
+    display: flex;
     align-items: center;
   }
-
-  &-error {
+  &__error {
     background: var(--smpl-ui-danger-hover);
     margin-top: 4px;
     border-radius: 7px;
@@ -241,10 +235,8 @@ onMounted(() => {
     color: #fff;
     padding: 5px;
   }
-}
 
-.smpl-input {
-  &-count {
+  &__count {
     top: -15px;
     display: inline-flex;
     position: absolute;
@@ -253,33 +245,29 @@ onMounted(() => {
     align-items: center;
     color: #909399;
   }
-
-  &-text {
+  &__text {
     border: 1px solid var(--smpl-ui-minimal-dark);
     padding: 10px;
     min-height: 40px;
     border-radius: 7px;
-    font-size: 16px;
+    font-size: 14px;
     width: 100%;
     position: relative;
     outline: none;
     z-index: 1;
     color: #fff;
     background-color: var(--smpl-ui-minimal);
-
     &:focus {
       border: 1px solid var(--smpl-ui-primary);
-
-      & + .smpl-input-label, {
+      & + .smpl-input__label {
         z-index: 1;
         opacity: 1;
         top: -16px;
         font-size: 14px;
       }
     }
-
     &:not(:placeholder-shown) {
-      & + .smpl-input-label {
+      & + .smpl-input__label {
         z-index: 1;
         opacity: 1;
         top: -16px;
@@ -287,8 +275,7 @@ onMounted(() => {
       }
     }
   }
-
-  &-label {
+  &__label {
     font-weight: bold;
     display: block;
     position: absolute;
@@ -300,8 +287,7 @@ onMounted(() => {
     font-size: 13px;
     color: var(--smpl-ui-primary);
   }
-
-  &::placeholder {
+  &__text::placeholder {
     color: #9ca0d2;
   }
 }
@@ -322,7 +308,7 @@ input {
   opacity: 0;
 }
 
-.smpl-input-trans{
+.smpl-trans{
   border-color: transparent !important;
   background-color: transparent;
   padding: 0;

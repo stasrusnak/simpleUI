@@ -12,5 +12,6 @@
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  color: var(--smpl-ui-white);
 }
 </style> 

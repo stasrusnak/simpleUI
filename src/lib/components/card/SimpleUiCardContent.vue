@@ -19,7 +19,7 @@ defineProps({
 
 <style scoped lang="scss">
 .smpl-card-content {
-  padding: 1rem;
+  padding: 16px;
   border-top: none;
   width: 100%;
   font-size: 12px;

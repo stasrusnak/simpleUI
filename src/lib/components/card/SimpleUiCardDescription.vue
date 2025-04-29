@@ -2,17 +2,18 @@
 </script>
 
 <template>
-  <div class="card-description">
+  <div class="smpl-card-description">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="scss">
-.card-description {
+.smpl-card-description {
   display: flex;
   align-items: center;
   color: var(--smpl-ui-minimal-dark-hover);
   font-size: 14px;
   line-height: 1.4;
+  gap: 6px;
 }
 </style> 

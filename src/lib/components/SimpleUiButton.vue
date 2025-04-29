@@ -32,7 +32,7 @@ defineProps({
           animation && `smpl-btn_${animation}`,
           animation==='spacing'?'smpl-btn-spacing_body':'']"
     >
-      <p v-if="buttonText" :class="left && 'smpl-btn-text-left'">{{ buttonText }}</p>
+      <div class="smpl-b" v-if="buttonText" :class="left && 'smpl-btn-text-left'">{{ buttonText }}</div>
       <slot></slot>
     </button>
 
@@ -60,7 +60,7 @@ defineProps({
   align-items: center;
   justify-content: center;
 
-  p {
+  .smpl-b {
     padding: 3px;
     display: flex;
     align-items: center;

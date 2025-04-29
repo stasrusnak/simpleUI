@@ -200,28 +200,20 @@ p {
 .item-example {
   min-width: 350px;
   flex-direction: column;
-
   padding-right: 20px;
 }
 
-.nav {
-  /*фикс маленький отспутов кнопок навигации */
-  :deep(.tab-nav) {
-    margin-right: -10px;
-  }
-}
-
-:deep(.table-column-image){
+:deep(.smpl-table-column-image){
   height: 50px;
 }
-:deep(.btn_basic){
+:deep(.smpl-btn_basic){
   min-width: auto;
   font-size: 13px;
 }
-:deep(.input-text){
+:deep(.smpl-input-text){
   padding: 0;
 }
-:deep(.table_content){
+:deep(.smpl-table_content){
   max-height: 405px;
   overflow-y: auto;
   overflow-x: hidden;
