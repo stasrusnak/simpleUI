@@ -1,5 +1,4 @@
 <script setup>
-
 const emits = defineEmits(['update:checked', 'handleCheckGroup'])
 const props = defineProps({
   id: {
@@ -55,12 +54,12 @@ const handleClock = (e) => {
 
 <template>
 
-  <div class="switch-container">
+  <div class="smpl-switch-container">
     <label
-        :class="[color ? `switch switch_${color}`:'switch',
-         style ? `switch_${style}`:'',
-         secondaryColor ? `second-color_${secondaryColor}`:'',
-         animation ? `switch_${animation}`:'']">
+        :class="[color ? `smpl-switch smpl-switch_${color}`:'smpl-switch',
+         style ? `smpl-switch_${style}`:'',
+         secondaryColor ? `smpl-switch-second-color_${secondaryColor}`:'',
+         animation ? `smpl-switch_${animation}`:'']">
       <input
           type="checkbox"
           :id="id"
@@ -70,14 +69,14 @@ const handleClock = (e) => {
           @input="handleClock($event)">
 
 
-      <span class="slider">
-        <span class="icon-left"><slot name="left-icon"></slot></span>
-        <span class="icon-right"><slot name="right-icon"></slot></span>
+      <span class="smpl-switch-slider">
+        <span class="smpl-switch-icon-left"><slot name="left-icon"></slot></span>
+        <span class="smpl-switch-icon-right"><slot name="right-icon"></slot></span>
       </span>
 
 
     </label>
-    <label :for="id" class="switch-label">{{ label }}</label>
+    <label :for="id" class="smpl-switch-label">{{ label }}</label>
   </div>
 
 </template>
@@ -85,7 +84,7 @@ const handleClock = (e) => {
 <style lang="scss" scoped>
 @use "../styles/switchStyles";
 
-.switch-container {
+.smpl-switch-container {
   padding-bottom: 3px;
   display: inline-flex;
   align-items: center;
@@ -93,7 +92,7 @@ const handleClock = (e) => {
   min-width: 150px;
 }
 
-.switch {
+.smpl-switch {
   position: relative;
   display: inline-block;
   width: 60px;
@@ -102,13 +101,13 @@ const handleClock = (e) => {
 
 }
 
-.switch input {
+.smpl-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.slider {
+.smpl-switch-slider {
   position: absolute;
   top: 0;
   left: 0;
@@ -122,55 +121,55 @@ const handleClock = (e) => {
 
 
 
-.slider .icon-left,
-.slider .icon-right {
+.smpl-switch-slider .smpl-switch-icon-left,
+.smpl-switch-slider .smpl-switch-icon-right {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
 }
 
-.slider .icon-left {
+.smpl-switch-slider .smpl-switch-icon-left {
   left: 8px;
 }
 
-.slider .icon-right {
+.smpl-switch-slider .smpl-switch-icon-right {
   right: 8px;
   opacity: 0;
 }
 
-input:checked + .slider {
+input:checked + .smpl-switch-slider {
   background-color: var(--smpl-ui-primary);
 }
 
-input:not(:checked) + .slider .icon-left {
+input:not(:checked) + .smpl-switch-slider .smpl-switch-icon-left {
   opacity: 1;
   transition: opacity 0.4s ease 0.1s;
 }
 
-input:not(:checked) + .slider .icon-right {
+input:not(:checked) + .smpl-switch-slider .smpl-switch-icon-right {
   opacity: 0;
   transition: opacity 0s ease;
 }
 
 
-input:checked + .slider .icon-left {
+input:checked + .smpl-switch-slider .smpl-switch-icon-left {
   opacity: 0;
   transition: opacity 0s ease;
 }
 
-input:checked + .slider .icon-right {
+input:checked + .smpl-switch-slider .smpl-switch-icon-right {
   opacity: 1;
   transition: opacity 0.4s ease 0.1s;
 }
 
 
 
-input:checked + .slider:before {
+input:checked + .smpl-switch-slider:before {
   transform: translateX(26px);
 }
 
-.slider:before {
+.smpl-switch-slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -184,7 +183,7 @@ input:checked + .slider:before {
 }
 
 
-.switch input:disabled + .slider {
+.smpl-switch input:disabled + .smpl-switch-slider {
   background-color: #80848f;
   border: 1px solid #80848f;
 }

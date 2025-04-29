@@ -51,7 +51,7 @@ let updateVal = [...props.value]
 </template>
 
 <style lang="scss" scoped>
-.checkbox {
+.smpl-switch-checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;

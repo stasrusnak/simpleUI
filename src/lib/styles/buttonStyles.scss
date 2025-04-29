@@ -1,7 +1,5 @@
-
-
 //--------------- animations ---------------
-.spacing_body{
+.smpl-btn-spacing_body{
   &:hover {
     letter-spacing: 4px;
   }
@@ -19,7 +17,7 @@
   }
 }
 
-.btn {
+.smpl-btn {
   &_spacing:hover:after,
   &_spacing:hover:before {
     backface-visibility: hidden;
@@ -32,8 +30,6 @@
     top: 0;
     width: 70%;
   }
-
-
 
   &_swipe {
     position: relative;
@@ -123,7 +119,6 @@
     }
   }
 
-
   &_shake:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
@@ -147,5 +142,4 @@
   &_distort:hover {
     animation: distort 0.5s infinite;
   }
-
 }

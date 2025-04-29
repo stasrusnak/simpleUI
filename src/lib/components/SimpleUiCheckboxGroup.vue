@@ -95,7 +95,7 @@ const handleCheckRadioGroup = (e) =>{
 </template>
 
 <style lang="scss" scoped>
-.checkbox {
+.smpl-checkbox {
   position: absolute;
   z-index: -1;
   opacity: 0;

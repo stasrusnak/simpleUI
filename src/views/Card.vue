@@ -36,7 +36,6 @@ const isCardBasicShow = ref(false)
     <div class="line">
       <SimpleUiCard
           width="300px"
-          height="auto"
       >
         <SimpleUiCardImage :src="frame"/>
         <SimpleUiCardContent>
@@ -62,7 +61,6 @@ const isCardBasicShow = ref(false)
 
       <SimpleUiCard
           width="300px"
-          height="auto"
           social
       >
         <SimpleUiCardContent spaced>
@@ -121,7 +119,7 @@ const isCardBasicShow = ref(false)
                 <SimpleUiIcon size="tiny" icon="chatbox-ellipses" color="minimal-dark-hover"></SimpleUiIcon>
                 <span class="stats__text">152</span>
                 <SimpleUiIcon size="tiny" icon="calendar" color="minimal-dark-hover"></SimpleUiIcon>
-                <span class="stats__text"> 28 мая 2026, 15:00</span>
+                <span class="stats__text"> 28 мая 2026</span>
               </div>
             </SimpleUiCardDescription>
           </SimpleUiCardContent>
@@ -163,7 +161,7 @@ const isCardBasicShow = ref(false)
 }
 .stats {
   display: flex;
-  font-size: 13px;
+  font-size: 12px;
   padding: 1.1rem 0;
   gap: 7px;
 
@@ -212,7 +210,7 @@ const isCardBasicShow = ref(false)
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 15px;
 }
 

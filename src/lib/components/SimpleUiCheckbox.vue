@@ -39,21 +39,18 @@ const props = defineProps({
   }
 })
 
-
-
 const handleClock = (e) => {
   if (props.group) emits('handleCheckGroup', {id: e.target.id, check: e.target.checked})
   else emits('update:checked', e.target.checked)
 }
 </script>
 
-
 <template>
-  <div class="checkbox-container">
+  <div class="smpl-checkbox-container">
     <input
-        :class="[color ? `checkbox checkbox_${color}`:'checkbox',
-        radio && 'radio',
-        animation ? `checkbox_${animation}`:'']"
+        :class="[color ? `smpl-checkbox smpl-checkbox_${color}`:'smpl-checkbox',
+        radio && 'smpl-radio',
+        animation ? `smpl-checkbox_${animation}`:'']"
         type="checkbox"
         :id="id"
         :value="value"
@@ -62,22 +59,18 @@ const handleClock = (e) => {
         @input="handleClock($event)"/>
     <label :for="id">{{ label }}</label>
   </div>
-
-
 </template>
 
 <style lang="scss" scoped>
 @use "../styles/checkboxStyles";
 
-.checkbox-container {
+.smpl-checkbox-container {
   padding-bottom: 3px;
 }
 
-.radio {
+.smpl-radio {
   & + label::before {
     border-radius: 50%;
   }
 }
-
-
 </style>

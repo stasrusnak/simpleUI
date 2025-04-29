@@ -2,16 +2,15 @@
 </script>
 
 <template>
-  <div class="card-header">
+  <div class="smpl-card-header">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="scss">
-.card-header {
-  font-size: 1.48571429em;
+.smpl-card-header {
+  font-size: 18px;
   font-weight: 700;
-  line-height: 1.38571429em;
   margin-bottom: 0.5rem;
 }
 </style> 

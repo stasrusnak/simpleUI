@@ -64,9 +64,9 @@ const getHeaderClass = (headerLower) => {
 </script>
 
 <template>
-  <div class="table-wrapper">
-    <div class="table">
-      <div class="table-head" :style="tableHeadStyles">
+  <div class="smpl-table-wrapper">
+    <div class="smpl-table">
+      <div class="smpl-table-head" :style="tableHeadStyles">
         <div
             v-for="(item, i) in headersLowerCase"
             :key="i"
@@ -92,7 +92,7 @@ const getHeaderClass = (headerLower) => {
         </div>
       </div>
     </div>
-    <div class="table table_content">
+    <div class="smpl-table smpl-table_content">
       <slot></slot>
     </div>
   </div>
@@ -103,7 +103,7 @@ const getHeaderClass = (headerLower) => {
   transform: rotateX(180deg);
 }
 
-.table {
+.smpl-table {
   width: 100%;
   margin-top: 10px;
   border-radius: 7px;

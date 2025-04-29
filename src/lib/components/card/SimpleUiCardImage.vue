@@ -8,13 +8,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="card-image">
+  <div class="smpl-card-image">
     <img :src="src"  >
   </div>
 </template>
 
 <style scoped lang="scss">
-.card-image {
+.smpl-card-image {
   position: relative;
   
   img {

@@ -51,7 +51,7 @@ const copyCode = (copyIcon) => {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 25px;
 }
 

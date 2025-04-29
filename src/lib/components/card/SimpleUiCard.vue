@@ -4,6 +4,10 @@ defineProps({
     type: String,
     default: '300px'
   },
+  height: {
+    type: String,
+    default: 'auto'
+  },
   horizontal: {
     type: Boolean,
     default: false
@@ -17,13 +21,13 @@ defineProps({
 </script>
 
 <template>
-  <div class="card" :class="{ horizontal,social, 'card-overlay': horizontal }" :style="{ width }">
+  <div class="smpl-card" :class="{ horizontal,social, 'card-overlay': horizontal }" :style="{ width,height }">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="scss">
-.card {
+.smpl-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -48,11 +52,11 @@ defineProps({
       z-index: 1;
       pointer-events: none;
     }
-    :deep(.card-image) {
+    :deep(.smpl-card-image) {
       position: relative;
       z-index: 0;
     }
-    :deep(.card-content) {
+    :deep(.smpl-card-content) {
       position: absolute;
       bottom: 0;
       z-index: 2;
@@ -63,7 +67,7 @@ defineProps({
     margin-right: 5px;
   }
 }
-.card > :first-child {
+.smpl-card > :first-child {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }

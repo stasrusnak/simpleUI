@@ -152,17 +152,17 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="body-input" :style="{width: width}">
-    <div class="body">
+  <div class="smpl-input-body" :style="{width: width}">
+    <div class="smpl-input-inner">
 
-      <div ref="prependSlot" v-if="$slots.prepend" class=" slot slot-prepend">
+      <div ref="prependSlot" v-if="$slots.prepend" class="smpl-input-slot smpl-input-slot-prepend">
         <slot name="prepend"></slot>
       </div>
 
       <component
           :is="type === 'textarea' ? 'textarea' : 'input'"
           :style="[errors.length && { border: '1px solid var(--smpl-ui-danger-hover)' }, inputStyle]"
-          :class="['input-text', {'trans' : transparent}]"
+          :class="['smpl-input-text', {'smpl-input-trans' : transparent}]"
           :type="type === 'textarea' ? undefined : type"
           :name="name"
           :id="name"
@@ -173,30 +173,30 @@ onMounted(() => {
           ref="inputRef"
       ></component>
 
-      <label :for="name" class="input-label">{{ label }}</label>
+      <label :for="name" class="smpl-input-label">{{ label }}</label>
       <span :for="name"
-            class="input-count"
+            class="smpl-input-count"
             v-if="value.length >0 && showCountCharacter"
       >{{ value.length + ' character(s)' }}  </span>
 
 
 
       <div v-if="minLen || maxLen">
-        <span :for="name" class="input-count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
-        <span :for="name" class="input-count" v-else>{{ value.length + ' / ' + minLen }} </span>
+        <span :for="name" class="smpl-input-count" v-if="maxLen">{{ value.length + ' / ' + maxLen }}</span>
+        <span :for="name" class="smpl-input-count" v-else>{{ value.length + ' / ' + minLen }} </span>
       </div>
 
-      <div ref="appendSlot" v-if="$slots.append" class="slot slot-append">
+      <div ref="appendSlot" v-if="$slots.append" class="smpl-input-slot smpl-input-slot-append">
         <slot name="append"></slot>
       </div>
 
     </div>
     <TransitionGroup name="error-animation">
       <div
-          class="body-error"
+          class="smpl-input-error"
           v-for="(element, index) in errors"
           :key="index">
-        <div class="body-error__message">{{ element.message }}</div>
+        <div class="smpl-input-error__message">{{ element.message }}</div>
       </div>
     </TransitionGroup>
 
@@ -207,7 +207,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 
-.slot {
+.smpl-input-slot {
   display: flex;
   position: absolute;
   z-index: 2;
@@ -224,11 +224,11 @@ onMounted(() => {
 }
 
 
-.body {
+.smpl-input-inner {
   display: flex;
   align-items: center;
 
-  &-input {
+  &-body {
     position: relative;
     align-items: center;
   }
@@ -243,7 +243,7 @@ onMounted(() => {
   }
 }
 
-.input {
+.smpl-input {
   &-count {
     top: -15px;
     display: inline-flex;
@@ -270,7 +270,7 @@ onMounted(() => {
     &:focus {
       border: 1px solid var(--smpl-ui-primary);
 
-      & + .input-label, {
+      & + .smpl-input-label, {
         z-index: 1;
         opacity: 1;
         top: -16px;
@@ -279,7 +279,7 @@ onMounted(() => {
     }
 
     &:not(:placeholder-shown) {
-      & + .input-label {
+      & + .smpl-input-label {
         z-index: 1;
         opacity: 1;
         top: -16px;
@@ -322,7 +322,7 @@ input {
   opacity: 0;
 }
 
-.trans{
+.smpl-input-trans{
   border-color: transparent !important;
   background-color: transparent;
   padding: 0;

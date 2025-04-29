@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="iconDiv">
-    <div class="iconSVG">
+  <div class="smpl-btn-compact">
+    <div class="smpl-btn-compact-svg">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
            stroke-width="1">
         <path stroke-linecap="round" stroke-linejoin="round"
@@ -17,7 +17,7 @@
 </template>
 
 <style scoped lang="scss">
-.iconDiv {
+.smpl-btn-compact {
   height: 36px;
   width: 36px;
   margin-top: 20px;
@@ -33,29 +33,28 @@
   transition: width 300ms ease-in-out 0s, background-color 300ms linear 200ms;
 }
 
-.iconSVG {
+.smpl-btn-compact-svg {
   height: 36px;
   aspect-ratio: 1 / 1;
 }
 
-.iconDiv:hover,
-.iconDiv:focus-visible {
+.smpl-btn-compact:hover,
+.smpl-btn-compact:focus-visible {
   width: 142px;
   background-color: var(--smpl-ui-primary);
   transition: width 300ms ease-in-out 0s, background-color 100ms linear 0s;
 }
 
-.iconDiv:focus-visible {
+.smpl-btn-compact:focus-visible {
   outline: 1px solid var(--smpl-ui-primary);
   outline-offset: 4px;
 }
 
-.iconDiv:active {
+.smpl-btn-compact:active {
   opacity: 0.9;
 }
 
-.iconDiv::after {
-
+.smpl-btn-compact::after {
   margin-left: 12px;
   animation: fadeIn 600ms linear forwards;
 }

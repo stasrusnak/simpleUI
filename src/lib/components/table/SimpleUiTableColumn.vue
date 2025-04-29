@@ -16,16 +16,16 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="table-column"  >
-    <span class="table-column__title" v-if="columnTitle">{{ columnTitle }}: </span>
+  <div class="smpl-table-column"  >
+    <span class="smpl-table-column__title" v-if="columnTitle">{{ columnTitle }}: </span>
     <slot v-if="!image"></slot>
-    <img v-else class="table-column-image" :src="srcImage" alt="">
+    <img v-else class="smpl-table-column-image" :src="srcImage" alt="">
   </div>
 </template>
 
 
 <style lang="scss" scoped>
-.table-column {
+.smpl-table-column {
   padding: 7px 0;
   position: relative;
 

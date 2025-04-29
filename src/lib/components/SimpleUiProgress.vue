@@ -60,7 +60,7 @@ watch(currentValue, (newValue) => {
 </script>
 
 <template>
-  <div class="slider__container" v-if="slider">
+  <div class="smpl-progress-slider__container" v-if="slider">
     <input
         type="range"
         :min="min"
@@ -68,23 +68,23 @@ watch(currentValue, (newValue) => {
         :step="step"
         v-model="currentPercent"
         @input="updateValue"
-        class="slider"
+        class="smpl-progress-slider"
         :style="{'background':`var(--smpl-ui-${color})`,'--thumb-color': `var(--smpl-ui-${secondary_color})`}"
     />
-    <span class="progress__percent">{{ currentPercent + unit }}</span>
+    <span class="smpl-progress__percent">{{ currentPercent + unit }}</span>
   </div>
 
-  <div class="progress__container" :style="{'background':`var(--smpl-ui-${color})`}" v-else>
-    <div class="progress" :style="{'height':height}">
-      <div class="progress__bar" :style="{'width':percent + unit ,'background-color':`var(--smpl-ui-${secondary_color})` }">
-        <span class="progress__percent">{{ percent + unit }}</span>
+  <div class="smpl-progress__container" :style="{'background':`var(--smpl-ui-${color})`}" v-else>
+    <div class="smpl-progress" :style="{'height':height}">
+      <div class="smpl-progress__bar" :style="{'width':percent + unit ,'background-color':`var(--smpl-ui-${secondary_color})` }">
+        <span class="smpl-progress__percent">{{ percent + unit }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
-.progress {
+.smpl-progress {
   height: 10px;
   border-radius: 4px;
 
@@ -117,26 +117,18 @@ watch(currentValue, (newValue) => {
     border-radius: 4px;
   }
 }
-.slider {
+.smpl-progress-slider {
   -webkit-appearance: none;
   width: 100%;
   height: 15px;
   border-radius: 5px;
-  background: var(--smpl-ui-minimal-dark); /* Фоновый цвет слайдера */
+  background: var(--smpl-ui-minimal-dark);
   outline: none;
 }
 
-.slider::-webkit-slider-thumb {
+.smpl-progress-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: var(--thumb-color); /* Цвет ползунка */
-  cursor: pointer;
-}
-
-.slider::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -144,7 +136,15 @@ watch(currentValue, (newValue) => {
   cursor: pointer;
 }
 
-.slider__container {
+.smpl-progress-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--thumb-color);
+  cursor: pointer;
+}
+
+.smpl-progress-slider__container {
   display: flex;
   width: 100%;
 }

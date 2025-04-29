@@ -21,9 +21,7 @@ const props = defineProps({
     type:String,
     default: 'Select an option'
   },
-
 })
-
 
 const isOpen = ref(false)
 const selectedOption = ref(null)
@@ -49,43 +47,37 @@ watch(() => props.label, (newValue, oldValue) => {
   }
 });
 
-
 </script>
 
-
 <template>
-  <div class="dropdown" :class="{ 'scrollable': scrollable }">
+  <div class="smpl-dropdown" :class="{ 'smpl-dropdown-scrollable': scrollable }">
     <SimpleUiButton
         @click="toggleDropdown"
         :color="color"
         :buttonText=" selectedOption || label || 'Select an option' "
-        class="dropdown-button">
+        class="smpl-dropdown-button">
     </SimpleUiButton>
-    <ul v-if="isOpen" class="dropdown-menu">
+    <ul v-if="isOpen" class="smpl-dropdown-menu">
       <li v-if="options"  v-for="option in options" :key="option" @click="select(option)"
-          class="dropdown-item"
-          :class="{ 'selected-item': option === selectedOption }" >
+          class="smpl-dropdown-item"
+          :class="{ 'smpl-dropdown-selected-item': option === selectedOption }" >
         {{ option }}
       </li>
-
       <slot v-if="options.length<1" />
     </ul>
   </div>
-
 </template>
 
-
-
 <style lang="scss" scoped>
-.dropdown {
+.smpl-dropdown {
   position: relative;
   display: inline-block;
 }
-.dropdown-button:focus {
+.smpl-dropdown-button:focus {
   outline: none;
 }
 
-.dropdown-menu {
+.smpl-dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -99,7 +91,7 @@ watch(() => props.label, (newValue, oldValue) => {
   white-space: nowrap;
 }
 
-.dropdown-item {
+.smpl-dropdown-item {
   padding: 10px 20px;
   cursor: pointer;
   background: #16182d none;
@@ -109,24 +101,22 @@ watch(() => props.label, (newValue, oldValue) => {
   align-items: center;
 }
 
-.dropdown-item:hover {
+.smpl-dropdown-item:hover {
   background-color: #23243e;
   border-radius: 7px;
   color: var(--smpl-ui-danger-hover);
 }
 
-.selected-item {
+.smpl-dropdown-selected-item {
   background-color: var(--smpl-ui-minimal-dark);
   color: #ffffff;
   border-radius: 7px;
 }
 
-.scrollable{
-  .dropdown-menu {
+.smpl-dropdown-scrollable{
+  .smpl-dropdown-menu {
     max-height: 300px;
     overflow-y: auto;
   }
-
 }
-
 </style>

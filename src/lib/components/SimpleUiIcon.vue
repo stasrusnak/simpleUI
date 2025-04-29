@@ -31,7 +31,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-
 });
 const iconStyle = computed(() => {
   return props.filled && (props.bordered || props.circular) && !(props.bordered && props.circular) ? 'invert(100%)' : getFilterByColor(props.color);
@@ -59,13 +58,11 @@ const iconBodyStyle = computed(() => {
 
   return (props.bordered || props.circular) ? borderCfg : {}
 });
-
-
 </script>
 
 <template>
-  <div class="icon-body" :style="[iconBodyStyle]">
-    <i :class="[icon ? `icon-${icon}`:'',{'spinning': loading},'icon']"
+  <div class="smpl-icon-body" :style="[iconBodyStyle]">
+    <i :class="[icon ? `smpl-icon-${icon}`:'',{'smpl-icon-spinning': loading},'smpl-icon']"
        :style="{
       width: size,
       height: size,
@@ -76,20 +73,20 @@ const iconBodyStyle = computed(() => {
 <style scoped lang="scss">
 @use "../styles/iconType";
 
-.icon-body {
+.smpl-icon-body {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.icon {
+.smpl-icon {
   display: block;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-.spinning {
+.smpl-icon-spinning {
   animation: spin 2.3s linear infinite;
 }
 
@@ -97,6 +94,5 @@ const iconBodyStyle = computed(() => {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 </style>
 

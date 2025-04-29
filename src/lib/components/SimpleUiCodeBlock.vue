@@ -14,7 +14,6 @@ const props = defineProps({
   }
 });
 
-
 const isCopying = ref(false);
 const showCopy = ref(false);
 
@@ -27,32 +26,29 @@ const copyCode = () => {
     showCopy.value = false;
   }, 1500);
 };
-
 </script>
 
 <i class="icon-home icon-home__white"></i>
 
 <template>
-  <div :class="`code-block ${'code-block__'+theme}`">
+  <div :class="`smpl-code-block smpl-code-block__${theme}`">
     <SimpleUiButton
         buttonText='Copy code'
-        class="copy-button"
+        class="smpl-copy-button"
         color="basic"
         @click="copyCode"
     >
     </SimpleUiButton>
-    <div class="code-body"  ref="codeBlock" v-html="highlight(code)"></div>
-    <div v-show="showCopy" class="copy-success-message">Code copied!</div>
+    <div class="smpl-code-body"  ref="codeBlock" v-html="highlight(code)"></div>
+    <div v-show="showCopy" class="smpl-copy-success-message">Code copied!</div>
   </div>
-
-
-
 </template>
+
 <style scoped lang="scss">
-.code-body{
+.smpl-code-body{
   padding: 15px 0 15px 0;
 }
-.code-block {
+.smpl-code-block {
   position: relative;
   padding: 16px;
   border-radius: 5px;
@@ -74,22 +70,22 @@ const copyCode = () => {
   }
 }
 
-.copy-button {
+.smpl-copy-button {
   position: absolute;
   top: 4px;
   right: -4px;
 }
 
-.copy-button:disabled {
+.smpl-copy-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.copy-button:hover {
+.smpl-copy-button:hover {
   background-color: #0056b3;
 }
 
-.copy-success-message {
+.smpl-copy-success-message {
   padding: 5px 10px;
   background-color: #4caf50;
   color: #fff;

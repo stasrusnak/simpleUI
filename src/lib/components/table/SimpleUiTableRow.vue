@@ -19,7 +19,7 @@ const props = defineProps({
 
 <template>
   <div
-      class="table-row"
+      class="smpl-table-row"
       :style="{
       'grid-template-columns': columnTemplates,
       'background-color': bgRow,
@@ -31,7 +31,7 @@ const props = defineProps({
 </template>
 
 <style lang="scss" scoped>
-.table-row {
+.smpl-table-row {
   font-size: 13px;
   border-bottom: 1px solid rgba(204, 204, 204, 0.6);
   position: relative;

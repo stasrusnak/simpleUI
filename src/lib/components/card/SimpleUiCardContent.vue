@@ -12,15 +12,17 @@ defineProps({
 </script>
 
 <template>
-  <div class="card-content" :class="{ extra,spaced }">
+  <div class="smpl-card-content" :class="{ extra,spaced }">
     <slot></slot>
   </div>
 </template>
 
 <style scoped lang="scss">
-.card-content {
+.smpl-card-content {
   padding: 1rem;
   border-top: none;
+  width: 100%;
+  font-size: 12px;
   &.extra {
     border-top: 1px solid var(--smpl-ui-primary-hover);
     display: flex;
@@ -29,6 +31,10 @@ defineProps({
   &.spaced {
     display: flex;
     justify-content: space-between;
+  }
+  :deep(.smpl-btn) {
+    width: 100%;
+    margin: 0;
   }
 }
 </style> 

@@ -27,12 +27,12 @@ defineProps({
 
 <template>
     <button
-        :class="[color ? `btn btn_${color}`:' btn',
-         {'btn_rounded':rounded},
-          animation && `btn_${animation}`,
-          animation==='spacing'?'spacing_body':'']"
+        :class="[color ? `smpl-btn smpl-btn_${color}`:'smpl-btn',
+         {'smpl-btn_rounded':rounded},
+          animation && `smpl-btn_${animation}`,
+          animation==='spacing'?'smpl-btn-spacing_body':'']"
     >
-      <p v-if="buttonText" :class="left && 'button-text-left'">{{ buttonText }}</p>
+      <p v-if="buttonText" :class="left && 'smpl-btn-text-left'">{{ buttonText }}</p>
       <slot></slot>
     </button>
 
@@ -41,11 +41,11 @@ defineProps({
 <style scoped lang="scss">
 @use "../styles/buttonStyles";
 
-.button-text-left {
+.smpl-btn-text-left {
   order: 2;
 }
 
-.btn {
+.smpl-btn {
   margin: 5px;
   min-height: 35px;
   min-width: 122px;
@@ -181,6 +181,7 @@ defineProps({
     border-radius: 50%;
   }
 }
+
 
 
 </style>

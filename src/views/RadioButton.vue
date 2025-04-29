@@ -314,7 +314,7 @@ const unitSelected = ref(['h001'])
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 15px;
 }
 

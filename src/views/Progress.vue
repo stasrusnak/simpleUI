@@ -307,7 +307,7 @@ const isProgressCircleShow = ref(false)
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   padding-bottom: 15px;
 }
 

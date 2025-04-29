@@ -24,15 +24,9 @@
   --smpl-ui-danger-hover: #F73164AF;
   --smpl-ui-white: #fffdfd;
 }
+ 
 
-
-
-//a {
-//  color: var(--primary-color);
-//  text-decoration: none;
-//}
-
-.line {
+.smpl-line {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -41,7 +35,7 @@
   }
 }
 
-code {
+.smpl-code {
   border: 1px solid #454c54;
   background-color: #1a1e23;
   padding: 0 2px;

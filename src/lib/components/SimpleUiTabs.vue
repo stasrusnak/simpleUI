@@ -18,15 +18,12 @@ const props = defineProps({
   }
 })
 
-
 const selectedTab = ref(null);
-
 
 if (!selectedTab.value && props.names.length > 0) {
   const selectedTabItem = props.names.find(tab => tab.selected);
   selectedTab.value = selectedTabItem ? selectedTabItem.name : props.names[0].name;
 }
-
 
 const names = ref([...props.names]);
 
@@ -46,21 +43,20 @@ watch(names, () => {
 
 </script>
 <template>
-  <div class="tab-body" :style="{display: vertical ? 'flex' : 'block'}">
-    <div class="tab-nav" :style="{flexDirection: vertical ? 'column' : 'row'}">
+  <div class="smpl-tabs-body" :style="{display: vertical ? 'flex' : 'block'}">
+    <div class="smpl-tabs-nav" :style="{flexDirection: vertical ? 'column' : 'row'}">
       <SimpleUiButton
           :buttonText="tab.label"
           color="basic"
           v-for="tab in names"
           :key="tab.names"
           :disabled="tab.disabled"
-          :class="['tab-nav__item', {'selected': tab.selected}]"
+          :class="['smpl-tabs-nav__item', {'smpl-tabs-selected': tab.selected}]"
           @click="clickOnTab(tab)">
         <slot :name="`${tab.name}-icon`"></slot>
       </SimpleUiButton>
-
     </div>
-    <div class="tab-content">
+    <div class="smpl-tabs-content">
       <Transition :name="animation" mode="out-in">
         <div :key="selectedTab">
           <slot :name="selectedTab"></slot>
@@ -68,58 +64,52 @@ watch(names, () => {
       </Transition>
     </div>
   </div>
-
 </template>
 
 <style lang="scss" scoped>
-.tab {
-  &-body {
-    width: 100%;
-  }
-
-  &-nav {
-    display: flex;
-    align-items: center;
-    padding-bottom: 5px;
-
-    &__item {
-      border: 1px solid transparent;
-      background: var(--smpl-ui-minimal-dark);
-      color: #fff;
-
-      &.selected {
-        background: var(--smpl-ui-primary);
-        color: #fff;
-        transition: 0.2s;
-      }
-
-      &:disabled {
-        pointer-events: none;
-        opacity: 0.4;
-        color: #aaa;
-      }
-    }
-
-  }
-
-  &-content {
-    position: relative;
-    overflow: hidden; /* Ключевое свойство - блокирует горизонтальный скролл */
-    padding: 16px;
-    min-height: 60px;
-    border-radius: 7px;
-    background: var(--smpl-ui-minimal-dark);
-    margin: 5px;
-    width: 100%;
-    line-height: 1.5;
-  }
-
-  &-content-inner {
-    width: 100%;
-  }
-
+.smpl-tabs-body {
+  width: 100%;
 }
 
+.smpl-tabs-nav {
+  display: flex;
+  align-items: center;
+  padding-bottom: 5px;
+
+  &__item {
+    border: 1px solid transparent;
+    background: var(--smpl-ui-minimal-dark);
+    color: #fff;
+
+    &.smpl-tabs-selected {
+      background: var(--smpl-ui-primary);
+      color: #fff;
+      transition: 0.2s;
+    }
+
+    &:disabled {
+      pointer-events: none;
+      opacity: 0.4;
+      color: #aaa;
+    }
+  }
+}
+
+.smpl-tabs-content {
+  position: relative;
+  overflow: hidden; /* Ключевое свойство - блокирует горизонтальный скролл */
+  padding: 16px;
+  min-height: 60px;
+  border-radius: 7px;
+  background: var(--smpl-ui-minimal-dark);
+  margin: 5px;
+  width: 100%;
+  line-height: 1.5;
+}
+
+.smpl-tabs-content-inner {
+  width: 100%;
+}
 
 /* fade */
 .fade-enter-active,
@@ -130,7 +120,6 @@ watch(names, () => {
 .fade-leave-to {
   opacity: 0;
 }
-
 
 /*Slide vertical анимация*/
 .vertical-enter-active,
@@ -220,6 +209,5 @@ watch(names, () => {
   transform: perspective(1000px) rotateX(90deg);
   opacity: 0;
 }
-
 
 </style>
