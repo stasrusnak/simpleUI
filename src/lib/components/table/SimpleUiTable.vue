@@ -143,7 +143,7 @@ const getHeaderClass = (headerLower) => {
     }
   }
 
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 950px) {
     &-head {
       display: flex;
     }

@@ -13,7 +13,7 @@ import SimpleUiInput from "@/lib/components/SimpleUiInput.vue";
 
 
 const tableHeads = ['Id', 'Year', 'Rating', 'Director', 'Title', 'Description', 'Cover', ' ']
-const tableSizeColumns = '2.5% 5% 5% 12.5% 17.5% 32.5% 10% 10%'
+const tableSizeColumns = '2.5% 5% 5% 12.5% 17.5% 32.5% 1fr 1fr'
 
 const searchQuery = ref('')
 
@@ -218,9 +218,5 @@ p {
   overflow-y: auto;
   overflow-x: hidden;
 }
-@media screen and (max-width: 1600px) {
-  :deep(.table-row) {
-    grid-template-columns: 2.5% 5% 5% 12.5% 17.5% 30.5% 5% 10% !important;
-  }
-}
+
 </style>

@@ -31,7 +31,7 @@ const props = defineProps({
 
   &-image {
     max-width: 100%;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 950px) {
       max-width: 200px;
     }
   }
@@ -39,7 +39,7 @@ const props = defineProps({
   &__title {
     margin-right: 5px;
     display: none;
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 950px) {
       display: inline-block;
     }
   }
