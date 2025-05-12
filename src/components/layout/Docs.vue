@@ -1,12 +1,8 @@
 <script setup>
-import { ref } from 'vue';
 import ApiDocsLayout from '@/components/ApiDocsLayout.vue';
 import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
-
-// Код импорта для компонента
 const importCode = `import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";`;
 
-// Props компонента SimpleUiIcon
 const iconProps = [
   {
     name: 'icon',
@@ -58,27 +54,7 @@ const iconSlots = [
   }
 ];
 
-// Примеры использования
-const iconExamples = [
-  {
-    title: 'Basic icon',
-    description: 'Simple icon with default size',
-    code: '<SimpleUiIcon icon="home" />',
-    preview: '<span style="font-size: 24px;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>'
-  },
-  {
-    title: 'Custom color',
-    description: 'Icon with custom color',
-    code: '<SimpleUiIcon icon="heart" color="#ff6b6b" />',
-    preview: '<span style="font-size: 24px; color: #ff6b6b;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3.332.5-4.5 2-1.168-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg></span>'
-  },
-  {
-    title: 'Large size with rotation',
-    description: 'Icon with large size and 45-degree rotation',
-    code: '<SimpleUiIcon icon="arrow-right" size="huge" :rotate="45" />',
-    preview: '<span style="font-size: 48px; transform: rotate(45deg);"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></span>'
-  }
-];
+
 
 // Код демонстрации компонента
 const demoCode = `<template>
@@ -109,7 +85,6 @@ const demoCode = `<template>
 
 <template>
 
-  <!-- Использование компонента документации -->
   <ApiDocsLayout
       componentTitle="Icon Set"
       componentDescription="A collection of free open source icons for your UI projects."
@@ -117,7 +92,6 @@ const demoCode = `<template>
       :componentProps="iconProps"
       :componentEvents="iconEvents"
       :componentSlots="iconSlots"
-      :componentExamples="iconExamples"
       :demoCode="demoCode"
   >
     <template #demo>
@@ -202,11 +176,14 @@ const demoCode = `<template>
       </div>
     </template>
   </ApiDocsLayout>
+
 </template>
 
 <style scoped lang="scss">
+
+
 .icons-showcase {
-  padding: 1rem 0;
+  padding: 10px 0;
 }
 
 .info-line {
@@ -263,4 +240,5 @@ const demoCode = `<template>
     margin-bottom: 0.5rem;
   }
 }
+
 </style>

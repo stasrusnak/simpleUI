@@ -1,11 +1,5 @@
 <script setup>
-import { ref, computed } from 'vue';
-import SimpleUiButton from "@/lib/components/SimpleUiButton.vue";
-import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
-import SimpleUiTabs from "@/lib/components/SimpleUiTabs.vue";
-import SimpleUiTable from "@/lib/components/table/SimpleUiTable.vue";
-import SimpleUiTableRow from "@/lib/components/table/SimpleUiTableRow.vue";
-import SimpleUiTableColumn from "@/lib/components/table/SimpleUiTableColumn.vue";
+import { ref } from 'vue';
 
 const props = defineProps({
   componentTitle: {
@@ -36,10 +30,6 @@ const props = defineProps({
     type: Array,
     default: () => []
   },
-  componentExamples: {
-    type: Array,
-    default: () => []
-  }
 });
 
 // Локальное состояние
@@ -87,6 +77,7 @@ const copyImport = () => {
         </template>
         <template v-slot:props>
           <SimpleUiTable
+              class="tab-body-wrap"
               headColor="minimal-dark"
               color="transparent"
               textColor="white"
@@ -115,12 +106,12 @@ const copyImport = () => {
             </SimpleUiTableRow>
           </SimpleUiTable>
         </template>
-
         <template v-slot:events-icon>
           <SimpleUiIcon icon="sync" size="tiny" ></SimpleUiIcon>
         </template>
         <template v-slot:events>
           <SimpleUiTable
+              class="tab-body-wrap"
               color="transparent"
               textColor="white"
               :head="eventsTableHeads"
@@ -149,6 +140,7 @@ const copyImport = () => {
         </template>
         <template v-slot:slots>
           <SimpleUiTable
+              class="tab-body-wrap"
               color="transparent"
               textColor="white"
               :head="slotsTableHeads"
@@ -175,10 +167,12 @@ const copyImport = () => {
 </template>
 
 <style scoped lang="scss">
+.tab-body-wrap{
+  margin: -15px;
+}
 .page-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 5px;
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -186,10 +180,11 @@ const copyImport = () => {
 }
 
 .api-docs-section {
-  border-radius: 0.5rem;
-  padding: 20px;
-  overflow-y: auto;
-  min-height: 500px;
+  //border-radius: 0.5rem;
+  //padding: 20px;
+  //overflow-y: auto;
+  //min-height: 500px;
+  //justify-content: space-between;
 }
 
 .api-docs-header {
@@ -221,16 +216,6 @@ const copyImport = () => {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
   }
-
-  .api-docs-section {
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  }
 }
-
-:deep(.smpl-tabs-content),:deep(.smpl-tabs-nav){
-  padding: 0;
-}
-
-
 
 </style>

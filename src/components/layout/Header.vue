@@ -44,15 +44,16 @@ onMounted(() => {
   font-weight: bold;
   padding: 0 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
-  height: 62px;
+  height: var(--smpl-header-height);
   display: flex;
   align-items: center;
   z-index: 999;
   position: sticky;
   top: 0;
-  color: #F73164;
   font-size: 25px;
-
+  a, .version{
+    color: #F73164;
+  }
 }
 
 .logo {

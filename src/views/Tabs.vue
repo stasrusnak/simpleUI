@@ -448,7 +448,7 @@ p {
 
 .nav {
   /*фикс маленький отспутов кнопок навигации */
-  :deep(.tab-nav) {
+  :deep(.smpl-tabs-nav) {
     margin-right: -10px;
   }
 }

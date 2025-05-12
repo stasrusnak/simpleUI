@@ -9,6 +9,10 @@
 @import "scrollbar";
 
 :root {
+  --smpl-header-height:62px;
+  --smpl-pagination-height:62px;
+
+  /* COLORS */
   --smpl-ui-primary: #6979f8;
   --smpl-ui-primary-hover: #A5AFFB;
   --smpl-ui-minimal: #6979F82F;
@@ -47,10 +51,16 @@ body {
   /* Центрируем градиент сверху */
   /* Закрепляем фон при прокрутке */
   background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
+
+  //background-image: url('../assets/pre-footer.png');
+  //background-repeat: no-repeat;
+  //background-size: cover;
 }
 
+
+
 a {
-  color: var(--primary-color);
+  color: var(--smpl-ui-white);
   text-decoration: none;
 }
 

@@ -36,7 +36,7 @@ defineProps({
   background: var(--smpl-ui-bg);
   position: fixed;
   width: 240px;
-  padding: 25px 0 30px 50px;
+  padding: 25px 0 30px 42px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
   transition: transform 1.1s  cubic-bezier(0.25, 0.1, 0.25, 1);
   transform: translateX(-250px);
