@@ -40,6 +40,9 @@ const toggleSidebar = () => {
 <style lang="scss" scoped>
 @import "@/styles/global.scss";
 
+.router-wrapper{
+  width: 100%;
+}
 .column-wrapper {
   display: flex ;
   flex-wrap: nowrap;
@@ -49,10 +52,10 @@ const toggleSidebar = () => {
 .docs-wrapper{
   display: block;
   position: sticky;
+  top: 90px;
 }
 
 .content {
-  //max-width: 1400px;
   margin-left: 250px;
   padding: 30px;
   transition: margin-left 0.5s ease-in-out;

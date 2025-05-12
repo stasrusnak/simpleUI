@@ -28,6 +28,8 @@ const props = defineProps({
 .smpl-table-column {
   padding: 7px 0;
   position: relative;
+  display: flex ;
+  align-items: center;
 
   &-image {
     max-width: 100%;

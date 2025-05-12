@@ -5,6 +5,9 @@ import router from '@/router/index.js';
 import SimpleUiCheckbox from '@/lib/components/SimpleUiCheckbox.vue';
 import SimpleUiCheckboxGroup from '@/lib/components/SimpleUiCheckboxGroup.vue';
 
+import '@/lib/styles/main.scss';
+import SimpleUi from '@/lib/_index.js'
+
 // Определение компонента SimpleUiRadio
 const SimpleUiRadio = {
     name: 'SimpleUiRadio',
@@ -28,8 +31,9 @@ const SimpleUiRadioGroup = {
 
 const app = createApp(App);
 app.use(router);
-app.component('SimpleUiRadio', SimpleUiRadio);
-app.component('SimpleUiRadioGroup', SimpleUiRadioGroup);
+app.use(SimpleUi);
+// app.component('SimpleUiRadio', SimpleUiRadio);
+// app.component('SimpleUiRadioGroup', SimpleUiRadioGroup);
 
 // Монтирование приложения
 app.mount('#app');

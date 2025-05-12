@@ -95,7 +95,7 @@ const setSort = (name) => {
       </div>
       <div>
         <SimpleUiTable
-            color="minimal-dark-hover"
+            color="minimal-dark"
             textColor="white"
             :head="tableHeads"
             :columnTemplates="tableSizeColumns"

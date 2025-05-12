@@ -23,7 +23,12 @@ const props = defineProps({
   color: {
     type: String,
     required: false,
-    default: 'minimal-dark-hover'
+    default: 'minimal-dark'
+  },
+  headColor: {
+    type: String,
+    required: false,
+    default: 'minimal-dark'
   },
   textColor: {
     type: String,
@@ -44,8 +49,8 @@ const headersLowerCase = computed(() =>
 
 const tableHeadStyles = computed(() => ({
   'grid-template-columns': props.columnTemplates,
-  backgroundColor: `var(--${props.color})`,
-  color: `var(--${props.textColor})`
+  backgroundColor: `var(--smpl-ui-${props.color})`,
+  color: `var(--smpl-ui-${props.textColor})`
 }));
 
 const clickOnHead = (headerLower) => {
@@ -65,7 +70,7 @@ const getHeaderClass = (headerLower) => {
 
 <template>
   <div class="smpl-table-wrapper">
-    <div class="smpl-table">
+    <div class="smpl-table" :style="{backgroundColor: `var(--smpl-ui-${props.headColor})`}">
       <div class="smpl-table-head" :style="tableHeadStyles">
         <div
             v-for="(item, i) in headersLowerCase"
@@ -92,7 +97,7 @@ const getHeaderClass = (headerLower) => {
         </div>
       </div>
     </div>
-    <div class="smpl-table smpl-table_content">
+    <div class="smpl-table smpl-table_content" :style="{backgroundColor: `var(--smpl-ui-${props.color})`}">
       <slot></slot>
     </div>
   </div>
@@ -105,7 +110,7 @@ const getHeaderClass = (headerLower) => {
 
 .smpl-table {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 8px;
   border-radius: 7px;
   background: var(--smpl-ui-minimal-dark);
 

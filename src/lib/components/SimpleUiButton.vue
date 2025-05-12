@@ -125,6 +125,15 @@ defineProps({
       background: var(--smpl-ui-success-hover);
     }
   }
+  &_success-hover {
+    color: #ffffff;
+    background: var(--smpl-ui-success-hover);
+    border: 1px solid var(--smpl-ui-success-hover);
+
+    &:enabled:hover {
+      background: var(--smpl-ui-success);
+    }
+  }
 
   &_info {
     color: #ffffff;

@@ -123,10 +123,6 @@ const isButtonShow= ref(false)
   </div>
 
 
-  <i class="icon-home icon-home__white"></i>
-
-
-
 </template>
 
 

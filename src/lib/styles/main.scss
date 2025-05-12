@@ -23,6 +23,9 @@
   --smpl-ui-danger: #F73164;
   --smpl-ui-danger-hover: #F73164AF;
   --smpl-ui-white: #fffdfd;
+  --smpl-ui-transparent: transparent;
+  --smpl-ui-ash-blue: #a0a0c0;
+  --smpl-ui-gray: #454c54;
 }
  
 
@@ -36,12 +39,14 @@
 }
 
 .smpl-code {
-  border: 1px solid #454c54;
-  background-color: #1a1e23;
+  border: 1px solid var(--smpl-ui-gray);
+  background-color: var( --smpl-ui-bg);
   padding: 0 2px;
   border-radius: 5px;
-  font-size: 0.9125rem;
-  letter-spacing: 0.09rem;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-family: 'Ubuntu Mono', sans-serif ;
+  line-height: 1.4;
 }
 
 //--------------- shake ---------------

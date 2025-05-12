@@ -11,6 +11,15 @@ const props = defineProps({
     type: Boolean,
     required: false
   },
+  color: {
+    type: String,
+    required: false,
+    default: 'primary'
+  },
+  minimal: {
+    type: Boolean,
+    required: false,
+  },
   animation: {
     type: String,
     default: 'horizontal',
@@ -47,16 +56,23 @@ watch(names, () => {
     <div class="smpl-tabs-nav" :style="{flexDirection: vertical ? 'column' : 'row'}">
       <SimpleUiButton
           :buttonText="tab.label"
-          color="basic"
+          :color="color"
           v-for="tab in names"
           :key="tab.names"
           :disabled="tab.disabled"
-          :class="['smpl-tabs-nav__item', {'smpl-tabs-selected': tab.selected}]"
+          :style="[
+            tab.selected ? { background: `var(--smpl-ui-${color})` } : {},
+            tab.selected && props.minimal ? { borderBottom: `2px solid var(--smpl-ui-${color})`  } : {}
+          ]"
+          :class="['smpl-tabs-nav__item', {'smpl-tabs-selected': tab.selected}, {'minimal': props.minimal}]"
           @click="clickOnTab(tab)">
+
+
         <slot :name="`${tab.name}-icon`"></slot>
       </SimpleUiButton>
     </div>
-    <div class="smpl-tabs-content">
+    <div class="smpl-tabs-content"
+         :style=" props.minimal ? { background: `var(--smpl-ui-transparent)` } : {}"  >
       <Transition :name="animation" mode="out-in">
         <div :key="selectedTab">
           <slot :name="selectedTab"></slot>
@@ -97,7 +113,7 @@ watch(names, () => {
 
 .smpl-tabs-content {
   position: relative;
-  overflow: hidden; /* Ключевое свойство - блокирует горизонтальный скролл */
+  overflow: hidden;
   padding: 16px;
   min-height: 60px;
   border-radius: 7px;
@@ -209,5 +225,14 @@ watch(names, () => {
   transform: perspective(1000px) rotateX(90deg);
   opacity: 0;
 }
+
+.minimal.smpl-tabs-selected{
+  border-bottom: 2px var(--smpl-ui-primary) solid;
+}
+.minimal{
+  background: var(--smpl-ui-transparent) !important;
+}
+
+
 
 </style>

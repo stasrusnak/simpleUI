@@ -30,6 +30,21 @@ const basic = ref([
   {name: 'React', label: 'Про React', disabled: false},
   {name: 'Angular', label: 'Про Angular'},
 ]);
+
+const units = ref([
+  { name: 'Peewee', label: 'Peewee', selected: true },
+  { name: 'Veteran', label: 'Veteran' },
+  { name: 'Ent', label: 'Ent' },
+  { name: 'Skeletor', label: 'Skeletor',  }
+]);
+
+const colorUnits =  ref([
+  { name: 'Peewee', label: 'Peewee'},
+  { name: 'Veteran', label: 'Veteran' },
+  { name: 'Ent', label: 'Ent' },
+  { name: 'Skeletor', label: 'Skeletor', selected: true   }
+]);
+
 const tablist = ref([
   {name: "Tab1", label: "Вкладка ", selected: true},
   {name: "Tab2", label: "Вкладка 2", selected: false},
@@ -47,6 +62,7 @@ const exampleGadget = ref([
   {name: "menu"},
   {name: "settings"},
 ]);
+
 
 watch(progress, () => {
   // Сбросить все вкладки
@@ -113,14 +129,16 @@ const isTabsVerticalShow = ref(false)
     </div>
 
     <div class="line">
-      <SimpleUiTabs :names="basic" vertical :animation="animationSelected[0]">
+      <SimpleUiTabs
+          :names="basic"
+          vertical
+          :animation="animationSelected[0]"
+          >
 
         <template v-slot:HTML>
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
           While it is most well-known as the scripting language for Web pages, many non-browser environments also use
-          it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
-          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
-          styles.
+          it, such as Node.js, Apache CouchDB and Adobe Acrobat.
         </template>
         <template v-slot:SCC>
           Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
@@ -147,6 +165,77 @@ const isTabsVerticalShow = ref(false)
     </transition>
   </div>
   <div class="contentBlock">
+    <h2>Colors and minimal style</h2>
+    <div class="description">
+      <p>You can apply different colors and enable minimal style for the tab appearance.</p>
+      <div class="code_button">
+
+        <SimpleUiButton buttonText="View code" color="minimal_dark" @click="isTabsVerticalShow = !isTabsVerticalShow">
+          <SimpleUiIcon icon="code" size="tiny"></SimpleUiIcon>
+        </SimpleUiButton>
+      </div>
+    </div>
+
+
+    <div class="line">
+      <SimpleUiTabs
+          :names="units"
+          color="success"
+          minimal
+          :animation="animationSelected[0]"
+      >
+        <template v-slot:Peewee>
+          Peewee is a light and fast melee unit. Often used for early pressure and distraction. Thanks to its speed, it's great for supporting stronger allies.
+        </template>
+
+        <template v-slot:Veteran>
+          Veteran is a battle-hardened fighter with high durability. Can absorb hits on the frontline and consistently deal damage. Ideal for forming a solid defense.
+        </template>
+
+        <template v-slot:Ent>
+          Ent is a slow but incredibly tough creature. Rooted in ancient forests, it fights to protect nature. Possesses powerful attacks and high survivability.
+        </template>
+
+        <template v-slot:Skeletor>
+          Skeletor is a reanimated warrior from the realm of the dead. Intimidating in appearance and effective in melee combat. Known for its low cost and quick respawn.
+        </template>
+
+      </SimpleUiTabs>
+
+    </div>
+    <p>Colored style</p>
+    <div class="line">
+      <SimpleUiTabs
+          class="colored-tabs"
+          :names="colorUnits"
+          color="success"
+          :animation="animationSelected[0]"
+      >
+        <template v-slot:Peewee>
+          Peewee — это лёгкий и быстрый юнит ближнего боя. Часто используется для раннего давления и отвлечения врага. Благодаря своей скорости, он отлично подходит для поддержки более мощных союзников.
+        </template>
+
+        <template v-slot:Veteran>
+          Veteran — закалённый воин с высоким уровнем защиты. Способен выдерживать удары в первых рядах и стабильно наносить урон в бою. Идеален для создания крепкой линии обороны.
+        </template>
+
+        <template v-slot:Ent>
+          Ent — медлительное, но чрезвычайно прочное существо. Его корни уходят в древние леса, и он сражается, чтобы защитить природу. Обладает мощными атаками и высокой живучестью.
+        </template>
+
+        <template v-slot:Skeletor>
+          Skeletor — оживший воин из мира мертвых. Обладает устрашающим видом и способностью наносить урон в ближнем бою. Отличается низкой стоимостью и быстрым восстановлением.
+        </template>
+
+      </SimpleUiTabs>
+
+    </div>
+
+    <transition name="fade">
+      <SimpleUiCodeBlock :code="tabsVerticalExample" v-show="isTabsVerticalShow"></SimpleUiCodeBlock>
+    </transition>
+  </div>
+  <div class="contentBlock">
     <h2>A basic Tab</h2>
     <div class="description">
       <p>The component is used for hiding content behind a selectable item. </p>
@@ -156,15 +245,14 @@ const isTabsVerticalShow = ref(false)
         </SimpleUiButton>
       </div>
     </div>
-    <p>You can set the <code>selected</code> and <code>disabled</code> tabs</p>
+    <p>You can set the <code class="smpl-code">selected</code> and <code class="smpl-code">disabled</code> tabs</p>
     <div class="line line_body">
       <SimpleUiTabs :names="tabs">
         <template v-slot:JavaScript>
           JavaScript (JS) is a lightweight interpreted or JIT-compiled programming language with first-class functions.
           While it is most well-known as the scripting language for Web pages, many non-browser environments also use
           it, such as Node.js, Apache CouchDB and Adobe Acrobat. JavaScript is a prototype-based, multi-paradigm,
-          dynamic language, supporting object-oriented, imperative, and declarative (e.g. functional programming)
-          styles.
+          dynamic language, supporting object-oriented.
         </template>
         <template v-slot:Vue>
           Vue is a JavaScript framework for building user interfaces. It builds on top of standard HTML, CSS, and
@@ -200,7 +288,9 @@ const isTabsVerticalShow = ref(false)
 
     <div class="line body-icon-example">
       <div class="item-example">
-        <SimpleUiTabs :names="example">
+        <SimpleUiTabs
+            :names="example"
+        >
           <template v-slot:loading-icon>
             <SimpleUiIcon icon="sync" loading size="small"></SimpleUiIcon>
           </template>
@@ -283,21 +373,39 @@ const isTabsVerticalShow = ref(false)
 </template>
 
 <style scoped lang="scss">
-.checkboxGroup{
+
+.colored-tabs{
+  :deep(.smpl-tabs-nav__item:nth-child(1)){
+   background: var(--smpl-ui-warning);
+  }
+  :deep(.smpl-tabs-nav__item:nth-child(2)){
+    background: var(--smpl-ui-info);
+  }
+  :deep(.smpl-tabs-nav__item:nth-child(3)){
+    background: var(--smpl-ui-second);
+  }
+}
+
+.checkboxGroup {
   display: flex;
-  :deep(.checkbox-container){
+  gap: 10px;
+
+  :deep(.checkbox-container) {
     padding-right: 5px;
   }
 
 }
-.checkGroup{
+
+.checkGroup {
   flex-direction: column;
 }
-.line_body{
+
+.line_body {
   :deep(.tab-content) {
     min-height: 140px;
   }
 }
+
 .progress {
   min-width: 300px;
   padding-bottom: 1rem;
@@ -327,20 +435,22 @@ p {
   padding-bottom: 15px;
 }
 
-.body-icon-example{
+.body-icon-example {
   display: flex;
 }
 
-.item-example{
+.item-example {
   min-width: 350px;
   flex-direction: column;
 
   padding-right: 20px;
 }
-.nav{
+
+.nav {
   /*фикс маленький отспутов кнопок навигации */
   :deep(.tab-nav) {
     margin-right: -10px;
   }
 }
+
 </style>
