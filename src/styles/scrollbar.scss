@@ -1,27 +1,27 @@
- ::-webkit-scrollbar {
+.app-layout {
+  height: 100vh;
+  overflow-y: auto; /* Прокрутка только в контейнере */
+}
+
+.app-layout::-webkit-scrollbar {
   width: 12px;
   height: 12px;
 }
-
-::-webkit-scrollbar-track {
+.app-layout::-webkit-scrollbar-track {
   background: var(--smpl-ui-minimal);
   border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb {
+.app-layout::-webkit-scrollbar-thumb {
   background: var(--smpl-ui-minimal-dark);
   border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+.app-layout::-webkit-scrollbar-thumb:hover {
   background: var(--smpl-ui-minimal-dark-hover);
 }
-
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--smpl-ui-danger-hover) var(--smpl-ui-minimal);
 }
-
-body {
-  overflow: auto;
-}
+ 

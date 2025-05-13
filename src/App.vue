@@ -47,6 +47,7 @@ const toggleSidebar = () => {
 
 .app-layout {
   position: relative;
+  overflow-y: scroll;
 }
 
 .two-column-layout {
@@ -69,7 +70,7 @@ const toggleSidebar = () => {
 
 .docs-content {
   flex: 1;
-  overflow-y: auto;
+  //overflow-y: auto;
 }
 .docs-pagination {
   height: var(--smpl-pagination-height);

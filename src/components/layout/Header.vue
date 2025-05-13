@@ -31,7 +31,7 @@ onMounted(() => {
 <style lang="scss" scoped>
 .version{
   position: fixed;
-  right: 0;
+  right: 15px;
   font-size: 15px;
   p{
     display: inline-block;
