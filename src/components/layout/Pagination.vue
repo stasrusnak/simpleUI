@@ -51,15 +51,15 @@ function goTo(path) {
 </template>
 
 <style scoped lang="scss">
+
 .pages-pagination {
   display: flex;
   gap: 32px;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: stretch;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
+  margin: 0;
 }
+
 .pagination-card {
   flex: 1 1 0;
   border: 2px solid #5a5a6a;
@@ -69,8 +69,7 @@ function goTo(path) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 280px;
-  max-width: 480px;
+  //width: 280px;
 }
 .pagination-label {
   color: #fff;

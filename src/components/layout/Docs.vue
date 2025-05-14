@@ -1,6 +1,7 @@
 <script setup>
 import ApiDocsLayout from '@/components/ApiDocsLayout.vue';
 import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";
+
 const importCode = `import SimpleUiIcon from "@/lib/components/SimpleUiIcon.vue";`;
 
 const iconProps = [
@@ -55,7 +56,6 @@ const iconSlots = [
 ];
 
 
-
 // Код демонстрации компонента
 const demoCode = `<template>
   <div class="icons-showcase">
@@ -95,45 +95,44 @@ const demoCode = `<template>
       :demoCode="demoCode"
   >
     <template #demo>
-      <!-- Демонстрация иконок (текущий контент) -->
       <div class="icons-showcase">
         <div class="info-line">SimpleUI includes free open source icons <span class="accent">lucicons</span></div>
 
         <!-- Первый ряд иконок -->
         <div class="icons-row">
           <div class="icon-item">
-            <SimpleUiIcon icon="home" />
+            <SimpleUiIcon icon="home"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="menu" />
+            <SimpleUiIcon icon="menu"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="alert-circle" />
+            <SimpleUiIcon icon="alert-circle"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="search" />
+            <SimpleUiIcon icon="search"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="calendar" />
+            <SimpleUiIcon icon="calendar"/>
           </div>
         </div>
 
         <!-- Второй ряд иконок -->
         <div class="icons-row">
           <div class="icon-item">
-            <SimpleUiIcon icon="camera" />
+            <SimpleUiIcon icon="camera"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="clock" />
+            <SimpleUiIcon icon="clock"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="message-circle" />
+            <SimpleUiIcon icon="message-circle"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="check-circle" />
+            <SimpleUiIcon icon="check-circle"/>
           </div>
           <div class="icon-item">
-            <SimpleUiIcon icon="file" />
+            <SimpleUiIcon icon="file"/>
           </div>
         </div>
 
@@ -145,31 +144,31 @@ const demoCode = `<template>
           <div class="size-examples">
             <div class="size-item">
               <div class="size-label">mini</div>
-              <SimpleUiIcon icon="home" size="mini" />
+              <SimpleUiIcon icon="home" size="mini"/>
             </div>
             <div class="size-item">
               <div class="size-label">tiny</div>
-              <SimpleUiIcon icon="home" size="tiny" />
+              <SimpleUiIcon icon="home" size="tiny"/>
             </div>
             <div class="size-item">
               <div class="size-label">small</div>
-              <SimpleUiIcon icon="home" size="small" />
+              <SimpleUiIcon icon="home" size="small"/>
             </div>
             <div class="size-item">
               <div class="size-label">large</div>
-              <SimpleUiIcon icon="home" size="large" />
+              <SimpleUiIcon icon="home" size="large"/>
             </div>
             <div class="size-item">
               <div class="size-label">big</div>
-              <SimpleUiIcon icon="home" size="big" />
+              <SimpleUiIcon icon="home" size="big"/>
             </div>
             <div class="size-item">
               <div class="size-label">huge</div>
-              <SimpleUiIcon icon="home" size="huge" />
+              <SimpleUiIcon icon="home" size="huge"/>
             </div>
             <div class="size-item">
               <div class="size-label">massive</div>
-              <SimpleUiIcon icon="home" size="massive" />
+              <SimpleUiIcon icon="home" size="massive"/>
             </div>
           </div>
         </div>
@@ -179,8 +178,7 @@ const demoCode = `<template>
 
 </template>
 
-<style scoped lang="scss">
-
+<style lang="scss" scoped>
 
 .icons-showcase {
   padding: 10px 0;
