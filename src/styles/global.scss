@@ -50,16 +50,29 @@ body {
   font-weight: 350;
   font-size: 16px;
   font-style: normal;
-  //background: #2C2C3B;
+  background: #2C2C3B;
   //Добавили градиентый фон
   /* Отключаем повторение фона */
   /* Центрируем градиент сверху */
   /* Закрепляем фон при прокрутке */
-  background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
+  //background: #2C2C3B radial-gradient(120% 140% at 50% 10%, transparent 30%, rgba(0, 59, 117, 0.3) 80%) no-repeat top center fixed;
   //background-image: url('../assets/pre-footer.png');
   //background-repeat: no-repeat;
   //background-size: cover;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Полная ширина окна */
+  height: 100vh; /* Полная высота окна */
+  background: url("../assets/img/body_mask.svg") no-repeat center center;
+  //background-size: cover; /* Растягиваем изображение на всю область */
+  z-index: -1; /* Помещаем под содержимым */
+}
+
 
 
 
